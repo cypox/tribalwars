@@ -21,6 +21,8 @@ class builds{
 	var $build_error2;
 	var $build_error;
 	var $specials;
+	var $speacials = array();
+	var $time = array();
 	var $graphicCoords = array();
 	var $Classe;
 

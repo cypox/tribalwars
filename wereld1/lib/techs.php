@@ -19,6 +19,7 @@ class techs {
 	var $config;
 	var $db;
 	var $smith_factor;
+	var $atttype = array();
 
 	function __construct(){
 		global $config;

@@ -16,7 +16,7 @@ class awards {
 
 	function add_awards($name,$dbname){
 		$this->last_dbname = $dbname;
-		$this->id = count($name);
+		$this->id = is_array($this->name) ? count($this->name) + 1 : 1;
 		$this->name[$dbname] = $name;
 		$this->dbname[$dbname] = $name;
 	}
@@ -109,7 +109,7 @@ class awards {
 			$array[] = $dbname."_stage";			
 		}
 
-		$result = $db->query("SELECT ".implode(',',$array).",`total_stage` FROM `medal` WHERE `userid`='".$user."'");
+		$result = $db->query("SELECT `".implode("`,`",$array)."`,`total_stage` FROM `medal` WHERE `userid`='".$user."'");
 		$row = $db->fetch($result);
 
 		$array = array();

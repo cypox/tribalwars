@@ -19,7 +19,7 @@
 			<table width="100%" style="border:1px solid #804000; margin-bottom:5px;" class="vis">
 				<tr><th colspan="2">&raquo; Informações do mundo</th></tr>
 				<tr><td width="150">Inicio:</td><td align="center">{$world.start|format_date}</td></tr>
-				<tr><td width="150">Fim:</td><td align="center">{$world.end|format_date}</td></tr>
+				<tr><td width="150">Fim:</td><td align="center">{if $world.end}{$world.end|format_date}{else}-{/if}</td></tr>
 				<tr><td width="150">Velocidade:</td><td align="center">{$config.speed}x</td></tr>
 				<tr><td width="150">Velocidade das tropas:</td><td align="center">{$config.movement_speed}x</td></tr>
 				<tr><td width="150">Alojamento:</td><td align="center">{$farm.30|format_number}</td></tr>

@@ -32,6 +32,7 @@ if(isset($session['userid']) && $session['userid']){
 	while($row = $db->fetch($result)){
 		$worlds[$row['id']]['name'] = entparse($row['name']);
 		$worlds[$row['id']]['db'] = entparse($row['db']);
+		$worlds[$row['id']]['class'] = '';
 
 		$sql = $db->fetch($db->query("SELECT `id`, `banned` FROM `$row[db]`.`users` WHERE `id`='".$user['id']."' LIMIT 1"));
 		$sql['exist'] = ($sql === null || $sql === false) ? 0 : 1;

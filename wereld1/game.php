@@ -35,6 +35,7 @@ $usersql = array("villages","username","ally","points","rang","villages_mode","a
 $user = $userdatas->getbyid($session['userid'], $usersql, false);
 $user['id'] = $session['userid'];
 
+$add_sql = '';
 if($user['medc'] == 0){
 	$db->query("INSERT INTO `medal` (`userid`,`username`) VALUES ('".$user['id']."','".$user['username']."')");
 	$add_sql = ",`medc`='1'";
