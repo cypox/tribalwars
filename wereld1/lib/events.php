@@ -44,7 +44,7 @@ function check_builds($id){
 			}
 
 			if($row['building'] == 'storage' || $row['building'] == 'wood' || $row['building'] == 'stone' || $row['building'] == 'iron'){
-				$res = $db->query("SELECT last_prod_aktu,wood,stone,iron,r_wood,r_stone,r_iron,storage from villages where id=".$row['villageid']."");
+				$res = $db->query("SELECT id,last_prod_aktu,wood,stone,iron,r_wood,r_stone,r_iron,storage from villages where id=".$row['villageid']."");
 	        	$villagedata = $db->fetch($res);
 	        	if(is_array($villagedata)){
 	        		ressis($villagedata, $row['end_time']);
@@ -79,7 +79,7 @@ function check_destroy($id){
 			}
 			
 			if($row['building'] == 'storage' || $row['building'] == 'wood' || $row['building'] == 'stone' || $row['building'] == 'iron'){
-				$res = $db->query("SELECT last_prod_aktu,wood,stone,iron,r_wood,r_stone,r_iron,storage from villages where id=".$row['villageid']."");
+				$res = $db->query("SELECT id,last_prod_aktu,wood,stone,iron,r_wood,r_stone,r_iron,storage from villages where id=".$row['villageid']."");
 	        	$villagedata = $db->fetch($res);
 	        	if(is_array($villagedata)){
 	        		ressis($villagedata, $row['end_time']);
