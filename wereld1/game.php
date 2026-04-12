@@ -31,9 +31,12 @@ if(!$session['userid']){
 }
 
 $userdatas = new GetUserData();
-$usersql = array("villages","username","ally","points","rang","villages_mode","attacks","new_report","new_mail","ally_found","ally_lead","ally_invite","ally_diplomacy","ally_mass_mail","image","window_width","show_toolbar","dyn_menu","confirm_queue","map_size","vacation_name","vacation_id","vacation_accept","memo","killed_units_def_rank","killed_units_altogether_rank","killed_units_att_rank","graphical_overview","do_action","medc","join_actions","knightname");
+$usersql = array("villages","username","ally","points","rang","villages_mode","attacks","new_report","new_mail","ally_found","ally_lead","ally_invite","ally_diplomacy","ally_mass_mail","image","window_width","show_toolbar","dyn_menu","confirm_queue","map_size","vacation_name","vacation_id","vacation_accept","memo","killed_units_def_rank","killed_units_altogether_rank","killed_units_att_rank","graphical_overview","do_action","medc","join_actions","knightname","protection");
 $user = $userdatas->getbyid($session['userid'], $usersql, false);
 $user['id'] = $session['userid'];
+if(!isset($user['protection'])){
+	$user['protection'] = 0;
+}
 
 $add_sql = '';
 if($user['medc'] == 0){

@@ -1,6 +1,12 @@
 <?php
 
 $find = $db->fetch($db->query("SELECT * FROM `".$config['global_db']."`.`configs` WHERE `ip` = '".$_SERVER['REMOTE_ADDR']."'"));
+if(!is_array($find)){
+	$find = array(
+		'lang' => 'EN',
+		'style' => 'default'
+	);
+}
 
 switch ($find['lang']) {
 	case 'PT':
