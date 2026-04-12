@@ -45,7 +45,10 @@ function check_builds($id){
 
 			if($row['building'] == 'storage' || $row['building'] == 'wood' || $row['building'] == 'stone' || $row['building'] == 'iron'){
 				$res = $db->query("SELECT last_prod_aktu,wood,stone,iron,r_wood,r_stone,r_iron,storage from villages where id=".$row['villageid']."");
-	        	ressis($villagedata, $row['end_time']);
+	        	$villagedata = $db->fetch($res);
+	        	if(is_array($villagedata)){
+	        		ressis($villagedata, $row['end_time']);
+	        	}
 			}
 			$db->unb_query("UPDATE `villages` SET `".$row['building']."` = `".$row['building']."`+'1' ".$add_sql." WHERE `id` = '".$row['villageid']."'");
 			return $row['villageid'];
@@ -77,7 +80,10 @@ function check_destroy($id){
 			
 			if($row['building'] == 'storage' || $row['building'] == 'wood' || $row['building'] == 'stone' || $row['building'] == 'iron'){
 				$res = $db->query("SELECT last_prod_aktu,wood,stone,iron,r_wood,r_stone,r_iron,storage from villages where id=".$row['villageid']."");
-	        	ressis($villagedata, $row['end_time']);
+	        	$villagedata = $db->fetch($res);
+	        	if(is_array($villagedata)){
+	        		ressis($villagedata, $row['end_time']);
+	        	}
 			}
 			$building_destroy = $row['building'];
 			$Village = $db->fetch($db->query("SELECT * FROM `villages` WHERE `id`='".$row['villageid']."'"));
