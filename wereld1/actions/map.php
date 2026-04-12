@@ -88,6 +88,13 @@ if($page == 'mark'){
 		$y_coords[] = ceil($n);
 	}
 
+	// Initialize all map tiles so Smarty nested access ($image_objects.$x.$y) is always defined.
+	foreach($x_coords as $cx){
+		foreach($y_coords as $cy){
+			$image_objects[$cx][$cy] = '';
+		}
+	}
+
 	$arr = convert_to_continents($map['x'], $map['y']);
 	$con = $arr['con'];
 	
