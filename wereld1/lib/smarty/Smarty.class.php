@@ -553,6 +553,7 @@ class Smarty
      * @var string
      */
     var $_cache_include = null;
+    var $_cache_include_info = null;
 
     /**
      * indicate if the current code is used in a compiled
