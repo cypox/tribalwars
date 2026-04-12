@@ -33,10 +33,8 @@ if(isset($session['userid']) && $session['userid']){
 		$worlds[$row['id']]['name'] = entparse($row['name']);
 		$worlds[$row['id']]['db'] = entparse($row['db']);
 
-		//$sql = $db->fetch($db->query("SELECT COUNT(`id`) AS `exist`,`banned` FROM `$row[db]`.`users` WHERE `id`='".$user['id']."'"));
-		$sql = $db->fetch($db->query("SELECT (SELECT COUNT(`id`) FROM `$row[db]`.`users` WHERE `id`='userid') AS `exist`, `banned` FROM `$row[db]`.`users` WHERE `id`='userid'"));
-		//$sql = $db->fetch($db->query("SELECT (SELECT COUNT(`id`) FROM `$row[db]`.`users` WHERE `id`='0') AS `exist`, `banned` FROM `$row[db]`.`users` WHERE `id`='0'"));
-		//$sql = $db->fetch($db->query("SELECT (SELECT COUNT(`id`) FROM `tribalwars_world`.`users` WHERE `id`='3') AS `exist`, `banned` FROM `tribalwars_world`.`users` WHERE `id`='3'"));
+		$sql = $db->fetch($db->query("SELECT `id`, `banned` FROM `$row[db]`.`users` WHERE `id`='".$user['id']."' LIMIT 1"));
+		$sql['exist'] = ($sql === null || $sql === false) ? 0 : 1;
 		
 		if($row['active'] == '0')
 			$worlds[$row['id']]['class'] = ' gray';

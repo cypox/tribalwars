@@ -9,28 +9,12 @@ class getuserdata{
 		$this->db = $db;
 	}
 	function getbyid($id,$array,$count=true){
-		$sql = 'SELECT ';
-		if($count){
-			$sql .= 'COUNT(`id`) AS `exist_id`, ';
-		}
-
-		$array_pop = array_pop($array);
-		foreach($array as $key){
-			$sql .= '`'.$key.'`, ';
-		}
-		$sql .= '`' . $array_pop . '`';
-		$sql .= ' FROM `users` WHERE `id` = ' . $id;
-		if($count){
-			$sql .= ' GROUP BY ';
-			foreach($array as $key){
-				$sql .= '`'.$key.'`, ';
-			}
-			$sql .= '`'.$array_pop.'`';
-		}
+		$sql = 'SELECT `' . implode('`, `', $array) . '`';
+		$sql .= ' FROM `users` WHERE `id` = ' . intval($id) . ' LIMIT 1';
 		$result = $this->db->query($sql);
 		$row    = $this->db->fetch($result);
 		if($count){
-			$row['exist_user'] = !isset($row['exist_id']) ? 0 : $row['exist_id'];
+			$row['exist_user'] = ($row === null || $row === false) ? 0 : 1;
 		}
 		return $row;
 	}
