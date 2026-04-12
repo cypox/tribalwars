@@ -17,7 +17,7 @@ class map{
 		$this->config = $config;
 	}
     function search_villages($x_begin,$x_end,$y_begin,$y_end){
-		$result = $this->db->query("SELECT `id`,`userid`,`x`,`y`,`points`,`name`,`continent` FROM `villages` WHERE (`x`>='".$x_begin."' AND `x`<='".$x_end."') AND (`y`>='".$y_begin."' AND `y`<='".$y_end."')");
+		$result = $this->db->query("SELECT `id`,`userid`,`x`,`y`,`points`,`bonus`,`name`,`continent` FROM `villages` WHERE (`x`>='".$x_begin."' AND `x`<='".$x_end."') AND (`y`>='".$y_begin."' AND `y`<='".$y_end."')");
 		while($row_vill = $this->db->fetch($result)){
 			foreach($row_vill as $key=>$value){
 				$this->villages[$row_vill['x']][$row_vill['y']][$key] = $value;
@@ -62,36 +62,36 @@ class map{
 		$getAllyTypePartner = $this->db->query("SELECT `to_ally`,`type` FROM `ally_contracts` WHERE `from_ally`='".$this->user['ally']."' AND `type`='partner'");
 		$toAllyPartner = array();
 		while($typePartnerRow = $this->db->fetch($getAllyTypePartner)){
-			$typePartnerRow[$toAllyPartner] = $typePartnerRow['to_ally'];
+			$toAllyPartner[] = $typePartnerRow['to_ally'];
 		}
 		$getAllyTypeNap = $this->db->query("SELECT `to_ally`,`type` FROM `ally_contracts` WHERE `from_ally`='".$this->user['ally']."' AND `type`='nap'");
 		$toAllyNap = array();
 		while($typeNapRow = $this->db->fetch($getAllyTypeNap)){
-			$typeNapRow[$toAllyNap] = $typeNapRow['to_ally'];
+			$toAllyNap[] = $typeNapRow['to_ally'];
 		}
 		$getAllyTypeEnemy = $this->db->query("SELECT `to_ally`,`type` FROM `ally_contracts` WHERE `from_ally`='".$this->user['ally']."' AND `type`='enemy'");
 		$toAllyEnemy = array();
 		while($typeEnemyRow = $this->db->fetch($getAllyTypeEnemy)){
-			$typeEnemyRow[$toAllyEnemy] = $typeEnemyRow['to_ally'];
+			$toAllyEnemy[] = $typeEnemyRow['to_ally'];
 		}
-		$esql = $this->db->query("SELECT `color` FROM `marked` WHERE `marker_id`='".$this->user['id']."' AND `marked_id`='".$this->villages[$x][$y]["userid"]."' LIMIT 1");
+		$villageUserId = isset($this->villages[$x][$y]['userid']) ? $this->villages[$x][$y]['userid'] : -1;
+		$playerAlly = isset($this->players[$villageUserId]['ally']) ? $this->players[$villageUserId]['ally'] : -1;
+		$esql = $this->db->query("SELECT `color` FROM `marked` WHERE `marker_id`='".$this->user['id']."' AND `marked_id`='".$villageUserId."' LIMIT 1");
 		if($this->village['x'] == $x && $this->village['y'] == $y){
 			$rgb = "255,255,255";
 		}elseif($this->db->numrows($esql) > 0){
 			$select = $this->db->fetch($esql);
 			$hex = color($select['color']);
 			$rgb = $hex['0'].",".$hex['1'].",".$hex['2'];
-		}elseif($this->villages[$x][$y]['userid'] == $this->user['id']){
+		}elseif($villageUserId == $this->user['id']){
 			$rgb = "240,200,0";
-		}elseif($this->players[$this->getvillage($x,$y,userid)]['ally'] == $this->user['ally'] && $this->user['ally'] != "-1"){
+		}elseif($playerAlly == $this->user['ally'] && $this->user['ally'] != "-1"){
 			$rgb = "0,0,224";
-		}elseif($this->villages[$x][$y]['userid'] == $this->user['id']){
-			$rgb = "240,200,0";
-		}elseif(in_array($this->players[$this->getvillage($x,$y,userid)]['ally'], $toAllyPartner)){
+		}elseif(in_array($playerAlly, $toAllyPartner)){
 			$rgb = "0,160,244";
-		}elseif(in_array($this->players[$this->getvillage($x,$y,userid)]['ally'], $toAllyNap)){
+		}elseif(in_array($playerAlly, $toAllyNap)){
 			$rgb = "128,0,128";
-		}elseif(in_array($this->players[$this->getvillage($x,$y,userid)]['ally'], $toAllyEnemy)){
+		}elseif(in_array($playerAlly, $toAllyEnemy)){
 			$rgb = "244,0,0";
 		}else{
 			$rgb = "130,60,10";
@@ -99,14 +99,18 @@ class map{
 		return $rgb;
     }
 	function graphic($x, $y){
+		if(!isset($this->villages[$x][$y])){
+			return "gras".rand(1,4).".png";
+		}
 		$graphic = "";
-		if($this->villages[$x][$y]["bonus"] != 0){
+		$bonus = isset($this->villages[$x][$y]["bonus"]) ? $this->villages[$x][$y]["bonus"] : 0;
+		if($bonus != 0){
 			$graphic .= "b";
 		}else{
 			$graphic .= "v";
 		}
 		$v = true;
-		$points = $this->villages[$x][$y]["points"];
+		$points = isset($this->villages[$x][$y]["points"]) ? $this->villages[$x][$y]["points"] : 0;
 		if($points < 300 && $v){
 			$graphic .= "1";
 		}elseif($points < 1000 && $v){
