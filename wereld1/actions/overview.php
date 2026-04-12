@@ -143,6 +143,7 @@ $tpl->assign("built_builds", $built_builds);
 $tpl->assign("speed", $config['speed']);
 $tpl->assign("cl_builds", $cl_builds);
 $tpl->assign("cl_units", $cl_units);
+$tpl->assign("labelClass", "label");
 $tpl->assign("in_village_units", $in_village_units);
 $tpl->assign("wood_prod_overview", $wood_prod_overview);
 $tpl->assign("stone_prod_overview", $stone_prod_overview);

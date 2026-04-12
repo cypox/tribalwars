@@ -241,6 +241,10 @@ function tech($stage){
 	return "Não pesquisado";
 }
 function format_time($sek){
+	$sek = (int)$sek;
+	if($sek < 0){
+		$sek = 0;
+	}
     $std = 3600;
     $min = 60;
     $anzahl_std = 0;
