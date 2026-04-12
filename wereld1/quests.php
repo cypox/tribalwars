@@ -14,16 +14,12 @@ if(isset($_POST['getQuest'])){
 	$getQuest = array();
 	$result = $db->query('SELECT * FROM `quests` WHERE `userid`="'.$session['userid'].'"');
 	if($db->numrows($result) < 1){
-  		$db->query('INSERT INTO `quests`(`userid`) VALUES ("'.$session['userid'].'")');
-  		while($row = mysqli_fetch_array($result)){
-  			array_push($getQuest, $row);
-  		}
+		$db->query('INSERT INTO `quests`(`userid`,`hout30`,`leem30`,`ijzer30`) VALUES ("'.$session['userid'].'","0","0","0")');
+		$result = $db->query('SELECT * FROM `quests` WHERE `userid`="'.$session['userid'].'"');
   	}
-  	else{
-  		while($row = mysqli_fetch_array($result)){
-  			array_push($getQuest, $row);
-  		}
-  	}
+	while($row = mysqli_fetch_array($result)){
+		array_push($getQuest, $row);
+	}
 	echo json_encode($getQuest);
 }
 // Here i will get the quest levels, so people can't get their rewards double...  END END END

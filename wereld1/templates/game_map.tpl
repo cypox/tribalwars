@@ -53,7 +53,7 @@
 											{else}
 												<!-- <td id="tile_{$x}_{$y}" class="{$cl_map->getClass($x,$y)}" style="background-color:rgb({$cl_map->getColor($x,$y)})"><a href="game.php?village={$village.id}&amp;screen=info_village&amp;id={$cl_map->getvillageid($x,$y)}"><img src="{$config.cdn}/graphic/{$map_base}/{$cl_map->graphic($x,$y)}" onmouseover="showinfo({$cl_map->getvillageid($x,$y)}, {$user.id}, {$village.x}, {$village.y});" onmouseout="hideinfo();" alt="" /></a></td>	 -->
 
-												<td "id="tile_{$x}_{$y}" class="{$cl_map->getClass($x,$y)}" style="background-color:rgb({$cl_map->getColor($x,$y)})"><a href="game.php?village={$village.id}&amp;screen=info_village&amp;id={$cl_map->getvillageid($x,$y)}"><img src="{$config.cdn}/graphic/{$map_base}/{$cl_map->graphic($x,$y)}{php}if (get_bonus($this->_tpl_vars[x], $this->_tpl_vars[y])) echo 'b.png';{/php}" onmouseover="showinfo({$cl_map->getvillageid($x,$y)}, {$user.id}, {$village.x}, {$village.y});" onmouseout="hideinfo();" alt="" /></a></td>	
+												<td id="tile_{$x}_{$y}" class="{$cl_map->getClass($x,$y)}" style="background-color:rgb({$cl_map->getColor($x,$y)})"><a href="game.php?village={$village.id}&amp;screen=info_village&amp;id={$cl_map->getvillageid($x,$y)}"><img src="{$config.cdn}/graphic/{$map_base}/{$cl_map->graphic($x,$y)}" onmouseover="showinfo({$cl_map->getvillageid($x,$y)}, {$user.id}, {$village.x}, {$village.y});" onmouseout="hideinfo();" alt="" /></a></td>
 
 
 
