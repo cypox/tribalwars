@@ -3,7 +3,10 @@ if($ACTIONS_MASSIVKEY_HIGHAAASSDD != "sdjahsdkJHSAJDKHALKJHSADJHSADNsjdhaksjdlhJ
 	exit;
 }
 
-if($_GET['page'] == 'mark'){
+$page = isset($_GET['page']) ? $_GET['page'] : '';
+$error = '';
+
+if($page == 'mark'){
 	if(isset($_GET['action']) && $_GET['action'] == 'mark'){
 		$player = parse($_POST['player']);
 		$color = parse($_POST['color']);
@@ -38,6 +41,9 @@ if($_GET['page'] == 'mark'){
 	}
 	$tpl->assign("error", $error);
 }else{
+	$image_objects = array();
+	$bigMapRectTop = 0;
+	$bigMapRectLeft = 0;
 	if(isset($_POST['x'])){
 		$_GET['x'] = parse($_POST['x']);
 	}
@@ -160,7 +166,7 @@ if($_GET['page'] == 'mark'){
 	
 	$tpl->assign("map", $map);
 	$tpl->assign("image_objects", $image_objects);
-	$tpl->assign("mapdesign", $config['map_design']);
+	$tpl->assign("mapdesign", isset($config['map_design']) ? $config['map_design'] : '');
 	$tpl->assign("x_coords", $x_coords);
 	$tpl->assign("y_coords", $y_coords);
 	$tpl->assign("cl_map", $cl_map);
@@ -184,5 +190,5 @@ while($row = $db->fetch($result)){
 	$i++;
 }
 $tpl->assign("marked", $marked);
-$tpl->assign("page", $_GET['page']);
+$tpl->assign("page", $page);
 ?>
