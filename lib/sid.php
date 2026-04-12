@@ -9,19 +9,20 @@ class sid{
 	}
 	function create_sid($userid){
 		$this->db->query("DELETE FROM `sessions` WHERE `userid`='".$userid."'");
+		$sid_letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 		do{
-			$sid_letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 			$sid = "";
 			for($n=1;$n<=32;$n++){
 				$sid .= $sid_letters[rand(0, 61)];
 			}
-			$result = $this->db->query("SELECT COUNT(sid) FROM `sessions` WHERE `sid`='".$sid."'");
-		}while($this->db->numrows($result)==0);
+			$result = $this->db->query("SELECT COUNT(`sid`) AS `cnt` FROM `sessions` WHERE `sid`='".$sid."'");
+			$row = $this->db->fetch($result);
+		}while($row['cnt'] > 0);
 		$hkey = "";
 		for($n=1;$n<=4;++$n){
 			$hkey .= $sid_letters[rand(0, 61)];
 		}
-		$this->db->query("INSERT INTO `sessions` (`userid`,`hkey`,`sid`) VALUES ('".$userid."','".$hkey."','".$sid."')");
+		$this->db->query("INSERT INTO `sessions` (`uid`,`userid`,`session`,`hkey`,`sid`) VALUES ('".$userid."','".$userid."','','".$hkey."','".$sid."')");
 		setcookie("session", $sid);
 	}
 	function logout($userid){

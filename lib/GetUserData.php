@@ -35,17 +35,12 @@ class getuserdata{
 		return $row;
 	}
 	function getbyusername($username,$array){
-		$sql = 'SELECT COUNT(`username`) AS `exist_user`';
-		$array_pop = array_pop($array);
-		foreach($array as $key){
-			$sql .= ', `'.$key.'`';
-		}
-		$sql .= ' FROM `users` WHERE `username` = \'' . $username . '\' GROUP BY ';
-		$sql .= '`'.$array_pop.'`';
+		$sql = 'SELECT `' . implode('`, `', $array) . '`';
+		$sql .= ' FROM `users` WHERE `username` = \'' . $username . '\' LIMIT 1';
 		$result = $this->db->query($sql);
 		$row = $this->db->fetch($result);
 
-		$row['exist_user'] = !isset($row['exist_user']) ? 0 : $row['exist_user'];
+		$row['exist_user'] = ($row === null || $row === false) ? 0 : 1;
 
 		return $row;
 	}

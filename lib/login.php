@@ -18,7 +18,7 @@ class login{
 		}
 		$sid = new sid();
         $sid = $sid->create_sid($datas['id']);
-        $db->query("INSERT INTO `logins` (`username`,`time`,`ip`,`userid`) VALUES ('".$datas['username']."','".time()."','".$_SERVER['REMOTE_ADDR']."','".$datas['id']."')");
+        $db->query("INSERT INTO `logins` (`username`,`time`,`ip`,`userid`,`uv`,`country`) VALUES ('".$datas['username']."','".time()."','".$_SERVER['REMOTE_ADDR']."','".$datas['id']."','".mysqli_real_escape_string($db->get_connection(), isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : '')."','')");
 		return $datas['id'];
 	}
 	function login_do($username,$password){
@@ -36,7 +36,7 @@ class login{
 		}
 		$sid = new sid();
         $sid = $sid->create_sid($datas['id']);
-        $db->query("INSERT INTO `logins` (`username`,`time`,`ip`,`userid`) VALUES ('".$datas['username']."','".time()."','".$_SERVER['REMOTE_ADDR']."','".$datas['id']."')");
+        $db->query("INSERT INTO `logins` (`username`,`time`,`ip`,`userid`,`uv`,`country`) VALUES ('".$datas['username']."','".time()."','".$_SERVER['REMOTE_ADDR']."','".$datas['id']."','".mysqli_real_escape_string($db->get_connection(), isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : '')."','')");
 		return $datas['id'];
 	}
 	function login_uv($id){
@@ -57,7 +57,7 @@ class login{
 		}else{
 			$sid = new sid();
 			$sid = $sid->create_sid($datas['id'], true);
-			$db->query("INSERT INTO `logins` (`username`,`time`,`ip`,`userid`,`uv`) VALUES ('".$datas['username']."','".time( )."','".$_SERVER['REMOTE_ADDR']."','".$datas['id']."','".$datas['vacation_name']."')");
+$db->query("INSERT INTO `logins` (`username`,`time`,`ip`,`userid`,`uv`,`country`) VALUES ('".$datas['username']."','".time()."','".$_SERVER['REMOTE_ADDR']."','".$datas['id']."','".$datas['vacation_name']."','')");
 			return $datas['id'];
 		}
 	}
