@@ -133,8 +133,8 @@ $village['r_iron_comma'] = $ress['r_iron_comma'];
 $village_array = array();
 $result = $db->query("SELECT `id` FROM `villages` WHERE `userid` = '".$village['userid']."' AND ((`name` = '".$village['name']."' AND `id`<'".$village['id']."') OR (`name`<'".$village['name']."')) AND `id`!='".$village['id']."' ORDER BY `name` DESC,`id` DESC LIMIT 1");
 $row = $db->fetch($result);
-$village_array['last'] = $row['id'];
-$village_array['last_link'] = 'game.php?village='.$row['id'].'&amp;';
+$village_array['last'] = isset($row['id']) ? $row['id'] : $village['id'];
+$village_array['last_link'] = 'game.php?village='.$village_array['last'].'&amp;';
 if(!(empty($_GET['screen']))){
 	$village_array['last_link'] .= 'screen='.$_GET['screen'].'&amp;';
 }else{
@@ -158,8 +158,8 @@ if(!(empty($_GET['target']))){
 }
 $result = $db->query("SELECT `id` FROM `villages` WHERE `userid` = '".$village['userid']."' AND ((`name` = '".$village['name']."' AND `id`>'".$village['id']."') OR (`name`>'".$village['name']."')) AND `id`!='".$village['id']."' ORDER BY `name` ASC,`id` ASC LIMIT 1");
 $row = $db->fetch($result);
-$village_array['next'] = $row['id'];
-$village_array['next_link'] = 'game.php?village='.$row['id'].'&amp;';
+$village_array['next'] = isset($row['id']) ? $row['id'] : $village['id'];
+$village_array['next_link'] = 'game.php?village='.$village_array['next'].'&amp;';
 
 if(!(empty($_GET['screen']))){
 	$village_array['next_link'] .= 'screen='.$_GET['screen'].'&amp;';
@@ -190,7 +190,7 @@ if(isset($_GET['action']) && $_GET['action'] == "logout"){
 	require("actions/logout.php");
 }
 
-if($confif['no_actions'] && @$_GET['screen'] != "ally"){
+if(!empty($config['no_actions']) && @$_GET['screen'] != "ally"){
 	$_GET['action'] = '';
 	$_POST['action'] = '';
 }

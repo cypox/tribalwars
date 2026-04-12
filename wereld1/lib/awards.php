@@ -111,6 +111,12 @@ class awards {
 
 		$result = $db->query("SELECT `".implode("`,`",$array)."`,`total_stage` FROM `medal` WHERE `userid`='".$user."'");
 		$row = $db->fetch($result);
+		if(!is_array($row)){
+			return;
+		}
+		if(!isset($row['total_stage'])){
+			$row['total_stage'] = 0;
+		}
 
 		$array = array();
 		$stage = array();
@@ -122,28 +128,33 @@ class awards {
 				$im = 4;
 			}
 
+			$currentValue = isset($row[$dbname]) ? intval($row[$dbname]) : 0;
+			$currentStage = isset($row[$dbnames]) ? intval($row[$dbnames]) : 0;
 			for($i = 1; $i <= $im; $i++){
 				if($this->type[$dbname] == "fix_rank"){
-					if($row[$dbname] <=  $this->needed[$dbname][$i] && $row[$dbname] != 0){
+					if($currentValue <=  $this->needed[$dbname][$i] && $currentValue != 0){
 						$stage[$dbname] = $i;
 					}
 				}else{
-					if($row[$dbname] >=  $this->needed[$dbname][$i]){
+					if($currentValue >=  $this->needed[$dbname][$i]){
 						$stage[$dbname] = $i;
 					}
 				}
 			}
-			if($stage[$dbname] > $row[$dbnames]){
-				$array[] = $dbnames."='".$stage[$dbname]."'";
-				$row['total_stage'] += $stage[$dbname]-$row[$dbnames];
-				$this->r_upstage($user,$dbname,$stage[$dbname]);
+			$newStage = isset($stage[$dbname]) ? intval($stage[$dbname]) : 0;
+			if($newStage > $currentStage){
+				$array[] = $dbnames."='".$newStage."'";
+				$row['total_stage'] += $newStage-$currentStage;
+				$this->r_upstage($user,$dbname,$newStage);
 			}
-			if($stage[$dbname] < $row[$dbnames]){
-				$array[] = $dbnames."='".$stage[$dbname]."'";
-				$row['total_stage'] -= $row[$dbnames]-$stage[$dbname];
+			if($newStage < $currentStage){
+				$array[] = $dbnames."='".$newStage."'";
+				$row['total_stage'] -= $currentStage-$newStage;
 			}
 		}
-		$db->query("UPDATE `medal` SET ".implode(",",$array).",`total_stage`='".$row['total_stage']."' WHERE `userid`='".$user."'");
+		if(!empty($array)){
+			$db->query("UPDATE `medal` SET ".implode(",",$array).",`total_stage`='".intval($row['total_stage'])."' WHERE `userid`='".$user."'");
+		}
 	}
 	function reload_medal(){
 		global $db;
@@ -208,7 +219,7 @@ class awards {
 
 		$title = parse("Medalha ".$this->name[$dbname]." ".$this->desc_stage[$stage]);
 		$text = $dbname.";".$stage;
-		$db->query("INSERT INTO `reports` (`title`,`time`,`type`,`in_group`,`receiver_userid`,`message`) VALUES ('".$title."','".time()."','medal','other','$user','$text')");
+		$db->query("INSERT INTO `reports` (`title`,`title_image`,`time`,`type`,`a_units`,`b_units`,`c_units`,`d_units`,`agreement`,`ram`,`catapult`,`message`,`to_user`,`from_user`,`to_village`,`from_village`,`receiver_userid`,`in_group`,`wins`,`hives`,`ally`,`allyname`,`from_username`,`to_username`) VALUES ('".$title."','','".time()."','medal','','','','','','','','$text','0','0','0','0','$user','other','','','0','','','')");
 		$db->query("UPDATE `users` SET `new_report`='1' WHERE `id`='".$user."'");
 	}
 	function getAwards($userid){

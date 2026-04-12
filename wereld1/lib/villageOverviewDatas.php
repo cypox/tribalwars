@@ -1,5 +1,6 @@
 <?php
 class villageoverviewdatas{
+	var $viewType;
 	function __construct($viewType){
 		$this->viewType = $viewType;
 	}

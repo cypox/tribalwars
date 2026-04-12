@@ -10,13 +10,16 @@ if($village['storage'] == $cl_builds->get_maxstage("storage")){
 $full = array();
 
 $diff = $storage_datas['storage_size']-$village['r_wood'];
-$full[] = @round($diff/round($arr_production[$village['wood']]*$config['speed']/3600));
+$wood_prod_hour = max(1, round($arr_production[$village['wood']]*$config['speed']/3600));
+$full[] = @round($diff/$wood_prod_hour);
 
 $diff = $storage_datas['storage_size']-$village['r_stone'];
-$full[] = @round($diff/round($arr_production[$village['stone']]*$config['speed']/3600));
+$stone_prod_hour = max(1, round($arr_production[$village['stone']]*$config['speed']/3600));
+$full[] = @round($diff/$stone_prod_hour);
 
 $diff = $storage_datas['storage_size']-$village['r_iron'];
-$full[] = @round($diff/round($arr_production[$village['iron']]*$config['speed']/3600));
+$iron_prod_hour = max(1, round($arr_production[$village['iron']]*$config['speed']/3600));
+$full[] = @round($diff/$iron_prod_hour);
 
 $min = max($full[0], $full[1], $full[2]);
 if($viewType == "table"){

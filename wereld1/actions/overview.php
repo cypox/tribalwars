@@ -3,7 +3,7 @@ if($ACTIONS_MASSIVKEY_HIGHAAASSDD != "sdjahsdkJHSAJDKHALKJHSADJHSADNsjdhaksjdlhJ
 	exit;
 }
 
-if($_GET['action'] == 'set_visual'){
+if(isset($_GET['action']) && $_GET['action'] == 'set_visual'){
 	if($session['hkey']!=$_GET['h']){
 		exit("Desculpe, más o código de segurança está invalido!");
 	}
@@ -110,7 +110,7 @@ if($user["graphical_overview"] != 0){
 	$villageOverviewDatas = new villageOverviewDatas('table');
 }
 
-$query = $db->query("SELECT `building`,`end_time` FROM `build` WHERE `villageid`='".$village['id']."' GROUP BY `building`");
+$query = $db->query("SELECT `building`, MAX(`end_time`) AS `end_time` FROM `build` WHERE `villageid`='".$village['id']."' GROUP BY `building`");
 $constructing = array();
 $now = time();
 if($query && $db->numrows($query)){

@@ -179,7 +179,7 @@ function create_village($userid,$username='',$direction){
  	$arr = convert_to_continents($x,$y);
  	require("map_db/".$arr['con'].".php");
  	$unit = $cl_units->get_array("name");
-	$db->query("INSERT INTO `villages` (`x`,`y`,`name`,`userid`,`continent`,`last_prod_aktu`,`create_time`) VALUES ('".$x."','".$y."','".$villagename."','".$userid."','".$arr['con']."','".time()."','".time()."')");
+	$db->query("INSERT INTO `villages` (`x`,`y`,`bonus`,`name`,`userid`,`points`,`continent`,`last_prod_aktu`,`main_build`,`agreement_aktu`,`create_time`,`smith_tec`,`conmap_con`,`group`,`l_grow`) VALUES ('".$x."','".$y."','0','".$villagename."','".$userid."','0','".$arr['con']."','".time()."','','".time()."','".time()."','','','','0')");
 	$villageid = $db->getlastid();
 	$db->query("INSERT INTO `unit_place` (`villages_from_id`,`villages_to_id`) VALUES ('".$villageid."','".$villageid."')");
 	reload_village_points($villageid);

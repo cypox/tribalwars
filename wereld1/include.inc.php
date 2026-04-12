@@ -64,8 +64,15 @@ include('include/configs/bbcodes.php');
 
 
 
-$sql_bonus_villages = $db->query("SELECT * FROM villages WHERE id = '".$_GET["village"]."'");
-$vill = $db->fetch($sql_bonus_villages);
+$villageId = isset($_GET['village']) ? intval($_GET['village']) : 0;
+$vill = array('bonus' => '0');
+if($villageId > 0){
+  $sql_bonus_villages = $db->query("SELECT * FROM villages WHERE id = '".$villageId."'");
+  $vill_row = $db->fetch($sql_bonus_villages);
+  if(is_array($vill_row)){
+    $vill = $vill_row;
+  }
+}
 if ($vill["bonus"] == "1")
 {
   include("include/configs/max_storage_bonus.php");
@@ -73,23 +80,23 @@ if ($vill["bonus"] == "1")
 }
 elseif($vill["bonus"] == "2")
 {
-	include("include/configs/farm_limits_bonus.php");
+  include("include/configs/farm_limits_bonus.php");
 }
 elseif($vill["bonus"] == "3")
 {
-	include("include/configs/units_bonus_stable.php");
+  include("include/configs/units_bonus_stable.php");
 }
 elseif($vill["bonus"] == "4")
 {
-	include("include/configs/units_bonus_barracks.php");
+  include("include/configs/units_bonus_barracks.php");
 }
 elseif($vill["bonus"] == "5")
 {
-	include("include/configs/units_bonus_garage.php");
+  include("include/configs/units_bonus_garage.php");
 }
 elseif($vill["bonus"] == "6")
 {
-	include("include/configs/raw_material_production_bonus.php");
+  include("include/configs/raw_material_production_bonus.php");
 }
 
 
