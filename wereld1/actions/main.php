@@ -182,9 +182,12 @@ $num_build_all = count($do_build);
 
 if(!isset($error)) $error = "";
 
-if($_GET['mode'] == 'destroy' && $village['main'] >= 15 && $config['build_destroy']){
+if($mode == 'destroy' && $village['main'] >= 15 && $config['build_destroy']){
 	require_once("main_destroy.php");
 }
+
+$needed_hide = isset($_COOKIE['needed_hide']) ? intval($_COOKIE['needed_hide']) : 0;
+$fulfilled_hide = isset($_COOKIE['fulfilled_hide']) ? intval($_COOKIE['fulfilled_hide']) : 0;
 
 $cladiri = array("barracks","stable","garage","snob","smith","market","wall");
 $i = 1;
@@ -213,6 +216,8 @@ $tpl->assign("description", $cl_builds->get_description_bydbname('main'));
 $tpl->assign("plus_costs", $plus_costs);
 $tpl->assign("builds_start_by_one", $config['buildings_starting_by_one']);
 $tpl->assign("porcent", $total_const);
+$tpl->assign("needed_hide", $needed_hide);
+$tpl->assign("fulfilled_hide", $fulfilled_hide);
 $tpl->register_modifier("stage", "stage");
 $tpl->register_modifier("format_date", "format_date");
 $tpl->register_modifier("format_time", "format_time");

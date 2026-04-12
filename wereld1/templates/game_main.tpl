@@ -70,7 +70,7 @@
 		<th colspan="2" style="width:350px;">{$lang->get("builds")}</th>
 	</tr>
 	{foreach from=$fulfilled_builds item=dbname key=id}
-	<tr {if $cl_builds->get_maxstage($dbname) == $build_village.$dbname}class="fulfilled"{/if}{if $cl_builds->get_maxstage($dbname) == $build_village.$dbname && $smarty.cookies.fulfilled_hide == 1} style="display: none;"{/if}>
+	<tr {if $cl_builds->get_maxstage($dbname) == $build_village.$dbname}class="fulfilled"{/if}{if $cl_builds->get_maxstage($dbname) == $build_village.$dbname && $fulfilled_hide == 1} style="display: none;"{/if}>
 		<th width="25"><div align="center"><a href="javascript:popup_scroll('popup_building.php?building={$dbname}', 520, 520)"><img src="{$config.cdn}/graphic/buildings/{$dbname}.png"></a></div></th><td><a href="game.php?village={$village.id}&screen={$dbname}">{$cl_builds->get_name($dbname)}</a> <span style="float:right;">(<b>Max {$cl_builds->get_maxstage($dbname)}</b>|{$village.$dbname|stage})</span></td>
         
         
@@ -132,10 +132,10 @@
 				{/if}
 	</tr>
 		{/foreach}
-	<span {if $smarty.cookies.needed_hide==0}style="display: none;"{/if}>
+	<span {if $needed_hide==0}style="display: none;"{/if}>
 		{foreach from=$neconstruit item=nume key=id}
 			{if !in_array($nume, $fulfilled_builds)}
-	<tr class="inactive togglereq" {if $smarty.cookies.needed_hide==0}style="display: none;"{/if}>
+	<tr class="inactive togglereq" {if $needed_hide==0}style="display: none;"{/if}>
 		<td align="left"><a href="javascript:popup_scroll('popup_building.php?building={$nume}', 520, 520)"><img src="{$config.cdn}/graphic/icons/help.png" width="15" /></a> <img src="{$config.cdn}/graphic/overview/{$nume}.png"><a href="game.php?village={$village.id}&screen={$nume}"> {$cl_builds->get_name($nume)}</a></td>
 		<td colspan="6">{$lang->get("benodigd")}: 
 				{foreach from=$cl_builds->get_needed_by_dbname($nume) item=nivel key=cladire}
@@ -150,11 +150,11 @@
 	<table class="vis" width="100%">
 
 	<tr>
-		<th width="25"><div align="center"><input type="checkbox" name="not_built" id="not_built"  {if $smarty.cookies.needed_hide == 1}checked="yes"{/if} onclick="$('.togglereq').fadeToggle(); {literal}if ($.cookie('needed_hide') == 1) { var hidden =  0 } else var hidden =1;{/literal} $.cookie('needed_hide', hidden);"></div></th>
+		<th width="25"><div align="center"><input type="checkbox" name="not_built" id="not_built"  {if $needed_hide == 1}checked="yes"{/if} onclick="$('.togglereq').fadeToggle(); {literal}if ($.cookie('needed_hide') == 1) { var hidden =  0 } else var hidden =1;{/literal} $.cookie('needed_hide', hidden);"></div></th>
 			 <td><label for="not_built">{$lang->get("showallbuildings")}</label></td>
 	</tr>
 	<tr>
-			<th width="25"><div align="center"><input type="checkbox" name="hide_fulfilled" id="hide_fulfilled" {if $smarty.cookies.fulfilled_hide == 1}checked="yes"{/if} onclick="$('.fulfilled').fadeToggle(); {literal}if ($.cookie('fulfilled_hide') == 1) { var hidden =  0 } else var hidden =1;{/literal} $.cookie('fulfilled_hide', hidden);"></div></th>
+			<th width="25"><div align="center"><input type="checkbox" name="hide_fulfilled" id="hide_fulfilled" {if $fulfilled_hide == 1}checked="yes"{/if} onclick="$('.fulfilled').fadeToggle(); {literal}if ($.cookie('fulfilled_hide') == 1) { var hidden =  0 } else var hidden =1;{/literal} $.cookie('fulfilled_hide', hidden);"></div></th>
             <td><label for="hide_fulfilled">{$lang->get("hidebuildout")}</label></td>
 	</tr>
 </table><br />
