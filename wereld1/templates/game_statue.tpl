@@ -134,15 +134,15 @@
 					{$cl_units->check_needed($unit_dbname,$village)}
 					{if $amountSnobsCanBeRecruited == 0 AND $ag_style == 2}
 					    <td class="inactive">{$lang->grab("error", "no_more_snobs")}</td>
-					{elseif $cl_units->last_error==not_tec}
+					{elseif $cl_units->last_error=='not_tec'}
 					    <td class="inactive">{$lang->grab("error", "not_tec")}</td>
-					{elseif $cl_units->last_error==not_needed}
+					{elseif $cl_units->last_error=='not_needed'}
 					    <td class="inactive">{$lang->grab("error", "not_fulfilled")}</td>
-					{elseif $cl_units->last_error==build_ah}
+					{elseif $cl_units->last_error=='build_ah'}
 					    <td class="inactive">{$lang->grab("error", "build_ah")}</td>
-					{elseif $cl_units->last_error==not_enough_ress}
+					{elseif $cl_units->last_error=='not_enough_ress'}
 					    <td class="inactive">{$lang->grab("error", "not_enough_ress")}</td>
-					{elseif $cl_units->last_error==not_enough_bh}
+					{elseif $cl_units->last_error=='not_enough_bh'}
 					    <td class="inactive">{$lang->grab("error", "not_enough_bh")}</td>
 					{elseif $pala_exists}
 						<td class="inactive">{$lang->grab("statue", "pala_exists")}</td>

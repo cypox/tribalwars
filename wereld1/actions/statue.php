@@ -8,6 +8,8 @@ if ($ACTIONS_MASSIVKEY_HIGHAAASSDD!='sdjahsdkJHSAJDKHALKJHSADJHSADNsjdhaksjdlhJN
 
 // Believe it or not:
 $buildname="statue";
+$error = "";
+$a = array();
 
 // nothing != null ;)
 if(isset($_GET['mode']))
@@ -467,7 +469,7 @@ if ($show_build) {
 	// Get Pala-Image
 	$result = $db->query("SELECT `chosen` FROM `knight_items` WHERE `uid` = '".$user['id']."'");
 	$row = $db->fetch($result);
-	if(isset($knight_items->name[$row['chosen']]))
+	if(is_array($row) && isset($row['chosen']) && isset($knight_items->name[$row['chosen']]))
 	{
 		$pala_image = true;
 		$pala_item = $row['chosen'];
@@ -571,7 +573,7 @@ if ($show_build) {
 }
 
 $teste = $db->query("SELECT * FROM villages WHERE userid = '".$user['id']."'");
-while($a == $db->fetch($teste)){
+while($a = $db->fetch($teste)){
 	if($a['all_unit_knight'] >= '1'){
 		$pala_exists = true;	
 	}
@@ -584,6 +586,8 @@ $tpl->assign("dbname",$buildname);
 $tpl->assign("show_build",$show_build);
 $tpl->assign("statue_style",$config['statue_style']);
 $tpl->assign("mode", $mode);
+$tpl->assign("ag_style", isset($config['ag_style']) ? $config['ag_style'] : 0);
+$tpl->assign("amountSnobsCanBeRecruited", 0);
 $tpl->assign("pala_exists", $pala_exists);
 $tpl->assign("pala_moveable", $pala_moveable);
 $tpl->assign("pala_doing", $pala_doing);
