@@ -114,7 +114,7 @@ class units{
 		return $time;
     }
     function get_recruit_in_units($building){
-		$units = "";
+		$units = array();
 		foreach($this->name as $dbname=>$name){
 		    if($this->recruit_in[$dbname] == $building)
 				$units[$dbname] = $name;
