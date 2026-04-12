@@ -1,0 +1,57 @@
+/* overview_old.css */
+﻿.empty{ position:absolute; z-index:3; left:0px; top:0px; width:600px; height:418px;}
+
+.p_main{ position:absolute; z-index:2; left:194px; top:106px; }
+.p_place{ position:absolute; z-index:2; left:334px; top:198px; }
+.p_wood{ position:absolute; z-index:2; left:505px; top:332px; }
+.p_stone{ position:absolute; z-index:2; left:0px; top:333px; }
+.p_iron{ position:absolute; z-index:2; left:2px; top:0px; }
+.p_statue{ position:absolute; z-index:2; left:182px; top:203px; }
+.p_wall{ position:absolute; z-index:1; left:0px; top:0px; }
+.p_farm{ position:absolute; z-index:2; left:237px; top:36px; }
+.p_hide{ position:absolute; z-index:2; left:180px; top:293px; }
+
+.p_storage{ position:absolute; z-index:2; left:96px; top:221px; }
+.p_market{ position:absolute; z-index:2; left:407px; top:204px; }
+
+.p_barracks{ position:absolute; z-index:2; left:356px; top:113px; }
+.p_stable{ position:absolute; z-index:2; left:219px; top:222px; }
+.p_garage{ position:absolute; z-index:2; left:46px; top:102px; }
+.p_church{ position:absolute; z-index:2; left:179px; top:180px; }
+.p_snob{ position:absolute; z-index:2; left:279px; top:294px; }
+.p_smith{ position:absolute; z-index:2; left:146px; top:44px; }
+
+/* Label(Stufenanzeigen) für fest positionierte Gebaeude */
+
+.l_main{  position:absolute; display:none; z-index:3; left:228px; top:135px; }
+.l_place{ position:absolute; display:none; z-index:3; left:371px; top:224px; }
+.l_wood{  position:absolute; display:none; z-index:3; left:510px; top:333px; }
+.l_stone{ position:absolute; display:none; z-index:3; left:16px; top:318px; }
+.l_iron{  position:absolute; display:none; z-index:3; left:29px; top:0px; }
+.l_statue{position:absolute; display:none; z-index:3; left:187px; top:190px; }
+.l_wall{  position:absolute; display:none; z-index:3; left:482px; top:22px; }
+.l_farm{  position:absolute; display:none; z-index:3; left:299px; top:39px; }
+.l_hide{  position:absolute; display:none; z-index:3; left:184px; top:298px; }
+
+.l_storage{ position:absolute; display:none; z-index:3; left:147px; top:223px; }
+.l_market{ position:absolute; display:none; z-index:3; left:500px; top:231px; }
+
+.l_barracks{ position:absolute; display:none; z-index:3; left:478px; top:112px; }
+.l_stable{ position:absolute; display:none; z-index:3; left:277px; top:232px; }
+.l_garage{ position:absolute; display:none; z-index:3; left:123px; top:99px; }
+.l_snob{ position:absolute; display:none; z-index:3; left:285px; top:340px; }
+.l_smith{ position:absolute; display:none; z-index:3; left:146px; top:63px; }
+
+div.label { background-color: #598146; padding: 1px; border: 1px black solid; min-width:20px; color: white}
+div.label_night { background-color: #202060; padding: 1px; border: 1px black solid; min-width:20px; color:white}
+div.label a:link	{ color:#DDDDDD }
+div.label a:visited	{  color:#DDDDDD }
+div.label a:active	{  color:#DDDDDD }
+div.label a:hover	{ color:white }
+
+div.label_night a:link { color:#CCCCCC}
+div.label_night a:visited { color:#CCCCCC}
+div.label_night a:active { color:#CCCCCC}
+div.label_night a:hover { color:white}
+div.label img { display:none; }
+div.label_night img { display:none; }

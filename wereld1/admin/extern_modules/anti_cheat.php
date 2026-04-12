@@ -1,0 +1,1 @@
+<?php$toolname = "Conturi multiple";$screenname = "anti_cheat";?>

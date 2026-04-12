@@ -1,0 +1,6 @@
+[30-Jan-2013 14:13:26 America/Sao_Paulo] PHP Fatal error:  Call to a member function query() on a non-object in /home/zapping/public_html/zapping_support/admin/home.php on line 9
+[30-Jan-2013 14:13:45 America/Sao_Paulo] PHP Fatal error:  Call to a member function query() on a non-object in /home/zapping/public_html/zapping_support/admin/home.php on line 9
+[30-Jan-2013 14:14:22 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/zapping/public_html/zapping_support/admin/index.php:44) in /home/zapping/public_html/zapping_support/admin/ticket_open.php on line 19
+[30-Jan-2013 14:14:31 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/zapping/public_html/zapping_support/admin/index.php:44) in /home/zapping/public_html/zapping_support/admin/ticket_open.php on line 30
+[30-Jan-2013 17:49:35 America/Sao_Paulo] PHP Fatal error:  Call to a member function query() on a non-object in /home/zapping/public_html/zapping_support/admin/home.php on line 9
+[02-Feb-2013 11:36:39 America/Sao_Paulo] PHP Fatal error:  Call to a member function query() on a non-object in /home/zapping/public_html/zapping_support/admin/home.php on line 9

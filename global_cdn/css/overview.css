@@ -1,0 +1,67 @@
+
+/* overview.css */
+.empty{ position:absolute; z-index:4; left:0px; top:0px; width:600px; height:418px;}
+.p_main,.cons_main{ position:absolute; z-index:2; left:291px; top:107px; }
+.p_main_flag{ position:absolute; z-index:2; left:291px; top:67px; }
+.p_place,.cons_place{ position:absolute; z-index:2; left:319px; top:208px; }
+.p_wood,.cons_wood{ position:absolute; z-index:2; left:480px; top:332px; }
+.p_stone,.cons_stone{ position:absolute; z-index:2; left:8px; top:305px; }
+.p_iron,.cons_iron{ position:absolute; z-index:2; left:10px; top:9px; }
+.p_statue,.cons_statue{ position:absolute; z-index:2; left:257px; top:230px; }
+.p_wall,.cons_wall{ position:absolute; z-index:1; left:13px; top:2px; }
+.p_farm,.cons_farm{ position:absolute; z-index:1; left:450px; top:0px; }
+.p_farm_field{ position:absolute; z-index:2; right:0; top:106px; }
+.p_hide,.cons_hide{ position:absolute; z-index:2; left:245px; top:69px; }
+.p_storage{ position:absolute; z-index:2; left:105px; top:125px; }
+.p_market,.cons_market{ position:absolute; z-index:2; left:211px; top:127px; }
+.p_barracks,.cons_barracks{ position:absolute; z-index:2; left:386px; top:216px; }
+.p_stable,.cons_stable{ position:absolute; z-index:2; left:65px; top:207px; }
+.p_garage,.cons_garage{ position:absolute; z-index:2; left:287px; top:280px; }
+.p_church,.cons_church{ position:absolute; z-index:2; left:391px; top:99px; }
+.p_church_f,.cons_church_f{ position:absolute; z-index:2; left:390px; top:99px; }
+.p_snob,.cons_snob{ position:absolute; z-index:2; left:159px; top:63px; }
+.p_smith,.cons_smith{ position:absolute; z-index:2; left:185px; top:269px; }
+
+/* NPCs */
+.npc_conversation{ position:absolute; z-index:2; left:222px; top:245px; }
+.npc_guard{ position:absolute; z-index:2; left:177px; top:192px;}
+.npc_juggler{ position:absolute; z-index:2; left:210px; top:225px;}
+.npc_farmer{ position:absolute; z-index:2; left:558px; top:66px;}
+.smith_anim{ position:absolute; z-index:3; left:174px; top:322px;}
+
+/* xmas-tree */
+.christmas_tree{ position:absolute; z-index:2; left:499px; top:188px; }
+
+/* Label(Stufenanzeigen) für fest positionierte Gebaeude */
+.l_main{  position:absolute; display:none; z-index:3; left:310px; top:55px; }
+.l_place{ position:absolute; display:none; z-index:3; left:354px; top:188px; }
+.l_wood{  position:absolute; display:none; z-index:3; left:550px; top:323px; }
+.l_stone{ position:absolute; display:none; z-index:3; left:100px; top:395px; }
+.l_iron{  position:absolute; display:none; z-index:3; left:29px; top:0px; }
+.l_statue{position:absolute; display:none; z-index:3; left:245px; top:215px; }
+.l_wall{  position:absolute; display:none; z-index:3; left:440px; top:316px; }
+.l_farm{  position:absolute; display:none; z-index:3; left:450px; top:0px; }
+.l_hide{  position:absolute; display:none; z-index:3; left:245px; top:48px; }
+.l_storage{ position:absolute; display:none; z-index:3; left:100px; top:120px; }
+.l_market{ position:absolute; display:none; z-index:3; left:260px; top:117px; }
+.l_barracks{ position:absolute; display:none; z-index:3; left:482px; top:227px; }
+.l_stable{ position:absolute; display:none; z-index:3; left:65px; top:196px; }
+.l_garage{ position:absolute; display:none; z-index:3; left:370px; top:340px; }
+.l_church{ position:absolute; display:none; z-index:3; left:480px; top:150px; }
+.l_church_f{ position:absolute; display:none; z-index:3; left:480px; top:150px; }
+.l_snob{ position:absolute; display:none; z-index:3; left:168px; top:63px; }
+.l_smith{ position:absolute; display:none; z-index:3; left:205px; top:258px; }
+
+div.label { background-color: #668833; padding: 1px; border: 1px black solid; min-width:20px; color: white}
+div.label_night { background-color: #202060; padding: 1px; border: 1px black solid; min-width:20px; color:white}
+div.label a:link	{ color:#DDDDDD }
+div.label a:visited	{  color:#DDDDDD }
+div.label a:active	{  color:#DDDDDD }
+div.label a:hover	{ color:white }
+
+div.label_night a:link { color:#CCCCCC}
+div.label_night a:visited { color:#CCCCCC}
+div.label_night a:active { color:#CCCCCC}
+div.label_night a:hover { color:white}
+div.label img { display:none; }
+div.label_night img { display:none; }

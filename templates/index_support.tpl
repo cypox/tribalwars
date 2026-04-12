@@ -1,0 +1,1 @@
+<div class="error">You need to be logged in to access the support section!</div>
