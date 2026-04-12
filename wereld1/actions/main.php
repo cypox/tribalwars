@@ -39,7 +39,7 @@ while($row = $db->fetch($result)){
 	}elseif($row['mode'] == 'destroy'){
 		$do_build[$i]['stage'] = --$destroy_village[$row['building']];
 	}
-	$do_build[$i]['dauer'] = $i == 0 ? $row['end_time']-time() : $row['build_time'];
+	$do_build[$i]['dauer'] = $i == 0 ? max(0, $row['end_time']-time()) : max(0, $row['build_time']);
 	$do_build[$i]['finished'] = $row['end_time'];
 	$do_build[$i]['mode'] = $row['mode'];
 	++$i;
@@ -88,6 +88,7 @@ if(isset($_GET['action']) && isset($_GET['id']) && $_GET['action'] == "build"){
 		$bh = $cl_builds->get_bh($_GET['id'],$build_village[$_GET['id']]+1);
 		$time = $cl_builds->get_time($village['main'],$_GET['id'],$build_village[$_GET['id']]+1);
 		$onlytime = $cl_builds->get_time($village['main'],$_GET['id'],$build_village[$_GET['id']]+1);
+		$add_village_sql = '';
 
 		$result = $db->query("SELECT `end_time` FROM `build` WHERE `villageid`='".$village['id']."' ORDER BY `id` DESC LIMIT 1");
         $row = $db->fetch($result);
@@ -100,7 +101,7 @@ if(isset($_GET['action']) && isset($_GET['id']) && $_GET['action'] == "build"){
 		$db->query("UPDATE `villages` SET `r_wood`=`r_wood`-'".round($wood*$plus_costs)."',`r_stone`=`r_stone`-'".round($stone*$plus_costs)."',`r_iron`=`r_iron`-'".round($iron*$plus_costs)."',`r_bh`=`r_bh`+'".$bh."' ".$add_village_sql." WHERE `id`='".$village['id']."'");
 		$db->query("INSERT INTO `build` (`building`,`villageid`,`end_time`,`build_time`,`mode`) VALUES ('".parse($_GET['id'])."','".$village['id']."','".$time."','".$onlytime."','build')");
 		$buildid = $db->getlastid();
-		$db->query("INSERT INTO `events` (`event_time`,`event_type`,`event_id`,`user_id`,`villageid`) VALUES ('".$time."','build','".$buildid."','".$user['id']."','".$village['id']."')");
+		$db->query("INSERT INTO `events` (`event_time`,`event_type`,`event_id`,`user_id`,`villageid`,`knot_event`,`is_locked`) VALUES ('".$time."','build','".$buildid."','".$user['id']."','".$village['id']."','0','0')");
 		$d->open();
 		header("LOCATION: game.php?screen=main&village=".$village['id']);
 		exit;

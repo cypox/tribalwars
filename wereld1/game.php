@@ -125,6 +125,26 @@ if($village['exist_village'] == 0 || $village['userid'] != $user['id']){
 	exit;
 }
 
+require_once(PATH."/lib/events.php");
+$processed_build_events = false;
+$now = time();
+$result = $db->query("SELECT `id`,`event_type`,`event_id` FROM `events` WHERE `villageid`='".$village['id']."' AND `event_type` IN ('build','destroy') AND `event_time` <= '".$now."' ORDER BY `event_time` ASC");
+while($event_row = $db->fetch($result)){
+	if($event_row['event_type'] == 'build'){
+		check_builds($event_row['event_id']);
+	}else{
+		check_destroy($event_row['event_id']);
+	}
+	$db->query("DELETE FROM `events` WHERE `id`='".$event_row['id']."'");
+	$processed_build_events = true;
+}
+if($processed_build_events){
+	reload_village_points($village['id']);
+	reload_player_points($user['id']);
+	reload_player_rangs();
+	$village = $villagedatas->getbyid($_GET['village'], $villagesql);
+}
+
 $ress = ressis($village);
 $village['r_wood'] = $ress['r_wood'];
 $village['r_stone'] = $ress['r_stone'];
