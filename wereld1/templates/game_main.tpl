@@ -8,7 +8,7 @@
 <table width="100%">
 	<tr>
     	<td>
-			<img src="{$config.cdn}/graphic/big_buildings/main1.png" title="Hoofdgebouw" alt="" />
+			<img src="{$config.cdn}/graphic/big_buildings/main1.png" title="Headquarters" alt="" />
 		</td>
 		<td>
 			<h2>{$lang->get("main")} ({$village.main|stage})</h2>
@@ -19,7 +19,7 @@
 {if $num_build_all > 0}
 <table class="vis">
 	<tr>
-		<th width="250">Ordem{$lang->get("build")}</th>
+		<th width="250">Building orders</th>
 		<th width="100">{$lang->get("during")}</th>
 		<th width="150">{$lang->get("doneat")}</th>
 		<th>{$lang->get("cancel")}</th>
@@ -39,7 +39,7 @@
 		<td>{$do_build.$id.dauer|format_time}</td>
 		{/if}
 		<td>{$do_build.$id.finished|format_date}</td>
-		<td><a href="javascript:ask('Weet je zeker dat je dit wilt annuleren?', 'game.php?village={$village.id}&amp;screen=main&amp;action=cancel&amp;id={$do_build.$id.r_id}&amp;mode={$mode}&amp;h={$hkey}')">{$lang->get("cancel")}</a></td>
+		<td><a href="javascript:ask('Are you sure you want to cancel this order?', 'game.php?village={$village.id}&amp;screen=main&amp;action=cancel&amp;id={$do_build.$id.r_id}&amp;mode={$mode}&amp;h={$hkey}')">{$lang->get("cancel")}</a></td>
 	</tr>
 	{/foreach}
 	{if $num_do_build > 2}
@@ -96,7 +96,7 @@
 					{else}
 						{if $build_village.$dbname < 1}
 							{if count($do_build)>2 && $user.confirm_queue==1}
-		<td align="center"><a href="javascript:ask('Wil je extra betalen?', 'game.php?village={$village.id}&amp;screen=main&amp;action=build&amp;id={$dbname}&amp;force&amp;h={$hkey}')">{$lang->get("builds")}</a></td>
+		<td align="center"><a href="javascript:ask('This will cost extra resources in queue. Continue?', 'game.php?village={$village.id}&amp;screen=main&amp;action=build&amp;id={$dbname}&amp;force&amp;h={$hkey}')">{$lang->get("builds")}</a></td>
 							{else}
 		<td align="center"><a href="game.php?village={$village.id}&screen=main&action=build&id={$dbname}&h={$hkey}">{$lang->get("builds")}</a></td>
 							{/if}
@@ -110,7 +110,7 @@
 					<div style="width:100%; background-image: url({$config.cdn}/graphic/bars/bars_bg.jpg); border: solid 1px #CFAB65;">
 					<div style="width:{$porcents}%; background:url({$config.cdn}/graphic/bars/bars.gif) repeat; color:#000000; text-align:center;"><b>{$porcents}%</b></div>
 					</td>
-					<td align="center"><a href="javascript:ask('Het kost je extra grondstoffen om te bouwen. Wil je doorgaan?', 'game.php?village={$village.id}&amp;screen=main&amp;action=build&amp;id={$dbname}&amp;force&amp;h={$hkey}')"><img src="{$config.cdn}/graphic/icons/plus.png"></a></td>
+					<td align="center"><a href="javascript:ask('This will cost extra resources in queue. Continue?', 'game.php?village={$village.id}&amp;screen=main&amp;action=build&amp;id={$dbname}&amp;force&amp;h={$hkey}')"><img src="{$config.cdn}/graphic/icons/plus.png"></a></td>
 				</tr>
 			</table>
 		</td>
@@ -178,7 +178,7 @@
 		<tr><th colspan="3">{$lang->get("dorpsnaam")}</th></tr>
 		<tr>
 			<td><input type="text" name="name" value="{$village.name}" /></td>
-			<td><input type="submit" value="Aanpassen" class="button" /></td>
+			<td><input type="submit" value="Save" class="button" /></td>
 		</tr>
 	</table>
 </form>
