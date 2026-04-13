@@ -3,7 +3,7 @@ if($ACTIONS_MASSIVKEY_HIGHAAASSDD != "sdjahsdkJHSAJDKHALKJHSADJHSADNsjdhaksjdlhJ
 	exit;
 }
 
-if(!isset($_GET['site']) || isset($_GET['site']) || is_numeric($_GET['site']) || $_GET['site'] < 1){
+if(!isset($_GET['site']) || !is_numeric($_GET['site']) || $_GET['site'] < 1){
 	$site = ceil($user['rang']/20);
 }else{
 	$site = (int)parse($_GET['site']);
@@ -20,7 +20,9 @@ while($row = $db->fetch($result)){
     $ranks[$row['id']]['points'] = format_number($row['points']);
     $ranks[$row['id']]['villages'] = $row['villages'];
     $ranks[$row['id']]['ally'] = $row['ally'];
-    $ranks[$row['id']]['cuttrought'] = @round($row['points'] / $row['villages']);
+	$ranks[$row['id']]['cuttrought'] = ((int)$row['villages'] > 0)
+		? round($row['points'] / $row['villages'])
+		: 0;
 	if($row['id'] == $village['userid']){
 		$ranks[$row['id']]['mark'] = " class=\"lit\"";
 	}elseif($row['ally'] == $user['ally'] && $user['ally'] != '-1'){
