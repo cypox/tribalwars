@@ -13,7 +13,7 @@
 <table>
 	<tr>
 		<td width="220">
-			Aktuelle Speicherkapazität:
+			Aktuelle Speicherkapazitï¿½t:
 		</td>
 		<td>
 			<b>{$store_datas.storage_size}</b> Einheiten je Rohstoff
@@ -26,7 +26,7 @@
 
 		<tr>
 			<td>
-				Speicherkapazität bei ({$village.storage+1|stage})
+				Speicherkapazitï¿½t bei ({$village.storage+1|stage})
 			</td>
 			<td>
 				<b>{$store_datas.storage_size_next}</b> Einheiten je Rohstoff
@@ -59,9 +59,12 @@
 		</tr>
 	{else}
 		<tr>
-			<td width="250" colspan="2" class="error">
+			<td width="250">
 				<img src="{$config.cdn}/graphic/holz.png" title="Holz" alt="" />
-				Speicher ist voll. Es können keine weiteren Rohstoffe mehr eingelagert werden!
+				ArmazÃ©m cheio
+			</td>
+			<td class="error">
+				0:00:00
 			</td>
 		</tr>
 	{/if}
@@ -77,9 +80,12 @@
 		</tr>
 	{else}
 		<tr>
-			<td width="250" colspan="2" class="error">
+			<td width="250">
 				<img src="{$config.cdn}/graphic/lehm.png" title="Lehm" alt="" />
-				Speicher ist voll. Es können keine weiteren Rohstoffe mehr eingelagert werden!
+				ArmazÃ©m cheio
+			</td>
+			<td class="error">
+				0:00:00
 			</td>
 		</tr>
 	{/if}
@@ -95,9 +101,12 @@
 		</tr>
 	{else}
 		<tr>
-			<td width="250" colspan="2" class="error">
+			<td width="250">
 				<img src="{$config.cdn}/graphic/eisen.png" title="Eisen" alt="" />
-				Speicher ist voll. Es können keine weiteren Rohstoffe mehr eingelagert werden!
+				ArmazÃ©m cheio
+			</td>
+			<td class="error">
+				0:00:00
 			</td>
 		</tr>
 	{/if}
