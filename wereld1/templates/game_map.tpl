@@ -3,9 +3,9 @@
 {else}
 	<div id="info" style="position:absolute; top:0px; left:0px; width:350px; height:1px; visibility: hidden; z-index:10"></div>
 	<h2>Continente {$continent}</h2>
-	<table cellspacing="0" cellpadding="0" width="100%">
+	<table collspacing="0" collpadding="0" width="100%">
 		<tr>
-			<td valign="top" width="78%">
+			<td valign="top">
 				<table class="vis" style="border: 1px solid #804000; margin-bottom:5px;" align="center">
 					<tr class="nowrap">
 						<th valign="top">Padrão:</th>
@@ -53,7 +53,7 @@
 											{else}
 												<!-- <td id="tile_{$x}_{$y}" class="{$cl_map->getClass($x,$y)}" style="background-color:rgb({$cl_map->getColor($x,$y)})"><a href="game.php?village={$village.id}&amp;screen=info_village&amp;id={$cl_map->getvillageid($x,$y)}"><img src="{$config.cdn}/graphic/{$map_base}/{$cl_map->graphic($x,$y)}" onmouseover="showinfo({$cl_map->getvillageid($x,$y)}, {$user.id}, {$village.x}, {$village.y});" onmouseout="hideinfo();" alt="" /></a></td>	 -->
 
-												<td id="tile_{$x}_{$y}" class="{$cl_map->getClass($x,$y)}"><a href="game.php?village={$village.id}&amp;screen=info_village&amp;id={$cl_map->getvillageid($x,$y)}"><img src="{$config.cdn}/graphic/{$map_base}/{$cl_map->graphic($x,$y)}" onmouseover="showinfo({$cl_map->getvillageid($x,$y)}, {$user.id}, {$village.x}, {$village.y});" onmouseout="hideinfo();" alt="" /></a></td>
+												<td id="tile_{$x}_{$y}" class="{$cl_map->getClass($x,$y)}" style="background-color:rgb({$cl_map->getColor($x,$y)})"><a href="game.php?village={$village.id}&amp;screen=info_village&amp;id={$cl_map->getvillageid($x,$y)}"><img src="{$config.cdn}/graphic/{$map_base}/{$cl_map->graphic($x,$y)}" onmouseover="showinfo({$cl_map->getvillageid($x,$y)}, {$user.id}, {$village.x}, {$village.y});" onmouseout="hideinfo();" alt="" /></a></td>
 
 
 
@@ -78,7 +78,7 @@
 					</tr>
 				</table>
 			</td>
-			<td valign="top" width="22%" align="center">
+			<td valign="top" width="100%" align="center">
 				<table class="vis" style="border: 1px solid #804000; margin-bottom:5px;" width="">
 					<tr><th colspan="3">Centralizar mapa</th></tr>
 					<tr>
@@ -113,18 +113,16 @@
 					</tr>
 				</table>
 				<table class="vis" style="border: 1px solid #804000; margin-top:5px;" align="center" width="100%">
-					<tr><th colspan="2">Jogadores marcados:</th></tr>
-					{if empty($marked)}
-					<tr><td colspan="2" style="color:#5b3a1f; text-align:center;">Sem marcações.</td></tr>
-					{else}
+					<tr><th colspan="4">Jogadores marcados:</th></tr>
+					<tr class="nowrap">
 						{foreach from=$marked item=mark}
-						<tr class="nowrap">
-							<th style="background-image: none; width:15px; padding:0px; background-color:rgb({$mark.color})"></th>
-							<td style="white-space:normal;"><a href="game.php?village={$village.id}&amp;screen=info_player&amp;id={$mark.marked_id}">{$mark.name}</a></td>
-						</tr>
+						{if $mark.i%2==0}</tr><tr>{/if}
+						<th style="background-image: none; width:15px; padding:0px; background-color:rgb({$mark.color})"></th>
+						<td style="white-space:normal;"><a href="game.php?village={$village.id}&amp;screen=info_player&amp;id={$mark.marked_id}">{$mark.name}</a></td>
 						{/foreach}
-					{/if}
-					<tr><th colspan="2"><a href="game.php?village={$village.id}&amp;screen=map&amp;page=mark">&raquo; Gerenciar marcações</a></th></tr>
+						{if empty($marked)}<tr><td colspan="8"><div class="error">Nenhuma marcação encontrada!</div></td></tr>{/if}
+					</tr>
+					<tr><th colspan="8"><a href="game.php?village={$village.id}&amp;screen=map&amp;page=mark">&raquo; Gerenciar marcações</a></th></tr>
 				</table>
 			</td>
 		</tr>
