@@ -3,7 +3,7 @@ if($ACTIONS_MASSIVKEY_HIGHAAASSDD != "sdjahsdkJHSAJDKHALKJHSADJHSADNsjdhaksjdlhJ
 	exit;
 }
 
-if(!isset($_GET['site']) || isset($_GET['site']) || is_numeric($_GET['site']) || $_GET['site'] < 1){
+if(!isset($_GET['site']) || !is_numeric($_GET['site']) || $_GET['site'] < 1){
 	$site = 1;
 }else{
 	$site = (int)parse($_GET['site']);
@@ -20,12 +20,11 @@ while($row = $db->fetch($result)){
     $ranks[$row['id']]['best_points'] = format_number($row['best_points']);
     $ranks[$row['id']]['villages'] = $row['villages'];
     $ranks[$row['id']]['members'] = $row['members'];
-    $ranks[$row['id']]['cuttrought_members'] = round($row['points']/$row['members']);
-    $ranks[$row['id']]['cuttrought_villages'] = round($row['points']/$row['villages']);
+	$ranks[$row['id']]['mark'] = "";
+	$ranks[$row['id']]['cuttrought_members'] = ((int)$row['members'] > 0) ? round($row['points']/$row['members']) : 0;
+	$ranks[$row['id']]['cuttrought_villages'] = ((int)$row['villages'] > 0) ? round($row['points']/$row['villages']) : 0;
 	if($row['id'] == $user['ally']){
 		$ranks[$row['id']]['mark'] = " class=\"lit\"";
-	}elseif($row['ally'] == $user['ally'] && $user['ally'] != '-1'){
-		$ranks[$row['id']]['mark'] = " class=\"lit2\"";
 	}
 }
 $tpl->assign("ranks", $ranks);
