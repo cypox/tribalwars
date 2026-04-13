@@ -19,7 +19,6 @@
 		</tr>
 		{if count($reports)>0}
 			{foreach from=$reports key=key item=array}
-				{$ida}
 				<tr>
 					<td><input name="id_{$reports.$key.id}" type="checkbox" /> <a href="game.php?village={$village.id}&amp;screen=report&amp;mode={$mode}&amp;view={$reports.$key.id}">{$reports.$key.title}</a> {if $reports.$key.is_new=="1"}(neu){/if}</td>
 					<td>{$reports.$key.date}</td>
