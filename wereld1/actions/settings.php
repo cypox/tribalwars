@@ -3,6 +3,8 @@ if($ACTIONS_MASSIVKEY_HIGHAAASSDD != "sdjahsdkJHSAJDKHALKJHSADJHSADNsjdhaksjdlhJ
 	exit;
 }
 
+$error = "";
+
 if(!isset($_GET['mode'])) $_GET['mode'] = "profile";
 
 $links = array(
@@ -12,6 +14,7 @@ $links = array(
 	"Acessos" => "logins",
 	"Trocar senha" => "change_passwd"
 );
+$allow_mods = array_values($links);
 if(in_array($_GET['mode'], $links)){
 	include("settings_".$_GET['mode'].".php");
 }
