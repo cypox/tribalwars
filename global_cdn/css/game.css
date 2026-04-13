@@ -7,7 +7,7 @@
 }
 #tooltip {
 	background-color: #F1EBDD;
-	background-image: url(graphic/background/content.jpg);
+	background-image: url('../graphic/background/content.jpg');
 	border: 2px solid #804000;
 	max-width: 300px;
 	min-width: 75px;
@@ -75,7 +75,7 @@
 body {
 	font: 12px Georgia, "Times New Roman", Times, serif;
 	background-color: #d2c09e;
-	background-image:url('graphic/layout/bg-tile.jpg');
+	background-image:url('../graphic/layout/bg-tile.jpg');
 }
 a:link	{ font-weight:bold; color: #804000; text-decoration:none; }
 a:visited	{ font-weight:bold; color: #804000; text-decoration:none; }
