@@ -21,6 +21,7 @@ while($row = $db->fetch($result)){
     $ranks[$row['id']]['username'] = entparse($row['username']);
     $ranks[$row['id']]['rang'] = $row['killed_units_def_rank'];
     $ranks[$row['id']]['killed_units'] = format_number($row['killed_units_def']);
+	$ranks[$row['id']]['mark'] = "";
 	if($row['id'] == $village['userid']){
 		$ranks[$row['id']]['mark'] = " class=\"lit\"";
 	}
