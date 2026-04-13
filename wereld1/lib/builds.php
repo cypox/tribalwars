@@ -353,7 +353,6 @@ function getGraphic($building, $stage){
     $graphic .= ".png";
    break;
    case "smith":
-    $get = $db->query("SELECT * FROM `research` WHERE `villageid`='".(int)$_GET['village']."'");
     if($stage < 5) {
      $graphic .= "smith1";
     }elseif($stage >= 5 && $stage < 15){
@@ -361,11 +360,7 @@ function getGraphic($building, $stage){
     }elseif($stage >= 15){
      $graphic .= "smith3";
     }
-		if(($db->numRows($get) > 0) && !$noOverview){
-     $graphic .= ".gif";
-    }else{
-     $graphic .= ".png";
-    }
+	 $graphic .= ".png";
    break;
    case "storage":
     if($stage < 10) {
