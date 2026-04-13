@@ -91,9 +91,9 @@
 				</table>
 				<table cellspacing="0" cellpadding="0" class="map_container minimap_container" style="border: 1px solid #804000; border-spacing: 0; margin: 0 auto;" width="77%">
 					<tr>
-						<td align="center" width="28"><a href="game.php?village={$village.id}&amp;screen=map&amp;x={$map.x-50}&amp;y={$map.y+50}"><img src="{$config.cdn}/graphic/map/map_nw.png" style="z-index:1; position:relative;" alt="North west" /></a></td>
+						<td align="center" width="28"><a href="game.php?village={$village.id}&amp;screen=map&amp;x={$map.x-50}&amp;y={$map.y+50}" title="North west">NW</a></td>
 						<td align="center"><a href="game.php?village={$village.id}&amp;screen=map&amp;x={$map.x}&amp;y={$map.y+50}"><img src="{$config.cdn}/graphic/map/map_n.png" style="z-index:1; position:relative;" alt="North" /></a></td>
-						<td align="center" width="28"><a href="game.php?village={$village.id}&amp;screen=map&amp;x={$map.x+50}&amp;y={$map.y+50}"><img src="{$config.cdn}/graphic/map/map_ne.png" style="z-index:1; position:relative;" alt="North east" /></a></td>
+						<td align="center" width="28"><a href="game.php?village={$village.id}&amp;screen=map&amp;x={$map.x+50}&amp;y={$map.y+50}" title="North east">NE</a></td>
 					</tr>
 					<tr>
 						<td align="center" valign="middle" style="vertical-align:middle;" width="28"><a href="game.php?village={$village.id}&amp;screen=map&amp;x={$map.x-50}&amp;y={$map.y}"><img src="{$config.cdn}/graphic/map/map_w.png" style="z-index:1; position:relative;" alt="West" /></a></td>
@@ -106,9 +106,9 @@
 						<td align="center" valign="middle" style="vertical-align:middle;" width="28"><a href="game.php?village={$village.id}&amp;screen=map&amp;x={$map.x+50}&amp;y={$map.y}"><img src="{$config.cdn}/graphic/map/map_e.png" style="z-index:1; position:relative;" alt="East" /></a></td>
 					</tr>
 					<tr>
-						<td align="center" width="28"><a href="game.php?village={$village.id}&amp;screen=map&amp;x={$map.x-50}&amp;y={$map.y-50}"><img src="{$config.cdn}/graphic/map/map_sw.png" style="z-index:1; position:relative;" alt="South west" /></a></td>
+						<td align="center" width="28"><a href="game.php?village={$village.id}&amp;screen=map&amp;x={$map.x-50}&amp;y={$map.y-50}" title="South west">SW</a></td>
 						<td align="center"><a href="game.php?village={$village.id}&amp;screen=map&amp;x={$map.x}&amp;y={$map.y-50}"><img src="{$config.cdn}/graphic/map/map_s.png" style="z-index:1; position:relative;" alt="South" /></a></td>
-						<td align="center" width="28"><a href="game.php?village={$village.id}&amp;screen=map&amp;x={$map.x+50}&amp;y={$map.y-50}"><img src="{$config.cdn}/graphic/map/map_se.png" style="z-index:1; position:relative;" alt="South east" /></a></td>
+						<td align="center" width="28"><a href="game.php?village={$village.id}&amp;screen=map&amp;x={$map.x+50}&amp;y={$map.y-50}" title="South east">SE</a></td>
 					</tr>
 				</table>
 				{literal}
