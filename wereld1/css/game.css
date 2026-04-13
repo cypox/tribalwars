@@ -688,6 +688,7 @@ input#upload { background: none url('../graphic/layout/vis_bg.jpg') bottom repea
 .pic_wall_l{ position:absolute; z-index:4; left:260px; top:280px; }
 
 table.map td	{ font-size:8pt; text-align:center; vertical-align:middle; padding:0; }
+table.map td img { display:block; }
 
 td.space-left { border-left:1px solid #375b10; }
 td.space-bottom { border-bottom:1px solid #375b10; }

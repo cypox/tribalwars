@@ -126,10 +126,6 @@ class map{
 		}
 		if(empty($this->villages[$x][$y]['userid'])){
 			$graphic = "gras".rand(1,4);
-		}elseif($this->villages[$x][$y]['userid'] == "-1"){
-			$graphic .= "_left";
-		}else{
-			$graphic .= "";
 		}
 		$graphic .= ".png";
 		return $graphic;
