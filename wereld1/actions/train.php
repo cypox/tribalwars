@@ -46,8 +46,9 @@ if($village['barracks'] > 0){
 		$query = $db->query("SELECT * FROM `villages` WHERE `userid`='".$village['userid']."' AND `barracks`>0");
 		$current_amount = 1;
 		$i = 0;
-		$persite = $_GET['persite'] > 0 ? (int)$_GET['persite'] : 50;
-		$_GET['site'] = $_GET['site'] > 0 ? (int)$_GET['site'] : 1; 
+		$persite = (isset($_GET['persite']) && (int)$_GET['persite'] > 0) ? (int)$_GET['persite'] : 50;
+		$_GET['site'] = (isset($_GET['site']) && (int)$_GET['site'] > 0) ? (int)$_GET['site'] : 1;
+		$_GET['persite'] = $persite;
 		while($row = $db->fetch($query)){
 			if($i >= (($persite*$_GET['site'])-50)){
 				if($current_amount <= $persite)
