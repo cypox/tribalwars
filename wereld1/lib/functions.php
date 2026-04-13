@@ -63,6 +63,9 @@ function parse($str){
     return $str;
 }
 function entparse($str){
+	if($str === null){
+		$str = '';
+	}
 	$str = urldecode($str);
 	$str = stripslashes($str);
 	$str = htmlspecialchars($str);
