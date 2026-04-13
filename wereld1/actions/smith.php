@@ -16,15 +16,16 @@ if($show_build){
 		}
 	}
 
-	$is_researches;
+	$is_researches = false;
 	$result = $db->query("SELECT COUNT(`id`) AS `count_research`,`id`,`research`,`end_time` FROM `research` WHERE `villageid`='".$village['id']."' GROUP BY `id`,`research`,`end_time`");
 	$research = $db->fetch($result);
-	if($research['count_research'] == "1"){
-		$is_researches = true;
-	}else{
-	    $is_researches = false;
+	if(!is_array($research)){
+		$research = array('id' => 0, 'research' => '', 'end_time' => 0, 'count_research' => 0);
 	}
-	$research['reminder_time'] = $research['end_time']-time();
+	if(isset($research['count_research']) && $research['count_research'] == "1"){
+		$is_researches = true;
+	}
+	$research['reminder_time'] = isset($research['end_time']) ? ($research['end_time']-time()) : 0;
 
 	if(isset($_GET['action']) && $_GET['action'] == "research_all"){
 		if(isset($_GET['h']) && $session['hkey'] == $_GET['h']){
