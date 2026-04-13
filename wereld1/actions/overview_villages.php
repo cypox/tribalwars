@@ -31,6 +31,7 @@ if($user['villages_mode'] == "prod"){
 		$villages[$row['id']]['max_storage'] = $arr_maxstorage[$row['storage']];
 		$villages[$row['id']]['max_farm'] = $arr_farm[$row['farm']];
 		$villages[$row['id']]['attacks'] = $row['attacks'];
+		$villages[$row['id']]['recruits'] = array();
 		if($row['id'] == $_GET['village']){ $villages[$row['id']]['lit'] = 'lit '; }
 
 		if(!empty($row['main_build'])){
