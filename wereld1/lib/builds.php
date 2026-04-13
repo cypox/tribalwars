@@ -265,6 +265,7 @@ function getGraphic($building, $stage){
   global $db, $config;
 
   $hour = date("H");
+	$noOverview = false;
   $graphic = 'graphic/';
   if($_GET['screen'] != "overview"){
    $noOverview = true;

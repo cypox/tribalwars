@@ -28,7 +28,7 @@ function knight_item_move() {
 var timeDiff = null;
 var timeStart = null;
 
-function overviewShowLevel(){labels=overviewGetLabels();for(var i=0,len=labels.length;i<len;i++){var label=labels[i];if(!label)continue;label.css('display','inline')}}
+function overviewShowLevel(){labels=overviewGetLabels();for(var i=0,len=labels.length;i<len;i++){var label=labels[i];if(!label)continue;label.style.display='inline'}}
 
 function openrename(mid){
 	if($("#inp_"+mid).css('display') === 'none'){
