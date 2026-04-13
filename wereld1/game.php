@@ -127,21 +127,29 @@ if($village['exist_village'] == 0 || $village['userid'] != $user['id']){
 
 require_once(PATH."/lib/events.php");
 $processed_build_events = false;
+$processed_research_events = false;
 $now = time();
-$result = $db->query("SELECT `id`,`event_type`,`event_id` FROM `events` WHERE `villageid`='".$village['id']."' AND `event_type` IN ('build','destroy') AND `event_time` <= '".$now."' ORDER BY `event_time` ASC");
+$result = $db->query("SELECT `id`,`event_type`,`event_id` FROM `events` WHERE `villageid`='".$village['id']."' AND `event_type` IN ('build','destroy','research') AND `event_time` <= '".$now."' ORDER BY `event_time` ASC");
 while($event_row = $db->fetch($result)){
 	if($event_row['event_type'] == 'build'){
 		check_builds($event_row['event_id']);
-	}else{
+		$processed_build_events = true;
+	}elseif($event_row['event_type'] == 'destroy'){
 		check_destroy($event_row['event_id']);
+		$processed_build_events = true;
+	}else{
+		check_tech($event_row['event_id']);
+		$processed_research_events = true;
 	}
 	$db->query("DELETE FROM `events` WHERE `id`='".$event_row['id']."'");
-	$processed_build_events = true;
 }
 if($processed_build_events){
 	reload_village_points($village['id']);
 	reload_player_points($user['id']);
 	reload_player_rangs();
+	$village = $villagedatas->getbyid($_GET['village'], $villagesql);
+}
+if($processed_research_events){
 	$village = $villagedatas->getbyid($_GET['village'], $villagesql);
 }
 

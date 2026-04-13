@@ -361,7 +361,7 @@ function getGraphic($building, $stage){
     }elseif($stage >= 15){
      $graphic .= "smith3";
     }
-    if(($db->numRows($get) > 0) && !$noOverview && $graphics_old){
+		if(($db->numRows($get) > 0) && !$noOverview){
      $graphic .= ".gif";
     }else{
      $graphic .= ".png";
