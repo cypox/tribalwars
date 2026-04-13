@@ -2,6 +2,7 @@
 if($ACTIONS_MASSIVKEY_HIGHAAASSDD != "sdjahsdkJHSAJDKHALKJHSADJHSADNsjdhaksjdlhJNASDKL"){
 	exit();
 }
+$error = "";
 if(isset($_GET['action']) && $_GET['action'] == "accept_multi"){
 	if($session['hkey'] != $_GET['h']){
 		$error = "Desculpe, más o código de segurança está invalido!";
