@@ -98,7 +98,7 @@
 					<tr>
 						<td align="center"><a href="game.php?village={$village.id}&amp;screen=map&amp;x={$map.x-50}&amp;y={$map.y}"><img src="{$config.cdn}/graphic/map/map_w.png" style="z-index:1; position:relative;" alt="Oeste" /></a></td>
 						<td style="padding: 0" align="center">
-							<div id="minimap" style="overflow:hidden; position:relative; padding:0px; width:267px; height:267px; cursor:crosshair;">
+							<div id="minimap" data-cx="{$map.x}" data-cy="{$map.y}" data-village="{$village.id}" style="overflow:hidden; position:relative; padding:0px; width:267px; height:267px; cursor:crosshair;">
 								<img id="minimap_img" src="minimap.php?x={$map.x}&amp;y={$map.y}&amp;id={$village.id}&amp;hkey={$hkey}&amp;t={$smarty.now}" style="position:absolute; z-index:1; left:0; top:0; width:267px; height:267px;" alt="Minimapa" />
 								<div id="minimap_viewport" style="border: 1px solid #fff; position: absolute; z-index: 10; width: 45px; height: 45px; left: 110px; top: 110px;"></div>
 							</div>
@@ -111,6 +111,7 @@
 						<td align="center"><a href="game.php?village={$village.id}&amp;screen=map&amp;x={$map.x+50}&amp;y={$map.y-50}"><img src="{$config.cdn}/graphic/map/map_se.png" style="z-index:1; position:relative;" alt="Sudeste" /></a></td>
 					</tr>
 				</table>
+				{literal}
 				<script type="text/javascript">
 				(function() {
 					var minimap = document.getElementById('minimap');
@@ -120,18 +121,20 @@
 						var rect = minimap.getBoundingClientRect();
 						var px = (e.clientX || 0) - rect.left;
 						var py = (e.clientY || 0) - rect.top;
-						var cx = {$map.x};
-						var cy = {$map.y};
+						var cx = parseInt(minimap.getAttribute('data-cx'), 10) || 0;
+						var cy = parseInt(minimap.getAttribute('data-cy'), 10) || 0;
+						var villageId = minimap.getAttribute('data-village') || 0;
 						var nx = cx + Math.round((px - 133) / 5);
 						var ny = cy - Math.round((py - 133) / 5);
 						if (nx < 0) nx = 0;
 						if (ny < 0) ny = 0;
 						if (nx > 999) nx = 999;
 						if (ny > 999) ny = 999;
-						window.location.href = 'game.php?village={$village.id}&screen=map&x=' + nx + '&y=' + ny;
+						window.location.href = 'game.php?village=' + villageId + '&screen=map&x=' + nx + '&y=' + ny;
 					};
 				})();
 				</script>
+				{/literal}
 				<table class="vis" style="border: 1px solid #804000; margin-top:5px;" align="center" width="100%">
 					<tr><th colspan="4">Jogadores marcados:</th></tr>
 					<tr class="nowrap">
