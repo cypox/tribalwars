@@ -125,7 +125,7 @@ if(isset($_GET['action']) && $_GET['action'] == 'all_back'){
 		header("LOCATION: game.php?village=".$village['id']."&screen=place&mode=units");
 	}
 }
-if(isset($_GET['try']) || $_GET['try'] == "back"){
+if(isset($_GET['try']) && $_GET['try'] == "back"){
 	$unit_id = parse(@$_GET['unit_id']);
 	if($village['id'] == $unit_id){
         exit("Desculpe, más você não pode devolver as topas da mesma aldeia!");
