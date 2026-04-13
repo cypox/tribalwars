@@ -58,10 +58,10 @@
 		</td>
 		<td valign="top">
 			<table class="vis" width="100%" style="margin-bottom:3px; border-spacing:1px;">
-				<tr><th colspan="2">Produção</th></tr>
-				<tr><td width="90"><img src="{$config.cdn}/graphic/holz.png" title="Madeira" alt="" /> Madeira</td><td><strong>{$wood_prod_overview}</strong> por {if $speed > 10}Minuto{else}Hora{/if}</td></tr>
-				<tr><td><img src="{$config.cdn}/graphic/lehm.png" title="Argila" alt="" /> Argila</td><td><strong>{$stone_prod_overview}</strong> por {if $speed > 10}Minuto{else}Hora{/if}</td></tr>
-				<tr><td><img src="{$config.cdn}/graphic/eisen.png" title="Ferro" alt="" /> Ferro</td><td><strong>{$iron_prod_overview}</strong> por {if $speed > 10}Minuto{else}Hora{/if}</td></tr>
+				<tr><th colspan="2">Production</th></tr>
+				<tr><td width="90"><img src="{$config.cdn}/graphic/holz.png" title="Wood" alt="" /> Wood</td><td><strong>{$wood_prod_overview}</strong> per {if $speed > 10}minute{else}hour{/if}</td></tr>
+				<tr><td><img src="{$config.cdn}/graphic/lehm.png" title="Clay" alt="" /> Clay</td><td><strong>{$stone_prod_overview}</strong> per {if $speed > 10}minute{else}hour{/if}</td></tr>
+				<tr><td><img src="{$config.cdn}/graphic/eisen.png" title="Iron" alt="" /> Iron</td><td><strong>{$iron_prod_overview}</strong> per {if $speed > 10}minute{else}hour{/if}</td></tr>
 			</table>
 			<table class="vis" width="100%" style="margin-bottom:3px; border-spacing:1px;">
 				<tr><th>Unidades</th></tr>

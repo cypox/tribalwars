@@ -133,18 +133,18 @@
 
 		<td valign="top" width="100%">
 	<table class="vis" width="100%" style="margin-bottom:3px; border-spacing:1px;">
-		<tr><th colspan="3">{$lang->get("productie")}</th></tr>
+		<tr><th colspan="3">Production</th></tr>
 		<tr>
-			<th width="10"><img src="{$config.cdn}/graphic/holz.png" title="Madeira" alt="" /></th>
-			<td><b>{$wood_prod_overview}</b> {$lang->get("per")} {if $config.speed > 10}{$lang->get("minuut")}{else}{$lang->get("uur")}{/if} <b></td>
+			<th width="10"><img src="{$config.cdn}/graphic/holz.png" title="Wood" alt="" /></th>
+			<td>Wood: <b>{$wood_prod_overview}</b> per {if $config.speed > 10}minute{else}hour{/if}</td>
 		</tr>
 		<tr>
-			<th><img src="{$config.cdn}/graphic/lehm.png" title="Argila" alt="" /></th>
-			<td><b>{$stone_prod_overview}</b> {$lang->get("per")} {if $config.speed > 10}{$lang->get("minuut")}{else}{$lang->get("uur")}{/if} <b></td>
+			<th><img src="{$config.cdn}/graphic/lehm.png" title="Clay" alt="" /></th>
+			<td>Clay: <b>{$stone_prod_overview}</b> per {if $config.speed > 10}minute{else}hour{/if}</td>
 		</tr>
 		<tr>
-			<th><img src="{$config.cdn}/graphic/eisen.png" title="Ferro" alt="" /></th>
-			<td><b>{$iron_prod_overview}</b> {$lang->get("per")} {if $config.speed > 10}{$lang->get("minuut")}{else}{$lang->get("uur")}{/if} <b></td>
+			<th><img src="{$config.cdn}/graphic/eisen.png" title="Iron" alt="" /></th>
+			<td>Iron: <b>{$iron_prod_overview}</b> per {if $config.speed > 10}minute{else}hour{/if}</td>
 		</tr>
 	</table>
 
