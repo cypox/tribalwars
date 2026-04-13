@@ -3,7 +3,11 @@ if($ACTIONS_MASSIVKEY_HIGHAAASSDD!='sdjahsdkJHSAJDKHALKJHSADJHSADNsjdhaksjdlhJNA
 	exit;
 }
 
-$inputs = array();
+$inputs = array(
+	'to' => '',
+	'subject' => '',
+	'text' => ''
+);
 
 $preview = false;
 
