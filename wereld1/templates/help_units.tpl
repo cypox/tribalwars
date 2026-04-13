@@ -3,9 +3,9 @@
 <table class="vis" width="100%">
 <tr align="right"><th align="left">Einheit</th><th><img src="graphic/holz.png" title="Holz" alt="" /></th><th><img src="graphic/lehm.png" title="Lehm" alt="" /></th><th><img src="graphic/eisen.png" title="Eisen" alt="" /></th><th><img src="graphic/face.png" title="Arbeiter" alt="" /></th>
 <th><img src="graphic/unit/att.png" alt="Angriffsstärke" /></th>
-<th><img src="graphic/unit/def.png" alt="Verteidigung allgemein" /></th>
-<th><img src="graphic/unit/def_cav.png" alt="Verteidigung Kavallerie" /></th>
-<th><img src="graphic/unit/def_archer.png" alt="Verteidigung Bogenschütze" /></th>
+<th><img src="graphic/unit/def.png" alt="Defenses allgemein" /></th>
+<th><img src="graphic/unit/def_cav.png" alt="Defenses Kavallerie" /></th>
+<th><img src="graphic/unit/def_archer.png" alt="Defenses Bogenschütze" /></th>
 <th><img src="graphic/unit/speed.png" alt="Geschwindigkeit" /></th>
 <th><img src="graphic/unit/booty.png" alt="Beute" /></th>
 </tr>

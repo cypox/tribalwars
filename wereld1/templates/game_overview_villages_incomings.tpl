@@ -1,10 +1,10 @@
 <table class="vis" width="100%">
 	<tr>
-		<th width="100">Comando</th>
-		<th width="200">Destino</th>
-		<th width="150">Jogador</th>
-		<th width="160">Chegada</th>
-		<th width="80">Chegada em</th>
+		<th width="100">Command</th>
+		<th width="200">Destination</th>
+		<th width="150">Player</th>
+		<th width="160">Arrival</th>
+		<th width="80">Arrival in</th>
 	</tr>
 	{foreach from=$other_movements item=array}
 	<tr style="white-space:nowrap" class="nowrap row_a">

@@ -52,8 +52,8 @@
 	<tr>
 		<th>Ofereço</th>
 		<th>Busco</th>
-		<th>Jogador</th>
-		<th>Duração</th>
+		<th>Player</th>
+		<th>Duration</th>
 		<th>Rasão</th>
 		<th>Ofertas</th>
 	</tr>

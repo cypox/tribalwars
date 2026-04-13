@@ -16,7 +16,7 @@ function memoEdit() {ldelim}
 	<table class="vis" width="100%">
 	<tr><td colspan="2">{$memo.output}</td></tr>
 	<tr><td colspan="2"><textarea name="memo" cols="80" rows="25">{$memo.output_textarea}</textarea></td></tr>
-	<tr><td><input type="submit" value="Speichern" /></td><td align="right"></td></tr>
+	<tr><td><input type="submit" value="Save" /></td><td align="right"></td></tr>
 	</table>
 	</form>
 </noscript>
@@ -27,7 +27,7 @@ function memoEdit() {ldelim}
 <table class="vis" width="100%">
 <tr id="show_row"><td colspan="2">{$memo.output}</td></tr>
 <tr id="edit_row" style="display:none"><td colspan="2"><textarea name="memo" cols="80" rows="25">{$memo.output_textarea}</textarea></td></tr>
-<tr id="submit_row" style="display:none"><td><input type="submit" value="Speichern" /></td><td align="right"></td></tr>
+<tr id="submit_row" style="display:none"><td><input type="submit" value="Save" /></td><td align="right"></td></tr>
 </table>
 </form>
 </div>

@@ -10,7 +10,7 @@
 <b>&raquo; Você ordenou os seguintes recrutamentos:</b>
 <table class="vis" width="50%">
 	<tr>
-		<th>Aldeia</th>
+		<th>Village</th>
 		<th>Unidade</th>
 	</tr>
 	{foreach from=$recruited key=current_village item=single_recruit}
@@ -230,9 +230,9 @@
 <table class="vis" width="100%">
 	<tr>
 		<th width="150">Unidade</th>
-		<th width="120">Duração</th>
+		<th width="120">Duration</th>
 		<th width="150">Término</th>
-		<th width="100">Cancelar *</th>
+		<th width="100">Cancel *</th>
 	</tr>
 		{foreach from=$recruit_units key=key item=value}
     <tr {if $recruit_units.$key.lit}class="lit"{/if}>
@@ -264,7 +264,7 @@
 			<th><center><img src="{$config.cdn}/graphic/icons/stone.png"></center></th>
 			<th><center><img src="{$config.cdn}/graphic/icons/iron.png"></center></th>
 			<th><center><img src="{$config.cdn}/graphic/icons/farm.png"></center></th>
-			<th class="nowrap" width="120">Duração</th>
+			<th class="nowrap" width="120">Duration</th>
 			<th class="nowrap">Recrutar</th>
 			<th>Recrutar</th>
 		</tr>
@@ -348,7 +348,7 @@
 <form method="post" action="game.php?village={$village.id}&amp;screen=train&amp;mode=mass&amp;group=0&amp;action=train_mass&amp;h={$hkey}&amp;site={$get.site}" id="mass_train_form">
 	<table class="vis" width="100%">
 		<tr>
-			<th width="100%">Aldeias ({php} echo count($this->_tpl_vars['villages']); {/php})</th>
+			<th width="100%">Villages ({php} echo count($this->_tpl_vars['villages']); {/php})</th>
 			<th><center><img src="{$config.cdn}/graphic/icons/wood.png"></center></th>
 			<th><center><img src="{$config.cdn}/graphic/icons/stone.png"></center></th>
 			<th><center><img src="{$config.cdn}/graphic/icons/iron.png"></center></th>

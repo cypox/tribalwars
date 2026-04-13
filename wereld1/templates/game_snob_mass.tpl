@@ -10,7 +10,7 @@ function max_gold(){ldelim}
 </script>
 <table width="100%" class="vis" cellpadding="1" cellspacing="2" border="0">
 	<tr align="left">
-		<th>Aldeia</th>
+		<th>Village</th>
 		<th>Recursos</th>
 		<th>Quantidade</th>
 	</tr>

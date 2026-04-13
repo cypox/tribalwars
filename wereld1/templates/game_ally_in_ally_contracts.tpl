@@ -28,7 +28,7 @@
 </table><br />
 <h3>Adicionar relação diplomática</h3>
 <form method="post" action="/game.php?village={$village.id}&screen=ally&mode=contracts&action=add_contract&h=835c">
-	Tribo (TAG):
+	Tribe (TAG):
 	<input type="text" name="tag" maxlength="6" />
 	<select name="type">
 		<option value="partner">Aliado</option>

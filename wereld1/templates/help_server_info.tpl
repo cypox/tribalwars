@@ -7,7 +7,7 @@
 
 <tr><td>Moral</td><td>{if $conf->get('moral_activ')}aktiv{else}inaktiv{/if}</td></tr>
 <tr><td>Angriffschutz für Neueinsteiger</td><td>{$conf->get('noob_protection')} Minuten</td></tr>
-<tr><td>Abbruchzeit für Angriffe</td><td>{$conf->get('cancel_movement')} Minuten </td></tr>
+<tr><td>Abbruchzeit für Attacks</td><td>{$conf->get('cancel_movement')} Minuten </td></tr>
 <tr><td>Abbruchzeit für Händler</td><td>{$conf->get('cancel_dealers')} Minuten </td></tr>
 
 <tr><td>Zustimmungsverlust durch AG</td><td>{$conf->get('agreement_min')} bis {$conf->get('agreement_max')}</td></tr>

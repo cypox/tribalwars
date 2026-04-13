@@ -47,7 +47,7 @@
 				<th width="150">Einheit</th>
 				<th colspan="4" width="120">Bedarf</th>
 				<th width="130">Zeit (hh:mm:ss)</th>
-				<th>Im Dorf/Insgesamt</th>
+				<th>Im Village/Insgesamt</th>
 				<th>Rekrutieren</th>
 			</tr>
 

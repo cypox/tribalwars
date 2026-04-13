@@ -1,6 +1,6 @@
 <table class="vis" style="width:100%">
 	<tr>
-		<th>Aldeias</th>
+		<th>Villages</th>
 		<th>&nbsp;</th>
 		{foreach from=$unit item=name key=dbname}<th width="35"><div align="center"><img src="{$config.cdn}/graphic/unit/{$dbname}.png" title="{$name}" /></div></th>{/foreach}
 		<th>Ação</th>
@@ -27,7 +27,7 @@
 		<td align="center">{$all_units.$arr_id.$dbname}</td>
 			{/if}
 		{/foreach}
-		<td rowspan="2"><a href="game.php?village={$village.id}&amp;screen=place&amp;mode=units">Tropas</a></td>
+		<td rowspan="2"><a href="game.php?village={$village.id}&amp;screen=place&amp;mode=units">Troops</a></td>
 	</tr>
 	<tr class="{$villages.$arr_id.lit}units_away">
 		<td>Fora</td>

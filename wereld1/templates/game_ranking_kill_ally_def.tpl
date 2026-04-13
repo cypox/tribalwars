@@ -1,8 +1,8 @@
 <table class="vis">
 <tr>
-	<th width="60">Rang</th>
+	<th width="60">Rank</th>
 	<th width="160">Name</th>
-	<th width="100">Besiegt</th>
+	<th width="100">Defeated opponents</th>
 </tr>
 	{foreach from=$ranks item=item key=id}
 		<tr {$ranks.$id.mark}>
@@ -16,8 +16,8 @@
 <table class="vis" width="100%"><tr>
 {if $site!=1}
 	<td align="center">
-	<a href="game.php?village={$village.id}&amp;screen=ranking&amp;mode=kill_ally&amp;type={$type}&amp;site={$site-1}">&lt;&lt;&lt; nach oben</a></td>
+	<a href="game.php?village={$village.id}&amp;screen=ranking&amp;mode=kill_ally&amp;type={$type}&amp;site={$site-1}">&lt;&lt;&lt; up</a></td>
 {/if}
 <td align="center">
-<a href="game.php?village={$village.id}&amp;screen=ranking&amp;mode=kill_ally&amp;type={$type}&amp;site={$site+1}">nach unten &gt;&gt;&gt;</a></td>
+<a href="game.php?village={$village.id}&amp;screen=ranking&amp;mode=kill_ally&amp;type={$type}&amp;site={$site+1}">down &gt;&gt;&gt;</a></td>
 </tr></table>

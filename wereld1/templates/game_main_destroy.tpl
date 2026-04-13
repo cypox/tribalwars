@@ -1,7 +1,7 @@
 <table class="vis" width="100%">
 	<tr>
 		<th style="width:100px;" colspan="2">Edifício</th>
-		<th style="width:250px;">Duração</th>
+		<th style="width:250px;">Duration</th>
 		<th style="width:250px;">Construir</th>
 	</tr>
 {foreach from=$builds item=dbname key=id}

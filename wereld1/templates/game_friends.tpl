@@ -6,7 +6,7 @@
 <h3 style="margin-bottom:5px;">Meus amigos</h3> 
 <table class="vis" style="width:300px;">
 	<tr>
-		<th width="150" colspan="2">Jogador</th>
+		<th width="150" colspan="2">Player</th>
 		<th width="100">Status</th> 
 	</tr>
 	{foreach from=$friends.activ item=friend}
@@ -26,7 +26,7 @@
 <h3>Sent requests</h3> 
 <table class="vis" style="width:300px;">
 	<tr>
-		<th>Jogador</th>
+		<th>Player</th>
 		<th>Ação</th>
 	</tr>
 	{foreach from=$friends.pending item=friend}
@@ -41,7 +41,7 @@
 <h3>Incoming requests</h3> 
 <table class="vis" style="width:300px;">
 	<tr>
-		<th>Jogador</th>
+		<th>Player</th>
 		<th colspan="2">Ação</th>
 	</tr>
 	{foreach from=$friends.request item=friend}

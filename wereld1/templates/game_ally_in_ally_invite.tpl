@@ -7,7 +7,7 @@
 				<tr>
 					<td><a href="game.php?village={$village.id}&amp;screen=info_player&amp;id={$arr.to_userid}">{$arr.to_username}</a></td>
 					<td>{$arr.time}</td>
-					<td><a href="game.php?village={$village.id}&amp;screen=ally&amp;mode=invite&amp;action=cancel_invitation&amp;id={$id}&amp;h={$hkey}">Cancelar</a></td>
+					<td><a href="game.php?village={$village.id}&amp;screen=ally&amp;mode=invite&amp;action=cancel_invitation&amp;id={$id}&amp;h={$hkey}">Cancel</a></td>
 				</tr>
 				{/foreach}
 			</table>

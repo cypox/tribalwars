@@ -1,10 +1,10 @@
 <table>
 	<tr>
 		<td>
-			<img src="{$config.cdn}/graphic/big_buildings/storage1.png" title="Speicher" alt="" />
+			<img src="{$config.cdn}/graphic/big_buildings/storage1.png" title="Warehouse" alt="" />
 		</td>
 		<td>
-			<h2>Speicher ({$village.storage|stage})</h2>
+			<h2>Warehouse ({$village.storage|stage})</h2>
 			{$description}
 		</td>
 	</tr>
@@ -13,10 +13,10 @@
 <table>
 	<tr>
 		<td width="220">
-			Aktuelle Speicherkapazit�t:
+			Current storage capacity:
 		</td>
 		<td>
-			<b>{$store_datas.storage_size}</b> Einheiten je Rohstoff
+			<b>{$store_datas.storage_size}</b> units per resource
 		</td>
 	</tr>
 	
@@ -26,10 +26,10 @@
 
 		<tr>
 			<td>
-				Speicherkapazit�t bei ({$village.storage+1|stage})
+				Storage capacity at ({$village.storage+1|stage})
 			</td>
 			<td>
-				<b>{$store_datas.storage_size_next}</b> Einheiten je Rohstoff
+				<b>{$store_datas.storage_size_next}</b> units per resource
 			</td>
 		</tr>
 
@@ -41,10 +41,10 @@
 <table class="vis">
 	<tr>
 		<th width="150">
-			Speicher voll
+			Warehouse full
 		</th>
 		<th>
-			Zeit (hh:mm:ss)
+			Time (hh:mm:ss)
 		</th>
 	</tr>
 	{if $wood_sec!=0}
@@ -61,7 +61,7 @@
 		<tr>
 			<td width="250">
 				<img src="{$config.cdn}/graphic/holz.png" title="Holz" alt="" />
-				Armazém cheio
+				Warehouse full
 			</td>
 			<td class="error">
 				0:00:00
@@ -82,7 +82,7 @@
 		<tr>
 			<td width="250">
 				<img src="{$config.cdn}/graphic/lehm.png" title="Lehm" alt="" />
-				Armazém cheio
+				Warehouse full
 			</td>
 			<td class="error">
 				0:00:00
@@ -103,7 +103,7 @@
 		<tr>
 			<td width="250">
 				<img src="{$config.cdn}/graphic/eisen.png" title="Eisen" alt="" />
-				Armazém cheio
+				Warehouse full
 			</td>
 			<td class="error">
 				0:00:00

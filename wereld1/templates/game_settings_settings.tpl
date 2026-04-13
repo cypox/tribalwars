@@ -1,31 +1,31 @@
-<h3>Einstellungen</h3>
+<h3>Game options</h3>
 
 <form action="game.php?village={$village.id}&amp;screen=settings&amp;mode=settings&amp;action=change_settings&amp;h={$hkey}" method="post">
 
 <table class="vis">
-<tr><th colspan="2">Einstellungen</th></tr>
+<tr><th colspan="2">General settings</th></tr>
 
 <tr>
-<td>Fensterbreite:</td>
-<td><input type="text" name="screen_width" size="4" maxlength="4" value="{$user.window_width}" /> Bildpunkte</td>
+<td>Window width:</td>
+<td><input type="text" name="screen_width" size="4" maxlength="4" value="{$user.window_width}" /> Pixels</td>
 </tr>
 
 <tr>
-<td>Schnellleiste:</td>
-<td><input type="checkbox" name="show_toolbar"  {if $user.show_toolbar==1}checked{/if}/>Schnellleiste anzeigen</td>
+<td>Quick bar:</td>
+<td><input type="checkbox" name="show_toolbar"  {if $user.show_toolbar==1}checked{/if}/>Show quick bar</td>
 </tr>
 
 <tr>
-<td>Neue Menüleiste:</td>
+<td>Main menu:</td>
 
-<td><input type="checkbox" name="dyn_menu"  {if $user.dyn_menu==1}checked{/if}/>Neue Menüleiste anzeigen</td>
+<td><input type="checkbox" name="dyn_menu"  {if $user.dyn_menu==1}checked{/if}/>Main menu is always visible</td>
 </tr>
 <tr>
-<td>Wintergrafik:</td>
-<td><input type="checkbox" name="winter" {if $w == 'winter'}checked{/if}/>Wintergrafik aktivieren</td>
+<td>Night graphics:</td>
+<td><input type="checkbox" name="winter" {if $w == 'winter'}checked{/if}/>Enable night graphics</td>
 </tr>
 <tr>
-<td>Kartengröße:</td>
+<td>Map size:</td>
 <td><select name="map_size">
 <option label="7x7" value="7" {if $user.map_size==7}selected="selected"{/if}>7x7</option>
 <option label="9x9" value="9" {if $user.map_size==9}selected="selected"{/if}>9x9</option>
@@ -36,11 +36,11 @@
 </tr>
 
 <tr>
-<td>Bauwarteschlange:</td>
-<td><input type="checkbox" name="confirm_queue" {if $user.confirm_queue==1}checked{/if} />Sicherheitsabfrage, bevor neue Aufträge eingestellt werden</td>
+<td>Construction queue:</td>
+<td><input type="checkbox" name="confirm_queue" {if $user.confirm_queue==1}checked{/if} />Confirm before adding new orders</td>
 </tr>
 
 
-<tr><td colspan="2"><input type="submit" value="OK" /></td></tr>
+<tr><td colspan="2"><input type="submit" value="Save changes" /></td></tr>
 </table><br />
 </form>

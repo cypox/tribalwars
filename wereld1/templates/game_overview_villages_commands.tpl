@@ -1,8 +1,8 @@
 <table class="vis" width="100%">
 	<tr>
-		<th>Comando</th>
-		<th>Origem</th>
-		<th>Chegada em</th>
+		<th>Command</th>
+		<th>Origin</th>
+		<th>Arrival in</th>
 		{foreach from=$cl_units->get_array("dbname") item=dbname key=name}<th width="30"><div align="center"><img src="{$config.cdn}/graphic/unit/{$dbname}.png" title="{$name}" /></div></th>{/foreach}
 	</tr>
 	{foreach from=$my_movements item=array}

@@ -291,7 +291,7 @@ FA;
 
 
 </td>
-<td align="right"><a href="game.php?overview=old&screen=overview&village={php}echo $_GET[village];{/php}">zur klassischen Dorf&uuml;bersicht</a></td>
+<td align="right"><a href="game.php?overview=old&screen=overview&village={php}echo $_GET[village];{/php}">zur klassischen Village&uuml;bersicht</a></td>
 	
 </tr></tbody></table>
 
@@ -1052,7 +1052,7 @@ FA;
 {/php}
 {php} require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'format_date', 'game_overview.tpl', 53, false),array('modifier', 'format_time', 'game_overview.tpl', 55, false),)), $this); {/php}
-<h2>Dorf&uuml;bersicht {php} echo $this->_tpl_vars['village']['name']; {/php}
+<h2>Village&uuml;bersicht {php} echo $this->_tpl_vars['village']['name']; {/php}
 </h2>
 <table>
 	<tr>
@@ -1074,7 +1074,7 @@ smarty_core_load_plugins(array('plugins' => array(array('modifier', 'format_date
 					</tr>
 				{php} endforeach; endif; unset($_from); {/php}
 			</table>
-<br><a href="game.php?overview=new&screen=overview&village={php}echo $_GET[village];{/php}">zur graphischen Dorf&uuml;bersicht</a>
+<br><a href="game.php?overview=new&screen=overview&village={php}echo $_GET[village];{/php}">zur graphischen Village&uuml;bersicht</a>
 		</td>
 		<td valign="top">
 			<table class="vis" width="100%">

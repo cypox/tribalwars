@@ -1,7 +1,7 @@
 <table width="100%" align="center">
 	<tr>
 		<td>
-			<h2>Einstellungen</h2>
+			<h2>Settings</h2>
 			{if !empty($error)}
 				<h2 class="error">{$error}</h2>
 			{/if}

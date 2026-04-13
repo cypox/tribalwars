@@ -42,7 +42,7 @@
 			<td valign="top">
 				<table class="vis">
 					<tr>
-						<th colspan="3">Destino</th>
+						<th colspan="3">Destination</th>
 					</tr>
 					<tr>
 						<td>
@@ -72,12 +72,12 @@
 <h3>Seus transportes</h3>
 <table class="vis" width="100%">
 	<tr>
-		<th width="180">Destino</th>
+		<th width="180">Destination</th>
 		<th width="80">Recursos</th>
 		<th width="65">Mercadores</th>
-		<th width="70">Duração</th>
-		<th width="100">Chegada</th>
-		<th width="70">Chegada em</th>
+		<th width="70">Duration</th>
+		<th width="100">Arrival</th>
+		<th width="70">Arrival in</th>
 	</tr>
 	{foreach from=$own item=arr key=id}
 	<tr>
@@ -88,7 +88,7 @@
 		<td>{$arr.arrival}</td>
 		<td>{if $arr.arrival_in_sek < 0}{$arr.arrival_in+1}{else}<span class="timer">{$arr.arrival_in}</span>{/if}</td>
 		{if $arr.can_cancel}
-		<td><a href="game.php?village={$village.id}&amp;screen=market&amp;mode=send&amp;action=cancel&amp;id={$id}&amp;h={$hkey}">Cancelar</a></td>
+		<td><a href="game.php?village={$village.id}&amp;screen=market&amp;mode=send&amp;action=cancel&amp;id={$id}&amp;h={$hkey}">Cancel</a></td>
 		{/if}
 	</tr>
 	{/foreach}
@@ -98,12 +98,12 @@
 <h3>Transportes em chegada</h3>
 <table class="vis" width="100%">
 	<tr>
-		<th width="160">Origem</th>
+		<th width="160">Origin</th>
 		{if $others_see_ress}
 		<th width="80">Mercadores</th>
 		{/if}
-		<th width="100">Chegada</th>
-		<th width="70">Chegada em</th>
+		<th width="100">Arrival</th>
+		<th width="70">Arrival in</th>
 	</tr>
 		{foreach from=$others item=arr key=id}
 			<tr>

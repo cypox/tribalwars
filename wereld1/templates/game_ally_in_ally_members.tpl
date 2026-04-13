@@ -1,10 +1,10 @@
 <form action="game.php?village={$village.id}&amp;screen=ally&amp;mode=members&amp;action=mod&amp;h={$hkey}" method="post">
 	<table class="vis" width="100%" style="border:1px solid #804000; margin-bottom:5px;">
 		<tr>
-			<th width="280">Jogador</th>
+			<th width="280">Player</th>
 			<th width="40">Rank</th>
 			<th width="80">Pontos</th>
-			<th width="40">Aldeias</th>
+			<th width="40">Villages</th>
 			{if $user.ally_lead == 1}
 			<th><div align="center"><span class="icon ally founder" alt="Fundador" title="Fundador"></span></div></th>
 			<th><div align="center"><span class="icon ally lead" alt="Administrador" title="Administrador"></span></div></th>

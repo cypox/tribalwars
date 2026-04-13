@@ -1,5 +1,5 @@
 {if !empty($error)}<div class="error">{$error}</div>{/if}
-<h3>Distribuir ordens</h3>
+<h3>Give commands</h3>
 <form name="units" action="game.php?village={$village.id}&amp;screen=place&amp;try=confirm" method="post">
 	<table>
 		<tr>
@@ -15,24 +15,24 @@
 				</td>
 			{/foreach}
 		</tr>
-		<tr><td><a id="selectAllUnits" href="javascript:void(0);" onclick="selectAllUnits(true)">&raquo; Todas tropas</a></td></tr>
+		<tr><td><a id="selectAllUnits" href="javascript:void(0);" onclick="selectAllUnits(true)">&raquo; All troops</a></td></tr>
 	</table>
 	<table>
 		<tr>
 			<td>X: <input type="text" name="x" tabindex="13" id="inputx" value="{$values.x|default:''}" size="5" maxlength="3" onkeyup="xProcess('inputx', 'inputy')" /></td>
 			<td>Y: <input type="text" name="y" tabindex="14" id="inputy" value="{$values.y|default:''}" size="5" maxlength="3" /></td>
-			<td rowspan="2"><input class="button red" name="attack" type="submit" value="ATACAR" /></td>
-			<td rowspan="2"><input class="button green" name="support" type="submit" value="APOIAR" /></td>
+			<td rowspan="2"><input class="button red" name="attack" type="submit" value="ATTACK" /></td>
+			<td rowspan="2"><input class="button green" name="support" type="submit" value="SUPPORT" /></td>
 		</tr>
 	</table>
 </form>
 {if count($my_movements)>0}
-<h3>Seus comandos</h3>
+<h3>Your commands</h3>
 <table class="vis">
 	<tr>
-		<th width="250">Comando</th>
-		<th width="160">Chegada</th>
-		<th width="80">Chegada em</th>
+		<th width="250">Command</th>
+		<th width="160">Arrival</th>
+		<th width="80">Arrival in</th>
 	</tr>
 	{foreach from=$my_movements item=array}
 	    <tr>
@@ -48,19 +48,19 @@
 	        	<td><span class="timer">{$array.arrival_in|format_time}</span></td>
 	        {/if}
 	        {if $array.can_cancel}
-	        	<td><a href="game.php?village={$village.id}&amp;screen=place&amp;action=cancel&amp;id={$array.id}&amp;h={$hkey}">cancelar</a></td>
+	        	<td><a href="game.php?village={$village.id}&amp;screen=place&amp;action=cancel&amp;id={$array.id}&amp;h={$hkey}">cancel</a></td>
 	        {/if}
 	    </tr>
 	{/foreach}
 </table>
 {/if}
 {if count($other_movements)>0}
-<h3>Tropas em chegada</h3>
+<h3>Incoming troops</h3>
 <table class="vis">
 	<tr>
-		<th width="250">Origem</th>
-		<th width="160">Chegada</th>
-		<th width="80">Chegada em</th>
+		<th width="250">Origin</th>
+		<th width="160">Arrival</th>
+		<th width="80">Arrival in</th>
 	</tr>
 	{foreach from=$other_movements item=array}
 	    <tr>

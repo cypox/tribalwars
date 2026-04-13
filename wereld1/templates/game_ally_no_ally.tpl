@@ -1,4 +1,4 @@
-<h2>Tribo</h2>
+<h2>Tribe</h2>
 {if !empty($error)}
 	<div class="error">{$error}</div>
 {/if}

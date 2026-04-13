@@ -46,7 +46,7 @@
 				<th width="150">Einheit</th>
 				<th colspan="4" width="120">Bedarf</th>
 				<th width="130">Zeit (hh:mm:ss)</th>
-				<th>Im Dorf/Insgesamt</th>
+				<th>Im Village/Insgesamt</th>
 				<th>Rekrutieren</th>
 			</tr>
 
@@ -83,11 +83,11 @@
 		</table>
 		<br />
 		{if $ag_style==0}
-			<h4>Anzahl Adelsgeschlechter, die in diesem Dorf noch erzeugt werden k�nnen</h4>
+			<h4>Anzahl Adelsgeschlechter, die in diesem Village noch erzeugt werden k�nnen</h4>
 			<table class="vis">
 			<tr><td>Stufe Adelshof:</td><td>{$village.snob}</td></tr>
-			<tr><td>- von diesem Dorf beherrschte D�rfer:</td><td>{$village.control_villages}</td></tr>
-			<tr><td>- vorhandene und gerade erzeugte AGs in diesem Dorf:</td><td>{$village.recruited_snobs}</td></tr>
+			<tr><td>- von diesem Village beherrschte D�rfer:</td><td>{$village.control_villages}</td></tr>
+			<tr><td>- vorhandene und gerade erzeugte AGs in diesem Village:</td><td>{$village.recruited_snobs}</td></tr>
 			<tr><th>Es k�nnen noch erzeugt werden:</th><th>{$village.snob-$village.control_villages-$village.recruited_snobs}</th></tr>
 			</table>
 		{elseif $ag_style==1}
@@ -143,7 +143,7 @@
 		{/if}
 		{if $ag_style != 2 && count($snobed_villages) > 0}
 		<table class="vis" width="300">
-			<tr><th>Von diesem Dorf beherschte D�rfer</th></tr>
+			<tr><th>Von diesem Village beherschte D�rfer</th></tr>
 			{foreach from=$snobed_villages key=id item=villagename}
 			<tr><td><a href="game.php?village={$village.id}&amp;screen=info_village&amp;id={$id}">{$villagename}</a></td></tr>
 			{/foreach}

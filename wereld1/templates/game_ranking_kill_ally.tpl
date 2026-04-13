@@ -1,4 +1,4 @@
-<h3>Besiegte Gegner</h3>
+<h3>Defeated opponents (tribe)</h3>
 
 <table class="vis">
 	<tr>

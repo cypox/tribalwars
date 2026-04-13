@@ -6,7 +6,7 @@
 <li>Rohstofflieferungen</li>
 <li>Gegenseitige Plünderungen</li>
 
-<li>Koordinierte Angriffe beider Accounts</li>
+<li>Koordinierte Attacks beider Accounts</li>
 <li>Schicken von Unterstützungstruppen</li>
 </ul>
 {if empty($user.vacation_name)}

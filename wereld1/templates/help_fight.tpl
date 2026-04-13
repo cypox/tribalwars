@@ -7,7 +7,7 @@
 
 
 <h4>Späher</h4>
-<p>Späher sind geeignet um Informationen über gegnerische Dörfer zu erlangen. Späher werden im Stall produziert. Um einen Gegner auszuspähen, greift man ihn mit einer beliebigen Anzahl an Spähern an. Während des Kampfes werden die Späher des Angreifers versuchen, Informationen über das gegnerische Dorf zu ermitteln. Die Späher des Gegners werden dabei versuchen, die angreifenden Späher gefangen zu nehmen. Dabei gilt: Je größer das Verhältnis zwischen verteidigenden und angreifenden Spähern, desto mehr Späher werden gefangen genommen.</p>
+<p>Späher sind geeignet um Informationen über gegnerische Dörfer zu erlangen. Späher werden im Stall produziert. Um einen Gegner auszuspähen, greift man ihn mit einer beliebigen Anzahl an Spähern an. Während des Kampfes werden die Späher des Angreifers versuchen, Informationen über das gegnerische Village zu ermitteln. Die Späher des Gegners werden dabei versuchen, die angreifenden Späher gefangen zu nehmen. Dabei gilt: Je größer das Verhältnis zwischen verteidigenden und angreifenden Spähern, desto mehr Späher werden gefangen genommen.</p>
 <p>Hat der Angreifer halb so viele Späher wie der Verteidiger sind Chancen, dass Späher überleben ca. 50 %. Es würden aber nur noch sehr wenige Späher überleben. Hat der Angreifer genauso so viele Späher sind die Chancen, dass Späher überleben ca. 100% und es überleben etwa zwei Drittel der Späher des Angreifers. Der Verteidiger kann keine Späher verlieren.</p>
 
 

@@ -1,1 +1,1 @@
-Spieler im Stamm. Original DS Bericht kommt noch :p
+Spieler im Tribe. Original DS Bericht kommt noch :p

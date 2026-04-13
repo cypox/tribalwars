@@ -1,10 +1,10 @@
 <table>
 	<tr>
     	<td>
-			<img src="{$config.cdn}/graphic/big_buildings/place1.png" title="Lehmgrube" alt="" />
+			<img src="{$config.cdn}/graphic/big_buildings/place1.png" title="Rally point" alt="" />
 		</td>   
 		<td>
-			<h2>Versammlungsplatz ({$village.place|stage})</h2>
+			<h2>Rally point ({$village.place|stage})</h2>
 			{$description}
 		</td>
 	</tr>

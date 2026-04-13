@@ -1,6 +1,6 @@
 <table class="vis">
-<tr><th width="60">Rang</th><th width="180">Name</th><th width="100">Stamm</th>
-<th width="60">Punkte</th><th>Dörfer</th><th>Punkteschnitt Dorf</th></tr>
+<tr><th width="60">Rank</th><th width="180">Name</th><th width="100">Tribe</th>
+<th width="60">Points</th><th>Villages</th><th>Points per village</th></tr>
 	{foreach from=$ranks item=item key=id}
 		<tr {$ranks.$id.mark}>
 			<td>{$ranks.$id.rang}</td>
@@ -16,8 +16,8 @@
 <table class="vis" width="100%"><tr>
 {if $site!=1}
 	<td align="center">
-	<a href="game.php?village={$village.id}&amp;screen=ranking&amp;mode=player&amp;site={$site-1}">&lt;&lt;&lt; nach oben</a></td>
+	<a href="game.php?village={$village.id}&amp;screen=ranking&amp;mode=player&amp;site={$site-1}">&lt;&lt;&lt; up</a></td>
 {/if}
 <td align="center">
-<a href="game.php?village={$village.id}&amp;screen=ranking&amp;mode=player&amp;site={$site+1}">nach unten &gt;&gt;&gt;</a></td>
+<a href="game.php?village={$village.id}&amp;screen=ranking&amp;mode=player&amp;site={$site+1}">down &gt;&gt;&gt;</a></td>
 </tr></table>

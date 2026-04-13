@@ -1,7 +1,7 @@
 <table width="100%" align="center">
 	<tr>
 		<td>
-			<h2>Rangliste</h2>
+			<h2>Ranking</h2>
 				<table>
 					<tr>
 						<td valign="top" width="120">

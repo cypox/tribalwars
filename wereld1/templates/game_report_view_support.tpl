@@ -6,7 +6,7 @@
 		<b>unbekannt</b>
 	{/if}
 </th></tr> 
-<tr><td>Dorf:</td><td><a href="game.php?village={$village.id}&amp;screen=info_village&amp;id={$report.fromto_village}">{$report.from_villagename} ({$report.from_x}|{$report.from_y})</a></th></tr> 
+<tr><td>Village:</td><td><a href="game.php?village={$village.id}&amp;screen=info_village&amp;id={$report.fromto_village}">{$report.from_villagename} ({$report.from_x}|{$report.from_y})</a></th></tr> 
  
 <tr><th>An:</th><th>
 	{if !empty($report.to_username)}
@@ -14,7 +14,7 @@
 	{else}
 		<b>unbekannt</b>
 	{/if}
-<tr><td>Dorf:</td><td><a href="game.php?village={$village.id}&amp;screen=info_village&amp;id={$report.to_village}">{$report.to_villagename} ({$report.to_x}|{$report.to_y})</a></th></tr> 
+<tr><td>Village:</td><td><a href="game.php?village={$village.id}&amp;screen=info_village&amp;id={$report.to_village}">{$report.to_villagename} ({$report.to_x}|{$report.to_y})</a></th></tr> 
  
 </table><br> 
            

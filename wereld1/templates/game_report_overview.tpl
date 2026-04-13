@@ -14,19 +14,19 @@
 			</tr>
 		{/if}
 		<tr>
-			<th>Betreff</th>
-			<th width="140">Empfangen</th>
+			<th>Subject</th>
+			<th width="140">Received</th>
 		</tr>
 		{if count($reports)>0}
 			{foreach from=$reports key=key item=array}
 				<tr>
-					<td><input name="id_{$reports.$key.id}" type="checkbox" /> <a href="game.php?village={$village.id}&amp;screen=report&amp;mode={$mode}&amp;view={$reports.$key.id}">{$reports.$key.title}</a> {if $reports.$key.is_new=="1"}(neu){/if}</td>
+					<td><input name="id_{$reports.$key.id}" type="checkbox" /> <a href="game.php?village={$village.id}&amp;screen=report&amp;mode={$mode}&amp;view={$reports.$key.id}">{$reports.$key.title}</a> {if $reports.$key.is_new=="1"}(new){/if}</td>
 					<td>{$reports.$key.date}</td>
 				</tr>
 			{/foreach}
 			<tr>
-				<th><input name="all" type="checkbox" onclick="selectAll(this.form, this.checked)" /> alle ausw�hlen </th>
-				<th><div align="center"><input type="submit" value="L�schen" name="del" /></div></th>
+				<th><input name="all" type="checkbox" onclick="selectAll(this.form, this.checked)" /> select all</th>
+				<th><div align="center"><input type="submit" value="Delete" name="del" /></div></th>
 			</tr>
 		{/if}
 	</table>

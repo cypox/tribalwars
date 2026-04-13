@@ -1,4 +1,4 @@
-<h2 style="margin-bottom:5px;">Jogador: {$info_user.username}</h2>
+<h2 style="margin-bottom:5px;">Player: {$info_user.username}</h2>
 <table width="100%">
 	<tr>
 		<td valign="top" width="45%">
@@ -8,7 +8,7 @@
 				<tr><td>Ranking:</td><td>{$info_user.rang}</td></tr>
 				<tr><td width="155">Oponentes derrotados:</td><td>{$info_user.killed_units_altogether|format_number} P (Rank: <B>{$info_user.killed_units_altogether_rank}</b>)</td></tr>
 				{if !empty($info_ally.short)}
-				<tr><td>Tribo:</td><td><a href="game.php?village={$village.id}&amp;screen=info_ally&amp;id={$info_ally.id}">{$info_ally.short}</a></td></tr>
+				<tr><td>Tribe:</td><td><a href="game.php?village={$village.id}&amp;screen=info_ally&amp;id={$info_ally.id}">{$info_ally.short}</a></td></tr>
 				{/if}
 				<tr><td colspan="2"><a href="game.php?village={$village.id}&amp;screen=mail&amp;mode=new&amp;player={$info_user.id}">&raquo; Enviar mensagem</a></td></tr>
 			{if $can_invite}
@@ -20,7 +20,7 @@
 			</table><br />
 			<table class="vis" width="100%" style="border:1px solid #804000;">
 				<tr>
-					<th width="180" {if $info_user.id == $user.id}colspan="2"{/if}>Aldeias</th>
+					<th width="180" {if $info_user.id == $user.id}colspan="2"{/if}>Villages</th>
 					<th width="80">Coordenada</th>
 					<th>Pontos</th>
 				</tr>

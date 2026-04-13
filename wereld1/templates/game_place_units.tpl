@@ -2,7 +2,7 @@
 	<div style="color:red; font-size:large">{$error}</div>
 {/if}
 
-<h3>Verteidigung</h3>
+<h3>Defenses</h3>
 
 <form action="game.php?village={$village.id}&amp;screen=place&amp;mode=units&amp;action=command_other&amp;h={$hkey}" method="post">
 
@@ -10,7 +10,7 @@
 <tr><th>Herkunft</th>{foreach from=$cl_units->get_array("dbname") item=dbname key=name}<th width="40"><img src="{$config.cdn}/graphic/unit/{$dbname}.png" title="{$name}" alt="" /></th>{/foreach}</tr>
 
 <tr>
-	<td>Aus diesem Dorf</td>
+	<td>Aus diesem Village</td>
 	{foreach from=$own_units item=num_units}{if $num_units>0}<td>{$num_units}</td>{else}<td class="hidden">0</td>{/if}{/foreach}
 </tr>
 
@@ -43,10 +43,10 @@
 
 {if count($outside_village_units) > 0}
 	<br style="clear:both;" />
-	<h3>Truppen in anderen Dörfern</h3>
+	<h3>Truppen in anderen Villagesn</h3>
 	
 	<table class="vis">
-	<tr><th width="320">Dorf</th>
+	<tr><th width="320">Village</th>
 	{foreach from=$cl_units->get_array("dbname") item=dbname key=name}<th width="40"><img src="{$config.cdn}/graphic/unit/{$dbname}.png" title="{$name}" alt="" /></th>{/foreach}
 	<th>Zurückrufen</th></tr>
 	

@@ -14,7 +14,7 @@
 			</form>
 			<table class="vis" width="100%" style="border:1px solid #804000;">
 				<tr><th>Debandar tribo</th></tr>
-				<tr><td><a href="javascript:ask('Willst du wirklich deinen Stamm aufl&ouml;sen?', 'game.php?village={$village.id}&amp;screen=ally&amp;mode=properties&amp;action=close&amp;h={$hkey}')">&raquo; debandar</a></td></tr>
+				<tr><td><a href="javascript:ask('Willst du wirklich deinen Tribe aufl&ouml;sen?', 'game.php?village={$village.id}&amp;screen=ally&amp;mode=properties&amp;action=close&amp;h={$hkey}')">&raquo; debandar</a></td></tr>
 			</table>
 		{/if}
 		</td>

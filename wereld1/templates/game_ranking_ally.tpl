@@ -1,6 +1,6 @@
 <table class="vis">
 <tr>
-	<th width="60">Rang</th><th width="60">Name</th><th width="120">Punkte der 40 besten Spieler</th><th width="60">Gesamtpunkte</th><th width="100">Mitglieder</th><th width="100">Punkteschnitt Spieler</th><th width="60">Dörfer</th><th width="100">Punkteschnitt Dorf</th>
+	<th width="60">Rank</th><th width="60">Name</th><th width="120">Points of top 40 players</th><th width="60">Total points</th><th width="100">Members</th><th width="100">Points per player</th><th width="60">Villages</th><th width="100">Points per village</th>
 </tr>
 	{foreach from=$ranks item=item key=id}
 		<tr {$ranks.$id.mark}>
@@ -19,8 +19,8 @@
 <table class="vis" width="100%"><tr>
 {if $site!=1}
 	<td align="center">
-	<a href="game.php?village={$village.id}&amp;screen=ranking&amp;mode=ally&amp;site={$site-1}">&lt;&lt;&lt; nach oben</a></td>
+	<a href="game.php?village={$village.id}&amp;screen=ranking&amp;mode=ally&amp;site={$site-1}">&lt;&lt;&lt; up</a></td>
 {/if}
 <td align="center">
-<a href="game.php?village={$village.id}&amp;screen=ranking&amp;mode=ally&amp;site={$site+1}">nach unten &gt;&gt;&gt;</a></td>
+<a href="game.php?village={$village.id}&amp;screen=ranking&amp;mode=ally&amp;site={$site+1}">down &gt;&gt;&gt;</a></td>
 </tr></table>

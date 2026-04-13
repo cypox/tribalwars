@@ -30,7 +30,7 @@
 <tr><th>Folgende Werte wurden berechnet</th><th>heute um {$time} Uhr</th></tr>
 <tr><td>Nachrichten verschickt:</td><td>{$mail} ({$mpp} pro Spieler)</td></tr>
 
-<tr><td>Punkte insgesamt:</td><td>{$points} ({$ppp} pro Spieler, {$ppv} pro Dorf)</td></tr>
+<tr><td>Punkte insgesamt:</td><td>{$points} ({$ppp} pro Spieler, {$ppv} pro Village)</td></tr>
 
 <tr><td>Rohstoffe insgesamt:</td><td><img src="/graphic/holz.png" title="Holz" alt="" />{$wood} <img src="/graphic/lehm.png" title="Lehm" alt="" />{$stone} <img src="/graphic/eisen.png" title="Eisen" alt="" />{$iron} </td></tr>
 
@@ -66,7 +66,7 @@
 </tr></table>
 </td></tr>
 
-<tr><td>Truppenschnitt pro Dorf:</td><td>
+<tr><td>Truppenschnitt pro Village:</td><td>
 <table><tr>
 <th width="45"><img src="/graphic/unit/unit_spear.png" title="Speerträger" alt="" /></th><th width="45"><img src="/graphic/unit/unit_sword.png" title="Schwertkämpfer" alt="" /></th><th width="45"><img src="/graphic/unit/unit_axe.png" title="Axtkämpfer" alt="" /></th><th width="45"><img src="/graphic/unit/unit_spy.png" title="Späher" alt="" /></th><th width="45"><img src="/graphic/unit/unit_light.png" title="Leichte Kavallerie" alt="" /></th><th width="45"><img src="/graphic/unit/unit_heavy.png" title="Schwere Kavallerie" alt="" /></th><th width="45"><img src="/graphic/unit/unit_ram.png" title="Rammbock" alt="" /></th><th width="45"><img src="/graphic/unit/unit_catapult.png" title="Katapult" alt="" /></th><th width="45"><img src="/graphic/unit/unit_snob.png" title="Adelsgeschlecht" alt="" /></th>
 </tr><tr>

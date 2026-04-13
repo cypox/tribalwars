@@ -1,11 +1,11 @@
 <table>
 	<tr>
 		<td>
-			<img src="{$config.cdn}/graphic/big_buildings/wood1.png" title="Holzfäller" alt="" />
+			<img src="{$config.cdn}/graphic/big_buildings/wood1.png" title="Timber camp" alt="" />
 		</td>
 		<td>
 			<h2>
-				Holzfäller ({$village.wood|stage})
+				Timber camp ({$village.wood|stage})
 			</h2>
 			{$description}
 		</td>
@@ -15,12 +15,12 @@
 <table class="vis">
 	<tr>
 		<td width="200">
-			<img src="{$config.cdn}/graphic/holz.png" title="Holz" alt="" />
-			Aktuelle Produktion
+			<img src="{$config.cdn}/graphic/holz.png" title="Wood" alt="" />
+			Current production
 		</td>
 		<td>
 			<b>{$wood_datas.wood_production}</b>
-			Einheiten pro Minute
+			Units per minute
 		</td>
 	</tr>
 
@@ -31,12 +31,12 @@
 
 		<tr>
 			<td>
-				<img src="{$config.cdn}/graphic/holz.png" title="Holz" alt="" />
-				Produktion bei ({$village.wood+1|stage})
+				<img src="{$config.cdn}/graphic/holz.png" title="Wood" alt="" />
+				Production at ({$village.wood+1|stage})
 			</td>
 
 			<td>
-  				<b>{$wood_datas.wood_production_next}</b> Einheiten pro Minute
+	 			<b>{$wood_datas.wood_production_next}</b> Units per minute
         	</td>
 		</tr>
     {/if}

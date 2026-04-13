@@ -9,7 +9,7 @@
 </head>
 
 <body >
-<table class="main" width="100%" align="center"><tr><td><h2>Neues Dorf erstellen</h2>
+<table class="main" width="100%" align="center"><tr><td><h2>Neues Village erstellen</h2>
 <p>Es wurde in der Konfiguration eingestellt, dass keine weiteren Dörfer erstellt werden können. Daher kannst du nicht mehr an der aktuellen Runde teilnehmen.<br /><br /><a href="./index.php">Zur Startseite</a></p>
 
 </td></tr></table>

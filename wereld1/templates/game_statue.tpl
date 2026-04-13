@@ -7,10 +7,10 @@
 <table>
 	<tr>
         <td>
-			<img src="{$config.cdn}/graphic/big_buildings/statue1.png" title="Lehmgrube" alt="" />
+			<img src="{$config.cdn}/graphic/big_buildings/statue1.png" title="Clay pit" alt="" />
 		</td>   
 		<td>
-			<h2>Estátua ({$village.statue|stage})</h2>
+			<h2>Statue ({$village.statue|stage})</h2>
 			{$description}
 	</td>
 </tr>
@@ -26,14 +26,14 @@
 	{else}
 	<td width="100">
 	{/if}
-	<a href="game.php?village={$village.id}&amp;screen=statue&amp;mode=main">Paladino</a>
+	<a href="game.php?village={$village.id}&amp;screen=statue&amp;mode=main">Paladin</a>
 	</td>
 	{if $mode=='inventory'}
 	<td class="selected" width="100">
 	{else}
 	<td width="100">
 	{/if}
-	<a href="game.php?village={$village.id}&amp;screen=statue&amp;mode=inventory">Sala de armas</a>
+	<a href="game.php?village={$village.id}&amp;screen=statue&amp;mode=inventory">Armory</a>
 	</td>
 	</tr>
 	</tbody>
@@ -42,7 +42,7 @@
 	{if $mode=="inventory"}
 <div style="width:840px;float:left;">
 	<div style="float:right;width:210px;padding-right:5px;">
-		<p>Items are effective only for units joined by a Paladin equipped with that particular item.s</p>
+		<p>Items are effective only for units joined by a paladin equipped with that particular item.</p>
 	</div>
 	<div style="float:left;position:relative;z-index:9996;width:605px;padding-left:2px;">
 		<div style="width:600px;height:430px;padding:0;margin-right:10px;z-index:9997">
@@ -69,7 +69,7 @@
 	{if count($knight_items->name)==$items_found}
 		<th>{$all_items_found_text}
 	{else}
-		<th colspan="3">Progresso para o próximo item:</th>
+		<th colspan="3">Progress to next item:</th>
 	</tr>
 	<tr>
 		<td>0%</td>
@@ -86,10 +86,10 @@
 	{if count($recruit_units)>0}
 	    <table class="vis">
 			<tr>
-				<th width="150">Trinamento</th>
-				<th width="120">Dura&ccedil;&atilde;o</th>
-				<th width="150">Conclus&atilde;o</th>
-				<th width="100">Cancelar *</th>
+				<th width="150">Training</th>
+				<th width="120">Duration</th>
+				<th width="150">Completion</th>
+				<th width="100">Cancel *</th>
 			</tr>
 
 			{foreach from=$recruit_units key=key item=value}
@@ -101,12 +101,12 @@
 					   	<td>{$recruit_units.$key.countdown|format_time}</td>
 					{/if}
 					<td>{$recruit_units.$key.time_finished|format_date}</td>
-					<td><a href="game.php?t=129107&amp;village={$village.id}&amp;screen={$dbname}&amp;action=cancel&amp;id={$key}&amp;h={$hkey}">Cancelar</a></td>
+					<td><a href="game.php?t=129107&amp;village={$village.id}&amp;screen={$dbname}&amp;action=cancel&amp;id={$key}&amp;h={$hkey}">Cancel</a></td>
 			    </tr>
 			{/foreach}
 
 		</table>
-		<div style="font-size: 7pt;">* (90% dos recursos ser&atilde;o devolvidos)</div>
+		<div style="font-size: 7pt;">* (90% of resources are refunded)</div>
 		<br />
 	{/if}
 
@@ -117,10 +117,10 @@
 	<form action="game.php?village={$village.id}&amp;screen={$dbname}&amp;action=train&amp;h={$hkey}" method="post" onsubmit="this.submit.disabled=true;">
 		<table class="vis">
 			<tr>
-				<th width="150">Unidade</th>
-				<th colspan="4" width="120">Custos</th>
-				<th width="130">Dura&ccedil;&atilde;o (hh:mm:ss)</th>
-				<th>Nomear paladino</th>
+				<th width="150">Unit</th>
+				<th colspan="4" width="120">Costs</th>
+				<th width="130">Duration (hh:mm:ss)</th>
+				<th>Name paladin</th>
 			</tr>
 
 			{foreach from=$units key=unit_dbname item=name}
@@ -145,7 +145,7 @@
 					{elseif $pala_exists}
 						<td class="inactive">{$lang->grab("statue", "pala_exists")}</td>
 					{else}
-						<td><a href="game.php?village={$village.id}&amp;screen={$dbname}&amp;action=train&amp;h={$hkey}">Nomear paladino</a></td>
+						<td><a href="game.php?village={$village.id}&amp;screen={$dbname}&amp;action=train&amp;h={$hkey}">Name paladin</a></td>
 					{/if}
 				</tr>
 			{/foreach}
@@ -168,7 +168,7 @@
 			<th>{$pala_doing}</th>
 		</tr>
 		{if $pala_moveable}
-		<tr><td><a href="game.php?village={$village.id}&amp;screen={$dbname}&amp;action=deploy">Mover para essa aldeia</a></td></tr>
+		<tr><td><a href="game.php?village={$village.id}&amp;screen={$dbname}&amp;action=deploy">Move to this village</a></td></tr>
 		{/if}
 		<tr>
 		</tr>
@@ -179,7 +179,7 @@
 <table class="vis">
 	<tr>
 		<td>
-			Nome: <input type="text" name="knights_name" value="{$knightname}" /> <input type="submit" value="Renomear" />
+			Name: <input type="text" name="knights_name" value="{$knightname}" /> <input type="submit" value="Rename" />
 		</td>
 	</tr>
 </table>

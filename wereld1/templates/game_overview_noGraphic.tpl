@@ -14,9 +14,9 @@
 			{if count($other_movements)>0}
 			<table class="vis" width="100%" style="margin-bottom:3px; border-spacing:1px;">
 				<tr>
-					<th width="250">Tropas chegando</th>
-					<th width="160">Chegada</th>
-					<th width="80">Chegada em</th>
+					<th width="250">Incoming troops</th>
+					<th width="160">Arrival</th>
+					<th width="80">Arrival in</th>
 				</tr>
 				{foreach from=$other_movements item=array}
 				    <tr>
@@ -34,9 +34,9 @@
 			{if count($my_movements)>0}
 			<table class="vis" width="100%" style="margin-bottom:3px; border-spacing:1px;">
 				<tr>
-					<th width="250">Seus comandos</th>
-					<th width="160">Chegada</th>
-					<th width="80">Chegada em</th>
+					<th width="250">Your commands</th>
+					<th width="160">Arrival</th>
+					<th width="80">Arrival in</th>
 				</tr>
 				{foreach from=$my_movements item=array}
 				    <tr>
@@ -48,13 +48,13 @@
 				        	<td><span class="timer">{$array.arrival_in|format_time}</span></td>
 				        {/if}
 				        {if $array.can_cancel}
-				        	<td><a href="game.php?village={$village.id}&amp;screen=place&amp;action=cancel&amp;id={$array.id}&amp;h={$hkey}">cancelar</a></td>
+				        	<td><a href="game.php?village={$village.id}&amp;screen=place&amp;action=cancel&amp;id={$array.id}&amp;h={$hkey}">cancel</a></td>
 				        {/if}
 				    </tr>
 				{/foreach}
 			</table>
 			{/if}<br />
-			<a href="game.php?village={$village.id}&amp;screen=overview&amp;action=set_visual&amp;visual=1&amp;h={$hkey}">&raquo; Visualização gráfica da aldeia</a>
+			<a href="game.php?village={$village.id}&amp;screen=overview&amp;action=set_visual&amp;visual=1&amp;h={$hkey}">&raquo; Graphical village overview</a>
 		</td>
 		<td valign="top">
 			<table class="vis" width="100%" style="margin-bottom:3px; border-spacing:1px;">
@@ -64,14 +64,14 @@
 				<tr><td><img src="{$config.cdn}/graphic/eisen.png" title="Iron" alt="" /> Iron</td><td><strong>{$iron_prod_overview}</strong> per {if $speed > 10}minute{else}hour{/if}</td></tr>
 			</table>
 			<table class="vis" width="100%" style="margin-bottom:3px; border-spacing:1px;">
-				<tr><th>Unidades</th></tr>
+				<tr><th>Units</th></tr>
                 {foreach from=$in_village_units item=num key=dbname}
                 	<tr><td><img src="{$config.cdn}/graphic/unit/{$dbname}.png"> <b>{$num}</b> {$cl_units->get_name($dbname)}</td></tr>
                 {/foreach}
 			</table><br />
 			{if $village.agreement != 100}
 			<table class="vis" width="100%" style="margin-bottom:3px; border-spacing:1px;">
-				<tr><th>Lealdade:</th><th>{$village.agreement}</th></tr>
+				<tr><th>Loyalty:</th><th>{$village.agreement}</th></tr>
 			</table>
 			{/if}
 		</td>

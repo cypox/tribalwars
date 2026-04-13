@@ -1,6 +1,6 @@
 <table class="vis" width="100%">
 	<tr>
-		<th>Aldeias</th>
+		<th>Villages</th>
 		<th>Pontos</th>
 		<th>Recursos</th>
 		<th>Armazém</th>
