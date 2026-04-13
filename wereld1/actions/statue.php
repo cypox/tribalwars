@@ -367,23 +367,17 @@ if ($show_build) {
 
 		// Wenn kein Fehler ist, dann Auftrag löschen:
 		if (empty($error)) {
-			// Warten bis auf das event nicht mehr Zugegriffen wird und dann holen, damit keine
-			// Einheiten mehr produziert werden:
-			while(true) {
-				// Schauen, ob auftrag noch exisitert:
-				$result = $db->query("SELECT Count(id) AS count from events where event_type='recruit' AND event_id='$g_id'");
-				$row = $db->Fetch($result);
-				if ($row['count']!=1) {
-					// Auftrag exisitert nicht mehr!
+			// Keep original recruit data for refund calculation even if event row is missing.
+			$recruit_row = $row;
+
+			// In strict-mode migration, orphan recruit rows may exist if event insert failed.
+			// Allow cancellation/refund in that case instead of forcing "already finished".
+			$result = $db->query("SELECT `id`,`cid` FROM `events` WHERE `event_type`='recruit' AND `event_id`='$g_id' LIMIT 1");
+			$event_row = $db->Fetch($result);
+			if(is_array($event_row) && isset($event_row['id'])){
+				$result = $db->query("UPDATE `events` SET `cid`='1' WHERE `id`='".$event_row['id']."' AND `cid`='0'");
+				if($db->affectedRows()!=1){
 					$error = "Auftrag bereits fertig gestellt.";
-					break;
-				}
-				$result = $db->query("UPDATE events SET cid='1' where event_type='recruit' AND event_id='$g_id' AND cid=0");
-				if ($db->affectedRows()==1) {
-					// Neu auslesen, vll haben sich Einheiten geändert
-					$result = $db->query("SELECT unit,villageid,num_finished,num_unit from recruit where id='$g_id'");
-					$row=$db->Fetch($result);
-					break;
 				}
 			}
 			if (empty($error)) {
@@ -392,10 +386,10 @@ if ($show_build) {
 				// Aus recruit löschen:
 				$db->query("DELETE from recruit where id='$g_id'");
 				// 90% der Ress wieder gut schreiben
-				$wood = round(($cl_units->get_woodprice($row['unit'])*($row['num_unit']-$row['num_finished']))*0.90);
-				$stone = round(($cl_units->get_stoneprice($row['unit'])*($row['num_unit']-$row['num_finished']))*0.90);
-				$iron = round(($cl_units->get_ironprice($row['unit'])*($row['num_unit']-$row['num_finished']))*0.90);
-				$bh = $cl_units->get_bhprice($row['unit'])*($row['num_unit']-$row['num_finished']);
+				$wood = round(($cl_units->get_woodprice($recruit_row['unit'])*($recruit_row['num_unit']-$recruit_row['num_finished']))*0.90);
+				$stone = round(($cl_units->get_stoneprice($recruit_row['unit'])*($recruit_row['num_unit']-$recruit_row['num_finished']))*0.90);
+				$iron = round(($cl_units->get_ironprice($recruit_row['unit'])*($recruit_row['num_unit']-$recruit_row['num_finished']))*0.90);
+				$bh = $cl_units->get_bhprice($recruit_row['unit'])*($recruit_row['num_unit']-$recruit_row['num_finished']);
 	
 				// Bauzeiten in rekruit neu laden:
 				$old_time=time();
