@@ -62,13 +62,13 @@
 					<td>{$units_in_village.$unit_dbname}/{$units_all.$unit_dbname}</td>
 
 					{$cl_units->check_needed($unit_dbname,$village)}
-					{if $cl_units->last_error==not_tec}
+					{if $cl_units->last_error=='not_tec'}
 					    <td class="inactive">Einheit noch nicht erforscht</td>
-					{elseif $cl_units->last_error==not_needed}
+					{elseif $cl_units->last_error=='not_needed'}
 					    <td class="inactive">Geb�udevorraussetzungen nicht erf�llt</td>
-					{elseif $cl_units->last_error==not_enough_ress}
+					{elseif $cl_units->last_error=='not_enough_ress'}
 					    <td class="inactive">Nicht gen�gend Rohstoffe vorhanden</td>
-					{elseif $cl_units->last_error==not_enough_bh}
+					{elseif $cl_units->last_error=='not_enough_bh'}
 					    <td class="inactive">Zu wenig Bauernh�fe um zus�tzliche Soldaten zu versorgen</td>
 					{else}
 						<td><input name="{$unit_dbname}" type="text" size="5" maxlength="5" id="input_{$unit_dbname}" /> <a href="javascript:void(0);" onclick="insertUnit($('#input_{$unit_dbname}'), {$cl_units->last_error})">(max. {$cl_units->last_error})</a></td>

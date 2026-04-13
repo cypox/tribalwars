@@ -99,7 +99,7 @@ if($show_build){
             case "to_many_bh" :	$error = "Desculpe, más a fazenda não pode sustentar mais habitantes!";	break;
 		}
 	}
-    if(isset($_GET['action']) || $_GET['action'] == "cancel" || isset($_GET['id'])){
+	if(isset($_GET['action']) && $_GET['action'] == "cancel" && isset($_GET['id'])){
         if($session['hkey'] != $_GET['h']){
             $error = "Desculpe, más o código de segurança está invalido!";
         }
