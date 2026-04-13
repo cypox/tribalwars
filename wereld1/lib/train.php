@@ -4,6 +4,7 @@ class train{
 	var $Units;
 	var $cl_units;
 	var $db;
+	var $arr_farm = array();
 	var $recruited = array();
 
 	function __construct(){
@@ -58,7 +59,7 @@ class train{
 		if($reload)
 			header("LOCATION: game.php?village=".$cur_vil_info['id']."&screen=".$_GET['screen']."");
 		if(empty($check))
-			$check = $cl_units->last_error;
+			$check = $this->cl_units->last_error;
 		switch($check){
 			case "not_tec" :	$error = "Desculpe, más está unidade não foi pesquisada!";	break;
 			case "not_needed" :	$error = "Desculpe, más não há os requerimentos necessários!";	break;
@@ -67,8 +68,8 @@ class train{
 			case "to_many_units" :	$error = "Desculpe, más não há recursos suficientes!";	break;
 			case "to_many_bh" :	$error = "Desculpe, más a fazenda não pode sustentar mais habitantes!";	break;
 		}
-		if($error) $GLOBALS['tpl']->assign("error",$error);
-		return $recruited;
+		if(isset($error) && $error) $GLOBALS['tpl']->assign("error",$error);
+		return $this->recruited;
 	}
 	function get_units_in_village($village){
 		$sql = "SELECT ";
@@ -82,19 +83,29 @@ class train{
 		return $this->db->Fetch($result);
 	}
 	function get_all_units($village){
-		$sql = "SELECT ";
-		$i = 0;
-    	foreach($this->Units as $key=>$value){
-			if(in_array("no_investigate", $this->cl_units->get_specials($key))){
-           		unset($this->units[$value]);
-           		unset($this->Units[$key]);
-           		if(count($this->Units) == $i)
-					$sql = substr($sql,0,strlen($sql)-1);
-			}else
-				$sql .= (count($this->Units) == $i) ? "all_$key,".$key."_tec_level" : "all_$key,".$key."_tec_level,";
-			++$i;
+		$select_parts = array();
+		$filtered_units = array();
+		$filtered_names = array();
+		foreach($this->Units as $key=>$value){
+			$specials = $this->cl_units->get_specials($key);
+			if(is_array($specials) && in_array("no_investigate", $specials)){
+				continue;
+			}
+			$filtered_names[$key] = $value;
+			if(isset($this->units[$key])){
+				$filtered_units[$key] = $this->units[$key];
+			}
+			$select_parts[] = "all_".$key;
+			$select_parts[] = $key."_tec_level";
 		}
-		$sql .= " from villages where id='".$village['id']."'";
+		$this->Units = $filtered_names;
+		$this->units = $filtered_units;
+
+		if(empty($select_parts)){
+			return array();
+		}
+
+		$sql = "SELECT ".implode(",", $select_parts)." from villages where id='".$village['id']."'";
 		$result = $this->db->query($sql);
 
 		return $this->db->Fetch($result);

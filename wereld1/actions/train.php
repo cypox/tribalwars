@@ -6,7 +6,7 @@ if($ACTIONS_MASSIVKEY_HIGHAAASSDD != "sdjahsdkJHSAJDKHALKJHSADJHSADNsjdhaksjdlhJ
 $train = new train();
 if($village['barracks'] > 0){
 	$units_in_village = $train->get_units_in_village($village);
-	$units_all = $train->get_all_units($village,$Units);
+	$units_all = $train->get_all_units($village);
 	$village += $units_all;
 	
 	foreach($train->Units as $key=>$value){
@@ -20,17 +20,17 @@ if($village['barracks'] > 0){
 	$tpl->assign("units_all",$units_all);
 	$tpl->assign("arr_farm",$arr_farm);
 
-	if($_GET['screen'] == "train" && !isset($_GET['mode'])){
+	if(isset($_GET['screen']) && $_GET['screen'] == "train" && !isset($_GET['mode'])){
 		$recruit_units = $train->get_recruit($village);
 		$tpl->assign("recruit_units",$recruit_units);
 	}
-	if($_GET['action'] == "train"){
+	if(isset($_GET['action']) && $_GET['action'] == "train"){
 		if($session['hkey'] != $_GET['h']){
 			$error = "HKEY!";
 		}
 		$recruited = $train->do_action($village['id'],"single");
 	}
-	if($_GET['mode'] == "mass"){
+	if(isset($_GET['mode']) && $_GET['mode'] == "mass"){
 		$villages = array();
 		$query = $db->query("SELECT * FROM `villages` WHERE `userid`='".$village['userid']."' AND `barracks`>0");
 		$current_amount = 1;
@@ -61,7 +61,7 @@ if($village['barracks'] > 0){
 		$tpl->assign("villages", $villages);
 		$tpl->assign("farmLimits", $farmLimits);
 	
-		if($_GET['mode'] == "mass" && $_GET['action'] == "train_mass" && $_POST){
+		if(isset($_GET['mode']) && $_GET['mode'] == "mass" && isset($_GET['action']) && $_GET['action'] == "train_mass" && $_POST){
 			$c = new do_action($user['id']);
 			$c->close();
 	
