@@ -96,14 +96,14 @@
 						<td align="center"><a href="game.php?village={$village.id}&amp;screen=map&amp;x={$map.x+50}&amp;y={$map.y+50}"><img src="{$config.cdn}/graphic/map/map_ne.png" style="z-index:1; position:relative;" alt="Nordeste" /></a></td>
 					</tr>
 					<tr>
-						<td align="center"><a href="game.php?village={$village.id}&amp;screen=map&amp;x={$map.x-50}&amp;y={$map.y}"><img src="{$config.cdn}/graphic/map/map_w.png" style="z-index:1; position:relative;" alt="Oeste" /></a></td>
+						<td align="center" valign="middle" style="vertical-align:middle;"><a href="game.php?village={$village.id}&amp;screen=map&amp;x={$map.x-50}&amp;y={$map.y}"><img src="{$config.cdn}/graphic/map/map_w.png" style="z-index:1; position:relative;" alt="Oeste" /></a></td>
 						<td style="padding: 0" align="center">
 							<div id="minimap" data-cx="{$map.x}" data-cy="{$map.y}" data-village="{$village.id}" style="overflow:hidden; position:relative; padding:0px; width:267px; height:267px; cursor:crosshair;">
 								<img id="minimap_img" src="minimap.php?x={$map.x}&amp;y={$map.y}&amp;id={$village.id}&amp;hkey={$hkey}&amp;t={$smarty.now}" style="position:absolute; z-index:1; left:0; top:0; width:267px; height:267px;" alt="Minimapa" />
 								<div id="minimap_viewport" style="border: 1px solid #fff; position: absolute; z-index: 10; width: 45px; height: 45px; left: 110px; top: 110px;"></div>
 							</div>
 						</td>
-						<td align="center"><a href="game.php?village={$village.id}&amp;screen=map&amp;x={$map.x+50}&amp;y={$map.y}"><img src="{$config.cdn}/graphic/map/map_e.png" style="z-index:1; position:relative;" alt="Leste" /></a></td>
+						<td align="center" valign="middle" style="vertical-align:middle;"><a href="game.php?village={$village.id}&amp;screen=map&amp;x={$map.x+50}&amp;y={$map.y}"><img src="{$config.cdn}/graphic/map/map_e.png" style="z-index:1; position:relative;" alt="Leste" /></a></td>
 					</tr>
 					<tr>
 						<td align="center"><a href="game.php?village={$village.id}&amp;screen=map&amp;x={$map.x-50}&amp;y={$map.y-50}"><img src="{$config.cdn}/graphic/map/map_sw.png" style="z-index:1; position:relative;" alt="Sudoeste" /></a></td>

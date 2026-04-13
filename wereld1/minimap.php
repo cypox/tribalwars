@@ -41,6 +41,10 @@ $session_cookie = isset($_COOKIE['session']) ? $_COOKIE['session'] : '';
 $session = $session_cookie !== '' ? $sid->check_sid($session_cookie) : array();
 $userid = isset($session['userid']) ? (int)$session['userid'] : 0;
 $hkey = isset($_GET['hkey']) ? $_GET['hkey'] : '';
+$id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
+$x = isset($_GET['x']) ? (int)$_GET['x'] : 0;
+$y = isset($_GET['y']) ? (int)$_GET['y'] : 0;
+$no = isset($_GET['no']) ? (int)$_GET['no'] : 0;
 
 if(!$userid){
 	minimap_blank_png();
@@ -49,9 +53,15 @@ if(!isset($session['hkey']) || $session['hkey'] != $hkey){
 	minimap_blank_png();
 }else{
 	ob_start();
+	if($id <= 0){
+		minimap_blank_png();
+	}
 
-	$iduser = $db->fetch($db->query('SELECT userid FROM villages WHERE id = '.parse($_GET['id'])));
+	$iduser = $db->fetch($db->query('SELECT userid FROM villages WHERE id = '.parse($id)));
 	$iduser = $iduser['userid'];
+	if(!$iduser && $iduser !== "0"){
+		minimap_blank_png();
+	}
 	$sqluser = mysqli_fetch_array($db->query("SELECT `ally`,`map_size`,`minimap_size` FROM `users` WHERE `id` = '$iduser'"));
 	$tribuser = $sqluser[0];
 	$mapsize_user = $sqluser[1];
@@ -61,17 +71,13 @@ if(!isset($session['hkey']) || $session['hkey'] != $hkey){
 	$image_diameter = $image_size/5;
 	$image_radius = floor($image_diameter/2);
 
-	if($_GET['no'] <> 1){
+	if($no <> 1){
 		header("Content-type: image/png");
 	}
 	$img = imagecreate($image_size,$image_size);
 
-	if(!isset($_GET['x']))
-		$_GET['x'] = 0;
-	if(!isset($_GET['y']))
-		$_GET['y'] = 0;
-	$x = parse($_GET['x']);
-	$y = parse($_GET['y']);
+	$x = parse($x);
+	$y = parse($y);
 	settype($x, "integer");
 	settype($y, "integer");
 	settype($image_objects, "array");
@@ -266,7 +272,7 @@ if(!isset($session['hkey']) || $session['hkey'] != $hkey){
 		$actual = $pna;
 	if($userid == $iduser)
 		$actual = $propriu;
-	if($r['id'] == parse($_GET['id']))
+	if($r['id'] == parse($id))
 		$actual = $active;
 
 		$esql = $db->query("SELECT `color` FROM `marked` WHERE `marker_id`='".$iduser."' AND `marked_id`='".$userid."'");
