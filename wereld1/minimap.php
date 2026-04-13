@@ -57,12 +57,15 @@ if(!isset($session['hkey']) || $session['hkey'] != $hkey){
 		minimap_blank_png();
 	}
 
-	$iduser = $db->fetch($db->query('SELECT userid FROM villages WHERE id = '.parse($id)));
-	$iduser = $iduser['userid'];
-	if(!$iduser && $iduser !== "0"){
+	$iduserRow = $db->fetch($db->query('SELECT userid FROM villages WHERE id = '.parse($id)));
+	if(!is_array($iduserRow) || !isset($iduserRow['userid'])){
 		minimap_blank_png();
 	}
+	$iduser = $iduserRow['userid'];
 	$sqluser = mysqli_fetch_array($db->query("SELECT `ally`,`map_size`,`minimap_size` FROM `users` WHERE `id` = '$iduser'"));
+	if(!is_array($sqluser)){
+		minimap_blank_png();
+	}
 	$tribuser = $sqluser[0];
 	$mapsize_user = $sqluser[1];
 	$pixeli_minimap = 267;
@@ -164,13 +167,13 @@ if(!isset($session['hkey']) || $session['hkey'] != $hkey){
 		}
 	}
 
+	$lines_arrx = array('mari' => array(), 'mici' => array(), 'cont' => array());
+	$lines_arry = array('mari' => array(), 'mici' => array(), 'cont' => array());
 	for($i = 1; $i <= $image_diameter; $i++){
 		$curox = $start_left_x+$i;
 		$curoy = $end_right_y-$i+1;
 		$lx = $i*5;
 		$ly = $i*5;
-		settype($lines_arrx, "array");
-		settype($lines_arry, "array");
 
 		if($curox%5 == 0){
 			$lines_arrx['mari'][$lx]=$liniimari;
@@ -191,10 +194,10 @@ if(!isset($session['hkey']) || $session['hkey'] != $hkey){
 			$lines_arry['cont'][$ly] = $liniicontinent;
 		}
 	}
-	foreach($lines_arrx['mici'] as $key => $value){
+	foreach(($lines_arrx['mici']) as $key => $value){
 		imageline($img,$key,0,$key,$image_size,$value);
 	}
-	foreach($lines_arry['mici'] as $key => $value){
+	foreach(($lines_arry['mici']) as $key => $value){
 		imageline($img,0,$key,$image_size,$key,$value);
 	}
 
