@@ -12,20 +12,20 @@ if($page == 'mark'){
 		$color = parse($_POST['color']);
 
 		if(empty($error) && (empty($_POST['player']) || empty($_POST['color']))){
-			$error = 'Desculpe, más você deve nos fornecer os dados necessarios!';
+			$error = 'Please provide all required data.';
 		}
 		$sql = $db->query("SELECT * FROM `users` WHERE `username`='".$player."' LIMIT 1");
 		$row = $db->fetch($sql);
 		$check = $db->numrows($sql);
 		if(empty($error) && $check != 1){
-			$error = 'Desculpe, más não encontramos este jogador!';
+			$error = 'Player not found.';
 		}
 		$check = $db->numrows($db->query("SELECT * FROM `marked` WHERE `marker_id`='".$user['id']."' AND `marked_id`='".$row['id']."'"));
 		if(empty($error) && $check != 0){
-			$error = 'Desculpe, más não encontramos este jogador!';
+			$error = 'This player is already marked.';
 		}
 		if(empty($error) && $user['username'] == parse($_POST['player'])){
-			$error = 'Desculpe, más você não pode marcar suas aldeias no mapa!';
+			$error = 'You cannot mark your own villages on the map.';
 		}
 		if(empty($error)){
 			$db->query("INSERT INTO `marked` (`marker_id`,`marked_id`,`color`) VALUES ('".$user['id']."','".$row['id']."','".$color."')");
