@@ -4,10 +4,15 @@ if($ACTIONS_MASSIVKEY_HIGHAAASSDD != 'sdjahsdkJHSAJDKHALKJHSADJHSADNsjdhaksjdlhJ
 }
 
 $w = '';
-$winter_result = $db->query("SELECT `winter` FROM `users` WHERE `id`='".$user['id']."' LIMIT 1");
-$winter_row = $db->fetch($winter_result);
-if(is_array($winter_row) && isset($winter_row['winter'])){
-	$w = $winter_row['winter'];
+$has_winter_column = false;
+$winter_column_result = $db->query("SHOW COLUMNS FROM `users` LIKE 'winter'");
+if($db->numrows($winter_column_result) > 0){
+	$has_winter_column = true;
+	$winter_result = $db->query("SELECT `winter` FROM `users` WHERE `id`='".$user['id']."' LIMIT 1");
+	$winter_row = $db->fetch($winter_result);
+	if(is_array($winter_row) && isset($winter_row['winter'])){
+		$w = $winter_row['winter'];
+	}
 }
 
 if(isset($_GET['action']) && $_GET['action'] == 'change_settings'){
@@ -41,7 +46,12 @@ if(isset($_GET['action']) && $_GET['action'] == 'change_settings'){
 	}
 	$winter = isset($_POST['winter']) ? 'winter' : '';
 	if(empty($error)){
-		$db->query("UPDATE `users` SET `dyn_menu`='".$dyn_menu."',`window_width`='".$window_width."',`show_toolbar`='".$show_toolbar."',`map_size`='".$map_size."',`confirm_queue`='".$confirm_queue."',`winter`='".$winter."' WHERE `id`='".$user['id']."'");
+		$sql = "UPDATE `users` SET `dyn_menu`='".$dyn_menu."',`window_width`='".$window_width."',`show_toolbar`='".$show_toolbar."',`map_size`='".$map_size."',`confirm_queue`='".$confirm_queue."'";
+		if($has_winter_column){
+			$sql .= ",`winter`='".$winter."'";
+		}
+		$sql .= " WHERE `id`='".$user['id']."'";
+		$db->query($sql);
 		header("LOCATION: game.php?village=".$village['id']."&screen=settings&mode=settings");
 		$c->open();
 		exit;
