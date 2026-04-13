@@ -132,9 +132,7 @@
 					<td><img src="{$config.cdn}/graphic/face.png" title="{$lang->grab('game', 'worker')}" alt="" /> {$cl_units->get_bhprice($unit_dbname)}</td>
 					<td>{$cl_units->get_time($village.$dbname,$unit_dbname)|format_time}</td>
 					{$cl_units->check_needed($unit_dbname,$village)}
-					{if $amountSnobsCanBeRecruited == 0 AND $ag_style == 2}
-					    <td class="inactive">{$lang->grab("error", "no_more_snobs")}</td>
-					{elseif $cl_units->last_error=='not_tec'}
+					{if $cl_units->last_error=='not_tec'}
 					    <td class="inactive">{$lang->grab("error", "not_tec")}</td>
 					{elseif $cl_units->last_error=='not_needed'}
 					    <td class="inactive">{$lang->grab("error", "not_fulfilled")}</td>
