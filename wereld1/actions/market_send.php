@@ -59,7 +59,7 @@ if(isset($_GET['action']) && $_GET['action'] == "cancel"){
 		header("game.php?village=".$village['id']."&screen=market");
 	}
 }
-if(isset($_GET['try']) || $_GET['try'] == "confirm_send"){
+if(isset($_GET['try']) && $_GET['try'] == "confirm_send"){
 	$error = "";
 	if(empty($error) && ((int)$_POST['wood']) > $village['r_wood'] || ((int)$_POST['stone']) > $village['r_stone'] || ((int)$_POST['iron']) > $village['r_iron']){
 		$error = "Desculpe, más você não tem recursos suficientes!";
