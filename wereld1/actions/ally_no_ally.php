@@ -2,6 +2,7 @@
 if($ACTIONS_MASSIVKEY_HIGHAAASSDD != "sdjahsdkJHSAJDKHALKJHSADJHSADNsjdhaksjdlhJNASDKL"){
 	exit;
 }
+$error = "";
 if(isset($_GET['action']) && $_GET['action'] == "create"){
 	$c = new do_action($user['id']);
 	$c->close();
