@@ -3,26 +3,39 @@
 	$timp = time();
 
 	// Get vars
-	$v = $_GET['v'];
-	$u = $_GET['u'];
-	$ox = $_GET['ox'];
-	$oy = $_GET['oy'];
+	$v = isset($_GET['v']) ? intval($_GET['v']) : 0;
+	$u = isset($_GET['u']) ? intval($_GET['u']) : 0;
+	$ox = isset($_GET['ox']) ? intval($_GET['ox']) : 0;
+	$oy = isset($_GET['oy']) ? intval($_GET['oy']) : 0;
 
 	// Get info about villages
 	$query_villages = "SELECT * FROM `villages` WHERE `id` = '$v'";
 	$villages = $db->fetch($db->query($query_villages));
+	if(!is_array($villages)){
+		echo '<table class="vis" width="100%"><tr><td>Aldeia não encontrada.</td></tr></table>';
+		exit;
+	}
 
 	// Get info about users
-	$query_users = "SELECT * FROM `users` WHERE `id` = '$villages[userid]'";
+	$query_users = "SELECT * FROM `users` WHERE `id` = '".$villages['userid']."'";
 	$users = $db->fetch($db->query($query_users));
+	if(!is_array($users)){
+		$users = array('username' => '', 'points' => 0, 'ally' => -1, 'noob_protection' => 0);
+	}
 
 	// Get info about tribes
-	$query_ally = "SELECT * FROM `ally` WHERE `id` = '$users[ally]'";
+	$query_ally = "SELECT * FROM `ally` WHERE `id` = '".$users['ally']."'";
 	$ally = $db->fetch($db->query($query_ally));
+	if(!is_array($ally)){
+		$ally = array('short' => '', 'points' => 0);
+	}
 
 	// Get info about troops
 	$query_place = "SELECT * FROM `unit_place` WHERE `villages_to_id` = '$v'";
 	$place = $db->fetch($db->query($query_place));
+	if(!is_array($place)){
+		$place = array();
+	}
 
 	//Get info about user settings
 	/*$query_settings = "SELECT * FROM `map_info` WHERE `userid` = '$u'";
@@ -33,28 +46,28 @@
 	$notes = mysql_fetch_array(mysql_query($query_notes));*/
 
 	// Define variables
-	$villages['name'] = urldecode($villages['name']);
-	$users['name'] = urldecode($users['name']);
-	$ally['name'] = urldecode($ally['short']);
-	$villages['points'] = format_number($villages['points']);
-	$users['points'] = format_number($users['points']);
-	$ally['points'] = format_number($ally['points']);
+	$villages['name'] = urldecode(isset($villages['name']) ? $villages['name'] : '');
+	$ally['name'] = urldecode(isset($ally['short']) ? $ally['short'] : '');
+	$villages['points'] = format_number(isset($villages['points']) ? $villages['points'] : 0);
+	$users['points'] = format_number(isset($users['points']) ? $users['points'] : 0);
+	$ally['points'] = format_number(isset($ally['points']) ? $ally['points'] : 0);
 
 	// Define output
-	$info_title = "$villages[name] ($villages[x]|$villages[y]) K$villages[continent]";
+	$info_title = $villages['name']." (".$villages['x']."|".$villages['y'].") K".$villages['continent'];
 	$info_points = $villages['points'];
-	$username = urldecode($users['username']);
+	$username = urldecode(isset($users['username']) ? $users['username'] : '');
 	$info_owner = "$username ($users[points] Pts.)";
 	$info_tribe = "$ally[name] ($ally[points] Pts.)";
-	$info_noob = date("d.m.Y H:i", $users['noob_protection']);
+	$noob_protection = isset($users['noob_protection']) ? intval($users['noob_protection']) : 0;
+	$info_noob = date("d.m.Y H:i", $noob_protection);
 
 	// Calculate farm info
-	$farmt = $arr_farm[$villages['farm']];
+	$farmt = isset($arr_farm[$villages['farm']]) ? $arr_farm[$villages['farm']] : 0;
 	$farm_info = "$villages[r_bh]/$farmt";
 
 	// Calculate dealers info
-	$dealerst = $arr_dealers[$villages['market']];
-	$dealers = $dealerst - $village['dealers_outside'];
+	$dealerst = isset($arr_dealers[$villages['market']]) ? $arr_dealers[$villages['market']] : 0;
+	$dealers = $dealerst - (isset($villages['dealers_outside']) ? $villages['dealers_outside'] : 0);
 	$dealers = "$dealers/$dealerst";
 
 	// Units Info
@@ -63,14 +76,15 @@
 	$units = array("3000","4000","3000","800","1200","1500","4500","4500","6200");
 
 	function minutes($sec, $padHours = false){
+		$sec = (int)round($sec);
     	$hms = "";
-	    $hours = intval(intval($sec) / 3600); 
+	    $hours = intdiv($sec, 3600);
     	$hms .= ($padHours) 
 	          ? str_pad($hours, 2, "0", STR_PAD_LEFT). ':'
     	      : $hours. ':';
-	    $minutes = intval(($sec / 60) % 60); 
+	    $minutes = intdiv($sec, 60) % 60;
     	$hms .= str_pad($minutes, 2, "0", STR_PAD_LEFT). ':';
-	    $seconds = intval($sec % 60); 
+	    $seconds = $sec % 60;
     	$hms .= str_pad($seconds, 2, "0", STR_PAD_LEFT);
 	    return $hms;
 	}
@@ -96,7 +110,7 @@
 <?php } ?>
     	<th colspan="2"><?php echo $info_title;?></th>
     </tr>
-<?php if($users['noob_protection'] >= $timp){ ?>
+<?php if($noob_protection >= $timp){ ?>
     <tr><td colspan="2"><div class="error">Jogador sob prote&ccedil;&atilde;o de iniciantes! Fim da Prote&ccedil;&atilde;o: <?php echo $info_noob; ?></div></td></tr>
 <?php } ?>
 <?php if($villages['bonus'] > 0){ ?>
@@ -136,14 +150,14 @@
     <?php } if($u == $villages['userid']){ ?>
     <tr>
     	<td colspan="2" align="center">
-    		<img src="<?php echo $config['cdn']; ?>/graphic/icons/wood.png"/><?php echo round($villages[r_wood]);?>
-    		<img src="<?php echo $config['cdn']; ?>/graphic/icons/stone.png"/><?php echo round($villages[r_stone]);?>
-    		<img src="<?php echo $config['cdn']; ?>/graphic/icons/iron.png"/><?php echo round($villages[r_iron]);?>
-    		<img src="<?php echo $config['cdn']; ?>/graphic/icons/storage.png"/><?php echo round($villages[storage]);?>
+			<img src="<?php echo $config['cdn']; ?>/graphic/icons/wood.png"/><?php echo round($villages['r_wood']);?>
+			<img src="<?php echo $config['cdn']; ?>/graphic/icons/stone.png"/><?php echo round($villages['r_stone']);?>
+			<img src="<?php echo $config['cdn']; ?>/graphic/icons/iron.png"/><?php echo round($villages['r_iron']);?>
+			<img src="<?php echo $config['cdn']; ?>/graphic/icons/storage.png"/><?php echo round($villages['storage']);?>
 
         </td>
     </tr>
-    <?php } if($u == $villages['userid'] || $u == $villages['userid']){ ?>
+	<?php } if($u == $villages['userid']){ ?>
     <tr>
     	<td colspan="2" align="center">
         	<img src="<?php echo $config['cdn']; ?>/graphic/icons/farm.png"/> <?php echo $farm_info;?>
@@ -170,7 +184,7 @@
                   	</td>
                	<?php } ?>
                	</tr>
-                <?php } if(($ox != $villages[x] || $oy != $villages[y])){ ?>
+				<?php } if(($ox != $villages['x'] || $oy != $villages['y'])){ ?>
                 <tr>
                 <?php for($i=0;$i<=8;$i++){?>
                 	<td align="center" <?php if($i%2==0){echo "style=\"background-color: #ded3b9;\"";}?>><font style="font-size:8px;">
@@ -180,7 +194,7 @@
 
 
                 		// Berekening op af laten vuren lol.. Looptijden kloppen totaal niet :(
-                		$troepenlopen = unit_running($ox,$oy,$villages[x],$villages[y],$units[$i]);
+						$troepenlopen = unit_running($ox,$oy,$villages['x'],$villages['y'],(int)round($units[$i]));
                 	    print minutes($troepenlopen);
                 	    // Berekening op af laten vuren lol.. Looptijden kloppen totaal niet :(
                 	    ?>
