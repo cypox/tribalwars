@@ -20,6 +20,8 @@ while($row = $db->fetch($result)){
     $ranks[$row['id']]['points'] = format_number($row['points']);
     $ranks[$row['id']]['villages'] = $row['villages'];
     $ranks[$row['id']]['ally'] = $row['ally'];
+	$ranks[$row['id']]['mark'] = '';
+	$ranks[$row['id']]['allyname'] = '-';
 	$ranks[$row['id']]['cuttrought'] = ((int)$row['villages'] > 0)
 		? round($row['points'] / $row['villages'])
 		: 0;
