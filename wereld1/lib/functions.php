@@ -549,6 +549,13 @@ function simulate($att,$att_tech,$def,$def_tech,$others){
 	global $arr_basic_defense;
 	global $arr_wall_bonus;
 
+	if(!isset($others['att_knight_items']) || !is_array($others['att_knight_items'])){
+		$others['att_knight_items'] = array();
+	}
+	if(!isset($others['def_knight_items']) || !is_array($others['def_knight_items'])){
+		$others['def_knight_items'] = array();
+	}
+
 	$others['believe_att_factor'] = 1;
 	$others['believe_def_factor'] = 1;
 	if($config['church']){
