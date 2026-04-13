@@ -1,4 +1,6 @@
 <?php
+ob_start();
+ini_set('display_errors', '0');
 error_reporting(E_ALL ^ E_NOTICE);
 
 define('PATH', str_replace(PATH_SEPARATOR, '/', dirname(__FILE__)));
@@ -26,6 +28,9 @@ $db = new DB_MySQL();
 $db->connect($config['db_host'], $config['db_user'], $config['db_pw'], $config['db_name']);
 
 function minimap_blank_png(){
+	if(ob_get_length()){
+		ob_clean();
+	}
 	header("Content-type: image/png");
 	$img = imagecreatetruecolor(1, 1);
 	imagesavealpha($img, true);
@@ -52,7 +57,9 @@ if(!$userid){
 if(!isset($session['hkey']) || $session['hkey'] != $hkey){
 	minimap_blank_png();
 }else{
-	ob_start();
+	if(ob_get_length()){
+		ob_clean();
+	}
 	if($id <= 0){
 		minimap_blank_png();
 	}
@@ -256,12 +263,20 @@ if(!isset($session['hkey']) || $session['hkey'] != $hkey){
 		$rx = $r['x'];
 		$ry = $r['y'];
 		$userid = $r['userid'];
-		$tribsat = $db->query("SELECT `ally` FROM `users` WHERE `id` = '$userid'");
-		$tribsat = mysqli_fetch_array($tribsat);
-		$tribsat = $tribsat[0];
-		$type = $db->query("SELECT `type` FROM `ally_contracts` WHERE `from_ally` = '$tribuser' AND `to_ally` = '$tribsat'");
-		$type = mysqli_fetch_array($type);
-		$type = $type[0];
+		$tribsat = -1;
+		$type = '';
+		if($userid != "-1"){
+			$tribsatRes = $db->query("SELECT `ally` FROM `users` WHERE `id` = '$userid' LIMIT 1");
+			$tribsatRow = mysqli_fetch_array($tribsatRes);
+			if(is_array($tribsatRow) && isset($tribsatRow[0])){
+				$tribsat = $tribsatRow[0];
+			}
+			$typeRes = $db->query("SELECT `type` FROM `ally_contracts` WHERE `from_ally` = '$tribuser' AND `to_ally` = '$tribsat' LIMIT 1");
+			$typeRow = mysqli_fetch_array($typeRes);
+			if(is_array($typeRow) && isset($typeRow[0])){
+				$type = $typeRow[0];
+			}
+		}
 	
 	if($userid == "-1")
 		$actual = $parasit;
@@ -298,6 +313,9 @@ if(!isset($session['hkey']) || $session['hkey'] != $hkey){
 			$ry = $image_size+$ry;
 	
 		imagefilledrectangle($img, $rx+1, $ry+1, $rx+4, $ry+4, $actual);
+	}
+	if(ob_get_length()){
+		ob_clean();
 	}
 	imagepng($img, null, 9);
 	imagedestroy($img);
