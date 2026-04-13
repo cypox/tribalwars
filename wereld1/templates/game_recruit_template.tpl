@@ -76,7 +76,7 @@
 				</tr>
 			{/foreach}
 
-		    <tr><td colspan="8" align="right"><input name="submit" type="submit" value="Rekrutieren" style="font-size: 10pt;" /></td></tr>
+		    <tr><td colspan="8" align="right"><input name="submit" type="submit" class="button" value="Rekrutieren" /></td></tr>
 		</table>
 	</form>
 {/if}
