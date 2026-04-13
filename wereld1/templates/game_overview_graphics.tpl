@@ -28,14 +28,9 @@
 							{if $village.farm >= '20'}<img class="p_farm_field" src="{$config.cdn}/{$cl_builds->getGraphic($dbname, $village.farm)|regex_replace:'/\.png$/':'_field.png'}" alt="" />{/if}
 						{elseif $dbname == 'smith'}
 							{if $village.smith > 0}
-								{php}
-									$check = mysqli_query($db->get_connection(), "SELECT * FROM research WHERE villageid='".mysqli_real_escape_string($_GET['village'])."'");
-									if(mysqli_num_rows($check)){
-								{/php}
+								{if $smithResearchActive}
 					<img class="smith_anim" src="{$config.cdn}/graphic/{$visual}/smith_anim.gif" alt="" />
-								{php}
-									}
-								{/php}
+								{/if}
 							{/if}
 						{/if}
                         

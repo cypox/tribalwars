@@ -119,6 +119,12 @@ if($query && $db->numrows($query)){
 	}
 }
 
+$smithResearchActive = false;
+$researchCheck = $db->query("SELECT `id` FROM `research` WHERE `villageid`='".$village['id']."' LIMIT 1");
+if($researchCheck && $db->numrows($researchCheck) > 0){
+	$smithResearchActive = true;
+}
+
   $hour = date("H");
    if($config['night_start'] > $config['night_end']){
     if($hour >= $config['night_start'] || $hour <= $config['night_end']){
@@ -135,6 +141,7 @@ if($query && $db->numrows($query)){
    }
 
 $tpl->assign('constructing', $constructing);
+$tpl->assign('smithResearchActive', $smithResearchActive);
 $tpl->assign("visual", $graphic);
 $tpl->assign('villageOverviewDatas', $villageOverviewDatas);
 $tpl->assign("my_movements", $my_movements);
