@@ -17,10 +17,12 @@ class train{
         $this->arr_farm = $arr_farm;
 	}
 	function do_action($cur_village,$mode="mass"){
+		$reload = false;
+		$check = '';
         $i = 0;
 		foreach($this->Units as $key=>$value){
 			++$i;
-			$posted = ($mode == "mass") ? $_POST['units'][$cur_village][$key] : $_POST[$key];
+			$posted = ($mode == "mass") ? ($_POST['units'][$cur_village][$key] ?? '') : ($_POST[$key] ?? '');
 			if(!empty($posted)){
                 $cur_vil_info = "SELECT * FROM `villages` WHERE `id`='".$cur_village."'";
                 $cur_vil_info = $this->db->fetch($this->db->query($cur_vil_info));
@@ -51,7 +53,7 @@ class train{
 				    $this->cl_units->recruit_units($key,$input,$buildname,$cur_vil_info[$buildname],$cur_vil_info['id']);
 
                     $this->recruited[$cur_village][$key] = $input;
-				    if($_GET['mode'] != "mass")
+				    if(!isset($_GET['mode']) || $_GET['mode'] != "mass")
 						$reload = true;
 				}
 			}
