@@ -219,13 +219,6 @@ if(!isset($session['hkey']) || $session['hkey'] != $hkey){
 
 	foreach($image_objects as $key1=>$value1){
 		foreach($image_objects[$key1] as $key2=>$value2){
-			if(!($continentes[$arr['con']])){
-				$continentes[$arr['con']] = $arr['con'];
-				if(isset($arr['con']) && $arr['con'] >= 0 && $arr['con'] <= 99){
-					require_once("lib/map_db/".$arr['con'].".php");
-				}
-			}
-		
 			$rx = $key1;
 			$ry = $key2;
 
