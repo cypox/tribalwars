@@ -26,6 +26,12 @@ if($show_build){
 		$is_researches = true;
 	}
 	$research['reminder_time'] = isset($research['end_time']) ? ($research['end_time']-time()) : 0;
+	if($is_researches && isset($research['id']) && isset($research['end_time']) && (int)$research['end_time'] <= time()){
+		check_tech($research['id']);
+		$db->query("DELETE FROM `events` WHERE `event_id`='".$research['id']."' AND `event_type`='research'");
+		header("LOCATION: game.php?village=".$village['id']."&screen=smith");
+		exit;
+	}
 
 	if(isset($_GET['action']) && $_GET['action'] == "research_all"){
 		if(isset($_GET['h']) && $session['hkey'] == $_GET['h']){
