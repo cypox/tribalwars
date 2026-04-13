@@ -193,6 +193,18 @@ if($pala_moveable)
 // Vorraussetzungen checken:
 $show_build = ($cl_builds->check_needed($buildname,$village) && $village[$buildname]>0)?true:false;
 if ($show_build) {
+	// Fallback for environments where event daemon processing is delayed:
+	// finalize overdue paladin recruit jobs for this village during page load.
+	$now = time();
+	$overdue_recruit = $db->query("SELECT `id` FROM `recruit` WHERE `villageid`='".$village['id']."' AND `building`='".$buildname."' AND `time_finished`<='".$now."'");
+	while($overdue_row = $db->fetch($overdue_recruit)){
+		$recruit_update = check_recruit($overdue_row['id'], $now);
+		if(!is_numeric($recruit_update)){
+			$db->query("DELETE FROM `events` WHERE `event_type`='recruit' AND `event_id`='".$overdue_row['id']."'");
+		}else{
+			$db->query("UPDATE `events` SET `event_time`='".$recruit_update."',`cid`='0' WHERE `event_type`='recruit' AND `event_id`='".$overdue_row['id']."'");
+		}
+	}
 
 	// Alle Einheiten die im gebäude gebaut werden können ermitteln:
 	$units = $cl_units->get_recruit_in_units($buildname);
