@@ -54,7 +54,8 @@ $no = isset($_GET['no']) ? (int)$_GET['no'] : 0;
 if(!$userid){
 	minimap_blank_png();
 }
-if(!isset($session['hkey']) || $session['hkey'] != $hkey){
+
+if(!isset($session['hkey']) || $session['hkey'] == ''){
 	minimap_blank_png();
 }else{
 	if(ob_get_length()){
