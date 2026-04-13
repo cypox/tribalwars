@@ -115,7 +115,7 @@
 				<table class="vis" style="border: 1px solid #804000; margin-top:5px;" align="center" width="100%">
 					<tr><th colspan="2">Jogadores marcados:</th></tr>
 					{if empty($marked)}
-					<tr><td colspan="2"><div class="error">Nenhuma marcação encontrada!</div></td></tr>
+					<tr><td colspan="2" style="color:#5b3a1f; text-align:center;">Sem marcações.</td></tr>
 					{else}
 						{foreach from=$marked item=mark}
 						<tr class="nowrap">

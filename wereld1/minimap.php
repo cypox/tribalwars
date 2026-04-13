@@ -25,13 +25,28 @@ require("lib/functions.php");
 $db = new DB_MySQL();
 $db->connect($config['db_host'], $config['db_user'], $config['db_pw'], $config['db_name']);
 
+function minimap_blank_png(){
+	header("Content-type: image/png");
+	$img = imagecreatetruecolor(1, 1);
+	imagesavealpha($img, true);
+	$transparent = imagecolorallocatealpha($img, 0, 0, 0, 127);
+	imagefill($img, 0, 0, $transparent);
+	imagepng($img);
+	imagedestroy($img);
+	exit;
+}
+
 $sid = new sid();
-$session = $sid->check_sid($_COOKIE['session']);
-$userid  = $session['userid'];
-if(!$userid)
-	exit("Relogue em sua conta!");
-if($session['hkey'] != $_GET['hkey']){
-	exit('Desculpe, más o código de segurança está invalido!');
+$session_cookie = isset($_COOKIE['session']) ? $_COOKIE['session'] : '';
+$session = $session_cookie !== '' ? $sid->check_sid($session_cookie) : array();
+$userid = isset($session['userid']) ? (int)$session['userid'] : 0;
+$hkey = isset($_GET['hkey']) ? $_GET['hkey'] : '';
+
+if(!$userid){
+	minimap_blank_png();
+}
+if(!isset($session['hkey']) || $session['hkey'] != $hkey){
+	minimap_blank_png();
 }else{
 	ob_start();
 

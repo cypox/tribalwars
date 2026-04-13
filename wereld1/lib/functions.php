@@ -54,6 +54,10 @@ function logging($event,$str){
 	}
 }
 function parse($str){
+	if($str === null){
+		$str = '';
+	}
+	$str = (string)$str;
 	$str = urlencode($str);
 	$str = trim($str);
     return $str;
