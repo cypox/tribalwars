@@ -5,6 +5,17 @@ if($ACTIONS_MASSIVKEY_HIGHAAASSDD != "sdjahsdkJHSAJDKHALKJHSADJHSADNsjdhaksjdlhJ
 
 $train = new train();
 if($village['barracks'] > 0){
+	$now = time();
+	$result = $db->query("SELECT `id` FROM `recruit` WHERE `villageid`='".$village['id']."' AND `time_finished`<='".$now."' ORDER BY `time_finished` ASC");
+	while($row = $db->fetch($result)){
+		$next_time = check_recruit($row['id'], $now);
+		if($next_time === true){
+			$db->query("DELETE FROM `events` WHERE `event_type`='recruit' AND `event_id`='".$row['id']."'");
+		}elseif(is_numeric($next_time)){
+			$db->query("UPDATE `events` SET `event_time`='".(int)$next_time."',`cid`='0' WHERE `event_type`='recruit' AND `event_id`='".$row['id']."'");
+		}
+	}
+
 	$units_in_village = $train->get_units_in_village($village);
 	$units_all = $train->get_all_units($village);
 	$village += $units_all;
@@ -126,8 +137,12 @@ if($village['barracks'] > 0){
 		}
 	}
 }
-$tpl->assign("get",$_GET);
+$tpl_get = $_GET;
+if(!isset($tpl_get['action'])) $tpl_get['action'] = '';
+if(!isset($tpl_get['mode'])) $tpl_get['mode'] = '';
+
+$tpl->assign("get",$tpl_get);
 $tpl->assign("recruited",$train->recruited);
 $tpl->assign("hkey",$session['hkey']);
-$tpl->assign("mode",$_GET['mode']);
+$tpl->assign("mode",$tpl_get['mode']);
 ?>
