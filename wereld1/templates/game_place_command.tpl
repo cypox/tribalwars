@@ -9,7 +9,7 @@
 					<table class="vis" width="100%">
 						{foreach from=$group_units.$group_name item=dbname}
 							{math assign=counter equation="x + y" x=$counter y=1}
-							<tr><td><a href="javascript:popup('popup_unit.php?unit={$dbname}', 520, 520)"><img src="{$config.cdn}/graphic/unit/{$dbname}.png" title="{$cl_units->get_name($dbname)}" alt="" /></a> <input id="input_{$dbname}" name="{$dbname}" type="text" size="5" tabindex="{$counter}" value="{$values.$dbname}" class="unitsInput" /> <a href="javascript:void(0)" onclick="insertUnit($('#input_{$dbname}'), {$units.$dbname})">({$units.$dbname})</a></td></tr>
+							<tr><td><a href="javascript:popup('popup_unit.php?unit={$dbname}', 520, 520)"><img src="{$config.cdn}/graphic/unit/{$dbname}.png" title="{$cl_units->get_name($dbname)}" alt="" /></a> <input id="input_{$dbname}" name="{$dbname}" type="text" size="5" tabindex="{$counter}" value="{$values.$dbname|default:''}" class="unitsInput" /> <a href="javascript:void(0)" onclick="insertUnit($('#input_{$dbname}'), {$units.$dbname|default:0})">({$units.$dbname|default:0})</a></td></tr>
 						{/foreach}
 					</table>
 				</td>
@@ -19,8 +19,8 @@
 	</table>
 	<table>
 		<tr>
-			<td>X: <input type="text" name="x" tabindex="13" id="inputx" value="{$values.x}" size="5" maxlength="3" onkeyup="xProcess('inputx', 'inputy')" /></td>
-			<td>Y: <input type="text" name="y" tabindex="14" id="inputy" value="{$values.y}" size="5" maxlength="3" /></td>
+			<td>X: <input type="text" name="x" tabindex="13" id="inputx" value="{$values.x|default:''}" size="5" maxlength="3" onkeyup="xProcess('inputx', 'inputy')" /></td>
+			<td>Y: <input type="text" name="y" tabindex="14" id="inputy" value="{$values.y|default:''}" size="5" maxlength="3" /></td>
 			<td rowspan="2"><input class="button red" name="attack" type="submit" value="ATACAR" /></td>
 			<td rowspan="2"><input class="button green" name="support" type="submit" value="APOIAR" /></td>
 		</tr>

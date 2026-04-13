@@ -40,6 +40,9 @@ if(isset($_GET['units']) && $_GET['units'] == 'all' && isset($_GET['coords'])){
 }
 
 foreach($cl_units->get_array("dbname") as $id=>$dbname){
+	if(empty($dbname)){
+		continue;
+	}
 	$group_units[$cl_units->get_col($dbname)][] = $dbname;
 }
 
@@ -60,16 +63,20 @@ if(isset($_GET['try']) && $_GET['try'] == "confirm"){
     $enougth_units = true;
     $units_choosed = false;
 	foreach($cl_units->get_array("dbname") as $dbname){
+		if(empty($dbname)){
+			continue;
+		}
 		if(!empty($_POST[$dbname])){
 			$values[$dbname] = (int)$_POST[$dbname];
 		}
-		if($_POST[$dbname] < 1){
+		$current_post = isset($_POST[$dbname]) ? (int)$_POST[$dbname] : 0;
+		if($current_post < 1){
 		    $send_units[$dbname] = 0;
 		}else{
-			$send_units[$dbname] = (int)$_POST[$dbname];
+			$send_units[$dbname] = $current_post;
 			$units_choosed = true;
 		}
-		if($units[$dbname] < $_POST[$dbname]){
+		if($units[$dbname] < $current_post){
 			$enougth_units = false;
 		}
 	}
@@ -144,16 +151,20 @@ if(isset($_GET['action']) && $_GET['action'] == "command"){
     $enougth_units = true;
     $units_choosed = false;
 	foreach($cl_units->get_array("dbname") as $dbname){
+		if(empty($dbname)){
+			continue;
+		}
 		if(!empty($_POST[$dbname])){
 			$values[$dbname] = (int)$_POST[$dbname];
 		}
-		if($_POST[$dbname] < 1){
+		$current_post = isset($_POST[$dbname]) ? (int)$_POST[$dbname] : 0;
+		if($current_post < 1){
 		    $send_units[$dbname] = 0;
 		}else{
-			$send_units[$dbname] = (int)$_POST[$dbname];
+			$send_units[$dbname] = $current_post;
 			$units_choosed = true;
 		}
-		if($units[$dbname] < $_POST[$dbname]){
+		if($units[$dbname] < $current_post){
 			$enougth_units = false;
 		}
 	}
