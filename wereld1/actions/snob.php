@@ -10,6 +10,20 @@ if($cl_builds->check_needed($buildname,$village) && $village[$buildname] > 0){
 	$show_build = false;
 }
 
+// Defaults for ag_style=2 template assignments, also needed when show_build is false.
+$amountSnobsCanBeRecruited = 0;
+$build_error = "";
+$makeCoin = false;
+$coinsAll = 0;
+$price = isset($config['gold_coin_price']) && is_array($config['gold_coin_price'])
+	? $config['gold_coin_price']
+	: array('wood' => 0, 'stone' => 0, 'iron' => 0);
+$snobLimit = 0;
+$snobsNow = 0;
+$inRecruit = 0;
+$enobled = 0;
+$coinsNext = 0;
+
 if($show_build){
 	$units = $cl_units->get_recruit_in_units($buildname);
     $sql = "SELECT ";
