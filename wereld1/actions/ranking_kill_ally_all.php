@@ -3,7 +3,7 @@ if($ACTIONS_MASSIVKEY_HIGHAAASSDD != "sdjahsdkJHSAJDKHALKJHSADJHSADNsjdhaksjdlhJ
 	exit;
 }
 
-if(!isset($_GET['site']) || isset($_GET['site']) || is_numeric($_GET['site']) || $_GET['site'] < 1){
+if(!isset($_GET['site']) || !is_numeric($_GET['site']) || $_GET['site'] < 1){
 	$site = 1;
 }else{
 	$site = (int)parse($_GET['site']);
@@ -18,6 +18,7 @@ while($row = $db->fetch($result)){
     $ranks[$row['id']]['short'] = entparse($row['short']);
     $ranks[$row['id']]['rang'] = $row['killed_units_altogether_rank'];
     $ranks[$row['id']]['killed_units'] = format_number($row['killed_units_altogether']);
+	$ranks[$row['id']]['mark'] = "";
 	if($row['id'] == $user['ally']){
 		$ranks[$row['id']]['mark'] = " class=\"lit\"";
 	}
