@@ -223,7 +223,7 @@ class units{
 		$db->query("INSERT INTO `recruit` (`unit`,`num_unit`,`time_finished`,`time_start`,`time_per_unit`,`villageid`,`building`) VALUES ('".$name."','".$count."','".$time_finished."','".$time."','".$unit_time."','".$villageid."','".$building."')");
 		$id = $db->getlastid();
 		$event_time = $time + $unit_time;
-		$db->query("INSERT INTO `events` (`event_time`,`event_type`,`event_id`,`user_id`,`villageid`) VALUES ('".$event_time."','recruit','".$id."','".$user['id']."','".$villageid."')");
+		$db->query("INSERT INTO `events` (`event_time`,`event_type`,`event_id`,`user_id`,`villageid`,`knot_event`,`is_locked`) VALUES ('".$event_time."','recruit','".$id."','".$user['id']."','".$villageid."','0','0')");
     }
     function read_units($from='', $to=''){
 		global $db;

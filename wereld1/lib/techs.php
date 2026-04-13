@@ -141,7 +141,7 @@ class techs {
 		$stamp = time();
 		$this->db->query("INSERT into research (research,villageid,end_time) VALUES ('".parse($dbname)."','".$village['id']."','".($time+$stamp)."')");
 		$id = $this->db->getLastId();
-		$this->db->query("INSERT into events (event_time,event_type,event_id,user_id,villageid) VALUES ('".($time+$stamp)."','research','$id','".$village['userid']."','".$village['id']."')");
+		$this->db->query("INSERT into events (event_time,event_type,event_id,user_id,villageid,knot_event,is_locked) VALUES ('".($time+$stamp)."','research','$id','".$village['userid']."','".$village['id']."','0','0')");
 		$tec = $dbname.";".($time+$stamp);
 		$this->db->query("UPDATE villages SET r_wood=r_wood-'".$wood."',r_stone=r_stone-'".$stone."',r_iron=r_iron-'".$iron."',smith_tec='$tec' where id='".$village['id']."'");
 	}
