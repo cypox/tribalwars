@@ -67,7 +67,7 @@
 <table style="padding:0;margin:0;">
 	<tr>
 	{if count($knight_items->name)==$items_found}
-		<th>{$lang->grab("statue", "all_items_found")}
+		<th>{$all_items_found_text}
 	{else}
 		<th colspan="3">Progresso para o próximo item:</th>
 	</tr>

@@ -498,10 +498,13 @@ if ($show_build) {
 	{
 		$result = $db->query("SELECT * FROM `knight_items` WHERE `uid` = '".$user['id']."'");
 		$row = $db->fetch($result);
+		if(!is_array($row)){
+			$row = array();
+		}
 		$items_found = 0;
 		foreach(($knight_items->name) as $key=>$value)
 		{
-			if($row[$key] == "false")
+			if(!isset($row[$key]) || $row[$key] == "false")
 			{
 				$row[$key] = false;
 			}
@@ -554,6 +557,11 @@ if ($show_build) {
 		$tpl->assign("items_found", $items_found);
 		$tpl->assign("find_progress", 390*($row['progress']/100));
 		$tpl->assign("f_progress", $row['progress']);
+		$all_items_found = $lang->grab("statue", "all_items_found");
+		if(stripos($all_items_found, "n\xc3\xa3o dispon") !== false || stripos($all_items_found, "Tradu") !== false){
+			$all_items_found = "Todos os itens foram encontrados!";
+		}
+		$tpl->assign("all_items_found_text", $all_items_found);
 	}
 	
 	$tpl->assign("pala_image", $pala_image);
