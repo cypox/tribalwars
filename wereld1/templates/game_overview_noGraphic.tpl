@@ -3,7 +3,7 @@
 	<tr>
 		<td width="450" valign="top">
 			<table class="vis" width="100%" style="margin-bottom:3px; border-spacing:1px;">
-				<tr><th colspan="2">Edifícios</th></tr>
+				<tr><th colspan="2">Buildings</th></tr>
 				{foreach from=$built_builds item=dbname key=id}
 					<tr>
 						<td width="50%"><a href="game.php?village={$village.id}&screen={$dbname}"><img src="{$config.cdn}/graphic/buildings/{$dbname}.png"> {$cl_builds->get_name($dbname)}</a> ({$village.$dbname|stage})</td>

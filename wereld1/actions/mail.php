@@ -6,11 +6,11 @@ if($ACTIONS_MASSIVKEY_HIGHAAASSDD != "sdjahsdkJHSAJDKHALKJHSADJHSADNsjdhaksjdlhJ
 if(!isset($_GET['mode'])) $_GET['mode'] = "in";
 
 $links = array(
-	"Entrada" => "in",
-	"Saída" => "out",
-	"Arquivo" => "arch",
-	"Escrever mensagem" => "new",
-	"Bloquear remetente" => "block"
+	"Inbox" => "in",
+	"Outbox" => "out",
+	"Archive" => "arch",
+	"Write message" => "new",
+	"Block sender" => "block"
 );
 $allow_mods = array("in","out","new","block","arch");
 if(in_array($_GET['mode'], $allow_mods)){

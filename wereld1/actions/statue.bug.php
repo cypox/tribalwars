@@ -1,15 +1,15 @@
 <?php
 
-// Modigicação teste, para funcionar:
+// Test modification to make it work:
 // require_once("statue_grab.php");
 // By: iKillerx
 
 
 // copied & changed snob.php
 
-// Sicherheits Ausführungscheck:
+// Security execution check:
 if ($ACTIONS_MASSIVKEY_HIGHAAASSDD!='sdjahsdkJHSAJDKHALKJHSADJHSADNsjdhaksjdlhJNASDKL') {
-	die("Aktions - Ausführung EXEC!");
+	die("Action execution check failed!");
 }
 
 // Believe it or not:

@@ -4,14 +4,14 @@ if($ACTIONS_MASSIVKEY_HIGHAAASSDD != "sdjahsdkJHSAJDKHALKJHSADJHSADNsjdhaksjdlhJ
 }
 if(isset($_GET['action']) && $_GET['action'] == "del"){
 	if($session['hkey'] != $_GET['h']){
-		exit("Desculpe, más o código de segurança está invalido!");
+		exit("Sorry, but the security code is invalid!");
 	}
 
 	$id = (int)parse($_GET['id']);
 	$result = $db->query("SELECT `owner` FROM `mail_archiv` WHERE `id`='".$id."'");
 	$row = $db->fetch($result);
 	if($row['owner'] != $user['id']){
-		$error = "Desculpe, más houve um erro ao apagar a mensagem!";
+		$error = "Sorry, but there was an error deleting the message!";
 	}else{
         $db->query("DELETE FROM `mail_archiv` WHERE `id`='".$id."'");
 	}
@@ -21,7 +21,7 @@ if(isset($_GET['action']) && $_GET['action'] == "del"){
 }
 if (isset($_GET['action']) && $_GET['action']=='del_arch') {
 	if($session['hkey'] != $_GET['h']){
-		exit("Desculpe, más o código de segurança está invalido!");
+		exit("Sorry, but the security code is invalid!");
 	}
 	foreach($_POST as $id => $value){
 		if(substr($id, 0, 3) == "id_"){
@@ -29,7 +29,7 @@ if (isset($_GET['action']) && $_GET['action']=='del_arch') {
 			$result = $db->query("SELECT `from_id`,`from_username`,`to_id`,`to_username`,`subject`,`text`,`time`,`owner` FROM `mail_archiv` WHERE `id`='".$id."'");
 			$row = $db->Fetch($result);
 			if($row['owner'] != $user['id']){
-				$error = "Desculpe, más houve um erro ao apagar as mensagens!";
+				$error = "Sorry, but there was an error deleting the messages!";
 			}else{
 				if(isset($_POST['del'])){
 					$db->query("DELETE FROM `mail_archiv` WHERE `id`='".$id."'");
@@ -75,7 +75,7 @@ if(!isset($_GET['view'])){
 	$mail = $db->fetch($result);
 
 	if($user['id'] != $mail['owner']){
-		$error = "Desculpe, más houve um erro ao abrir a mensagem!";
+		$error = "Sorry, but there was an error opening the message!";
 	}else{
 		$mail['text'] = nl2br(entparse($mail['text']));
 		$mail['subject'] = entparse($mail['subject']);

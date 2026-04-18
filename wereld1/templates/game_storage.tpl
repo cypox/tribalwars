@@ -50,7 +50,7 @@
 	{if $wood_sec!=0}
 		<tr>
 			<td width="250">
-				<img src="{$config.cdn}/graphic/holz.png" title="Holz" alt="" />
+				<img src="{$config.cdn}/graphic/holz.png" title="Wood" alt="" />
 				{$wood_sec_date|format_date}
 			</td>
 			<td>
@@ -60,7 +60,7 @@
 	{else}
 		<tr>
 			<td width="250">
-				<img src="{$config.cdn}/graphic/holz.png" title="Holz" alt="" />
+				<img src="{$config.cdn}/graphic/holz.png" title="Wood" alt="" />
 				Warehouse full
 			</td>
 			<td class="error">
@@ -71,7 +71,7 @@
 	{if $stone_sec!=0}
 		<tr>
 			<td width="250">
-				<img src="{$config.cdn}/graphic/lehm.png" title="Lehm" alt="" />
+				<img src="{$config.cdn}/graphic/lehm.png" title="Clay" alt="" />
 				{$stone_sec_date|format_date}
 			</td>
 			<td>
@@ -81,7 +81,7 @@
 	{else}
 		<tr>
 			<td width="250">
-				<img src="{$config.cdn}/graphic/lehm.png" title="Lehm" alt="" />
+				<img src="{$config.cdn}/graphic/lehm.png" title="Clay" alt="" />
 				Warehouse full
 			</td>
 			<td class="error">
@@ -92,7 +92,7 @@
 	{if $iron_sec!=0}
 		<tr>
 			<td width="250">
-				<img src="{$config.cdn}/graphic/eisen.png" title="Eisen" alt="" />
+				<img src="{$config.cdn}/graphic/eisen.png" title="Iron" alt="" />
 				{$iron_sec_date|format_date}
 			</td>
 			<td>
@@ -102,7 +102,7 @@
 	{else}
 		<tr>
 			<td width="250">
-				<img src="{$config.cdn}/graphic/eisen.png" title="Eisen" alt="" />
+				<img src="{$config.cdn}/graphic/eisen.png" title="Iron" alt="" />
 				Warehouse full
 			</td>
 			<td class="error">

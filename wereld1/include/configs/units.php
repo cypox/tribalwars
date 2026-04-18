@@ -2,7 +2,7 @@
 $cl_units = new units();
 $cl_units->set_unitfactor("0.65","0.94355");
 
-$cl_units->add_unit("Escudeiro","unit_spear");
+$cl_units->add_unit("Spearman","unit_spear");
 $cl_units->set_woodprice("50");
 $cl_units->set_stoneprice("30");
 $cl_units->set_ironprice("10");
@@ -20,9 +20,9 @@ $cl_units->set_specials(array("barracks"=>"1"));
 $cl_units->set_group("foot");
 $cl_units->set_col("A");
 $cl_units->set_attType("def");
-$cl_units->set_description("O que seria de um cavaleiro sem o seu servo! Mas mesmo sem o seu amo, os escudeiros sao um apoio muito útil. Eles sao bons com cavalos e, apesar de nao terem muitas armas, sao perfeitamente capazes de se defender de unidade montadas.");
+$cl_units->set_description("The Spearman is a basic defensive unit and is especially effective against cavalry.");
 
-$cl_units->add_unit("Templario","unit_sword");
+$cl_units->add_unit("Swordsman","unit_sword");
 $cl_units->set_woodprice("30");
 $cl_units->set_stoneprice("30");
 $cl_units->set_ironprice("70");
@@ -40,9 +40,9 @@ $cl_units->set_specials(array());
 $cl_units->set_group("foot");
 $cl_units->set_col("A");
 $cl_units->set_attType("def");
-$cl_units->set_description("Os templarios sao conhecidos pelos seus escudos seguros e pelo seu inabalavel codigo de honra. Corajosamente eles permanecem no caminho de todos os inimigos, independentemente da sua forca, para proteger os seu rei e povo. Sao particularmente bons a defender-se contra soldados da infantaria intrusos.");
+$cl_units->set_description("The Swordsman is a strong defensive unit, particularly useful against infantry.");
 
-$cl_units->add_unit("Guerreiro","unit_axe");
+$cl_units->add_unit("Axeman","unit_axe");
 $cl_units->set_woodprice("60");
 $cl_units->set_stoneprice("30");
 $cl_units->set_ironprice("40");
@@ -60,10 +60,10 @@ $cl_units->set_specials(array());
 $cl_units->set_group("foot");
 $cl_units->set_col("A");
 $cl_units->set_attType("off");
-$cl_units->set_description("Os guerreiros gritam o seu grito de guerra através do campo de batalha intimidando todos à sua volta, antes de se lançarem aos seus inimigos balançando os seus machados ousadamente. Uma vez soltos, nao há nada que os pare e o seu desejo de ataque os fazem uma das unidades mais temidas em redor.");
+$cl_units->set_description("The Axeman is a powerful offensive unit made for aggressive assaults.");
 
 if($config['archers']){
-	$cl_units->add_unit("Arqueiro","unit_archer");
+	$cl_units->add_unit("Archer","unit_archer");
 	$cl_units->set_woodprice("100");
 	$cl_units->set_stoneprice("30");
 	$cl_units->set_ironprice("60");
@@ -81,10 +81,10 @@ if($config['archers']){
 	$cl_units->set_group("archer");
 	$cl_units->set_col("A");
 	$cl_units->set_attType("def");
-	$cl_units->set_description("Com os seus olhos de águia e flechas afiadas os arqueiros sao mortais à distancia. Eles podem apoia-lo em qualquer exército, quer estejas a atacar ou defender sua aldeia.");
+	$cl_units->set_description("Archers are deadly at range and provide solid defensive support.");
 }
 
-$cl_units->add_unit("Espiao","unit_spy");
+$cl_units->add_unit("Scout","unit_spy");
 $cl_units->set_woodprice("50");
 $cl_units->set_stoneprice("50");
 $cl_units->set_ironprice("20");
@@ -102,9 +102,9 @@ $cl_units->set_specials(array());
 $cl_units->set_group("cav");
 $cl_units->set_col("B");
 $cl_units->set_attType("spy");
-$cl_units->set_description("O ponto forte dos espiões nao está na batalha. Eles sao capazes de se esgueirarem dos seus inimigos pela calada da noite para espiar as suas aldeias. Quanto mais espiões tiver, mais detalhados serao os seus relatórios.");
+$cl_units->set_description("Scouts gather information about enemy villages. The more you send, the better the report.");
 
-$cl_units->add_unit("Cruzado","unit_light");
+$cl_units->add_unit("Light Cavalry","unit_light");
 $cl_units->set_woodprice("125");
 $cl_units->set_stoneprice("100");
 $cl_units->set_ironprice("250");
@@ -122,10 +122,10 @@ $cl_units->set_specials(array());
 $cl_units->set_group("cav");
 $cl_units->set_col("B");
 $cl_units->set_attType("off");
-$cl_units->set_description("À distancia, os inimigos podem logo ver os impressionantes e radiantes estandartes dos cruzados. Estes guerreiros-da-luz sao lutadores experientes que podem rápida e ferozmente cavalgar para um ataque. Sao indispensáveis se quiseres executar saques e ataques rapidamente.");
+$cl_units->set_description("Light Cavalry is fast and ideal for raids and surprise attacks.");
 
 if($config['archers']){
-	$cl_units->add_unit("Arqueiro a cavalo","unit_marcher");
+	$cl_units->add_unit("Mounted Archer","unit_marcher");
 	$cl_units->set_woodprice("250");
 	$cl_units->set_stoneprice("100");
 	$cl_units->set_ironprice("150 ");
@@ -142,10 +142,10 @@ if($config['archers']){
 	$cl_units->set_specials(array(""));
 	$cl_units->set_group("cav");
 	$cl_units->set_col("B");
-	$cl_units->set_description("Os Arqueiros a cavalo sao especialmente úteis para derrotar Arqueiros inimigos escondidos atrás da Muralha.");
+	$cl_units->set_description("Mounted Archers are especially useful against enemy archers hiding behind the wall.");
 }
 
-$cl_units->add_unit("Cavaleiro Negro","unit_heavy");
+$cl_units->add_unit("Heavy Cavalry","unit_heavy");
 $cl_units->set_woodprice("200");
 $cl_units->set_stoneprice("150");
 $cl_units->set_ironprice("600");
@@ -163,9 +163,9 @@ $cl_units->set_specials(array());
 $cl_units->set_group("cav");
 $cl_units->set_col("B");
 $cl_units->set_attType("def");
-$cl_units->set_description("Uma aura de poder sinistro envolve os cavaleiros negros. Eles invocam o medo e o terror naqueles que os avistam. Nunca ninguém os ouviu dizer uma palavra ou alguma vez os seus nomes foram ditos. Os cavaleiros negros nao têm nenhuma fraqueza, mas o preço para os contratar é extremamente caro.");
+$cl_units->set_description("Heavy Cavalry is the elite of your army, combining solid armor with strong defensive power.");
 
-$cl_units->add_unit("Ariete","unit_ram");
+$cl_units->add_unit("Ram","unit_ram");
 $cl_units->set_woodprice("300");
 $cl_units->set_stoneprice("200");
 $cl_units->set_ironprice("200");
@@ -183,9 +183,9 @@ $cl_units->set_specials(array());
 $cl_units->set_group("foot");
 $cl_units->set_col("C");
 $cl_units->set_attType("off");
-$cl_units->set_description("Nao existem muitas muralhas capazes de suportar o poder de 10 homens e da coroa de aço do aríete. Infelizmente o seu peso é um fardo e faz com que se mova muito lentamente.");
+$cl_units->set_description("The Ram helps break enemy walls during attacks.");
 
-$cl_units->add_unit("Catapulta","unit_catapult");
+$cl_units->add_unit("Catapult","unit_catapult");
 $cl_units->set_woodprice("320");
 $cl_units->set_stoneprice("400");
 $cl_units->set_ironprice("100");
@@ -203,9 +203,9 @@ $cl_units->set_specials(array());
 $cl_units->set_group("foot");
 $cl_units->set_col("C");
 $cl_units->set_attType("undefined");
-$cl_units->set_description("A Catapulta possui uma técnica mortal: as suas tiras de couro sao capazes de catapultar as mais pesadas pedras sobre os seus inimigos. Também permite bombardear edifícios. No entanto, necessita de uma escolta, uma vez que obviamente nao consegue defender-se sozinho.");
+$cl_units->set_description("Catapults are used to destroy enemy buildings from a distance.");
 
-$cl_units->add_unit("Paladino","unit_knight");
+$cl_units->add_unit("Paladin","unit_knight");
 $cl_units->set_woodprice("20");
 $cl_units->set_stoneprice("20");
 $cl_units->set_ironprice("40");
@@ -223,9 +223,9 @@ $cl_units->set_specials(array("no_investigate"));
 $cl_units->set_group("cav");
 $cl_units->set_col("D");
 $cl_units->set_attType("undefined");
-$cl_units->set_description("O paladino protege a aldeia e seus aliados contra ataques de inimigos. Cada jogador pode possuir apenas um paladino.");
+$cl_units->set_description("The Paladin protects your village and allies. Each player can have only one.");
 
-$cl_units->add_unit("Nobre","unit_snob");
+$cl_units->add_unit("Nobleman","unit_snob");
 if($config['ag_style'] == 2){
   $cl_units->set_woodprice("40000");
   $cl_units->set_stoneprice("50000");
@@ -249,5 +249,5 @@ $cl_units->set_specials(array("no_investigate"));
 $cl_units->set_group("foot");
 $cl_units->set_col("D");
 $cl_units->set_attType("undefined");
-$cl_units->set_description("Podes ouvir à distância som da fanfarra real a anunciar a chegada do Nobre que tomará conta dos assuntos da aldeia em teu nome. Como delegado de sua majestade pode convencer uma aldeia inteira a juntar-se ao teu reino.");
+$cl_units->set_description("The Nobleman lowers the loyalty of enemy villages and allows them to be conquered.");
 ?>

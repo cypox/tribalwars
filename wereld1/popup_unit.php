@@ -3,7 +3,7 @@ require_once("./include.inc.php");
 
 $unit = @$_GET['unit'];
 if(!in_array($unit, $cl_units->get_array("dbname"))){
-	exit("Desculpe, más não encontramos está unidade!");
+	exit("Sorry, we could not find this unit!");
 }
 
 $tpl = new TWLan_Smarty();

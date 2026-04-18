@@ -29,11 +29,11 @@
 		</td>
 		<td valign="top" width="50%">
 			<table class="vis" width="100%" style="border:1px solid #804000; border-bottom:none;">
-				<tr><td><a href="game.php?village=36841&amp;screen=ally&amp;action=exit&amp;h=cc6f" onclick="javascript:ask('Você deseja realmente abandonar a tribo que faz parte?', 'game.php?village={$village.id}&amp;screen=ally&amp;action=exit&amp;h={$hkey}'); return false;">&raquo; deixar tribo</a></td></tr>
+				<tr><td><a href="game.php?village=36841&amp;screen=ally&amp;action=exit&amp;h=cc6f" onclick="javascript:ask('Do you really want to leave your tribe?', 'game.php?village={$village.id}&amp;screen=ally&amp;action=exit&amp;h={$hkey}'); return false;">&raquo; leave tribe</a></td></tr>
 			</table>
 			{if !empty($preview)}
 			<table class="vis" width="100%" style="border:1px solid #804000; border-bottom:none;">
-				<tr><th colspan="2">Visualizar</th></tr>
+				<tr><th colspan="2">Preview</th></tr>
 				<tr><td colspan="2" align="center">{$ally.intern_text}</td></tr>
 			</table>
 			{/if}
@@ -55,14 +55,14 @@
 			</script>
 			<form action="game.php?village={$village.id}&amp;screen=ally&amp;action=edit_intern&amp;h={$hkey}" method="post" name="edit_profile">
 				<table class="vis" width="100%" style="border:1px solid #804000;">
-					<tr><th colspan="2" width="100%">Quadro de anúncios {if $user.ally_found == '1'}<span style="float:right;"><a id="edit_link" href="javascript:bbEdit()" style="display:none"><span class="button">EDITAR</span></a><a id="edit_link_close" href="javascript:bbEdit_close()" style="display:none"><span class="button">CANCELAR</span></a></span>{/if}</th></tr>
+					<tr><th colspan="2" width="100%">Announcement board {if $user.ally_found == '1'}<span style="float:right;"><a id="edit_link" href="javascript:bbEdit()" style="display:none"><span class="button">Edit</span></a><a id="edit_link_close" href="javascript:bbEdit_close()" style="display:none"><span class="button">Cancel</span></a></span>{/if}</th></tr>
 					<tr id="show_row" align="center"><td colspan="2">{$ally.intern_text}</td></tr>
 					{if $user.ally_found == '1'}
 					<tr id="edit_row"><td colspan="2" align="center"><textarea name="intern" cols="56" rows="10">{$ally.edit_intern_text}</textarea></td></tr>
 					<tr id="submit_row">
 						<th><div align="right">
-							<input type="submit" name="preview" value="VISUALIZAR" class="button" />
-							<input type="submit" name="edit" value="SALVAR" class="button green" />
+							<input type="submit" name="preview" value="Preview" class="button" />
+							<input type="submit" name="edit" value="Save" class="button green" />
 						</div></th>
 					</tr>
 					{/if}

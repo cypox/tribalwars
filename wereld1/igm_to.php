@@ -13,10 +13,10 @@ $usersql = array("villages","username","ally","points","rang","villages_mode","a
 $user = $userdatas->getbyid($session['userid'],$usersql,false);
 $user['id'] = $session['userid'];
 if($user['ally'] == '-1'){
-    exit("Desculpe, más não foi possivel carregar a lista!");
+    exit("Sorry, the list could not be loaded!");
 }
 if($user['ally_mass_mail'] != '1'){
-    exit("Desculpe, más não foi possivel carregar a lista!");
+    exit("Sorry, the list could not be loaded!");
 }
 if(isset($_GET['insert']) && $_GET['insert'] == "ally"){
 	$result = $db->query("SELECT `id`,`username` FROM `users` WHERE `ally`='".$user['ally']."'");

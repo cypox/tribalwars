@@ -10,7 +10,7 @@ if($ally['intro_igm'] != ""){
 }
 if(!isset($_POST['text']) && isset($_GET['action']) || $_GET['action'] == "intro_igm"){
 	if($session['hkey'] != $_GET['h']){
-		$error = "Desculpe, más o código de segurança está invalido!";
+		$error = "Sorry, but the security code is invalid!";
 	}
 	if(empty($error)){
 		$db->query("UPDATE `ally` SET `intro_igm`='".parse($_POST['text'])."' WHERE `id`='".$user['ally']."'");

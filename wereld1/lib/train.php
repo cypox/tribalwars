@@ -63,12 +63,12 @@ class train{
 		if(empty($check))
 			$check = $this->cl_units->last_error;
 		switch($check){
-			case "not_tec" :	$error = "Desculpe, más está unidade não foi pesquisada!";	break;
-			case "not_needed" :	$error = "Desculpe, más não há os requerimentos necessários!";	break;
-			case "not_enough_ress" :	$error = "Desculpe, más não há recursos suficientes!";	break;
-			case "not_enough_bh" :	$error = "Desculpe, más a fazenda não pode sustentar mais habitantes!";	break;
-			case "to_many_units" :	$error = "Desculpe, más não há recursos suficientes!";	break;
-			case "to_many_bh" :	$error = "Desculpe, más a fazenda não pode sustentar mais habitantes!";	break;
+			case "not_tec" :	$error = "Sorry, but this unit has not been researched!";	break;
+			case "not_needed" :	$error = "Sorry, but the required levels are not met!";	break;
+			case "not_enough_ress" :	$error = "Sorry, but not enough resources are available!";	break;
+			case "not_enough_bh" :	$error = "Sorry, but a farm cannot support more population!";	break;
+			case "to_many_units" :	$error = "Sorry, but not enough resources are available!";	break;
+			case "to_many_bh" :	$error = "Sorry, but a farm cannot support more population!";	break;
 		}
 		if(isset($error) && $error) $GLOBALS['tpl']->assign("error",$error);
 		return $this->recruited;

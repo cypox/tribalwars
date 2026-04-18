@@ -49,21 +49,21 @@ if($show_build){
 			$catapult = $information->unit_catapult_tec_level;
 
 			if($user['premium_active'] == 0){
-				$error = "Por favor ative as funcionalidades das moedas";
+				$error = "Please activate premium features.";
 			}elseif($spear == "1" AND $sword == "1" AND $axe == "1" AND $light == "1" AND $heavy == "1" AND $archer == "1" AND $marcher == "1" AND $ram == "1" AND $catapult == "1"){
-				$error = "Voc&ecirc; j&aacute; pesquisou tudo!";
+				$error = "You have already researched everything!";
 			}elseif($information->smith <= "15"){
-				$error = "O seu ferreiro deve estar pelo menos no n&iacute;vel 15";
+				$error = "Your Smithy must be at least level 15";
 			}elseif($information->stable <= "10"){
-				$error = "O seu est&aacute;bulo deve ter pelo menos n&iacute;vel 10!";
+				$error = "Your Stable must be at least level 10!";
 			}elseif($information->barracks <= "10"){
-				$error = "O seu quartel deve ter pelo menos n&iacute;vel 10!";
+				$error = "Your Barracks must be at least level 10!";
 			}elseif($information->garage <= "2"){
-				$error = "A sua oficina deve ter pelo menos n&iacute;vel 2!";
+				$error = "Your Workshop must be at least level 2!";
 			}elseif($information->storage < "16"){
-				$error = "O seu armaz&eacute;m deve ter pelo menos n&iacute;vel 15!";
+				$error = "Your Warehouse must be at least level 15!";
 			}elseif($information->r_wood <= "16182" AND $information->r_stone <= "18846" AND $information->r_iron <= "12490"){
-				$error = "Voc&ecirc; n&atilde;o tem recursos suficientes! Voc&ecirc; precisa de pelo menos 16.182 Madeira, 18.846 Barro and 12.490 Ferro.";
+				$error = "You do not have enough resources! You need at least 16,182 Wood, 18,846 Clay and 12,490 Iron.";
 			}else{
 				$aendern = $db->query("UPDATE villages Set unit_spear_tec_level='1', unit_sword_tec_level='1', unit_axe_tec_level='1', unit_archer_tec_level='1' WHERE id LIKE $village[id]");
 				$aendern = $db->query("UPDATE villages Set unit_spy_tec_level='1', unit_light_tec_level='1', unit_marcher_tec_level='1', unit_heavy_tec_level='1' WHERE id LIKE $village[id]");
@@ -73,10 +73,10 @@ if($show_build){
 				$stone = $information->r_stone - 18846;
 				$iron = $information->r_iron - 12490;
 				$update = $db->query("UPDATE villages Set r_wood='$wood', r_stone='$stone', r_iron='$iron' WHERE id = '$village[id]'");
-				$tpl->assign("succes", "Sucesso, pesquisou tudo!");
+				$tpl->assign("succes", "Success, all technologies were researched!");
 			}
 		}else{
-			$error = "HKEY inválido!";
+			$error = "Invalid HKEY!";
 		}
 	}
 
@@ -85,7 +85,7 @@ if($show_build){
 		$c->close();
 		if(isset($_GET['h']) && $session['hkey'] == $_GET['h']){
 			if($is_researches){
-			    $error = "Desculpe, más há uma pesquisa em andamento.";
+			    $error = "Sorry, but there is a research already in progress.";
 			}
 			if(empty($error)){
 				if(empty($_GET['id'])){
@@ -93,11 +93,11 @@ if($show_build){
 				}
 				$cl_techs->check_tech($_GET['id'],$village);
 				switch($cl_techs->get_last_error()){
-					case "tech_not_found":	$error = "Desculpe, más não encontramos está tecnologia!";	break;
-					case "max_stage":	$error = "Desculpe, más o nivel desta pesquisa já atingiu seu nível máximo!";	break;
-					case "not_fulfilled":	$error = "Desculpe, más não há os requerimentos necessários!";	break;
-					case "not_enough_storage":	$error = "Desculpe, más o armazém é muito pequeno!";	break;
-					case "not_enough_ress" :	$error = "Desculpe, más não há recursos suficientes!";	break;
+					case "tech_not_found":	$error = "Sorry, but we could not find this technology!";	break;
+					case "max_stage":	$error = "Sorry, but this research has already reached its maximum level!";	break;
+					case "not_fulfilled":	$error = "Sorry, but the required levels are not met!";	break;
+					case "not_enough_storage":	$error = "Sorry, but the warehouse is too small!";	break;
+					case "not_enough_ress" :	$error = "Sorry, but not enough resources are available!";	break;
 				}
 			}
 			if(empty($error)){
@@ -107,21 +107,21 @@ if($show_build){
 			    exit;
 			}
 		}else{
-			$error = "Desculpe, más o código de segurança está invalido!";
+			$error = "Sorry, but the security code is invalid!";
 		}
 		$c->open();
 	}
 	if(isset($_GET['action']) && $_GET['action'] == "cancel"){
 		if(isset($_GET['h']) && $session['hkey'] == $_GET['h']){
 			if(!$is_researches){
-			    $error = "Desculpe, más não há uma pesquisa em andamento.";
+			    $error = "Sorry, but there is no research in progress.";
 			}
 			if(empty($error)){
 				while(true){
 					$result = $db->query("SELECT COUNT(`id`) AS `count` FROM `events` WHERE `event_id`='".$research['id']."' AND `event_type`='research'");
 					$row = $db->fetch($result);
 					if($row['count'] != 1){
-						$error = "Desculpe, más a pesquisa já foi concluida!";
+						$error = "Sorry, but this research has already been completed!";
 						break;
 					}
 					$result = $db->query("UPDATE `events` SET `cid`='1' WHERE `event_id`='".$research['id']."' AND `event_type`='research' AND `cid`='0'");
@@ -143,7 +143,7 @@ if($show_build){
 				exit;
 			}
 		}else{
-			$error = "Desculpe, más o código de segurança está invalido!";
+			$error = "Sorry, but the security code is invalid!";
 		}
 	}
 	if(!isset($error)) $error = "";

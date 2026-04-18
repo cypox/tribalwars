@@ -9,8 +9,8 @@
 </head>
 
 <body >
-<table class="main" width="100%" align="center"><tr><td><h2>Neues Village erstellen</h2>
-<p>Es wurde in der Konfiguration eingestellt, dass keine weiteren Dörfer erstellt werden können. Daher kannst du nicht mehr an der aktuellen Runde teilnehmen.<br /><br /><a href="./index.php">Zur Startseite</a></p>
+<table class="main" width="100%" align="center"><tr><td><h2>Create new village</h2>
+<p>The configuration is set so that no additional villages can be created. Therefore you can no longer participate in the current round.<br /><br /><a href="./index.php">Back to homepage</a></p>
 
 </td></tr></table>
 <script type="text/javascript">setImageTitles();</script>

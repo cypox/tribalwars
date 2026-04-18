@@ -278,11 +278,11 @@ FA;
 {php}
 	if($stufen == "yes")
 	{
-		echo "<a href=\"game.php?screen=overview&stufen=no&village=".$_GET[village]."\">Geb&auml;udestufen ausblenden</a>";
+		echo "<a href=\"game.php?screen=overview&stufen=no&village=".$_GET[village]."\">Buildingsstufen ausblenden</a>";
 	}
 	else
 	{
-		echo "<a href=\"game.php?screen=overview&stufen=yes&village=".$_GET[village]."\">Geb&auml;udestufen anzeigen</a>";
+		echo "<a href=\"game.php?screen=overview&stufen=yes&village=".$_GET[village]."\">Buildingsstufen anzeigen</a>";
 	}
 {/php}
 
@@ -291,7 +291,7 @@ FA;
 
 
 </td>
-<td align="right"><a href="game.php?overview=old&screen=overview&village={php}echo $_GET[village];{/php}">zur klassischen Village&uuml;bersicht</a></td>
+<td align="right"><a href="game.php?overview=old&screen=overview&village={php}echo $_GET[village];{/php}">zur klassischen Village overview</a></td>
 	
 </tr></tbody></table>
 
@@ -390,57 +390,57 @@ FA;
 
 		if($row[market] <5 && $row[market] != 0)
 		{
-			echo "<img class=\"p_market\" src=\"{$config.cdn}/graphic/".$night."/market1.png\" alt=\"Marktplatz\"/>";
+			echo "<img class=\"p_market\" src=\"{$config.cdn}/graphic/".$night."/market1.png\" alt=\"Market\"/>";
 		}
 		if($row[market] >=5 && $row[market] <20)
 		{
-			echo "<img class=\"p_market\" src=\"{$config.cdn}/graphic/".$night."/market2.png\" alt=\"Marktplatz\"/>"; 	
+			echo "<img class=\"p_market\" src=\"{$config.cdn}/graphic/".$night."/market2.png\" alt=\"Market\"/>"; 	
 		}
 		if($row[market] >= 20)
 		{
-			echo "<img class=\"p_market\" src=\"{$config.cdn}/graphic/".$night."/market3.png\" alt=\"Marktplatz\"/>";
+			echo "<img class=\"p_market\" src=\"{$config.cdn}/graphic/".$night."/market3.png\" alt=\"Market\"/>";
 		}
 
 		
 		if($row[wood] <10 && $row[wood] != 0)
 		{
-			echo "<img class=\"p_wood\" src=\"{$config.cdn}/graphic/".$night."/wood1.png\" alt=\"Holzf?ller\"/>";
+			echo "<img class=\"p_wood\" src=\"{$config.cdn}/graphic/".$night."/wood1.png\" alt=\"Woodf?ller\"/>";
 		}
 		if($row[wood] >=10 && $row[wood] <20)
 		{
-			echo "<img class=\"p_wood\" src=\"{$config.cdn}/graphic/".$night."/wood2.png\" alt=\"Holzf?ller\"/>";	
+			echo "<img class=\"p_wood\" src=\"{$config.cdn}/graphic/".$night."/wood2.png\" alt=\"Woodf?ller\"/>";	
 		}
 		if($row[wood] >=20)
 		{
-			echo "<img class=\"p_wood\" src=\"{$config.cdn}/graphic/".$night."/wood3.png\" alt=\"Holzf?ller\"/>";
+			echo "<img class=\"p_wood\" src=\"{$config.cdn}/graphic/".$night."/wood3.png\" alt=\"Woodf?ller\"/>";
 		}
 
 		
 		if($row[iron] <10 && $row[iron] != 0)
 		{
-			echo "<img class=\"p_iron\" src=\"{$config.cdn}/graphic/".$night."/iron1.png\" alt=\"Eisenmiene\"/>";
+			echo "<img class=\"p_iron\" src=\"{$config.cdn}/graphic/".$night."/iron1.png\" alt=\"Ironmiene\"/>";
 		}
 		if($row[iron] >=10 && $row[iron] <20)
 		{
-			echo "<img class=\"p_iron\" src=\"{$config.cdn}/graphic/".$night."/iron2.png\" alt=\"Eisenmiene\"/>";
+			echo "<img class=\"p_iron\" src=\"{$config.cdn}/graphic/".$night."/iron2.png\" alt=\"Ironmiene\"/>";
 		}
 		if($row[iron] >=20)
 		{
-			echo "<img class=\"p_iron\" src=\"{$config.cdn}/graphic/".$night."/iron3.png\" alt=\"Eisenmiene\"/>";
+			echo "<img class=\"p_iron\" src=\"{$config.cdn}/graphic/".$night."/iron3.png\" alt=\"Ironmiene\"/>";
 		}
 
 
 		if($row[stone] <10 && $row[stone] != 0)
 		{
-			echo "<img class=\"p_stone\" src=\"{$config.cdn}/graphic/".$night."/stone1.png\" alt=\"Lehmgrube\"/>";
+			echo "<img class=\"p_stone\" src=\"{$config.cdn}/graphic/".$night."/stone1.png\" alt=\"Claygrube\"/>";
 		}
 		if($row[stone] >= 10 && $row[stone] <20)
 		{
-			echo "<img class=\"p_stone\" src=\"{$config.cdn}/graphic/".$night."/stone2.png\" alt=\"Lehmgrube\"/>";
+			echo "<img class=\"p_stone\" src=\"{$config.cdn}/graphic/".$night."/stone2.png\" alt=\"Claygrube\"/>";
 		}
 		if($row[stone] >=20)
 		{
-			echo "<img class=\"p_stone\" src=\"{$config.cdn}/graphic/".$night."/stone3.png\" alt=\"Lehmgrube\"/>";	
+			echo "<img class=\"p_stone\" src=\"{$config.cdn}/graphic/".$night."/stone3.png\" alt=\"Claygrube\"/>";	
 		}
 
 
@@ -460,63 +460,63 @@ FA;
 
 		if($row[smith] < 5 && $row[smith] != 0)
 		{
-			echo "<img class=\"p_smith\" src=\"{$config.cdn}/graphic/".$night."/smith1".$smith."\" alt=\"Schmiede\"/>";
+			echo "<img class=\"p_smith\" src=\"{$config.cdn}/graphic/".$night."/smith1".$smith."\" alt=\"Smithy\"/>";
 		}
 		if($row[smith] >=5 && $row[smith] < 15)
 		{
-			echo "<img class=\"p_smith\" src=\"{$config.cdn}/graphic/".$night."/smith2".$smith."\" alt=\"Schmiede\"/>";
+			echo "<img class=\"p_smith\" src=\"{$config.cdn}/graphic/".$night."/smith2".$smith."\" alt=\"Smithy\"/>";
 		}
 		if($row[smith] >= 15)
 		{
-			echo "<img class=\"p_smith\" src=\"{$config.cdn}/graphic/".$night."/smith3".$smith."\" alt=\"Schmiede\"/>";
+			echo "<img class=\"p_smith\" src=\"{$config.cdn}/graphic/".$night."/smith3".$smith."\" alt=\"Smithy\"/>";
 		}
 
 
 		if($row[barracks] < 5 && $row[barracks] != 0)
 		{
-			echo "<img class=\"p_barracks\" src=\"{$config.cdn}/graphic/".$night."/barracks1".$barracks."\" alt=\"Kaserne\"/>";
+			echo "<img class=\"p_barracks\" src=\"{$config.cdn}/graphic/".$night."/barracks1".$barracks."\" alt=\"Barracks\"/>";
 		}
 		if($row[barracks] >= 5 && $row[barracks] < 20)
 		{
-			echo "<img class=\"p_barracks\" src=\"{$config.cdn}/graphic/".$night."/barracks2".$barracks."\" alt=\"Kaserne\"/>";
+			echo "<img class=\"p_barracks\" src=\"{$config.cdn}/graphic/".$night."/barracks2".$barracks."\" alt=\"Barracks\"/>";
 		}
 		if($row[barracks] >=20)
 		{
-			echo "<img class=\"p_barracks\" src=\"{$config.cdn}/graphic/".$night."/barracks3".$barracks."\" alt=\"Kaserne\"/>";	
+			echo "<img class=\"p_barracks\" src=\"{$config.cdn}/graphic/".$night."/barracks3".$barracks."\" alt=\"Barracks\"/>";	
 		}
 
 
 		if($row[snob] >= 1)	
 		{
-			echo "<img class=\"p_snob\" src=\"{$config.cdn}/graphic/".$night."/snob1".$snob."\" alt=\"Adelshof\"/>";
+			echo "<img class=\"p_snob\" src=\"{$config.cdn}/graphic/".$night."/snob1".$snob."\" alt=\"Academy\"/>";
 		}
 		
 
 		if($row[garage] < 5 && $row[garage] != 0)
 		{
-			echo "<img class=\"p_garage\" src=\"{$config.cdn}/graphic/".$night."/garage1".$garage."\" alt=\"Werkstatt\"/>";
+			echo "<img class=\"p_garage\" src=\"{$config.cdn}/graphic/".$night."/garage1".$garage."\" alt=\"Workshop\"/>";
 		}
 		if($row[garage] >= 5 && $row[garage] < 10)
 		{
-			echo "<img class=\"p_garage\" src=\"{$config.cdn}/graphic/".$night."/garage2".$garage."\" alt=\"Werkstatt\"/>";
+			echo "<img class=\"p_garage\" src=\"{$config.cdn}/graphic/".$night."/garage2".$garage."\" alt=\"Workshop\"/>";
 		}
 		if($row[garage] >=10)
 		{
-			echo "<img class=\"p_garage\" src=\"{$config.cdn}/graphic/".$night."/garage3".$garage."\" alt=\"Werkstatt\"/>";
+			echo "<img class=\"p_garage\" src=\"{$config.cdn}/graphic/".$night."/garage3".$garage."\" alt=\"Workshop\"/>";
 		}
 
 
 		if($row[stable] <5 && $row[stable] != 0)
 		{
-			echo "<img class=\"p_stable\" src=\"{$config.cdn}/graphic/".$night."/stable1".$stable."\" alt=\"Stall\"/>";
+			echo "<img class=\"p_stable\" src=\"{$config.cdn}/graphic/".$night."/stable1".$stable."\" alt=\"Stable\"/>";
 		}
 		if($row[stable] >= 5 && $row[stable] < 10)
 		{
-			echo "<img class=\"p_stable\" src=\"{$config.cdn}/graphic/".$night."/stable2".$stable."\" alt=\"Stall\"/>";
+			echo "<img class=\"p_stable\" src=\"{$config.cdn}/graphic/".$night."/stable2".$stable."\" alt=\"Stable\"/>";
 		}
 		if($row[stable] >= 10)
 		{
-			echo "<img class=\"p_stable\" src=\"{$config.cdn}/graphic/".$night."/stable3".$stable."\" alt=\"Stall\"/>";
+			echo "<img class=\"p_stable\" src=\"{$config.cdn}/graphic/".$night."/stable3".$stable."\" alt=\"Stable\"/>";
 		}
 		
 
@@ -941,17 +941,17 @@ FA;
 		</td>
 		<td valign="top">
 			<table class="vis" width="100%">
-				<tr><th colspan="2">Produktion</th></tr>
-				<tr class="nowrap"><td width="70"><img src="{$config.cdn}/graphic/holz.png" title="Holz" alt="" /> Holz</td><td><strong>{php} echo $this->_tpl_vars['wood_prod_overview']; {/php}
-</strong> pro {php} if ($this->_tpl_vars['speed'] > 10): {/php}Minute{php} else: {/php}Stunde{php} endif; {/php}</td></tr>
-				<tr class="nowrap"><td><img src="{$config.cdn}/graphic/lehm.png" title="Lehm" alt="" /> Lehm</td><td><strong>{php} echo $this->_tpl_vars['stone_prod_overview']; {/php}
-</strong> pro {php} if ($this->_tpl_vars['speed'] > 10): {/php}Minute{php} else: {/php}Stunde{php} endif; {/php}</td></tr>
-				<tr class="nowrap"><td><img src="{$config.cdn}/graphic/eisen.png" title="Eisen" alt="" /> Eisen</td><td><strong>{php} echo $this->_tpl_vars['iron_prod_overview']; {/php}
-</strong> pro {php} if ($this->_tpl_vars['speed'] > 10): {/php}Minute{php} else: {/php}Stunde{php} endif; {/php}</td></tr>
+				<tr><th colspan="2">Production</th></tr>
+				<tr class="nowrap"><td width="70"><img src="{$config.cdn}/graphic/holz.png" title="Wood" alt="" /> Wood</td><td><strong>{php} echo $this->_tpl_vars['wood_prod_overview']; {/php}
+</strong> per {php} if (->_tpl_vars['speed'] > 10): {/php}minute{php} else: {/php}hour{php} endif; {/php}</td></tr>
+				<tr class="nowrap"><td><img src="{$config.cdn}/graphic/lehm.png" title="Clay" alt="" /> Clay</td><td><strong>{php} echo $this->_tpl_vars['stone_prod_overview']; {/php}
+</strong> per {php} if (->_tpl_vars['speed'] > 10): {/php}minute{php} else: {/php}hour{php} endif; {/php}</td></tr>
+				<tr class="nowrap"><td><img src="{$config.cdn}/graphic/eisen.png" title="Iron" alt="" /> Iron</td><td><strong>{php} echo $this->_tpl_vars['iron_prod_overview']; {/php}
+</strong> per {php} if (->_tpl_vars['speed'] > 10): {/php}minute{php} else: {/php}hour{php} endif; {/php}</td></tr>
 			</table>
 			<br />
 			<table class="vis" width="100%">
-				<tr><th>Einheiten</th></tr>
+				<tr><th>Units</th></tr>
                 {php} $_from = $this->_tpl_vars['in_village_units']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
     foreach ($_from as $this->_tpl_vars['dbname'] => $this->_tpl_vars['num']):
 {/php}
@@ -964,7 +964,7 @@ FA;
 			<br />
 			{php} if ($this->_tpl_vars['village']['agreement'] != '100'): {/php}
 				<table class="vis" width="100%">
-				<tr><th>Zustimmung:</th><th>{php} echo $this->_tpl_vars['village']['agreement']; {/php}
+				<tr><th>Loyalty:</th><th>{php} echo $this->_tpl_vars['village']['agreement']; {/php}
 </th></tr>
 				</table>
 				<br />
@@ -973,9 +973,9 @@ FA;
 						{php} if (count ( $this->_tpl_vars['other_movements'] ) > 0): {/php}
 			<table class="vis">
 				<tr>
-					<th width="250">Ankommende Truppen</th>
-					<th width="160">Ankunft</th>
-					<th width="80">Ankunft in</th>
+					<th width="250">Ankommende Troops</th>
+					<th width="160">Arrival</th>
+					<th width="80">Arrival in</th>
 				</tr>
 				{php} $_from = $this->_tpl_vars['other_movements']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
     foreach ($_from as $this->_tpl_vars['array']):
@@ -1007,9 +1007,9 @@ FA;
 						{php} if (count ( $this->_tpl_vars['my_movements'] ) > 0): {/php}
 			<table class="vis">
 				<tr>
-					<th width="250">Deine Truppen</th>
-					<th width="160">Ankunft</th>
-					<th width="80">Ankunft in</th>
+					<th width="250">Deine Troops</th>
+					<th width="160">Arrival</th>
+					<th width="80">Arrival in</th>
 				</tr>
 				{php} $_from = $this->_tpl_vars['my_movements']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
     foreach ($_from as $this->_tpl_vars['array']):
@@ -1037,7 +1037,7 @@ FA;
 				        	<td><a href="game.php?village={php} echo $this->_tpl_vars['village']['id']; {/php}
 &amp;screen=place&amp;action=cancel&amp;id={php} echo $this->_tpl_vars['array']['id']; {/php}
 &amp;h={php} echo $this->_tpl_vars['hkey']; {/php}
-">abbrechen</a></td>
+">cancel</a></td>
 				        {php} endif; {/php}
 				    </tr>
 				{php} endforeach; endif; unset($_from); {/php}
@@ -1052,14 +1052,14 @@ FA;
 {/php}
 {php} require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'format_date', 'game_overview.tpl', 53, false),array('modifier', 'format_time', 'game_overview.tpl', 55, false),)), $this); {/php}
-<h2>Village&uuml;bersicht {php} echo $this->_tpl_vars['village']['name']; {/php}
+<h2>Village overview {php} echo $this->_tpl_vars['village']['name']; {/php}
 </h2>
 <table>
 	<tr>
 		<td width="450" valign="top" valign="top">
 			<table class="vis" width="100%">
 				<tr>
-					<th>Geb&auml;ude</th>
+					<th>Buildings</th>
 				</tr>
 				{php} $_from = $this->_tpl_vars['built_builds']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
     foreach ($_from as $this->_tpl_vars['id'] => $this->_tpl_vars['dbname']):
@@ -1069,26 +1069,26 @@ smarty_core_load_plugins(array('plugins' => array(array('modifier', 'format_date
 &screen={php} echo $this->_tpl_vars['dbname']; {/php}
 "><img src="{$config.cdn}/graphic/buildings/{php} echo $this->_tpl_vars['dbname']; {/php}
 .png"> {php} echo $this->_tpl_vars['cl_builds']->get_name($this->_tpl_vars['dbname']); {/php}
-</a> (Stufe {php} echo $this->_tpl_vars['village'][$this->_tpl_vars['dbname']]; {/php}
+</a> (Level {php} echo $this->_tpl_vars['village'][$this->_tpl_vars['dbname']]; {/php}
 )</td>{php} if ($this->_tpl_vars['dbname'] == "market") { /*echo "<td><strong>H&auml;ndler: 8/10</strong></td>";*/ } {/php}
 					</tr>
 				{php} endforeach; endif; unset($_from); {/php}
 			</table>
-<br><a href="game.php?overview=new&screen=overview&village={php}echo $_GET[village];{/php}">zur graphischen Village&uuml;bersicht</a>
+<br><a href="game.php?overview=new&screen=overview&village={php}echo $_GET[village];{/php}">zur graphischen Village overview</a>
 		</td>
 		<td valign="top">
 			<table class="vis" width="100%">
-				<tr><th colspan="2">Produktion</th></tr>
-				<tr><td width="70"><img src="{$config.cdn}/graphic/holz.png" title="Holz" alt="" /> Holz</td><td><strong>{php} echo $this->_tpl_vars['wood_prod_overview']; {/php}
-</strong> pro {php} if ($this->_tpl_vars['speed'] > 10): {/php}Minute{php} else: {/php}Stunde{php} endif; {/php}</td></tr>
-				<tr><td><img src="{$config.cdn}/graphic/lehm.png" title="Lehm" alt="" /> Lehm</td><td><strong>{php} echo $this->_tpl_vars['stone_prod_overview']; {/php}
-</strong> pro {php} if ($this->_tpl_vars['speed'] > 10): {/php}Minute{php} else: {/php}Stunde{php} endif; {/php}</td></tr>
-				<tr><td><img src="{$config.cdn}/graphic/eisen.png" title="Eisen" alt="" /> Eisen</td><td><strong>{php} echo $this->_tpl_vars['iron_prod_overview']; {/php}
-</strong> pro {php} if ($this->_tpl_vars['speed'] > 10): {/php}Minute{php} else: {/php}Stunde{php} endif; {/php}</td></tr>
+				<tr><th colspan="2">Production</th></tr>
+				<tr><td width="70"><img src="{$config.cdn}/graphic/holz.png" title="Wood" alt="" /> Wood</td><td><strong>{php} echo $this->_tpl_vars['wood_prod_overview']; {/php}
+</strong> per {php} if (->_tpl_vars['speed'] > 10): {/php}minute{php} else: {/php}hour{php} endif; {/php}</td></tr>
+				<tr><td><img src="{$config.cdn}/graphic/lehm.png" title="Clay" alt="" /> Clay</td><td><strong>{php} echo $this->_tpl_vars['stone_prod_overview']; {/php}
+</strong> per {php} if (->_tpl_vars['speed'] > 10): {/php}minute{php} else: {/php}hour{php} endif; {/php}</td></tr>
+				<tr><td><img src="{$config.cdn}/graphic/eisen.png" title="Iron" alt="" /> Iron</td><td><strong>{php} echo $this->_tpl_vars['iron_prod_overview']; {/php}
+</strong> per {php} if (->_tpl_vars['speed'] > 10): {/php}minute{php} else: {/php}hour{php} endif; {/php}</td></tr>
 			</table>
 			<br />
 			<table class="vis" width="100%">
-				<tr><th>Einheiten</th></tr>
+				<tr><th>Units</th></tr>
                 {php} $_from = $this->_tpl_vars['in_village_units']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
     foreach ($_from as $this->_tpl_vars['dbname'] => $this->_tpl_vars['num']):
 {/php}
@@ -1101,7 +1101,7 @@ smarty_core_load_plugins(array('plugins' => array(array('modifier', 'format_date
 			<br />
 			{php} if ($this->_tpl_vars['village']['agreement'] != '100'): {/php}
 				<table class="vis" width="100%">
-				<tr><th>Zustimmung:</th><th>{php} echo $this->_tpl_vars['village']['agreement']; {/php}
+				<tr><th>Loyalty:</th><th>{php} echo $this->_tpl_vars['village']['agreement']; {/php}
 </th></tr>
 				</table>
 				<br />
@@ -1110,9 +1110,9 @@ smarty_core_load_plugins(array('plugins' => array(array('modifier', 'format_date
 						{php} if (count ( $this->_tpl_vars['other_movements'] ) > 0): {/php}
 			<table class="vis">
 				<tr>
-					<th width="250">Ankommende Truppen</th>
-					<th width="160">Ankunft</th>
-					<th width="80">Ankunft in</th>
+					<th width="250">Ankommende Troops</th>
+					<th width="160">Arrival</th>
+					<th width="80">Arrival in</th>
 				</tr>
 				{php} $_from = $this->_tpl_vars['other_movements']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
     foreach ($_from as $this->_tpl_vars['array']):
@@ -1144,9 +1144,9 @@ smarty_core_load_plugins(array('plugins' => array(array('modifier', 'format_date
 						{php} if (count ( $this->_tpl_vars['my_movements'] ) > 0): {/php}
 			<table class="vis">
 				<tr>
-					<th width="250">Deine Truppen</th>
-					<th width="160">Ankunft</th>
-					<th width="80">Ankunft in</th>
+					<th width="250">Deine Troops</th>
+					<th width="160">Arrival</th>
+					<th width="80">Arrival in</th>
 				</tr>
 				{php} $_from = $this->_tpl_vars['my_movements']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
     foreach ($_from as $this->_tpl_vars['array']):
@@ -1174,7 +1174,7 @@ smarty_core_load_plugins(array('plugins' => array(array('modifier', 'format_date
 				        	<td><a href="game.php?village={php} echo $this->_tpl_vars['village']['id']; {/php}
 &amp;screen=place&amp;action=cancel&amp;id={php} echo $this->_tpl_vars['array']['id']; {/php}
 &amp;h={php} echo $this->_tpl_vars['hkey']; {/php}
-">abbrechen</a></td>
+">cancel</a></td>
 				        {php} endif; {/php}
 				    </tr>
 				{php} endforeach; endif; unset($_from); {/php}

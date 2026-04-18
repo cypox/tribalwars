@@ -1,2 +1,2 @@
-<p><a href="game.php?village={$village.id}&amp;screen=info_player&amp;id={$report.from_user}">{$report.from_username}</a> apagou você de sua lista de amigos.</p>
-<a href="game.php?village={$village.id}&amp;screen=friends">&raquo; Amigos</a>
+<p><a href="game.php?village={$village.id}&amp;screen=info_player&amp;id={$report.from_user}">{$report.from_username}</a> removed you from their friends list.</p>
+<a href="game.php?village={$village.id}&amp;screen=friends">&raquo; Friends</a>

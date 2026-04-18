@@ -9,13 +9,13 @@
 
 <table class="vis">
   <tr>
-    {if $install != 'true'}<td><a href="?screen={$smarty.get.screen}&amp;action=install">Instalare</a></td>{/if}
+    {if $install != 'true'}<td><a href="?screen={$smarty.get.screen}&amp;action=install">Install</a></td>{/if}
     <td><a href="?screen={$smarty.get.screen}&amp;action=reset">Reset</a></td>
     <td><a href="?screen={$smarty.get.screen}&amp;action=updatesystem_{if $updatesystem_status == 'on'}off{else}on{/if}">Updatesystem {if $updatesystem_status == 'on'}deaktivieren{else}aktivieren{/if}</a></td>
   </tr>
 </table>
 {if isset($install_done)}
-  <h2 style="color: green; text-align: center;">Instalare cu succes!!</h2>
+  <h2 style="color: green; text-align: center;">Installed successfully!</h2>
 {elseif isset($updatesystem_on)}
   <h2 style="color: green; text-align: center;">Sistemul de Update activat cu succes!</h2>
 {elseif isset($updatesystem_off)}

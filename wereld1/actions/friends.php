@@ -17,7 +17,7 @@ if(isset($_GET['action']) && $_GET['action'] == "approve_buddy" && !empty($_GET[
 		header("LOCATION: game.php?village=".$village['id']."&screen=friends");
 		exit;
 	}else{
-		$error = "Desculpe, más você não pode adicionar a si mesmo!";
+		$error = "Sorry, but you cannot add yourself!";
 	}
 }
 if(isset($_GET['action']) && $_GET['action'] == "reject_buddy" && !empty($_GET['id'])){
@@ -32,7 +32,7 @@ if(isset($_GET['action']) && $_GET['action'] == "reject_buddy" && !empty($_GET['
 		header("LOCATION: game.php?village=".$village['id']."&screen=friends");
 		exit;
 	}else{
-		$error = "Desculpe, más você não pode adicionar a si mesmo!";
+		$error = "Sorry, but you cannot add yourself!";
 	}
 }
 if(isset($_GET['action']) && $_GET['action'] == "add_buddy" && !empty($_POST['name'])){
@@ -41,7 +41,7 @@ if(isset($_GET['action']) && $_GET['action'] == "add_buddy" && !empty($_POST['na
 	$sql = $db->query("SELECT * FROM `users` WHERE `username`='".$name."' LIMIT 1");
 	$check = $db->numrows($sql);
 	if($check != 1){
-		$error = "Desculpe, más não encontramos um jogador com este nome!";
+		$error = "Sorry, but we could not find a player with this name!";
 	}elseif($check == 1){
 		$row = $db->fetch($sql);
 		if($row['id'] != $user['id']){
@@ -53,10 +53,10 @@ if(isset($_GET['action']) && $_GET['action'] == "add_buddy" && !empty($_POST['na
 				header("LOCATION: game.php?village=".$village['id']."&screen=friends");
 				exit;
 			}else{
-				$error = "Desculpe, más o jogador ".entparse($name)." já está em sua lista de amigos";
+				$error = "Sorry, but player ".entparse($name)." is already in your friends list";
 			}
 		}else{
-			$error = "Desculpe, más você não pode adicionar a si mesmo!";
+			$error = "Sorry, but you cannot add yourself!";
 		}
 	}
 }
@@ -66,7 +66,7 @@ if(isset($_GET['action']) && $_GET['action'] == "add_buddy_id" && !empty($_GET['
 	$sql = $db->query("SELECT * FROM `users` WHERE `id`='".$id."' LIMIT 1");
 	$check = $db->numrows($sql);
 	if($check != 1){
-		$error = "Desculpe, más não encontramos este jogador!";
+		$error = "Sorry, but we could not find this player!";
 	}elseif($check == 1){
 		$row = $db->fetch($sql);
 		if($row['id'] != $user['id']){
@@ -78,10 +78,10 @@ if(isset($_GET['action']) && $_GET['action'] == "add_buddy_id" && !empty($_GET['
 				header("LOCATION: game.php?village=".$village['id']."&screen=friends");
 				exit;
 			}else{
-				$error = "Desculpe, más o jogador ".entparse($row['username'])." já está em sua lista de amigos";
+				$error = "Sorry, but player ".entparse($row['username'])." is already in your friends list";
 			}
 		}else{
-			$error = "Desculpe, más você não pode adicionar a si mesmo!";
+			$error = "Sorry, but you cannot add yourself!";
 		}
 	}
 }
@@ -102,7 +102,7 @@ if(isset($_GET['action']) && $_GET['action'] == "delete_buddy" && !empty($_GET['
 		header("LOCATION: game.php?village=".$village['id']."&screen=friends");
 		exit;
 	}else{
-		$error = "Desculpe, más não foi possivel executar está ação!";
+		$error = "Sorry, but this action could not be performed!";
 	}
 }
 if(isset($_GET['action']) && $_GET['action'] == "cancel_buddy" && !empty($_GET['id'])){
@@ -117,7 +117,7 @@ if(isset($_GET['action']) && $_GET['action'] == "cancel_buddy" && !empty($_GET['
 		header("LOCATION: game.php?village=".$village['id']."&screen=friends");
 		exit;
 	}else{
-		$error = "Desculpe, más não foi possivel executar está ação!";
+		$error = "Sorry, but this action could not be performed!";
 	}
 }
 

@@ -1,6 +1,6 @@
-<h3>Karte</h3>
+<h3>Map</h3>
 
 
-<p>Die Welt besteht aus 10x10 Kontinenten, die fortlaufend von 0 nummeriert sind:<br />
+<p>The world consists of 10x10 continents, numbered consecutively from 0:<br />
 <img src="graphic/help/welt.png" alt="" />
 </p>

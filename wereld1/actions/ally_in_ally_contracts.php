@@ -26,14 +26,14 @@ if(isset($_GET['action']) && $_GET['action'] == "add_contract" && !empty($_POST[
 	$getTribeRow = $db->fetch($getTribe);
 
 	if($db->numrows($getTribe) == 0){
-		$error = "Desculpe, más não encontramos nenhuma tribo com a TAG '".$_POST['tag']."'!";
+		$error = "Sorry, but we could not find any tribe with the TAG '".$_POST['tag']."'!";
 	}else{
 		if($ally['short'] == $tag){
-			$error = "Desculpe, más você não pode estabelecer uma relação diplomática com sua própria tribo!";
+			$error = "Sorry, but you cannot establish a diplomatic relation with your own tribe!";
 		}else{
 			$getContract = $db->query("SELECT * FROM `ally_contracts` WHERE `short`='".$tag."' AND `from_ally`='".$user['ally']."'");
 			if($db->numrows($getContract) != 0){
-				$error = "Desulpe, más já existe uma relação diplomática com está tribo!";
+				$error = "Sorry, but a diplomatic relation with this tribe already exists!";
 			}
 		}
 	}

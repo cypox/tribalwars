@@ -4,7 +4,7 @@ require_once("./include.inc.php");
 $result = $db->query("SELECT `id`,`name` FROM `save_rounds` WHERE `id`='".parse($_GET['round_id'])."'");
 $round = $db->fetch($result);
 if(!isset($round['id'])){
-	exit("Desculpe, más não encontramos os dados deste round!");
+	exit("Sorry, we could not find the data for this round!");
 }
 $players = array();
 $result = $db->query("SELECT `id`,`username`,`rank`,`points`,`villages`,`ally` FROM `save_players` WHERE `round_id`='".$round['id']."' ORDER BY `rank`");

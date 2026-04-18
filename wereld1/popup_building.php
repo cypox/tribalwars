@@ -3,7 +3,7 @@ require_once("./include.inc.php");
 
 $building = @$_GET['building'];
 if(!in_array($building, $cl_builds->get_array("dbname"))){
-	exit("Desculpe, más não encontramos este edifício!");
+	exit("Sorry, we could not find this building!");
 }
 
 $tpl = new TWLan_Smarty();

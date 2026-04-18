@@ -1,14 +1,14 @@
 <table class="vis" width="100%">
 	<tr>
 		<th>Villages</th>
-		<th><div align="center"><img src="{$config.cdn}/graphic/overview/main.png" title="Castelo" alt="" /></div></th>
-		<th><div align="center"><img src="{$config.cdn}/graphic/overview/barracks.png" title="Quartel" alt="" /></div></th>
-		<th><div align="center"><img src="{$config.cdn}/graphic/overview/stable.png" title="Estábulo" alt="" /></div></th>
-		<th><div align="center"><img src="{$config.cdn}/graphic/overview/garage.png" title="Oficina" alt="" /></div></th>
-		<th><div align="center"><img src="{$config.cdn}/graphic/overview/smith.png" title="Ferreiro" alt="" /></div></th>
-		<th><div align="center"><img src="{$config.cdn}/graphic/overview/farm.png" title="Moinho" alt="" /></div></th>
+		<th><div align="center"><img src="{$config.cdn}/graphic/overview/main.png" title="Headquarters" alt="" /></div></th>
+		<th><div align="center"><img src="{$config.cdn}/graphic/overview/barracks.png" title="Barracks" alt="" /></div></th>
+		<th><div align="center"><img src="{$config.cdn}/graphic/overview/stable.png" title="Stable" alt="" /></div></th>
+		<th><div align="center"><img src="{$config.cdn}/graphic/overview/garage.png" title="Workshop" alt="" /></div></th>
+		<th><div align="center"><img src="{$config.cdn}/graphic/overview/smith.png" title="Smithy" alt="" /></div></th>
+		<th><div align="center"><img src="{$config.cdn}/graphic/overview/farm.png" title="Farm" alt="" /></div></th>
 		{foreach from=$unit item=name key=dbname}<th width="35"><div align="center"><img src="{$config.cdn}/graphic/unit/{$dbname}.png" title="{$name}" /></div></th>{/foreach}
-		<th><div align="center"><img src="{$config.cdn}/graphic/overview/trader.png" title="Mercadores" alt="" /></div></th>
+		<th><div align="center"><img src="{$config.cdn}/graphic/overview/trader.png" title="Merchants" alt="" /></div></th>
 	</tr>
 {foreach from=$villages item=arr key=arr_id}
 	<tr class="{$villages.$arr_id.lit}">
@@ -16,39 +16,39 @@
 	{if isset($villages.$arr_id.first_build.buildname)}
 		<td align="center"><a href="game.php?village={$arr_id}&amp;screen=main"><span class="dot green" title="{$villages.$arr_id.first_build.buildname}: {$villages.$arr_id.first_build.end_time}"></span></a></td>
 	{else}
-		<td align="center"><a href="game.php?village={$arr_id}&amp;screen=main"><span class="dot brown" title="Sem produção"></span></a></td>
+		<td align="center"><a href="game.php?village={$arr_id}&amp;screen=main"><span class="dot brown" title="No production"></span></a></td>
 	{/if}
 
 	{if $villages.$arr_id.barracks==0}
-		<td align="center"><a href="game.php?village={$arr_id}&amp;screen=barracks"><span class="dot grey" title="Impossivel produzir"></span></a></td>
+		<td align="center"><a href="game.php?village={$arr_id}&amp;screen=barracks"><span class="dot grey" title="Cannot produce"></span></a></td>
 	{elseif !empty($villages.$arr_id.barracks_prod.unit)}
 		<td align="center"><a href="game.php?village={$arr_id}&amp;screen=barracks"><span class="dot green" title="{$villages.$arr_id.barracks_prod.unit}: {$villages.$arr_id.barracks_prod.time}"></span></a></td>
 	{else}
-		<td align="center"><a href="game.php?village={$arr_id}&amp;screen=barracks"><span class="dot brown" title="Sem produção"></span></a></td>
+		<td align="center"><a href="game.php?village={$arr_id}&amp;screen=barracks"><span class="dot brown" title="No production"></span></a></td>
 	{/if}
 
 	{if $villages.$arr_id.stable==0}
-		<td align="center"><a href="game.php?village={$arr_id}&amp;screen=stable"><span class="dot grey" title="Impossivel produzir"></span></a></td>
+		<td align="center"><a href="game.php?village={$arr_id}&amp;screen=stable"><span class="dot grey" title="Cannot produce"></span></a></td>
 	{elseif !empty($villages.$arr_id.stable_prod.unit)}
 		<td align="center"><a href="game.php?village={$arr_id}&amp;screen=stable"><span class="dot green" title="{$villages.$arr_id.stable_prod.unit}: {$villages.$arr_id.stable_prod.time}"></span></a></td>
 	{else}
-		<td align="center"><a href="game.php?village={$arr_id}&amp;screen=stable"><span class="dot brown" title="Sem produção"></span></a></td>
+		<td align="center"><a href="game.php?village={$arr_id}&amp;screen=stable"><span class="dot brown" title="No production"></span></a></td>
 	{/if}
 
 	{if $villages.$arr_id.garage==0}
-		<td align="center"><a href="game.php?village={$arr_id}&amp;screen=garage"><span class="dot grey" title="Impossivel produzir"></span></a></td>
+		<td align="center"><a href="game.php?village={$arr_id}&amp;screen=garage"><span class="dot grey" title="Cannot produce"></span></a></td>
 	{elseif !empty($villages.$arr_id.garage_prod.unit)}
 		<td align="center"><a href="game.php?village={$arr_id}&amp;screen=garage"><span class="dot green" title="{$villages.$arr_id.garage_prod.unit}: {$villages.$arr_id.garage_prod.time}"></span></a></td>
 	{else}
-		<td align="center"><a href="game.php?village={$arr_id}&amp;screen=garage"><span class="dot brown" title="Sem produção"></span></a></td>
+		<td align="center"><a href="game.php?village={$arr_id}&amp;screen=garage"><span class="dot brown" title="No production"></span></a></td>
 	{/if}
 
 	{if $villages.$arr_id.smith==0}
-		<td align="center"><a href="game.php?village={$arr_id}&amp;screen=smith"><span class="dot yellow" title="Ferreiro não construído"></span></a></td>
+		<td align="center"><a href="game.php?village={$arr_id}&amp;screen=smith"><span class="dot yellow" title="Smithy not built"></span></a></td>
 	{elseif !empty($villages.$arr_id.first_tec.tecname)}
 		<td align="center"><a href="game.php?village={$arr_id}&amp;screen=smith"><span class="dot green" title="{$villages.$arr_id.first_tec.tecname}: {$villages.$arr_id.first_tec.end_time}"></span></a></td>
 	{else}
-		<td align="center"><a href="game.php?village={$arr_id}&amp;screen=smith"><span class="dot brown" title="Sem produção"></span></a></td>
+		<td align="center"><a href="game.php?village={$arr_id}&amp;screen=smith"><span class="dot brown" title="No production"></span></a></td>
 	{/if}
 		<td align="center"><a href="game.php?village={$arr_id}&amp;screen=farm">{$villages.$arr_id.max_farm-$villages.$arr_id.r_bh} ({$villages.$arr_id.farm})</a></td>
 	{foreach from=$unit item=name key=dbname}

@@ -738,7 +738,7 @@ function do_movement_attack($row,$event_id,$event_time,$var=""){
 
 	$do_return_try = true;
 	if($all_units_died_att || $row['die'] == 1){
-		$logging .= msec().": Lösche Bewegung mov<br />";
+		$logging .= msec().": Delete movement mov<br />";
 		$db->query("DELETE FROM `movements` where `id`='".$row['id']."'");
 		$del_event = true;
 		$do_return_try = false;
@@ -913,7 +913,7 @@ function do_movement_attack($row,$event_id,$event_time,$var=""){
 	}
 	reload_ally_rangs();
 	if($do_return_try && !$del_event && $return_end <= time()){
-		$logging .= msec().": gleich zurÃ¼ck<br />";
+		$logging .= msec().": immediate return<br />";
 		$del_event = do_movement($row['id'], $event_id,$event_time);
 	}
 	return $del_event;
@@ -996,7 +996,7 @@ function check_events(){
 		}
 		if($delete_event){
 			$db->query("DELETE FROM `events` WHERE `id`='".$row['id']."'");
-			$logging .= msec().": Lï¿½sche event main<br />";
+			$logging .= msec().": Delete main event<br />";
 		}else{
 			$db->unb_query("UPDATE `events` SET `is_locked`='0' WHERE `id`=".$row['id']." AND `is_locked`='1'");
 			$logging .= msec().": update event main<br />";

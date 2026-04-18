@@ -3,18 +3,18 @@
 		<tr>
 			<th width="280">Player</th>
 			<th width="40">Rank</th>
-			<th width="80">Pontos</th>
+			<th width="80">Points</th>
 			<th width="40">Villages</th>
 			{if $user.ally_lead == 1}
-			<th><div align="center"><span class="icon ally founder" alt="Fundador" title="Fundador"></span></div></th>
-			<th><div align="center"><span class="icon ally lead" alt="Administrador" title="Administrador"></span></div></th>
-			<th><div align="center"><span class="icon ally invite" alt="Recrutador" title="Recrutador"></span></div></th>
-			<th><div align="center"><span class="icon ally diplomacy" alt="Diplom&aacute;ta" title="Diplomáta"></span></div></th>
-			<th><div align="center"><span class="icon ally mass" alt="Mensagem em massa" title="Mensagem em massa"></span></div></th>
-			{*<th><div align="center"><span class="icon ally mod" alt="Moderador do fórum" title="Moderador do fórum"></span></div></th>
-			<th><div align="center"><span class="icon ally internal" alt="Fórum oculto" title="Fórum oculto"></span></div></th>
-			<th><div align="center"><span class="icon ally trusted" alt="Membros confiáveis" title="Membros confiáveis"></span></div></th>*}
-			<th><div align="center">Modo de férias</div></th>
+			<th><div align="center"><span class="icon ally founder" alt="Founder" title="Founder"></span></div></th>
+			<th><div align="center"><span class="icon ally lead" alt="Administrator" title="Administrator"></span></div></th>
+			<th><div align="center"><span class="icon ally invite" alt="Recruiter" title="Recruiter"></span></div></th>
+			<th><div align="center"><span class="icon ally diplomacy" alt="Diplomat" title="Diplomat"></span></div></th>
+			<th><div align="center"><span class="icon ally mass" alt="Mass message" title="Mass message"></span></div></th>
+			{*<th><div align="center"><span class="icon ally mod" alt="Forum moderator" title="Forum moderator"></span></div></th>
+			<th><div align="center"><span class="icon ally internal" alt="Hidden forum" title="Hidden forum"></span></div></th>
+			<th><div align="center"><span class="icon ally trusted" alt="Trusted members" title="Trusted members"></span></div></th>*}
+			<th><div align="center">Vacation mode</div></th>
 			{/if}
 		</tr>
 	    {foreach from=$members item=arr key=id}
@@ -42,9 +42,9 @@
 	</table>
 	{if $user.ally_lead == '1'}
 	<select name="action" style="text-align:center;">
-		<option label="Selecione uma a&ccedil;&atilde;o..." value="">Selecione uma a&ccedil;&atilde;o...</option>
-		<option label="Tit&uacute;los e permiss&otilde;es" value="rights">Tit&uacute;los e permiss&otilde;es</option>
-		<option label="Expulsar" value="kick">Expulsar</option>
+		<option label="Select an action..." value="">Select an action...</option>
+		<option label="Titles and permissions" value="rights">Titles and permissions</option>
+		<option label="Kick" value="kick">Kick</option>
 	</select>
 	<input type="submit" value="OK" class="button" />
 	{/if}
@@ -53,11 +53,11 @@
 {if $user.ally_lead == '1'}
 <table class="vis" width="200" style="border:1px solid #804000; margin-top:5px;">
 	<tr><th colspan="2">Status</th></tr>
-	<tr><td align="center"><span class="dot green"></span></td><td>Ativo</td></tr>
-	<tr><td align="center"><span class="dot yellow"></span></td><td>Inativo a 2 dias</td></tr>
-	<tr><td align="center"><span class="dot red"></span></td><td>inativo a uma semana</td></tr>
-	<tr><td align="center"><span class="dot blue"></span></td><td>Modo de férias</td></tr>
-	<tr><td align="center"><span class="dot locked"></span></td><td>Banido</td></tr>
+	<tr><td align="center"><span class="dot green"></span></td><td>Active</td></tr>
+	<tr><td align="center"><span class="dot yellow"></span></td><td>Inactive for 2 days</td></tr>
+	<tr><td align="center"><span class="dot red"></span></td><td>Inactive for one week</td></tr>
+	<tr><td align="center"><span class="dot blue"></span></td><td>Vacation mode</td></tr>
+	<tr><td align="center"><span class="dot locked"></span></td><td>Banned</td></tr>
 </table>
-<div style="font-size:7pt;">* Apenas <b>Fundadores</b> e <b>Administradores</b> podem ver os status dos jogadores!</div>
+<div style="font-size:7pt;">* Only <b>Founders</b> and <b>Administrators</b> can see player statuses!</div>
 {/if}

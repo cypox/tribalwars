@@ -35,7 +35,7 @@
 					<tr><td><a href="game.php?village={$village.id}&amp;screen=overview_villages&amp;mode=incomings">&raquo; {$lang->get("incomings")}</a></td></tr>
 				</table>
 			</td>
-			<td><div align="center"><a href="game.php?village={$village.id}&amp;screen=report">{if $user.new_report==1}<img src="{$config.cdn}/graphic/icons/new_rep.png" title="Novo relatório" alt="" />{/if} {$lang->get("reports")}</a></div>
+			<td><div align="center"><a href="game.php?village={$village.id}&amp;screen=report">{if $user.new_report==1}<img src="{$config.cdn}/graphic/icons/new_rep.png" title="New report" alt="" />{/if} {$lang->get("reports")}</a></div>
 				<table cellspacing="0" width="150">
 					<tr><td><a href="game.php?village={$village.id}&amp;screen=report&amp;mode=all">&raquo; {$lang->get("all")}</a></td></tr>
 					<tr><td><a href="game.php?village={$village.id}&amp;screen=report&amp;mode=attack">&raquo; {$lang->get("attacks")}</a></td></tr>
@@ -45,7 +45,7 @@
 					<tr><td><a href="game.php?village={$village.id}&amp;screen=report&amp;mode=other">&raquo; {$lang->get("else")}</a></td></tr>
 				</table>
 			</td>
-			<td><div align="center"><a href="game.php?village={$village.id}&amp;screen=mail">{if $user.new_mail==1}<img src="{$config.cdn}/graphic/icons/new_mail.png" title="Nova mensagem" alt="" />{/if} {$lang->get("messages")}</a></div>
+			<td><div align="center"><a href="game.php?village={$village.id}&amp;screen=mail">{if $user.new_mail==1}<img src="{$config.cdn}/graphic/icons/new_mail.png" title="New message" alt="" />{/if} {$lang->get("messages")}</a></div>
 				<table cellspacing="0" width="180">
 					<tr><td><a href="game.php?village={$village.id}&amp;screen=mail&amp;mode=in">&raquo; {$lang->get("newmessage")}</a></td></tr>
 					<tr><td><a href="game.php?village={$village.id}&amp;screen=mail&amp;mode=out">&raquo; {$lang->get("sendmessage")}</a></td></tr>
@@ -99,7 +99,7 @@
 						<th width="50%" valign="bottom" align="left" style="padding: 0px;">
 							<table class="header_login" style="padding:2px;" width="30%">
 								<tr>
-									<td align="center"><font color="black"><b>Rank: {$user.rang}º ({$user.points|format_number} P)</b></font></td>
+									<td align="center"><font color="black"><b>Rank: {$user.rang} ({$user.points|format_number} P)</b></font></td>
 									{if $user.villages>1}
                                                                               <td>
 											{if !empty($village_array.last)}
@@ -139,7 +139,7 @@
 		</tr>
 		<tr>
 		{if $user.attacks > 0}
-			<td align="center" class="att" id="new_att" {if $user.attacks <= 0}style="display: none;"{/if} onclick="document.location='game.php?village={$village.id}&screen=overview_villages&mode=incomings';" title="Recebendo {$user.attacks} ataque(s)">
+			<td align="center" class="att" id="new_att" {if $user.attacks <= 0}style="display: none;"{/if} onclick="document.location='game.php?village={$village.id}&screen=overview_villages&mode=incomings';" title="Receiving {$user.attacks} attack(s)">
 				{$user.attacks}
 			</td>
 		{/if}
@@ -155,7 +155,7 @@
 		<tr>
 			<td colspan="2" {if $screen!='main'}colspan=""{/if}>
 			{if $config.no_actions}
-				<b style="color:red;">{$lang->get("attentie")}:</b> {$lang->get("blockedactions")}As ações no jogo (Ex: construções, pesquisas, recrutamento, etc.) estão temporariamente bloqueadas!
+				<b style="color:red;">{$lang->get("attentie")}:</b> {$lang->get("blockedactions")}
 			{else}
 				{if in_array($screen,$allow_screens)}
 					{include file="game_$screen.tpl"}
@@ -194,7 +194,7 @@
 				<a href="game.php?village={$village.id}&amp;screen=settings&amp;mode=profile">{$lang->get("profile")}</a>
 			</div>
 			<div id="footer_right">
-				<a href="game.php?village={$village.id}&amp;screen=friends">{$lang->get("vrienden")}</a>
+				<a href="game.php?village={$village.id}&amp;screen=friends">Friends</a>
 			</div>
 		</div>
 	</div>

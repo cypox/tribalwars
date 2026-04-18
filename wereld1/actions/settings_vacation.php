@@ -8,20 +8,20 @@ if(isset($_GET['action']) && $_GET['action'] == 'sitter_offer'){
 	$c->close();
 
 	if(@$session['hkey'] != $_GET['h']){
-		$error = "Desculpe, más o código de segurança está invalido!";
+		$error = "Sorry, but the security code is invalid!";
 	}
 
 	$username = parse(trim(@$_POST['sitter']));
 	$result = $db->query("SELECT `id`,`username` FROM `users` WHERE `username`='".$username."'");
 	$row = $db->fetch($result);
 	if(empty($error) && empty($row['id'])){
-		$error = "Desculpe, más não encontramos nennhum jogador com este nome!";
+		$error = "Sorry, but we could not find any player with this name!";
 	}
 	if(!empty($user['vacation_name'])){
-		$error = "Desculpe, más você ja tem uma solicitação de férias em aberto!";
+		$error = "Sorry, but you already have an open vacation request!";
 	}
 	if(empty($error) && $row['id'] == $user['id']){
- 		$error = "Desculpe, más você não pode ser seu próprio substituto!";
+ 		$error = "Sorry, but you cannot be your own replacement!";
 	}
 	if(empty($error)){
 		$cl_reports->inquires_uv($user['username'],$user['id'],$row['id']);
@@ -35,11 +35,11 @@ if(isset($_GET['action']) && $_GET['action'] == 'sitter_offer_cancel' && !$sid->
 	$c->close();
 
 	if(@$session['hkey'] != $_GET['h']){
-		$error = "Desculpe, más o código de segurança está invalido!";
+		$error = "Sorry, but the security code is invalid!";
 	}
 
 	if(empty($error) && $user['vacation_accept'] == 1){
-		$error = "Desculpe, más não foi possivel cancelar a solicitação de férias!";
+		$error = "Sorry, but it was not possible to cancel the vacation request!";
 	}
 	if(empty($error)){
 		$db->query("UPDATE `users` SET `vacation_name`='',`vacation_id`='-1',`vacation_accept`='0' WHERE `id`='".$user['id']."'");
@@ -52,10 +52,10 @@ if(isset($_GET['action']) && $_GET['action'] == 'end_vacation' && $sid->is_vacat
 	$c->close();
 
 	if(@$session['hkey'] != $_GET['h']){
-		$error = "Desculpe, más o código de segurança está invalido!";
+		$error = "Sorry, but the security code is invalid!";
 	}
 	if(empty($error) && $user['vacation_accept'] == '0'){
-		$error = "Desculpe, más não é possível terminar a substituição de férias!!";
+		$error = "Sorry, but it is not possible to end the vacation replacement!";
 	}
 	if(empty($error)){
 		$cl_reports->cancel_uv($user['vacation_name'],$user['vacation_id'],$user['id']);
@@ -76,20 +76,20 @@ if(isset($_GET['action']) && $_GET['action']=='sitter_reject' && !$sid->is_vacat
 	$c->close();
 
 	if(@$session['hkey'] != $_GET['h']){
-		$error = "Desculpe, más o código de segurança está invalido!";
+		$error = "Sorry, but the security code is invalid!";
 	}
 
 	$playerid = trim(parse(@$_GET['player_id']));
 	$result = $db->query("SELECT `vacation_id`,`vacation_accept` FROM `users` WHERE `id`='".$playerid."'");
 	$row = $db->fetch($result);
 	if(empty($error) && empty($row['vacation_id'])){
-		$error = "Desculpe, más houve um erro inesperado ao executar está ação!";
+		$error = "Sorry, but an unexpected error occurred while performing this action!";
 	}
 	if(empty($error) && $row['vacation_id'] != $user['id']){
-		$error = "Desculpe, más está solicitação não pertence a você!";
+		$error = "Sorry, but this request does not belong to you!";
 	}
 	if(empty($error) && $row['vacation_accept'] == 1){
-		$error = "Desculpe, más não é possível executar está ação!";
+		$error = "Sorry, but it is not possible to perform this action!";
 	}
 	if(empty($error)){
 		$cl_reports->reject_uv($user['username'],$user['id'],$playerid);
@@ -103,20 +103,20 @@ if(isset($_GET['action']) && $_GET['action'] == 'sitter_accept' && !$sid->is_vac
 	$c->close();
 
 	if(@$session['hkey'] != $_GET['h']){
-		$error = "Desculpe, más o código de segurança está invalido!";
+		$error = "Sorry, but the security code is invalid!";
 	}
 
 	$playerid = trim(parse(@$_GET['player_id']));
 	$result = $db->query("SELECT `vacation_id`,`vacation_accept` FROM `users` WHERE id='".$playerid."'");
 	$row = $db->fetch($result);
 	if(empty($error) && empty($row['vacation_id'])){
-		$error = "Desculpe, más houve um erro inesperado ao executar está ação!";
+		$error = "Sorry, but an unexpected error occurred while performing this action!";
 	}
 	if(empty($error) && $row['vacation_id'] != $user['id']){
-		$error = "Desculpe, más está solicitação não pertence a você!";
+		$error = "Sorry, but this request does not belong to you!";
 	}
 	if(empty($error) && $row['vacation_accept'] == 1){
-		$error = "Desculpe, más não é possível executar está ação!";
+		$error = "Sorry, but it is not possible to perform this action!";
 	}
 	if(empty($error)){
 		$cl_reports->accept_uv($user['username'],$user['id'],$playerid);

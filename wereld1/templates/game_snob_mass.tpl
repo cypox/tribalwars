@@ -11,8 +11,8 @@ function max_gold(){ldelim}
 <table width="100%" class="vis" cellpadding="1" cellspacing="2" border="0">
 	<tr align="left">
 		<th>Village</th>
-		<th>Recursos</th>
-		<th>Quantidade</th>
+		<th>Resources</th>
+		<th>Amount</th>
 	</tr>
 	<form action="game.php?village={$village.id}&amp;screen=snob&amp;mode=mass&amp;action=mass" method="post">
 	{foreach from=$villages item=arr key=id}
@@ -28,7 +28,7 @@ function max_gold(){ldelim}
 			<input type="hidden" value="{$village.id}" name="vill_id[]" />
 			<input type="hidden" value="{$snobLimit}" name="snoblimit[]" />
 			<select name="anzahl[]" width="100%">
-				<option value="0">- keine -</option>
+				<option value="0">- none -</option>
 {php}
 	$count = 1;
 	while(true){
@@ -51,7 +51,7 @@ function max_gold(){ldelim}
 	</tr>
 	{/foreach}
 	<tr>
-		<th colspan="2"><input type="submit" value="Cunhar moedas &raquo;" class="button" /></th>
-		<th><a href="javascript:max_gold()">&raquo; Máximo</a></th>
+		<th colspan="2"><input type="submit" value="Mint coins &raquo;" class="button" /></th>
+		<th><a href="javascript:max_gold()">&raquo; Maximum</a></th>
 	</tr>
 </table>

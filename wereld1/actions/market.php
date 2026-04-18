@@ -7,9 +7,9 @@ $show_build = ($cl_builds->check_needed('market',$village) && $village['market']
 if (!isset($_GET['mode'])) $_GET['mode'] = "send";
 
 $links = array(
-	"Enviar recursos" => "send",
-	"Suas ofertas" => "own_offer",
-	"Outras ofertas" => "other_offer",
+	"Send resources" => "send",
+	"Your offers" => "own_offer",
+	"Other offers" => "other_offer",
 );
 $allow_mods = array("send","own_offer","other_offer");
 if($show_build){

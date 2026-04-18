@@ -51,7 +51,7 @@ if($show_build){
         $c = new do_action($user['id']);
         $c->close();
         if($session['hkey'] != $_GET['h']){
-            $error = "Desculpe, más o código de segurança está invalido!";
+            $error = "Sorry, but the security code is invalid!";
         }
         $check = "";
         $reload = false;
@@ -91,33 +91,33 @@ if($show_build){
             $check = $cl_units->last_error;
         }
         switch($check){
-            case "not_tec" :	$error = "Desculpe, más está unidade não foi pesquisada!";	break;
-            case "not_needed" :	$error = "Desculpe, más não há os requerimentos necessários!";	break;
-            case "not_enough_ress" :	$error = "Desculpe, más não há recursos suficientes!";	break;
-            case "not_enough_bh" :	$error = "Desculpe, más a fazenda não pode sustentar mais habitantes!";	break;
-            case "to_many_units" :	$error = "Desculpe, más não há recursos suficientes!";	break;
-            case "to_many_bh" :	$error = "Desculpe, más a fazenda não pode sustentar mais habitantes!";	break;
+            case "not_tec" :	$error = "Sorry, but this unit has not been researched!";	break;
+            case "not_needed" :	$error = "Sorry, but the required levels are not met!";	break;
+            case "not_enough_ress" :	$error = "Sorry, but not enough resources are available!";	break;
+            case "not_enough_bh" :	$error = "Sorry, but a farm cannot support more population!";	break;
+            case "to_many_units" :	$error = "Sorry, but not enough resources are available!";	break;
+            case "to_many_bh" :	$error = "Sorry, but a farm cannot support more population!";	break;
 		}
 	}
 	if(isset($_GET['action']) && $_GET['action'] == "cancel" && isset($_GET['id'])){
         if($session['hkey'] != $_GET['h']){
-            $error = "Desculpe, más o código de segurança está invalido!";
+            $error = "Sorry, but the security code is invalid!";
         }
 		$g_id = parse($_GET['id']);
         $result = $db->query("SELECT `unit`,`villageid`,`num_finished`,`num_unit` FROM `recruit` WHERE `id`='".$g_id."'" );
 		$row = $db->fetch($result);
-        if($row['villageid'] != $village['id']){
-            $error = "Desculpe, más houve um erro ao executar a ação!";
+		if($row['villageid'] != $village['id']){
+			$error = "Sorry, but there was an error performing this action!";
         }
 		if (!in_array($row['unit'], array_flip($units))){
-            $error = "Você não pode Recrutar essa Quantidade!";
+            $error = "Sorry, but you cannot recruit that quantity!";
         }
 		if(empty($error)){
 			while(true){
 				$result = $db->query("SELECT COUNT(`id`) AS `count` FROM `events` WHERE `event_type`='recruit' AND `event_id`='".$g_id."'");
 				$row = $db->fetch($result);
 				if($row['count'] != 1){
-					$error = "Desculpe, más o recrutamento já foi concluido!";
+					$error = "Sorry, but the recruitment has already been completed!";
 					break;
 				}
 				$result = $db->query("UPDATE `events` SET `cid`='1' WHERE `event_type`='recruit' AND `event_id`='".$g_id."' AND `cid`='0'");

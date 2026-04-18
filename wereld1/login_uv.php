@@ -4,7 +4,7 @@ require_once("./include.inc.php");
 $result = $db->query("SELECT `login_locked` FROM `login`");
 $row_login = $db->fetch($result);
 if($row_login['login_locked'] == "yes"){
-    exit("Desculpe, más o acesso está temporariamente bloqueado!");
+    exit("Sorry, access is temporarily blocked!");
 }
 $login = new login();
 $userid = parse(@$_GET['id']);

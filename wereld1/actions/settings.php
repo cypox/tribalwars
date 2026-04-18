@@ -10,9 +10,9 @@ if(!isset($_GET['mode'])) $_GET['mode'] = "profile";
 $links = array(
 	"Perfil" => "profile",
 	"Minha conta" => "settings",
-	"Modo de férias" => "vacation",
+	"Vacation mode" => "vacation",
 	"Acessos" => "logins",
-	"Trocar senha" => "change_passwd"
+	"Change password" => "change_passwd"
 );
 $allow_mods = array_values($links);
 if(in_array($_GET['mode'], $links)){

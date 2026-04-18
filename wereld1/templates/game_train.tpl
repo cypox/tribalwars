@@ -2,16 +2,16 @@
 <table>
 	<tr>
 		<td>
-			<h2>Recrutar em massa</h2>
-			Nesta visualização você pode produzir qualquer tipo de unidade, desde que todos os requerimentos de tais unidades tenham sido preenchidos (edfícios e tecnologias).
+			<h2>Mass recruitment</h2>
+			In this view you can recruit any type of unit, provided all requirements (buildings and technologies) have been met.
 		</td>
 	</tr>
 </table>
-<b>&raquo; Você ordenou os seguintes recrutamentos:</b>
+<b>&raquo; You ordered the following recruitments:</b>
 <table class="vis" width="50%">
 	<tr>
 		<th>Village</th>
-		<th>Unidade</th>
+		<th>Unit</th>
 	</tr>
 	{foreach from=$recruited key=current_village item=single_recruit}
 	{php}$this->_tpl_vars['cur_vil_info'] = $GLOBALS['db']->fetch($GLOBALS['db']->query("SELECT * FROM `villages` WHERE `id`='".$this->_tpl_vars['current_village']."'"));{/php}
@@ -21,7 +21,7 @@
 	</tr>
 	{/foreach}
 </table>
-<a href="game.php?village={$village.id}&amp;screen=train&amp;mode=mass">&raquo; Voltar</a>
+		<a href="game.php?village={$village.id}&amp;screen=train&amp;mode=mass">&raquo; Back</a>
 {else}
 <script type='text/javascript'>
 {if $get.mode=="mass"}
@@ -221,17 +221,17 @@
 <table width="100%">
 	<tr>
 		<td>
-			<h2>Recrutar</h2>
-			Nesta visualização você pode produzir qualquer tipo de unidade, desde que todos os requerimentos de tais unidades tenham sido preenchidos (edfícios e tecnologias).
+			<h2>Recruit</h2>
+			In this view you can recruit any type of unit, provided all requirements (buildings and technologies) have been met.
 		</td>
 	</tr>
 </table><br />
 	{if count($recruit_units)>0}
 <table class="vis" width="100%">
 	<tr>
-		<th width="150">Unidade</th>
+		<th width="150">Unit</th>
 		<th width="120">Duration</th>
-		<th width="150">Término</th>
+		<th width="150">Completion</th>
 		<th width="100">Cancel *</th>
 	</tr>
 		{foreach from=$recruit_units key=key item=value}
@@ -243,30 +243,30 @@
 	   	<td>{$recruit_units.$key.countdown|format_time}</td>
 			{/if}
 		<td>{$recruit_units.$key.time_finished|format_date}</td>
-		<td><a href="game.php?village={$village.id}&amp;screen=train&amp;action=cancel&amp;id={$key}&amp;h={$hkey}">cancelar</a></td>
+		<td><a href="game.php?village={$village.id}&amp;screen=train&amp;action=cancel&amp;id={$key}&amp;h={$hkey}">Cancel</a></td>
     </tr>
 		{/foreach}
 </table>
-<div style="font-size: 7pt;">* (Apenas 90% dos recursos serão devolvidos!)</div><br />
+<div style="font-size: 7pt;">* (Only 90% of resources are refunded)</div><br />
 	{/if}
 	{if !empty($error)}<div class="error">{$error}</div>{/if}
 <table class="vis">
 	<tr>
-		<td {if $mode==''}class="selected"{/if}><a href="game.php?village={$village.id}&amp;screen=train">{if $mode==''}&raquo; {/if}Recrutar</a></td>
-		<td {if $mode=='mass'}class="selected"{/if}><a href="game.php?village={$village.id}&amp;screen=train&amp;mode=mass">{if $mode=='mass'}&raquo; {/if}Recrutamento em massa</a></td>
+		<td {if $mode==''}class="selected"{/if}><a href="game.php?village={$village.id}&amp;screen=train">{if $mode==''}&raquo; {/if}Recruit</a></td>
+		<td {if $mode=='mass'}class="selected"{/if}><a href="game.php?village={$village.id}&amp;screen=train&amp;mode=mass">{if $mode=='mass'}&raquo; {/if}Mass recruitment</a></td>
 	</tr>
 </table>
 <form action="game.php?village={$village.id}&screen=train&action=train&h={$hkey}" id="train_form" method="post">
 	<table class="vis" width="100%">
 		<tr>
-			<th width="200">Unidade</th>
+			<th width="200">Unit</th>
 			<th><center><img src="{$config.cdn}/graphic/icons/wood.png"></center></th>
 			<th><center><img src="{$config.cdn}/graphic/icons/stone.png"></center></th>
 			<th><center><img src="{$config.cdn}/graphic/icons/iron.png"></center></th>
 			<th><center><img src="{$config.cdn}/graphic/icons/farm.png"></center></th>
 			<th class="nowrap" width="120">Duration</th>
-			<th class="nowrap">Recrutar</th>
-			<th>Recrutar</th>
+			<th class="nowrap">In village/Total</th>
+			<th>Recruit</th>
 		</tr>
 		{foreach from=$units item=currentunit}
 			{$cl_units->check_needed($currentunit,$village)}
@@ -285,15 +285,15 @@
         	{/if}
 		{/foreach}
 		<script type='text/javascript'>{if $get.mode!="mass"}window.setInterval("trainManager.tick()", 1000);{/if}</script>
-		<tr><th colspan="8"><div align="right"><input type="submit" value="Recrutar" class="button" /></div></th></tr>
+		<tr><th colspan="8"><div align="right"><input type="submit" value="Recruit" class="button" /></div></th></tr>
 	</table>
 </form>
 {else}
 <table>
 	<tr>
 		<td>
-			<h2>Recrutar em massa</h2>
-			<p>Nesta visualização você pode produzir qualquer tipo de unidade, desde que todos os requerimentos de tais unidades tenham sido preenchidos (edfícios e tecnologias).</p>
+			<h2>Mass recruitment</h2>
+			<p>In this view you can recruit any type of unit, provided all requirements (buildings and technologies) have been met.</p>
 		</td>
 	</tr>
 </table><br />
@@ -335,14 +335,14 @@
 {/literal}
    </script>
 <div style="text-align:center">
-	<input type="button" value="Inserir tropas" onclick="return filler(false);" class="button" alt="" />
-	<input type="button" value="Inserir máximo" onclick="return filler(true);" class="button" alt="" />
+	<input type="button" value="Fill troops" onclick="return filler(false);" class="button" alt="" />
+	<input type="button" value="Fill maximum" onclick="return filler(true);" class="button" alt="" />
 </div>
 {if !empty($error)}<div class="error">{$error}</div>{/if}
 <table class="vis">
 	<tr>
-		<td {if $mode==''}class="selected"{/if}><a href="game.php?village={$village.id}&amp;screen=train">{if $mode==''}&raquo; {/if}Recrutar</a></td>
-		<td {if $mode=='mass'}class="selected"{/if}><a href="game.php?village={$village.id}&amp;screen=train&amp;mode=mass">{if $mode=='mass'}&raquo; {/if}Recrutamento em massa</a></td>
+		<td {if $mode==''}class="selected"{/if}><a href="game.php?village={$village.id}&amp;screen=train">{if $mode==''}&raquo; {/if}Recruit</a></td>
+		<td {if $mode=='mass'}class="selected"{/if}><a href="game.php?village={$village.id}&amp;screen=train&amp;mode=mass">{if $mode=='mass'}&raquo; {/if}Mass recruitment</a></td>
 	</tr>
 </table>
 <form method="post" action="game.php?village={$village.id}&amp;screen=train&amp;mode=mass&amp;group=0&amp;action=train_mass&amp;h={$hkey}&amp;site={$get.site}" id="mass_train_form">
@@ -397,7 +397,7 @@
 			{/foreach}
 		</tr>
 		{/foreach}
-		<tr><th colspan="15"><div align="right"><input type="submit" value="Recrutar" class="button" /></div></th></tr>
+		<tr><th colspan="15"><div align="right"><input type="submit" value="Recruit" class="button" /></div></th></tr>
 	</table>
 	<div align="center">
     {section name=show_sites start=1 loop=$sites+1 step=1}

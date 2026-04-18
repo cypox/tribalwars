@@ -1,19 +1,19 @@
 <table class="vis" width="100%">
 	<tr>
 		<th>Villages</th>
-		<th>Pontos</th>
-		<th>Recursos</th>
-		<th>Armazém</th>
-		<th>Moinho</th>
-		<th>Construção</th>
-		<th>Pesquisa</th>
-		<th>Recrutamento</th>
+		<th>Points</th>
+		<th>Resources</th>
+		<th>Warehouse</th>
+		<th>Farm</th>
+		<th>Construction</th>
+		<th>Research</th>
+		<th>Recruitment</th>
 	</tr>
 {foreach from=$villages item=id key=arr_id}
 	<tr class="{$villages.$arr_id.lit}">
 		<td>{if $villages.$arr_id.attacks!=0}<img src="{$config.cdn}/graphic/command/attack.png"> {/if}<a href="game.php?village={$arr_id}&screen=overview">{$villages.$arr_id.name} ({$villages.$arr_id.x}|{$villages.$arr_id.y}) K{$villages.$arr_id.continent}</a></td>
 		<td align="center">{$villages.$arr_id.points}</td>
-		<td align="center"><img src="{$config.cdn}/graphic/icons/wood.png" title="Madeira" alt="" />{if $villages.$arr_id.r_wood==$villages.$arr_id.max_storage}<span class="warn">{/if}{$villages.$arr_id.r_wood}{if $villages.$arr_id.r_wood==$villages.$arr_id.max_storage}</span>{/if} <img src="{$config.cdn}/graphic/icons/stone.png" title="Argila" alt="" />{if $villages.$arr_id.r_stone==$villages.$arr_id.max_storage}<span class="warn">{/if}{$villages.$arr_id.r_stone}{if $villages.$arr_id.r_stone==$villages.$arr_id.max_storage}</span>{/if} <img src="{$config.cdn}/graphic/icons/iron.png" title="Ferro" alt="" />{if $villages.$arr_id.r_iron==$villages.$arr_id.max_storage}<span class="warn">{/if}{$villages.$arr_id.r_iron}{if $villages.$arr_id.r_iron==$villages.$arr_id.max_storage}</span>{/if} </td>
+		<td align="center"><img src="{$config.cdn}/graphic/icons/wood.png" title="Wood" alt="" />{if $villages.$arr_id.r_wood==$villages.$arr_id.max_storage}<span class="warn">{/if}{$villages.$arr_id.r_wood}{if $villages.$arr_id.r_wood==$villages.$arr_id.max_storage}</span>{/if} <img src="{$config.cdn}/graphic/icons/stone.png" title="Clay" alt="" />{if $villages.$arr_id.r_stone==$villages.$arr_id.max_storage}<span class="warn">{/if}{$villages.$arr_id.r_stone}{if $villages.$arr_id.r_stone==$villages.$arr_id.max_storage}</span>{/if} <img src="{$config.cdn}/graphic/icons/iron.png" title="Iron" alt="" />{if $villages.$arr_id.r_iron==$villages.$arr_id.max_storage}<span class="warn">{/if}{$villages.$arr_id.r_iron}{if $villages.$arr_id.r_iron==$villages.$arr_id.max_storage}</span>{/if} </td>
 		<td align="center">{$villages.$arr_id.max_storage}</td>
 		<td align="center">{$villages.$arr_id.r_bh}/{$villages.$arr_id.max_farm}</td>
 		{if isset($villages.$arr_id.first_build.buildname)}

@@ -7,18 +7,18 @@ if(!isset($_GET['mode']))
 	$_GET['mode'] = "all";
 
 $links = array(
-	"Todos" => "all",
-	"Ataques" => "attack",
-	"Defesas" => "defense",
-	"Apoio" => "support",
-	"Mercado" => "trade",
-	"Outros" => "other"
+	"All" => "all",
+	"Attacks" => "attack",
+	"Defenses" => "defense",
+	"Support" => "support",
+	"Trade" => "trade",
+	"Other" => "other"
 );
 $allow_mods = array("all","attack","defense","support","trade","other");
 
 if(isset($_POST['del'])){
 	if($session['hkey'] != $_GET['h']){
-		exit("Desculpe, más o código de segurança está invalido!");
+		exit("Sorry, but the security code is invalid!");
 	}
 	foreach($_POST as $id=>$value){
 		if(substr($id, 0, 3)=="id_"){
@@ -26,7 +26,7 @@ if(isset($_POST['del'])){
 			$result = $db->query("SELECT `receiver_userid` FROM `reports` WHERE `id`='".$id."'");
 			$del = $db->fetch($result);
 			if(!$del['receiver_userid'] == $user['id']){
-				exit("Desculpe, más houve erro ao apagar os relatórios!");
+				exit("Sorry, there was an error deleting the reports!");
 			}else{
 				$db->query("DELETE FROM `reports` WHERE `id`='".$id."'");
 			}
@@ -37,14 +37,14 @@ if(isset($_POST['del'])){
 
 if(isset($_GET['action']) && $_GET['action'] == "del_one"){
 	if($session['hkey'] != $_GET['h']){
-		exit("Desculpe, más o código de segurança está invalido!");
+		exit("Sorry, but the security code is invalid!");
 	}
 
 	$id = parse($_GET['id']);
 	$result = $db->query("SELECT `receiver_userid` FROM `reports` WHERE `id`='".$id."'");
 	$del = $db->fetch($result);
 	if(!$del['receiver_userid'] == $user['id']){
-		exit("Desculpe, más houve erro ao apagar o relatório!");
+		exit("Sorry, there was an error deleting the report!");
 	}else{
 		$db->query("DELETE FROM `reports` WHERE `id`='".$id."'");
 	}
@@ -92,7 +92,7 @@ if(!isset($_GET['view'])){
 	$report['date'] = date("d.m.Y H:i:s", @$report['time']);
 
 	if($user['id'] != @$report['receiver_userid']){
-		exit("Desculpe, más houve erro ao abrir o relatório!");
+		exit("Sorry, there was an error opening the report!");
 	}
 
 	if($report['is_new'] == "1"){

@@ -12,7 +12,7 @@
 	$query_villages = "SELECT * FROM `villages` WHERE `id` = '$v'";
 	$villages = $db->fetch($db->query($query_villages));
 	if(!is_array($villages)){
-		echo '<table class="vis" width="100%"><tr><td>Aldeia não encontrada.</td></tr></table>';
+		echo '<table class="vis" width="100%"><tr><td>Village not found.</td></tr></table>';
 		exit;
 	}
 
@@ -111,41 +111,41 @@
     	<th colspan="2"><?php echo $info_title;?></th>
     </tr>
 <?php if($noob_protection >= $timp){ ?>
-    <tr><td colspan="2"><div class="error">Jogador sob prote&ccedil;&atilde;o de iniciantes! Fim da Prote&ccedil;&atilde;o: <?php echo $info_noob; ?></div></td></tr>
+    <tr><td colspan="2"><div class="error">Player is under beginner protection! Protection ends: <?php echo $info_noob; ?></div></td></tr>
 <?php } ?>
 <?php if($villages['bonus'] > 0){ ?>
 		<tr><td colspan="2" align="center">
 <?php 
 	if($villages['bonus'] == 1){
-		echo "<b>50% mais capacidade de armazenamento e comerciantes</b>";
+		echo "<b>50% more warehouse capacity and merchants</b>";
 	}elseif($villages['bonus'] == 2){
-		echo "<b>10% mais população</b>";
+		echo "<b>10% more population</b>";
 	}elseif($villages['bonus'] == 3){
-		echo "<b>33% produção mais rápida no estábulo</b>";
+		echo "<b>33% faster production in the Stable</b>";
 	}elseif($villages['bonus'] == 4){
-		echo "<b>33% produção mais rápida no quartel</b>";
+		echo "<b>33% faster production in the Barracks</b>";
 	}elseif($villages['bonus'] == 5){
-		echo "<b>50% produção mais rápida na oficina</b>";
+		echo "<b>50% faster production in the Workshop</b>";
 	}elseif($villages['bonus'] == 6){
-		echo "<b>30% aumento da produção de matérias-primas</b>";
+		echo "<b>30% increased raw material production</b>";
 	}
 ?>
 	 </td></tr>
 <?php } ?>
     <tr>
-        <td width="30%">Pontos:</td><td><?php echo $info_points;?></td>     
+        <td width="30%">Points:</td><td><?php echo $info_points;?></td>     
     </tr>
     <?php if($villages['userid'] == -1){ ?>
     <tr>
-        <td colspan="2" align="center">Aldeia abandonada</td>     
+        <td colspan="2" align="center">Abandoned village</td>     
     </tr>
     <?php }else{ ?>
     <tr>
-        <td width="30%">Proprietário:</td><td><?php echo $info_owner;?></td>     
+        <td width="30%">Owner:</td><td><?php echo $info_owner;?></td>     
     </tr>
     <?php } if($users['ally'] != -1 && $villages['userid'] != -1){ ?>
     <tr>
-        <td width="30%">Tribo:</td><td><?php echo $info_tribe;?></td>     
+        <td width="30%">Tribe:</td><td><?php echo $info_tribe;?></td>     
     </tr>
     <?php } if($u == $villages['userid']){ ?>
     <tr>

@@ -179,7 +179,7 @@ function create_village($userid,$username='',$direction='random'){
 	}while($row2['count_village'] == "1");
 
 	if($userid != "-1"){
- 		$villagename = parse("Aldeia de ".entparse($username));
+ 		$villagename = parse("Village of ".entparse($username));
  	}else{
  		$villagename = parse(entparse($config['left_name']));
  	}	
@@ -245,7 +245,7 @@ function tech($stage){
 	if($stage > 0){
 		return "Level ".$stage;
 	}
-	return "Não pesquisado";
+	return "Not researched";
 }
 function format_time($sek){
 	$sek = (int)$sek;
@@ -271,16 +271,16 @@ function format_date($stamp, $show_sek="false"){
 	$tomorrow_day = date("d", $time + 86400);
 	$return = "";
 	if($today_day == date("d", $stamp)){
-		$return = "Hoje ";
+		$return = "today";
 	}elseif($tomorrow_day == date("d", $stamp)){
-		$return = "Amanhã";
+		$return = "tomorrow";
 	}else{
-		$return = "Op ".date("d.m", $stamp);
+		$return = "on ".date("d.m", $stamp);
 	}
 	if($show_sek){
-		$return .= " às ".date("G:i:s", $stamp)." hrs";
+		$return .= " at ".date("G:i:s", $stamp)." hrs";
 	}else{
-		$return .= " às ".date("G:i", $stamp)." hrs";
+		$return .= " at ".date("G:i", $stamp)." hrs";
 	}
 	return $return;
 }

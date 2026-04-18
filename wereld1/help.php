@@ -4,17 +4,17 @@ if(!isset($_GET['mode']))
 	$_GET['mode'] = "intro";
 
 $links = array(
-	"Primeiros passos" => "intro",
-	"Iniciando" => "late_start",
-	"Edifícios" => "buildings",
-	"Unidades" => "units",
-	"BAtalhas" => "fight",
-	"Pontos" => "points",
-	"Mapa" => "map",
-	"Relatórios" => "reports",
-	"Códigos BB" => "bb",
+	"First steps" => "intro",
+	"Starting late" => "late_start",
+	"Buildings" => "buildings",
+	"Units" => "units",
+	"Battles" => "fight",
+	"Points" => "points",
+	"Map" => "map",
+	"Reports" => "reports",
+	"BB codes" => "bb",
 	"Banners" => "banner",
-	"Informações" => "server_info"
+	"Information" => "server_info"
 );
 
 $tpl = new TWLan_Smarty();

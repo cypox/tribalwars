@@ -47,9 +47,9 @@ while($row = $db->fetch($result)){
 if(isset($_GET['action']) && $_GET['action'] == "change_name"){
 	if(isset($_GET['h']) && is_string($_GET['h']) && $session['hkey'] == $_GET['h']){
 		if(strlen($_POST['name']) < 3){
-			$error = "Desculpe, más o nome da aldeia deve conter entre 3 e 25 caracteres!";
+			$error = "Sorry, but the village name must contain between 3 and 25 characters!";
         }elseif(strlen($_POST['name']) > 25){
-			$error = "Desculpe, más o nome da aldeia deve conter entre 3 e 25 caracteres!";
+			$error = "Sorry, but the village name must contain between 3 and 25 characters!";
 		}
 		if(empty($error)){
 			$p_name = parse($_POST['name']);
@@ -59,27 +59,27 @@ if(isset($_GET['action']) && $_GET['action'] == "change_name"){
 			exit;
 		}
 	}else{
-		$error = "Desculpe, más o código de segurança está invalido!";
+		$error = "Sorry, but the security code is invalid!";
 	}
 }
 if(isset($_GET['action']) && isset($_GET['id']) && $_GET['action'] == "build"){
 	$dbname_array = $cl_builds->get_array('dbname');
 	$id_array = array_flip($cl_builds->get_array('dbname'));
 	if(!is_string($_GET['id']) || !in_array($_GET['id'], $dbname_array)){
-		$error = "Desculpe, más este edifício não existe!";
+		$error = "Sorry, but this building does not exist!";
 	}else{
 		$cl_builds->build($village, $id_array[$_GET['id']], $build_village, $plus_costs);
 		switch($cl_builds->get_build_error2()){
-			case "not_enough_ress":	$error = "Desculpe, más não há recursos suficientes!";	break;
-			case "not_enough_ress_plus":	$error = "Desculpe, más não existe recursos suficientes para adicionar uma nova ordem de construção!";	break;
-			case "max_stage":	$error = "Desculpe, más o edifício já está totalmente construído!";	break;
-			case "not_enough_bh":	$error = "Desculpe, más a fazenda não pode sustentar mais habitantes!";	break;
-			case "not_enough_storage":	$error = "Desculpe, más o armazém é muito pequeno!";	break;
-			case "not_fulfilled":	$error = "Desculpe, más não há os requerimentos necessários!";	break;
+			case "not_enough_ress":	$error = "Sorry, not enough resources are available!";	break;
+			case "not_enough_ress_plus":	$error = "Sorry, not enough resources are available to add a new construction order!";	break;
+			case "max_stage":	$error = "Sorry, this building is already fully constructed!";	break;
+			case "not_enough_bh":	$error = "Sorry, the farm cannot support more population!";	break;
+			case "not_enough_storage":	$error = "Sorry, the warehouse is too small!";	break;
+			case "not_fulfilled":	$error = "Sorry, the required building levels are not met!";	break;
 		}
 	}
 	if($session['hkey'] != $_GET['h']){
-		$error = "Desculpe, más o código de segurança está invalido!";
+		$error = "Sorry, but the security code is invalid!";
 	}
 	if(empty($error)){
 		$wood = $cl_builds->get_wood($_GET['id'],$build_village[$_GET['id']]+1);
@@ -112,10 +112,10 @@ if(isset($_GET['action']) && isset($_GET['id']) && $_GET['action'] == "cancel"){
 	$result = $db->query("SELECT `building`,`villageid`,`mode` FROM `build` WHERE `id`='".$g_id."'");
 	$broke_build = $db->fetch($result);
 	if(empty($broke_build['building'])){
-		$error = "Desculpe, más não encontrams está construção!";
+		$error = "Sorry, but we could not find this building!";
 	}
 	if($village['id'] != $broke_build['villageid']){
-		$error = "Desculpe, más a ordem ja foi cumprida!";
+		$error = "Sorry, but this command has already been completed!";
 	}
 	if(empty($error)){
 		$result = $db->query("DELETE FROM `build` WHERE `id`='".$g_id."'" );

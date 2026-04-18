@@ -89,13 +89,13 @@
 	if($info['s_res']){
 		$q_res = explode(';',$info['s_res']);
 		$n_res = array(
-			0 => '<img src="{$config.cdn}/graphic/icons/wood.png" title="Madeira" />',
-			1 => '<img src="{$config.cdn}/graphic/icons/stone.png" title="Argila" />',
-			2 => '<img src="{$config.cdn}/graphic/icons/iron.png" title="Ferro" />'
+			0 => '<img src="{$config.cdn}/graphic/icons/wood.png" title="Wood" />',
+			1 => '<img src="{$config.cdn}/graphic/icons/stone.png" title="Clay" />',
+			2 => '<img src="{$config.cdn}/graphic/icons/iron.png" title="Iron" />'
 		);
 		echo '<table width="428" style="border-spacing:1px;background-color:#FEE47D;" align="center">
 			<tr>
-				<th width="150">Recursos descobertos:</th>
+				<th width="150">Discovered resources:</th>
 				<td>';
 		for($i = 0; $i < count($n_res); $i++){
 			if($q_res[$i] > 0){
@@ -107,24 +107,24 @@
 	if($info['s_buildings']){
 		$level = explode(';',$info['s_buildings']);
 		$_builds = array(
-			0 => 'Edifício Principal',
-			1 => 'Quartel',
-			2 => 'Estabulo',
-			3 => 'Oficina',
-			4 => 'Academia',
-			5 => 'Ferreiro',
-			6 => 'Pra&ccedil;a de Reuni&atilde;o',
-			7 => 'Mercado',
-			8 => 'Bosque',
-			9 => 'Po&ccedil;o de Argila',
-			10 => 'Mina de Ferro',
+			0 => 'Headquarters',
+			1 => 'Barracks',
+			2 => 'Stable',
+			3 => 'Workshop',
+			4 => 'Academy',
+			5 => 'Smithy',
+			6 => 'Rally point',
+			7 => 'Market',
+			8 => 'Timber camp',
+			9 => 'Clay pit',
+			10 => 'Iron mine',
 			11 => 'Farm',
-			12 => 'Armaz&eacute;m',
+			12 => 'Warehouse',
 			13 => 'Hiding place',
-			14 => 'Muralha'
+			14 => 'Wall'
 		);
 		echo '<tr>
-				<th>Edifícios:</th>
+				<th>Buildings:</th>
 				<td>';
 		for($i = 0; $i < count($_builds); $i++)
 			if($level[$i] > 0)

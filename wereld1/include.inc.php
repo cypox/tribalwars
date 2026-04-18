@@ -24,16 +24,16 @@ spl_autoload_register("LoadFuncVV1");
 
 require_once(PATH."/include/config.php");
 if($config['agreement_per_hour'] == 0)
-    exit('Configuração invalida: $config[\'agreement_per_hour\'] não pode ter o valor menor ou igual a 0!');
+    exit("Invalid configuration: \$config['agreement_per_hour'] must be greater than 0!");
 if($config['ip_control'] && !(in_array($_SERVER['REMOTE_ADDR'], $allow_ips)))
-	exit("Seu IP não está na lista de IP's permitidos!");
+	exit("Your IP is not in the list of allowed IPs!");
 
 require_once(PATH."/lib/functions.php");
 $time = time();
 $db = new DB_MySQL();
 $db->connect($config['db_host'], $config['db_user'], $config['db_pw'], $config['db_name'], "MySql");
 if($time+5 < time()){
-	exit("Sem resposta do MySQL! Verifique a conexão!");
+	exit("No response from MySQL! Please check the connection!");
 }
 
 require_once(PATH."/include/configs/buildings.php");

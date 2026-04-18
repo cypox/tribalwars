@@ -15,9 +15,9 @@
 {if $clear}
 	<script type="text/javascript">opener.document.forms["header"].to.value = "";</script>
 {/if}
-<p><a href="igm_to.php?insert=ally">Gesamter Tribe</a></p>
+<p><a href="igm_to.php?insert=ally">Entire tribe</a></p>
 <br />
-<a href="igm_to.php?clear">Empfänger löschen</a>
+<a href="igm_to.php?clear">Clear recipients</a>
 
 </body>
 </html>

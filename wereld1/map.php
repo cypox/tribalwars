@@ -5,7 +5,7 @@ if($_POST['user']){
 	$sid = new sid();
 	$session = $sid->check_sid($_COOKIE['session']);
 	if(!$session['userid']){
-		echo "Ação invalida!";
+		echo "Invalid action!";
 	}else{
 		$valores = array("units","speedunits");
 		$cl_map = new map();
@@ -22,7 +22,7 @@ if($_POST['user']){
 			if($_POST["units"] == 'true'){	$values[] = 1;	}else{	$values[] = 0;	}
 			if($_POST["speedunits"] == 'true'){	$values[] = 1;	}else{	$values[] = 0;	}
 			$cl_map->up_extrainfos($values, $_POST['user']);
-			echo "Seus dados foram salvos com sucesso!";
+			echo "Your settings have been saved successfully!";
 			$i = 0;
 
 			echo "<script type=\"text/javascript\">";
@@ -32,14 +32,14 @@ if($_POST['user']){
 			}
 			echo "</script>";
 		}else{
-			echo "Ocorreu um erro inesperado!";
+			echo "An unexpected error occurred!";
 		}
 	}
 }else{
 	$sid = new sid();
 	$session = $sid->check_sid($_COOKIE['session']);
 	if(!$session['userid']){
-		echo "Ação invalida!";
+		echo "Invalid action!";
 	}else{
 		if(isset($_GET['k']) && $_GET['k'] >= 0 && $_GET['k'] <= 99){
 			require_once("lib/map_db/".$_GET['k'].".php");

@@ -1,9 +1,9 @@
 <?php
 // copied & changed snob.php
 
-// Sicherheits Ausführungscheck:
+// Security execution check:
 if ($ACTIONS_MASSIVKEY_HIGHAAASSDD!='sdjahsdkJHSAJDKHALKJHSADJHSADNsjdhaksjdlhJNASDKL') {
-	die("Aktions - Ausführung EXEC!");
+	die("Action execution check failed!");
 }
 
 // Believe it or not:
@@ -373,9 +373,9 @@ if ($show_build) {
 			$error="Auftrag bereits fertig gestellt.";
 		}
 
-		// Schauen ob Einheit auch in diesem Gebäude abgebrochen werden kann:
+		// Check whether this unit can be canceled in this building.
 		if (!in_array($row['unit'], array_flip($units)))
-		    $error="Einheit kann hier nicht abgebrochen werden!";
+		    $error="This unit cannot be canceled here.";
 
 		// Wenn kein Fehler ist, dann Auftrag löschen:
 		if (empty($error)) {

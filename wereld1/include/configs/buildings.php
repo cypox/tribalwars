@@ -26,7 +26,7 @@ $cl_builds->set_points("16","1.2");
 $cl_builds->set_needbuilds(array("main"=>"3"));
 $cl_builds->set_maxstage("25");
 $cl_builds->set_specials(array());
-$cl_builds->set_description("No Quartel você pode recrutar sua infantaria. Quanto maior o seu nível, mais rapidamente poderão ser recrutadas novas tropas.");
+$cl_builds->set_description("In the Barracks you can recruit infantry. The higher its level, the faster troops are recruited.");
 $cl_builds->set_graphicCoords("392,289,444,313,506,283,481,235,442,216,392,252");
 
 $cl_builds->add_build("Stable","stable");
@@ -39,7 +39,7 @@ $cl_builds->set_points("20","1.2");
 $cl_builds->set_needbuilds(array("main"=>"10","barracks"=>"5","smith"=>"5"));
 $cl_builds->set_maxstage("20");
 $cl_builds->set_specials(array());
-$cl_builds->set_description("No Estábulo você pode formar novos cavaleiros. Quanto maior o seu nível, mais rapidamente poderão ser recrutadas novas tropas.");
+$cl_builds->set_description("In the Stable you can recruit cavalry. The higher its level, the faster troops are recruited.");
 $cl_builds->set_graphicCoords("64,241,70,265,150,307,189,289,184,232,99,202");
 
 $cl_builds->add_build("Workshop", "garage");
@@ -52,7 +52,7 @@ $cl_builds->set_points("24","1.2");
 $cl_builds->set_needbuilds(array("main"=>"10","smith"=>"10"));
 $cl_builds->set_maxstage("15");
 $cl_builds->set_specials(array());
-$cl_builds->set_description("Na Oficina podem ser produzidas máquinas de guerra. Quanto maior for o nível da Oficina, mais rápido serão produzidas novas máquinas.");
+$cl_builds->set_description("In the Workshop you can produce Rams and Catapults. The higher its level, the faster they are produced.");
 $cl_builds->set_graphicCoords("284,358,362,361,402,321,369,283,346,278,291,320");
 
 $cl_builds->add_build("Academy", "snob");
@@ -65,7 +65,7 @@ $cl_builds->set_points("512","1.2");
 $cl_builds->set_needbuilds(array("main"=>"20","smith"=>"20","market"=>"10"));
 $cl_builds->set_maxstage("3");
 $cl_builds->set_specials(array());
-$cl_builds->set_description("Na Academia você pode formar Nobres, com os quais poderá conquistar outras aldeias.");
+$cl_builds->set_description("In the Academy you can educate Nobles, who can conquer other villages.");
 $cl_builds->set_graphicCoords("206,149,257,125,229,60,185,80,156,111");
 
 $cl_builds->add_build("Smithy","smith");
@@ -78,9 +78,8 @@ $cl_builds->set_points("19","1.2");
 $cl_builds->set_needbuilds(array("main"=>"5","barracks"=>"1"));
 $cl_builds->set_maxstage("20");
 $cl_builds->set_specials(array());
-$cl_builds->set_description("No Ferreiro você pode pesquisar e melhorar suas armas. Quanto maior o nível do Ferreiro melhores serão as armas que você poderá pesquisar e menores serão as durações de tais pesquisas. O número total de pesquisas é limitado.");
+$cl_builds->set_description("In the Smithy you can research and improve weapons. A higher Smithy level unlocks better research and reduces research time. The total number of researches is limited.");
 $cl_builds->set_graphicCoords("174,335,222,361,271,342,283,301,216,262");
-
 
 $cl_builds->add_build("Statue","statue");
 $cl_builds->set_woodprice("220","1");
@@ -92,9 +91,8 @@ $cl_builds->set_points("24","1");
 $cl_builds->set_needbuilds(array());
 $cl_builds->set_maxstage("1");
 $cl_builds->set_specials(array());
-$cl_builds->set_description("Perante a est&aacute;tua os habitantes de sua aldeia oferecer&atilde;o homenagens ao seu paladino. Caso o paladino morra voc&ecirc; poder&aacute; apontar outro guerreiro como novo paladino.");
+$cl_builds->set_description("At the Statue your villagers honor your Paladin. If your Paladin dies, you can appoint one of your fighters as the new Paladin.");
 $cl_builds->set_graphicCoords("277,231,256,265,266,285,292,287,306,266");
-
 
 $cl_builds->add_build("Rally point","place");
 $cl_builds->set_woodprice("10","1.2");
@@ -106,7 +104,7 @@ $cl_builds->set_points("0","1.2");
 $cl_builds->set_needbuilds(array());
 $cl_builds->set_maxstage("1");
 $cl_builds->set_specials(array());
-$cl_builds->set_description("Na Praça de Reuniões encontram-se seus guerreiros antes da batalha. Aqui você poderá comandar ataques e mover suas tropas.");
+$cl_builds->set_description("On the Rally point your fighters gather. Here you can issue commands to your troops.");
 $cl_builds->set_graphicCoords("315,271,379,275,401,229,375,206,343,207");
 
 $cl_builds->add_build("Market","market");
@@ -119,7 +117,7 @@ $cl_builds->set_points("10","1.2");
 $cl_builds->set_needbuilds(array("main"=>"3","storage"=>"2"));
 $cl_builds->set_maxstage("25");
 $cl_builds->set_specials(array());
-$cl_builds->set_description("No Mercado você pode negociar com outros jogadores.");
+$cl_builds->set_description("On the Market you can trade resources with other players.");
 $cl_builds->set_graphicCoords("214,149,234,228,313,230,330,169,273,122");
 
 $cl_builds->add_build("Timber camp","wood");
@@ -132,7 +130,7 @@ $cl_builds->set_points("6","1.2");
 $cl_builds->set_needbuilds(array());
 $cl_builds->set_maxstage("30");
 $cl_builds->set_specials(array());
-$cl_builds->set_description("Os lenhadores cortam madeira dos bosques que rodeiam as aldeias. Tal madeira é necessária para o desenvolvimento da própria aldeia, assim como para o fortalecimento do exército. Quanto mais alto o nível dos lenhadores, mais madeira será produzida.");
+$cl_builds->set_description("In the forests around your village, lumberjacks cut wood in the Timber camp. The higher its level, the more wood is produced.");
 $cl_builds->set_graphicCoords("472,379,523,417,583,373,528,330");
 
 $cl_builds->add_build("Clay pit","stone");
@@ -145,7 +143,7 @@ $cl_builds->set_points("6","1.2");
 $cl_builds->set_needbuilds(array());
 $cl_builds->set_maxstage("30");
 $cl_builds->set_specials(array());
-$cl_builds->set_description("No Poço de Argila trabalham muitos de seus homens afim de prover sua aldeia com a importante argila. Quanto maior for o seu nível, maior será sua capacidade de produção.");
+$cl_builds->set_description("Workers in the Clay pit produce Clay for new buildings. The higher its level, the more Clay is produced.");
 $cl_builds->set_graphicCoords("34,300,0,349,15,399,67,417,91,402,92,341");
 
 $cl_builds->add_build("Iron mine","iron");
@@ -158,7 +156,7 @@ $cl_builds->set_points("6","1.2");
 $cl_builds->set_needbuilds(array());
 $cl_builds->set_maxstage("30");
 $cl_builds->set_specials(array());
-$cl_builds->set_description("Da Mina de Ferro é extraído o material chave para as batalhas. Quanto maior for o seu nível, maior será sua capacidade de produção.");
+$cl_builds->set_description("In the Iron mine your workers extract the war-critical Iron. The higher its level, the more Iron is produced.");
 $cl_builds->set_graphicCoords("0,55,45,90,93,58,89,6,39,9");
 
 $cl_builds->add_build("Farm","farm");
@@ -171,7 +169,7 @@ $cl_builds->set_points("5","1.2");
 $cl_builds->set_needbuilds(array());
 $cl_builds->set_maxstage("30");
 $cl_builds->set_specials(array());
-$cl_builds->set_description("A Fazenda provê sustento à seus trabalhadores e tropas. Sem o desenvolvimento da Fazenda a sua aldeia não crescerá. Quanto maior o nível da Fazenda, mais habitantes estarão à sua disposição.");
+$cl_builds->set_description("The Farm supplies your workers and troops with food. Without upgrading the Farm your village cannot grow. The higher its level, the more population it supports.");
 $cl_builds->set_graphicCoords("456,0,477,41,526,75,583,88,597,18,597,0");
 
 $cl_builds->add_build("Warehouse","storage");
@@ -184,7 +182,7 @@ $cl_builds->set_points("6","1.2");
 $cl_builds->set_needbuilds(array());
 $cl_builds->set_maxstage("30");
 $cl_builds->set_specials(array());
-$cl_builds->set_description("No Armazém são estocados os recursos produzidos pela aldeia. Quanto maior for o nível do Armazém, maior será a sua capacidade de armazenamento.");
+$cl_builds->set_description("The Warehouse stores your resources. The higher its level, the more resources can be stored.");
 $cl_builds->set_graphicCoords("96,192,153,218,195,215,193,148,133,121");
 
 $cl_builds->add_build("Hiding place","hide");
@@ -197,7 +195,7 @@ $cl_builds->set_points("5","1.2");
 $cl_builds->set_needbuilds(array());
 $cl_builds->set_maxstage("10");
 $cl_builds->set_specials(array("catapult_protection"));
-$cl_builds->set_description("No Esconderijo são escondidos recursos que, em caso de ataque inimigo, não poderão ser roubados. Os Exploradores inimigos também não podem descobrir quantos recursos estão guardados no Esconderijo.");
+$cl_builds->set_description("Resources in your Hiding place cannot be plundered by enemies. The bigger it is, the more it can hold.");
 $cl_builds->set_graphicCoords("241,80,261,113,294,93,268,63");
 
 $cl_builds->add_build("Wall","wall");
@@ -210,6 +208,6 @@ $cl_builds->set_points("8","1.2");
 $cl_builds->set_needbuilds(array("barracks"=>"1"));
 $cl_builds->set_maxstage("20");
 $cl_builds->set_specials(array());
-$cl_builds->set_description("A Muralha oferece proteção contra tropas inimigas. Por meio dela são aumentadas tanto a defesa básica da aldeia como a força defensiva de suas tropas.");
+$cl_builds->set_description("The Wall protects your village from enemy troops. The higher its level, the better the village defense and troop defense bonus.");
 $cl_builds->set_graphicCoords("428,333,430,382,472,363,470,318");
 ?>

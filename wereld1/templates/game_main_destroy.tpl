@@ -1,8 +1,8 @@
 <table class="vis" width="100%">
 	<tr>
-		<th style="width:100px;" colspan="2">Edifício</th>
+		<th style="width:100px;" colspan="2">Building</th>
 		<th style="width:250px;">Duration</th>
-		<th style="width:250px;">Construir</th>
+		<th style="width:250px;">Demolish</th>
 	</tr>
 {foreach from=$builds item=dbname key=id}
 
@@ -13,10 +13,10 @@
         
 		
         {if ($destroy_village.$dbname <= 15) && ($dbname == 'main') || ($destroy_village.$dbname <= 1) && (intval(in_array($dbname, $builds_start_by_one))) || ($destroy_village.$dbname <= 0)}
-		<td align="center" colspan="2" class="inactive">Este edifício já atingiu seu nível minimo</td>
+		<td align="center" colspan="2" class="inactive">This building has already reached its minimum level</td>
 		{else}
 		<td align="center">{$cl_builds->get_time($village.main,$dbname,$destroy_village.$dbname+1)|format_time}</td>
-		<td align="center"><a href="game.php?village={$village.id}&amp;screen=main&amp;mode=destroy&amp;action=destroy&amp;building_id={$dbname}&amp;h={$hkey}">{if ($destroy_village.$dbname-1) <= 0}Demolir edifício{else}Demolir para nível {$destroy_village.$dbname-1}{/if}</a></td>
+		<td align="center"><a href="game.php?village={$village.id}&amp;screen=main&amp;mode=destroy&amp;action=destroy&amp;building_id={$dbname}&amp;h={$hkey}">{if ($destroy_village.$dbname-1) <= 0}Demolish building{else}Demolish to level {$destroy_village.$dbname-1}{/if}</a></td>
 {/if}
 </tr>
 {/foreach}

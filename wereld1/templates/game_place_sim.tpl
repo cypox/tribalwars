@@ -8,8 +8,8 @@
 			{/foreach}
 		</tr>
 		<tr>
-			<td rowspan="2">Angreifer</td>
-			<td>Einheiten:</td>
+			<td rowspan="2">Attacker</td>
+			<td>Units:</td>
 			{foreach from=$simulate_values.att item=num key=unitname}
 				{if $num=="0"}
 					<td class="hidden">0</td>
@@ -19,7 +19,7 @@
 			{/foreach}
 		</tr>
 		<tr>
-			<td>Verluste:</td>
+			<td>Losses:</td>
 			{foreach from=$simulate_values.att_lose item=num key=unitname}
 				{if $num=="0"}
 					<td class="hidden">0</td>
@@ -32,8 +32,8 @@
 			<td style="display:none"></td>
 		</tr>
 		<tr>
-			<td rowspan="2">Verteidiger</td>
-			<td>Einheiten:</td>
+			<td rowspan="2">Defender</td>
+			<td>Units:</td>
 			{foreach from=$simulate_values.def item=num key=unitname}
 				{if $num=="0"}
 					<td class="hidden">0</td>
@@ -43,7 +43,7 @@
 			{/foreach}
 		</tr>
 		<tr>
-			<td>Verluste:</td>
+			<td>Losses:</td>
 			{foreach from=$simulate_values.def_lose item=num key=unitname}
 				{if $num=="0"}
 					<td class="hidden">0</td>
@@ -55,11 +55,11 @@
 	</table>
 	<table>
 	{if $simulate_values.others.def_wall!=$simulate_values.others.new_wall}
-		<tr><th>Schaden durch Rammböcke:</th><td>Wall beschädigt von Level <b>{$simulate_values.others.def_wall}</b> auf Level <b>{$simulate_values.others.new_wall}</b></td></tr>
+		<tr><th>Damage by rams:</th><td>Wall damaged from level <b>{$simulate_values.others.def_wall}</b> to level <b>{$simulate_values.others.new_wall}</b></td></tr>
 	{/if}
 	
 	{if $simulate_values.others.def_building!=$simulate_values.others.new_building}
-		<tr><th>Schaden durch Katapultbeschuss:</th><td>Gebäude beschädigt von Level <b>{$simulate_values.others.def_building}</b> auf Level <b>{$simulate_values.others.new_building}</b></td></tr>
+		<tr><th>Damage by catapult bombardment:</th><td>Building damaged from level <b>{$simulate_values.others.def_building}</b> to level <b>{$simulate_values.others.new_building}</b></td></tr>
 	{/if}
 	</table>
 {/if}
@@ -69,15 +69,15 @@
 	<table class="vis">
 		<tr>
 			<th></th>
-			<th colspan="2">Angreifer</th>
-			<th colspan="2">Verteidiger</th>
+			<th colspan="2">Attacker</th>
+			<th colspan="2">Defender</th>
 		</tr>
 		<tr>
 			<td></td>
-			<td>Einheiten</td>
-			<td>Technologie</td>
-			<td>Einheiten</td>
-			<td>Technologie</td>
+			<td>Units</td>
+			<td>Technology</td>
+			<td>Units</td>
+			<td>Technology</td>
 		</tr>
 		{foreach from=$cl_units->get_array("dbname") item=dbname key=name}
 			<tr>
@@ -94,7 +94,7 @@
 			<td colspan="2"><input type="text" name="def_wall" value="{$values.def_wall}" size="5" /></td>
 		</tr>
 		<tr>
-			<td>Katapultziel Gebäudelevel</td>
+			<td>Catapult target building level</td>
 			<td colspan="2"></td><td colspan="2"><input type="text" name="def_building" value="{$values.def_building}" size="5" /></td>
 		</tr>
 		{if $moral_activ}
@@ -104,9 +104,9 @@
 			</tr>
 		{/if}
 		<tr>
-			<td>Glück (von -25% bis +25%)</td>
+			<td>Luck (from -25% to +25%)</td>
 			<td colspan="4"><input type="text" name="luck" value="{$values.luck}" size="5" />%</td>
 		</tr>
 	</table>
-	<input type="submit" value="Berechnen" />
+	<input type="submit" value="Calculate" />
 </form>

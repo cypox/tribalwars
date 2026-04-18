@@ -5,7 +5,7 @@ if($ACTIONS_MASSIVKEY_HIGHAAASSDD!='sdjahsdkJHSAJDKHALKJHSADJHSADNsjdhaksjdlhJNA
 
 if(isset($_GET['action']) && $_GET['action'] == 'del'){
 	if($session['hkey'] != $_GET['h']){
-		exit("Desculpe, más o código de segurança está invalido!");
+		exit("Sorry, but the security code is invalid!");
 	}
 
 	$id = (int)parse(@$_GET['id']);
@@ -13,7 +13,7 @@ if(isset($_GET['action']) && $_GET['action'] == 'del'){
 	$row = $db->fetch($result);
 
 	if($row['to_id'] != $user['id']){
-		$error = "Desculpe, más houve um erro ao apagar a mensagem!";
+		$error = "Sorry, but there was an error deleting the message!";
 	}else{
 		$db->query("DELETE FROM `mail_in` WHERE `id`='".$id."'");
 	}
@@ -25,14 +25,14 @@ if(isset($_GET['action']) && $_GET['action'] == 'del'){
 }
 if(isset($_GET['action']) && $_GET['action'] == 'arch'){
 	if($session['hkey'] != $_GET['h']){
-		exit("Desculpe, más o código de segurança está invalido!");
+		exit("Sorry, but the security code is invalid!");
 	}
 
 	$id = (int)parse(@$_GET['id']);
 	$result = $db->query("SELECT `from_id`,`from_username`,`to_id`,`to_username`,`subject`,`text`,`time`,`output_id` FROM `mail_in` WHERE `id`='".$id."'");
 	$row = $db->fetch($result);
 	if($row['to_id'] != $user['id']){
-		$error = "Desculpe, más houve um erro ao arquivar a mensagem!";
+		$error = "Sorry, but there was an error archiving the message!";
 	}else{
 		$db->query("INSERT INTO `mail_archiv` (`from_id`,`from_username`,`to_id`,`to_username`,`subject`,`text`,`time`,`owner`,`type`) VALUES ('".$row['from_id']."','".$row['from_username']."','".$row['to_id']."','".$row['to_username']."','".$row['subject']."','".$row['text']."','".$row['time']."','".$user['id']."','in')");
 		$db->query("DELETE FROM `mail_in` WHERE `id`='".$id."'");
@@ -46,7 +46,7 @@ if(isset($_GET['action']) && $_GET['action'] == 'arch'){
 
 if(isset($_GET['action']) && $_GET['action'] == 'del_arch'){
 	if($session['hkey'] != $_GET['h']){
-		exit("Desculpe, más o código de segurança está invalido!");
+		exit("Sorry, but the security code is invalid!");
 	}
 
 	foreach($_POST as $id=>$value){
@@ -55,7 +55,7 @@ if(isset($_GET['action']) && $_GET['action'] == 'del_arch'){
 			$result = $db->query("SELECT `from_id`,`from_username`,`to_id`,`to_username`,`subject`,`text`,`is_read`,`is_answered`,`output_id`,`time` FROM `mail_in` WHERE `id`='".$id."'");
 			$row = $db->fetch($result);
 			if($row['to_id'] != $user['id']){
-				$error = "Desculpe, más houve um erro ao arquivar as mensagens!";
+				$error = "Sorry, but there was an error archiving the messages!";
 			}else{
 				if(isset($_POST['del'])){
 					$db->query("DELETE FROM `mail_in` WHERE `id`='".$id."'");
@@ -106,7 +106,7 @@ if(!isset($_GET['view'])){
 	$result = $db->query("SELECT `id`,`subject`,`to_username`,`from_username`,`from_id`,`text`,`time`,`to_id`,`is_read`,`output_id` FROM `mail_in` WHERE `id`='".$view."'");
 	$mail = $db->fetch($result);
 	if($user['id'] != $mail['to_id']){
-		$error = "Desculpe, más houve um erro ao abrir a mensagem!";
+		$error = "Sorry, but there was an error opening the message!";
 	}else{
 		$mail['text'] = nl2br(entparse($mail['text']));
 		$mail['subject'] = entparse($mail['subject']);

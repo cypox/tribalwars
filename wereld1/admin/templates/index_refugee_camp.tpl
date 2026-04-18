@@ -20,7 +20,7 @@
         <td><label>Ja</label><input type="checkbox" name="bonus"/></td>
       </tr> -->
 			<tr>
-				<td colspan="2"><input type="submit" name="submit" value="Installeren" onload="this.disabled=false;"> De installatie kan 5 seconden duren</td>
+				<td colspan="2"><input type="submit" name="submit" value="Install" onload="this.disabled=false;"> The installation can take 5 seconds</td>
 			</tr>
 
 		</table>

@@ -4,11 +4,11 @@ if($ACTIONS_MASSIVKEY_HIGHAAASSDD != 'sdjahsdkJHSAJDKHALKJHSADJHSADNsjdhaksjdlhJ
 }
 
 if(isset($_GET['action']) && $_GET['action'] == 'change_profile'){
-	$c = new do_action($user['id']);
+			$error = "Sorry, but only JPEG, JPG, PNG or GIF formats are allowed!";
 	$c->close();
 
 	if(@$session['hkey'] != $_GET['h']){
-		$error = "Desculpe, más o código de segurança está invalido!";
+		$error = "Sorry, but the security code is invalid!";
 	}
 
 	$day = (int)@$_POST['day'];
@@ -41,14 +41,14 @@ if(isset($_GET['action']) && $_GET['action'] == 'change_profile'){
 	    $image = $_FILES['image'];
 		$valid_types = array('image/jpeg','image/pjpeg','image/png','image/gif');
 		if(empty($error) && !in_array($image['type'],$valid_types)){
-			$error = "Desculpe más só são permitidas formatos JPEG, JPG, PNG ou GIF!";
+			$error = "Sorry, but only JPEG, JPG, PNG or GIF formats are allowed!";
 		}
 		if(empty($error) && $image['size'] > 614400/*122880*/){
-			$error = "Desculpe, más o brasão não pode exeder 600kByte!";
+			$error = "Sorry, but the coat of arms cannot exceed 600kByte!";
 		}
 		$size_coords = getimagesize($image['tmp_name']);
 		if(empty($error) && ($size_coords[0] > 500 && $size_coords[1] > 250)){
-			$error = "Desculpe, más a imagem não pode ser maior que 500x250px!";
+			$error = "Sorry, but the image cannot be larger than 500x250px!";
 			/*240x180px*/
 		}
 		if(empty($error)){
@@ -86,10 +86,10 @@ if(isset($_GET['action']) && $_GET['action'] == 'change_text'){
 	$c->close();
 
 	if(@$session['hkey'] != $_GET['h']){
-		$error = "Desculpe, más o código de segurança está invalido!";
+		$error = "Sorry, but the security code is invalid!";
 	}
 	if(empty($error) && strlen(@$_POST['personal_text']) > 10000){
-		$error = "Desculpe, más você não pode exeder 10000 caracteres!";
+		$error = "Sorry, but you cannot exceed 10000 characters!";
 	}
 	if(empty($error)){
 		$text = parse(@$_POST['personal_text']);

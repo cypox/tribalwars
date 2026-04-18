@@ -4,24 +4,24 @@ if($ACTIONS_MASSIVKEY_HIGHAAASSDD != "sdjahsdkJHSAJDKHALKJHSADJHSADNsjdhaksjdlhJ
 }
 if(isset($_GET['action']) && $_GET['action'] == "invite"){
 	if($session['hkey'] != $_GET['h']){
-		$error = "Desculpe, más o código de segurança está invalido!";
+		$error = "Sorry, but the security code is invalid!";
 	}
-	if(!$config['leave_ally']) $error = "Desculpe, más está ação não está permitida!";
+	if(!$config['leave_ally']) $error = "Sorry, but this action is not permitted!";
 
 	$username = parse($_POST['name']);
     $result = $db->query("SELECT `id`,`username`,`ally` FROM `users` WHERE `username`='".$username."'");
 	$row = $db->fetch($result);
 	if($user['ally'] == $row['ally']){
-		$error = "Desulpe más este jogador já pertence à tribo!";
+		$error = "Sorry, but this player already belongs to the tribe!";
 	}
 	if(empty($error) && empty($row['id'])){
-		$error = "Desculpe más não encontramos nenhum jogador com este nome!";
+		$error = "Sorry, but we could not find any player with this name!";
     }
 
     $result = $db->query("SELECT COUNT(`id`) AS `count` FROM `ally_invites` WHERE `to_userid`='".$row['id']."' AND `from_ally`='".$user['ally']."'");
 	$invite_row = $db->fetch($result);
 	if($invite_row['count'] > 0){
-		$error = "Desculpe, más este jogador já foi convidado!";
+		$error = "Sorry, but this player has already been invited!";
 	}
 	if(empty($error)){
         $db->query("INSERT INTO `ally_invites` (`time`,`from_ally`,`to_userid`,`to_username`) VALUES ('".time()."','".$user['ally']."','".$row['id']."','".$row['username']."')" );
@@ -35,24 +35,24 @@ if(isset($_GET['action']) && $_GET['action'] == "invite"){
 }
 if(isset($_GET['action']) && $_GET['action'] == "invite_id"){
 	if($session['hkey'] != $_GET['h']){
-		$error = "Desculpe, más o código de segurança está invalido!";
+		$error = "Sorry, but the security code is invalid!";
 	}
-	if(!$config['leave_ally']) $error = "Desculpe, más está ação não está permitida!";
+	if(!$config['leave_ally']) $error = "Sorry, but this action is not permitted!";
 
 	$id = (int)parse($_GET['id']);
 	$result = $db->query("SELECT `id`,`username`,`ally` FROM `users` WHERE `id`='".$id."'");
 	$row = $db->fetch($result);
 	if($user['ally'] == $row['ally']){
-		$error = "Desulpe más este jogador já pertence à tribo!";
+		$error = "Sorry, but this player already belongs to the tribe!";
 	}
 	if(empty($error) && empty($row['id'])){
-		$error = "Desculpe más não encontramos nenhum jogador com este nome!";
+		$error = "Sorry, but we could not find any player with this name!";
     }
 
     $result = $db->query("SELECT COUNT(`id`) AS `count` FROM `ally_invites` WHERE `to_userid`='".$row['id']."' AND `from_ally`='".$user['ally']."'");
 	$invite_row = $db->fetch($result);
 	if($invite_row['count'] > 0){
-		$error = "Desculpe, más este jogador já foi convidado!";
+		$error = "Sorry, but this player has already been invited!";
 	}
 	if(empty($error)){
         $db->query("INSERT INTO `ally_invites` (`time`,`from_ally`,`to_userid`,`to_username`) VALUES ('".time()."','".$user['ally']."','".$row['id']."','".$row['username']."')" );
@@ -66,19 +66,19 @@ if(isset($_GET['action']) && $_GET['action'] == "invite_id"){
 }
 if(isset($_GET['action']) && $_GET['action'] == "cancel_invitation"){
 	if($session['hkey'] != $_GET['h']){
-		$error = "Desculpe, más o código de segurança está invalido!";
+		$error = "Sorry, but the security code is invalid!";
 	}
 
 	$id = (int)parse($_GET['id']);
     $result = $db->query("SELECT `from_ally`,`to_userid` FROM `ally_invites` WHERE `id`='".$id."'");
 	$row = $db->fetch($result);
 	if(empty($error) && $row['from_ally'] != $user['ally']){
-		$error = "Desculpe, más este convite não pertence a sua tribo!";
+		$error = "Sorry, but this invitation does not belong to your tribe!";
 	}
 	if(empty($error)){
 		$db->query("DELETE FROM `ally_invites` WHERE `id`='".$id."'");
         if($db->affectedrows() == 0){
-			$error = "Desculpe, más a ação não pode ser executada!";
+			$error = "Sorry, but this action could not be performed!";
 		}else{
             $cl_reports->ally_cancel_invite($user['id'], $row['to_userid'], $user['ally'], $ally['name']);
 			$result = $db->query("SELECT `username` FROM `users` WHERE `id`='".$row['to_userid']."'");

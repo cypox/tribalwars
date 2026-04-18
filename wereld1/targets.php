@@ -11,7 +11,7 @@ if(!$session['userid']){
 $getUser = $db->query("SELECT `userid` FROM `villages` WHERE `id`='".parse($_GET['village'])."'");
 $check = $db->fetch($getUser);
 if($check['userid'] != $session['userid']){
-    exit("Desculpe, más não foi possivel localizar aldeias!");
+    exit("Sorry, but no villages could be found!");
 }
 $userId = $session['userid'];
 $getVillages = $db->query("SELECT * FROM `villages` WHERE `userid`='".$userId."' AND `id`!='".parse($_GET['village'])."'");

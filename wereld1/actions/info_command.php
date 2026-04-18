@@ -5,10 +5,10 @@ if($ACTIONS_MASSIVKEY_HIGHAAASSDD != "sdjahsdkJHSAJDKHALKJHSADJHSADNsjdhaksjdlhJ
 $result = $db->query("SELECT `to_hidden`,`wood`,`stone`,`iron`,`from_village`,`to_village`,`units`,`to_userid`,`from_userid`,`type`,`start_time`,`end_time`,`die`,`send_from_user`,`send_to_user`,`send_from_village`,`send_to_village` FROM `movements` WHERE `id`=".parse($_GET['id'])."");
 $row = $db->fetch($result);
 if(empty($error) && empty($row['type'])){
-	$error = "Desculpe, más não encontramos o comando desejado!";
+	$error = "Sorry, but we could not find the requested command!";
 }
 if(empty($error) && ($row['send_from_user'] != $village['userid'] && $row['send_to_user'] != $village['userid'] && $row['send_from_village'] != $village['id'])){
-	$error = "Desclpe, más você não tem permissão para ver este comando!";
+	$error = "Sorry, but you do not have permission to view this command!";
 }
 if(empty($error) && isset($_GET['type']) && $_GET['type'] == "own" && ($row['send_from_user'] == $village['userid'])){
     $type = "own";
@@ -21,10 +21,10 @@ if(empty($error) && isset($_GET['type']) && $_GET['type'] == "other" && ($row['s
 	$type = "other";
 }
 if(empty($_GET['type']) || ($_GET['type'] != 'own' && $_GET['type'] != 'other')){
-	$error = "Desculpe, más não foi possivel acessar o comando!";
+	$error = "Sorry, but it was not possible to access the command!";
 }
 if(empty($type)){
-	$error = "Desculpe, más não encontramos o comando desejado!";
+	$error = "Sorry, but we could not find the requested command!";
 }
 if(empty($error)){
 	if($type == "own"){

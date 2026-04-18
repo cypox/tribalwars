@@ -22,37 +22,37 @@
 			</table>
 			<table style="border: 1px solid #804000;" class="vis">
 				<tr>
-					<th width="150">Custos</th>
-					<th>População</th>
-					<th>Velocidade</th>
-					<th>Capacidade de saque</th>
+					<th width="150">Costs</th>
+					<th>Population</th>
+					<th>Speed</th>
+					<th>Loot capacity</th>
 				</tr>
 				<tr class="center">
 					<td>
-						<img src="{$config.cdn}/graphic/icons/wood.png" title="Madeira" />{$cl_units->get_woodprice($unit)} 
-						<img src="{$config.cdn}/graphic/icons/stone.png" title="Argila" />{$cl_units->get_stoneprice($unit)} 
-						<img src="{$config.cdn}/graphic/icons/iron.png" title="Ferro" />{$cl_units->get_ironprice($unit)}
+						<img src="{$config.cdn}/graphic/icons/wood.png" title="Wood" />{$cl_units->get_woodprice($unit)} 
+						<img src="{$config.cdn}/graphic/icons/stone.png" title="Clay" />{$cl_units->get_stoneprice($unit)} 
+						<img src="{$config.cdn}/graphic/icons/iron.png" title="Iron" />{$cl_units->get_ironprice($unit)}
 					</td>
-					<td><img src="{$config.cdn}/graphic/icons/farm.png" title="Arbeiter" alt="" /> {$cl_units->get_bhprice($unit)}</td>
-					<td>{$cl_units->get_speed($unit,'minutes')} Minutos por campo</td>
+					<td><img src="{$config.cdn}/graphic/icons/farm.png" title="Farm space" alt="" /> {$cl_units->get_bhprice($unit)}</td>
+					<td>{$cl_units->get_speed($unit,'minutes')} minutes per field</td>
 					<td>{$cl_units->get_booty($unit)}</td>
 				</tr>
 			</table><br />
 			<table style="border: 1px solid #804000;" class="vis">
-				<tr><td>Força atacante</td><td><img src="{$config.cdn}/graphic/unit/att.png" /> {$cl_units->get_att($unit,1)}</td></tr>
-				<tr><td>Defesa infantaria</td><td><img src="{$config.cdn}/graphic/unit/def.png" /> {$cl_units->get_def($unit,1)}</td></tr>
-				<tr><td>Cavalaria de defesa</td><td><img src="{$config.cdn}/graphic/unit/def_cav.png" /> {$cl_units->get_defCav($unit,1)}</td></tr>
-				<tr><td>Defesa arqueiros</td><td><img src="{$config.cdn}/graphic/unit/def_archer.png" /> {$cl_units->get_defArcher($unit,1)}</td></tr>
+				<tr><td>Attack strength</td><td><img src="{$config.cdn}/graphic/unit/att.png" /> {$cl_units->get_att($unit,1)}</td></tr>
+				<tr><td>Infantry defense</td><td><img src="{$config.cdn}/graphic/unit/def.png" /> {$cl_units->get_def($unit,1)}</td></tr>
+				<tr><td>Cavalry defense</td><td><img src="{$config.cdn}/graphic/unit/def_cav.png" /> {$cl_units->get_defCav($unit,1)}</td></tr>
+				<tr><td>Archer defense</td><td><img src="{$config.cdn}/graphic/unit/def_archer.png" /> {$cl_units->get_defArcher($unit,1)}</td></tr>
 			</table><br />
 			<table class="vis">
-				<tr><th colspan="{$cl_units->get_countNeeded($unit)}">Requisitos</th></tr>
+				<tr><th colspan="{$cl_units->get_countNeeded($unit)}">Requirements</th></tr>
 				<tr>
 				{if count($cl_units->get_needed($unit)) > 0}
 					{foreach from=$cl_units->get_needed($unit) key=n_unit item=n_stage}
-					<td><a href="popup_building.php?building={$n_unit}">{$cl_builds->get_name($n_unit)}</a> (Nível {$n_stage})</td>
+					<td><a href="popup_building.php?building={$n_unit}">{$cl_builds->get_name($n_unit)}</a> (Level {$n_stage})</td>
 					{/foreach}
 				{else}
-					<td><div class="succes">Nenhum requisito encontrado</div></td>
+					<td><div class="succes">No requirements found</div></td>
 				{/if}
 				</tr>
 			</table><br />

@@ -6,7 +6,7 @@ if($ACTIONS_MASSIVKEY_HIGHAAASSDD!='sdjahsdkJHSAJDKHALKJHSADJHSADNsjdhaksjdlhJNA
 $usersql = array("id","username","points","rang","killed_units_altogether","killed_units_altogether_rank","ally","b_day","b_month","b_year","sex","home","image","personal_text");
 $info_user = $userdatas->getbyid(parse($_GET['id']), $usersql, true);
 if($info_user['exist_user'] != 1)
-	exit("Desculpe, más este jogador não existe!");
+	exit("Sorry, but this player does not exist!");
 $info_user['username'] = entparse(@$info_user['username']);
 
 $result = $db->query("SELECT `short`,`id` FROM `ally` WHERE `id`='".@$info_user['ally']."'");

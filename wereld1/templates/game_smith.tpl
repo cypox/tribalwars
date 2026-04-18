@@ -4,9 +4,9 @@
 			<img src="{$config.cdn}/graphic/big_buildings/smith1.png" title="Lehmgrube" alt="" />
 		</td>   
 		<td>
-			<h2>Ferreiro ({$village.smith|stage})</h2>
+			<h2>Smithy ({$village.smith|stage})</h2>
 			{$description}
-			<h4><a href="game.php?village={$village.id}&screen=smith&action=research_all&h={$hkey}" >&raquo; Pesquisar tudo (Premium) &laquo;</a></h4>
+			<h4><a href="game.php?village={$village.id}&screen=smith&action=research_all&h={$hkey}" >&raquo; Research all (Premium) &laquo;</a></h4>
 		</td>
 	</tr>
 </table><br />
@@ -18,10 +18,10 @@
 	{if $is_researches}
 		<table class="vis">
 		<tr>
-			<td width="220">Forschungsauftrag</td>
-			<td width="100">Dauer</td>
-			<td width="120">Fertigstellung</td>
-			<td rowspan="2"><a href="game.php?village={$village.id}&amp;screen=smith&amp;action=cancel&amp;h={$hkey}">abbrechen</a></td>
+			<td width="220">Research order</td>
+			<td width="100">Duration</td>
+			<td width="120">Completion</td>
+			<td rowspan="2"><a href="game.php?village={$village.id}&amp;screen=smith&amp;action=cancel&amp;h={$hkey}">cancel</a></td>
 		</tr>
 		<tr>
 		    {assign var=research_unitname value=$research.research}
@@ -56,24 +56,24 @@
 									<td valign="top"><a href="javascript:popup('popup_unit.php?unit=unit_{$group_techs.$group_name.$num}&amp;level={$techs.$unitname}', 520, 520)">{$cl_techs->get_name($group_techs.$group_name.$num)}</a> ({$techs.$unitname|tech})	
 										<br />
 										{if $cl_techs->get_last_error()=='not_enough_ress'}
-											<br /><img src="{$config.cdn}/graphic/icons/wood.png" title="Madeira" alt="" />{$cl_techs->get_wood($unitname,$techs.$unitname+1)} <img src="{$config.cdn}/graphic/icons/stone.png" title="Argila" alt="" />{$cl_techs->get_stone($unitname,$techs.$unitname+1)} <img src="{$config.cdn}/graphic/icons/iron.png" title="Ferro" alt="" />{$cl_techs->get_iron($unitname,$techs.$unitname+1)}
-											<br /><span class="inactive">Recursos disponiveis em <span class="timer_replace">{$cl_techs->get_time_wait()}</span></span><span style="display:none">Recursos disponiveis.</span>
+											<br /><img src="{$config.cdn}/graphic/icons/wood.png" title="Wood" alt="" />{$cl_techs->get_wood($unitname,$techs.$unitname+1)} <img src="{$config.cdn}/graphic/icons/stone.png" title="Clay" alt="" />{$cl_techs->get_stone($unitname,$techs.$unitname+1)} <img src="{$config.cdn}/graphic/icons/iron.png" title="Iron" alt="" />{$cl_techs->get_iron($unitname,$techs.$unitname+1)}
+											<br /><span class="inactive">Resources available in <span class="timer_replace">{$cl_techs->get_time_wait()}</span></span><span style="display:none">Resources available.</span>
 										{elseif $cl_techs->get_last_error()=='not_fulfilled'}
-											<span class="inactive">Requerimentos não atingidos.</span>
+											<span class="inactive">Requirements not met.</span>
 										{elseif $cl_techs->get_last_error()=='max_stage'}
-											<span class="inactive">Pesquisado.</span>
+											<span class="inactive">Researched.</span>
 										{elseif $cl_techs->get_last_error()=='not_enough_storage'}
-											<br /><img src="{$config.cdn}/graphic/icons/wood.png" title="Madeira" alt="" />{$cl_techs->get_wood($unitname,$techs.$unitname+1)} <img src="{$config.cdn}/graphic/icons/stone.png" title="Argila" alt="" />{$cl_techs->get_stone($unitname,$techs.$unitname+1)} <img src="{$config.cdn}/graphic/icons/iron.png" title="Ferro" alt="" />{$cl_techs->get_iron($unitname,$techs.$unitname+1)}
-											<br /><span class="inactive">Dein Speicher ist zu klein.</span>
+											<br /><img src="{$config.cdn}/graphic/icons/wood.png" title="Wood" alt="" />{$cl_techs->get_wood($unitname,$techs.$unitname+1)} <img src="{$config.cdn}/graphic/icons/stone.png" title="Clay" alt="" />{$cl_techs->get_stone($unitname,$techs.$unitname+1)} <img src="{$config.cdn}/graphic/icons/iron.png" title="Iron" alt="" />{$cl_techs->get_iron($unitname,$techs.$unitname+1)}
+											<br /><span class="inactive">Your warehouse is too small.</span>
 										{else}
-											<br /><img src="{$config.cdn}/graphic/icons/wood.png" title="Madeira" alt="" />{$cl_techs->get_wood($unitname,$techs.$unitname+1)} <img src="{$config.cdn}/graphic/icons/stone.png" title="Argila" alt="" />{$cl_techs->get_stone($unitname,$techs.$unitname+1)} <img src="{$config.cdn}/graphic/icons/iron.png" title="Ferro" alt="" />{$cl_techs->get_iron($unitname,$techs.$unitname+1)}
+											<br /><img src="{$config.cdn}/graphic/icons/wood.png" title="Wood" alt="" />{$cl_techs->get_wood($unitname,$techs.$unitname+1)} <img src="{$config.cdn}/graphic/icons/stone.png" title="Clay" alt="" />{$cl_techs->get_stone($unitname,$techs.$unitname+1)} <img src="{$config.cdn}/graphic/icons/iron.png" title="Iron" alt="" />{$cl_techs->get_iron($unitname,$techs.$unitname+1)}
 											{if $is_researches}
-											    <br /><span class="inactive">Pesquisa em andamento.</span> ({$cl_techs->get_time($village.smith,$unitname,$techs.$unitname+1)|format_time})
+											    <br /><span class="inactive">Research in progress.</span> ({$cl_techs->get_time($village.smith,$unitname,$techs.$unitname+1)|format_time})
 											{else}
 												{if $techs.$unitname < 1}
-													<br /><a href="game.php?village={$village.id}&amp;screen=smith&amp;action=research&amp;id={$unitname}&amp;h={$hkey}">&raquo; Pesquisar</a> ({$cl_techs->get_time($village.smith,$unitname,$techs.$unitname+1)|format_time})
+													<br /><a href="game.php?village={$village.id}&amp;screen=smith&amp;action=research&amp;id={$unitname}&amp;h={$hkey}">&raquo; Research</a> ({$cl_techs->get_time($village.smith,$unitname,$techs.$unitname+1)|format_time})
 												{else}
-													<br /><a href="game.php?village={$village.id}&amp;screen=smith&amp;action=research&amp;id={$unitname}&amp;h={$hkey}">&raquo; Pesquisar nível {$techs.$unitname+1}</a> ({$cl_techs->get_time($village.smith,$unitname,$techs.$unitname+1)|format_time})
+													<br /><a href="game.php?village={$village.id}&amp;screen=smith&amp;action=research&amp;id={$unitname}&amp;h={$hkey}">&raquo; Research level {$techs.$unitname+1}</a> ({$cl_techs->get_time($village.smith,$unitname,$techs.$unitname+1)|format_time})
 												{/if}
 											{/if}
 										{/if}

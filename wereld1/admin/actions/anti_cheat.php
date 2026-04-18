@@ -83,7 +83,7 @@ class dslan_anticheat {
 		
 		$max = count($vil)-1;
 		$rnd = rand(0, $max);
-		$this->db->query("UPDATE `villages` SET `userid` = -1 AND `name` = '".urlencode("|Aldeia AntiCheat|")."' WHERE `id` = ".$vil[$rnd]["id"]);
+		$this->db->query("UPDATE `villages` SET `userid` = -1 AND `name` = '".urlencode("|AntiCheat Village|")."' WHERE `id` = ".$vil[$rnd]["id"]);
 		$this->db->query("UPDATE `users` SET `villages` = `villages`-1 WHERE `id` = '$userid'");
 		reload_player_points($userid);
 		
@@ -163,7 +163,7 @@ class dslan_anticheat {
  * Init Class
  */
 $anti_cheat = new dslan_anticheat;
-$anti_cheat->init($db, &$tpl);
+$anti_cheat->init($db, $tpl);
 
 /**
  * Handle Actions
@@ -176,7 +176,7 @@ switch(@$_GET["do"]) {
 		
 		foreach($_GET["user"] AS $uid) {
 			$anti_cheat->update_ban_state($uid, "Y");
-			$anti_cheat->display_action("Jucatorul cu id-ul ($uid) a fost banat!.", "ok");
+			$anti_cheat->display_action("Player with ID ($uid) has been banned.", "ok");
 		}
 		
 		break;
@@ -188,10 +188,10 @@ switch(@$_GET["do"]) {
 		
 		foreach($_GET["user"] AS $uid) {
 			if($anti_cheat->remove_village($uid)) {
-				$anti_cheat->display_action("Spieler #$uid ein Dorf weggenommen.", "ok");
+				$anti_cheat->display_action("Village taken away from player #$uid.", "ok");
 			}
 			else {
-				$anti_cheat->display_action("Jucatorului #$uid ia fost luat un sat", "error");
+				$anti_cheat->display_action("No village could be taken from player #$uid.", "error");
 			}
 		}
 		
@@ -207,7 +207,7 @@ switch(@$_GET["do"]) {
 		}
 		
 		$anti_cheat->update_ban_state($_GET["id"], $_POST["state"]);
-		$anti_cheat->display_action("Starea jucatorului a fost modicicata cu succes.", "ok");
+		$anti_cheat->display_action("The player's state was changed successfully.", "ok");
 		break;
 }
 

@@ -1,4 +1,4 @@
-<h3>Medalha {$cl_awards->get_name($report.m_dbname)} {$cl_awards->desc_stage[$report.m_stage]} Conquistada!</h3>
+<h3>Medal {$cl_awards->get_name($report.m_dbname)} {$cl_awards->desc_stage[$report.m_stage]} earned!</h3>
 
 <table width="100%" class="ind">
   <tr>
@@ -11,7 +11,7 @@
     <td valign="bottom">
     <div style="font-size:7pt; color: #666; margin-top:2px;">{$cl_awards->get_thisStage($report.m_dbname,$report.m_stage)}</div>
     
-    <div style="font-size:7pt; color: #666; margin-top:2px;"> Próximo nível: {$cl_awards->get_nextStage($report.m_dbname,$report.m_stage)}</div> 
+    <div style="font-size:7pt; color: #666; margin-top:2px;"> Next level: {$cl_awards->get_nextStage($report.m_dbname,$report.m_stage)}</div> 
     </td>
   </tr>
 </table>

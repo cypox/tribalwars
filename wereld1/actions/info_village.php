@@ -17,7 +17,7 @@ $info_ally = $db->fetch($result);
 $info_ally['short'] = entparse($info_ally['short']);
 
 if($info_village['exist_village'] == "0"){
-	exit("Desculpe, más está aldeia não existe!");
+	exit("Sorry, but this village does not exist!");
 }
 
 $can_send_ress = ($cl_builds->check_needed('market',$village) && $village['market']>0)?true:false;

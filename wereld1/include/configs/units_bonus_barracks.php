@@ -16,7 +16,7 @@ $cl_units->set_unitfactor("0.665","0.94355");
 
 
 
-$cl_units->add_unit("Speerträger","unit_spear");
+$cl_units->add_unit("Spearman","unit_spear");
 
 $cl_units->set_woodprice("50");
 
@@ -52,11 +52,11 @@ $cl_units->set_col("A");
 
 $cl_units->set_attType("def");
 
-$cl_units->set_description("Der Speerträger ist die einfachste Einheit. Er ist besonders effektiv in der Verteidigung gegen Reiter.");
+$cl_units->set_description("The Spearman is a basic defensive unit and is especially effective against cavalry.");
 
 
 
-$cl_units->add_unit("Schwertkämpfer","unit_sword");
+$cl_units->add_unit("Swordsman","unit_sword");
 
 $cl_units->set_woodprice("30");
 
@@ -92,11 +92,11 @@ $cl_units->set_col("A");
 
 $cl_units->set_attType("def");
 
-$cl_units->set_description("Der Schwertkämpfer ist vor allem zur Verteidigung gegen Infanterie geeignet. Er ist allerdings relativ langsam.");
+$cl_units->set_description("The Swordsman is a strong defensive unit, especially against infantry.");
 
 
 
-$cl_units->add_unit("Axtkämpfer","unit_axe");
+$cl_units->add_unit("Axeman","unit_axe");
 
 $cl_units->set_woodprice("60");
 
@@ -132,11 +132,11 @@ $cl_units->set_col("A");
 
 $cl_units->set_attType("off");
 
-$cl_units->set_description("Der Axtkämpfer ist eine starke Offensiveinheit. Mit Sturmgebrüll rasen diese wilden Krieger auf die feindlichen Truppen zu.");
+$cl_units->set_description("The Axeman is a powerful offensive unit built for attacks.");
 
 
 
-$cl_units->add_unit("SpÃ¤her","unit_spy");
+$cl_units->add_unit("Scout","unit_spy");
 
 $cl_units->set_woodprice("50");
 
@@ -172,11 +172,11 @@ $cl_units->set_col("B");
 
 $cl_units->set_attType("spy");
 
-$cl_units->set_description("Der Späher schleicht sich in feindliche Dörfer ein, um Informationen zu erlangen.");
+$cl_units->set_description("Scouts infiltrate enemy villages to gather information.");
 
 
 
-$cl_units->add_unit("Leichte Kavallerie","unit_light");
+$cl_units->add_unit("Light Cavalry","unit_light");
 
 $cl_units->set_woodprice("125");
 
@@ -212,11 +212,11 @@ $cl_units->set_col("B");
 
 $cl_units->set_attType("off");
 
-$cl_units->set_description("Die leichte Kavallerie ist vor allem geeignet, um Überraschungsangriffe auf gegnerische Dörfer durchzuführen.");
+$cl_units->set_description("Light Cavalry is ideal for surprise attacks on enemy villages.");
 
 
 
-$cl_units->add_unit("Schwere Kavallerie","unit_heavy");
+$cl_units->add_unit("Heavy Cavalry","unit_heavy");
 
 $cl_units->set_woodprice("200");
 
@@ -252,11 +252,11 @@ $cl_units->set_col("B");
 
 $cl_units->set_attType("def");
 
-$cl_units->set_description("Die Schwere Kavallerie sind die Elite deiner Truppen. Die meist adligen Reiter verfügen über gehärtete Waffen und starke Panzerung.");
+$cl_units->set_description("Heavy Cavalry is the elite of your army, with hardened weapons and strong armor.");
 
 
 
-$cl_units->add_unit("Ramme","unit_ram");
+$cl_units->add_unit("Ram","unit_ram");
 
 $cl_units->set_woodprice("300");
 
@@ -292,11 +292,11 @@ $cl_units->set_col("C");
 
 $cl_units->set_attType("off");
 
-$cl_units->set_description("Der Rammbock unterstützt dich bei Angriffen, da er den gegnerischen Wall beschädigt.");
+$cl_units->set_description("The Ram helps you damage the enemy wall during attacks.");
 
 
 
-$cl_units->add_unit("Katapult","unit_catapult");
+$cl_units->add_unit("Catapult","unit_catapult");
 
 $cl_units->set_woodprice("320");
 
@@ -332,11 +332,11 @@ $cl_units->set_col("C");
 
 $cl_units->set_attType("undefined");
 
-$cl_units->set_description("Das Katapult ist besonders geeignet, um gegnerische Gebäude zu zerstören.");
+$cl_units->set_description("Catapults are especially suited to destroy enemy buildings.");
 
 
 
-$cl_units->add_unit("Adelsgeschlecht","unit_snob");
+$cl_units->add_unit("Nobleman","unit_snob");
 
 $cl_units->set_woodprice("28000");
 
@@ -372,6 +372,6 @@ $cl_units->set_col("D");
 
 $cl_units->set_attType("undefined");
 
-$cl_units->set_description("Das Adelsgeschlecht kann durch Angriffe die Zustimmung des gegnerischen Dorfes verringern. Anschließend kann das Dorf erobert werden. Die Kosten für Adelsgeschlechter wachsen mit jedem eroberten Dorf und jedem vorhandenen oder in Produktion befindlichen Adelsgeschlecht.");
+$cl_units->set_description("The Nobleman can lower the loyalty of an enemy village so it can be conquered. The cost rises with every conquered village and every existing or queued nobleman.");
 
 ?>

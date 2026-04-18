@@ -1,10 +1,10 @@
 <table>
 	<tr>
     	<td>
-			<img src="{$config.cdn}/graphic/big_buildings/market1.png" title="Lehmgrube" alt="" />
+			<img src="{$config.cdn}/graphic/big_buildings/market1.png" title="Market" alt="" />
 		</td>   
 		<td>
-			<h2>Mercado ({$village.market|stage})</h2>
+			<h2>Market ({$village.market|stage})</h2>
 			{$description}
 		</td>
 	</tr>

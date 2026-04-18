@@ -20,7 +20,7 @@ if(isset($_GET['action']) && $_GET['action'] == 'change_settings'){
 	$c->close();
 	
 	if(@$session['hkey'] != $_GET['h']){
-		$error = "Desculpe, más o código de segurança está invalido!";
+		$error = "Sorry, but the security code is invalid!";
 	}
 
 	$window_width = parse((int)$_POST['screen_width']);

@@ -7,25 +7,25 @@ if(isset($_GET['action']) && $_GET['action'] == "send"){
 	$c = new do_action($user['id']);
 	$c->close();
 	if($session['hkey'] != $_GET['h']){
-		$error = "Desculpe, más o código de segurança está invalido!";
+		$error = "Sorry, but the security code is invalid!";
 	}
 	if(empty($error) && ((int)$_POST['wood']) > $village['r_wood'] || ((int)$_POST['stone']) > $village['r_stone'] || ((int)$_POST['iron']) > $village['r_iron']){
-		$error = "Desculpe, más você não tem recursos suficientes!";
+		$error = "Sorry, but you do not have enough resources!";
 	}
 	if(empty($error) && (int)$_POST['wood'] < 1 && (int)$_POST['stone'] < 1 && (int)$_POST['iron'] < 1){
-		$error = "Desculpe, más a quantidade deve ser maior que 0 unidades!";
+		$error = "Sorry, but the quantity must be greater than 0!";
     }
     $dealers = ceil(((int)$_POST['wood']+(int)$_POST['stone']+(int)$_POST['iron'])/1000);
 	if(empty($error) && $inside_dealers < $dealers){
-		$error = "Desculpe, más você não tem ".$dealers." mercadores necessários para o envio!";
+		$error = "Sorry, but you do not have the ".$dealers." merchants required for this trade!";
 	}
 	if(empty($error) && $village['id'] == @$_POST['target_id']){
-		$error = "Desculpe, más você indicou uma aldeia inválida!";
+		$error = "Sorry, but you specified an invalid village!";
 	}
 	$result = $db->query("SELECT COUNT(`id`) AS `count`,`userid`,`x`,`y` FROM `villages` WHERE `id`='".parse(@$_POST['target_id'])."' GROUP BY `userid`,`x`,`y`");
 	$row = $db->fetch($result);
 	if(empty($error) && $row['count'] < 1){
-		$error = "Desculpe, más você indicou uma aldeia inválida!";
+		$error = "Sorry, but you specified an invalid village!";
     }
 	if(empty($error)){
         send_dealers($village['id'],$village['userid'],$_POST['target_id'],$row['userid'],$village['x'],$village['y'],$row['x'],$row['y'],(int)$_POST['wood'],(int)$_POST['stone'],(int)$_POST['iron'],0);
@@ -36,7 +36,7 @@ if(isset($_GET['action']) && $_GET['action'] == "send"){
 }
 if(isset($_GET['action']) && $_GET['action'] == "cancel"){
 	if($session['hkey'] != $_GET['h']){
-		$error = "Desculpe, más o código de segurança está invalido!";
+		$error = "Sorry, but the security code is invalid!";
 	}
 	$err = false;
 	$result = $db->query("SELECT `type`,`from_village`,`is_offer`,`start_time`,COUNT(`id`) AS `count` FROM `dealers` WHERE `id`='".parse(@$_GET['id'])." GROUP BY `type`,`from_userid`,`is_offer`,`start_time`");
@@ -49,7 +49,7 @@ if(isset($_GET['action']) && $_GET['action'] == "cancel"){
 	}
 	$cancel_time = $config['cancel_dealers']*60;
 	if(empty($error) && !$err && !(($row['start_time']+$cancel_time) >= time() && $row['type'] != 'back' && $row['is_offer'] != 1)){
-		$error = "Desculpe, más não é possivel cancelar o movimento!";
+		$error = "Sorry, but it is not possible to cancel the movement!";
 	}
 	if(empty($error) && !$err){
 		$start_time = time();
@@ -62,22 +62,22 @@ if(isset($_GET['action']) && $_GET['action'] == "cancel"){
 if(isset($_GET['try']) && $_GET['try'] == "confirm_send"){
 	$error = "";
 	if(empty($error) && ((int)$_POST['wood']) > $village['r_wood'] || ((int)$_POST['stone']) > $village['r_stone'] || ((int)$_POST['iron']) > $village['r_iron']){
-		$error = "Desculpe, más você não tem recursos suficientes!";
+		$error = "Sorry, but you do not have enough resources!";
 	}
 	if(empty($error) && (int)$_POST['wood'] < 1 && (int)$_POST['stone'] < 1 && (int)$_POST['iron'] < 1){
-		$error = "Desculpe, más a quantidade deve ser maior que 0 unidades!";
+		$error = "Sorry, but the quantity must be greater than 0!";
 	}
 	$dealers = ceil(((int)$_POST['wood']+(int)$_POST['stone']+(int)$_POST['iron'])/1000);
 	if(empty($error) && $inside_dealers < $dealers){
-		$error = "Desculpe, más você não tem ".$dealers." mercadores necessários para o envio!";
+		$error = "Sorry, but you do not have the ".$dealers." merchants required for this trade!";
 	}
 	if(empty($error) && $village['x'] == $_POST['x'] && $village['y'] == $_POST['y']){
-        $error = "Desculpe, más você indicou uma aldeia inválida!";
+        $error = "Sorry, but you specified an invalid village!";
 	}
 	$result = $db->query("SELECT COUNT(`id`) AS `count`,`id` FROM `villages` WHERE `x`='".parse($_POST['x'])."' AND `y`='".parse($_POST['y'])."' GROUP BY `id`");
 	$row = $db->fetch($result);
 	if(empty($error) && $row['count'] < 1){
-		$error = "Desculpe, más você indicou uma aldeia inválida!";
+		$error = "Sorry, but you specified an invalid village!";
 	}
 	if(empty($error)){
 		$result = $db->query("SELECT `name`,`x`,`y`,`continent`,`userid` FROM `villages` WHERE `id`='".$row['id']."'");

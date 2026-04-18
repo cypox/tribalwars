@@ -15,15 +15,15 @@
 <table class="vis">
 	<tr>
 		<td width="200">
-			Aktuell
+			Current
 		</td>
 		<td width="200">
 			<strong>{$wall_datas.basic_defense}</strong>
-			Grundverteidigung
+			Basic defence
 		</td>
 		<td width="200">
 			<strong>{$wall_datas.wall_bonus}%</strong>
-			Verteidigungsbonus
+			Defence bonus
 		</td>
 	</tr>
 
@@ -31,15 +31,15 @@
 
 		<tr>
 			<td>
-				Auf ({$village.wall+1|stage})
+				At ({$village.wall+1|stage})
 			</td>
 			<td>
 				<strong>{$wall_datas.basic_defense_next}</strong>
-				Grundverteidigung
+				Basic defence
 			</td>
 			<td>
 				<strong>{$wall_datas.wall_bonus_next}%</strong>
-				Verteidigungsbonus
+				Defence bonus
 			</td>
 		</tr>
 

@@ -1,1 +1,1 @@
-Spieler im Tribe. Original DS Bericht kommt noch :p
+Players in tribe. Original DS report will be added later.

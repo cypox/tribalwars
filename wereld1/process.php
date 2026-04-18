@@ -5,7 +5,7 @@ $result = $db->query("SELECT * FROM `login`");
 $row_login = $db->fetch($result);
 if(isset($_POST["action"]) && $_POST['action'] == 'login'){
 	if($row_login['login_locked'] == "yes") {
-		exit('{"message":"Desculpe, o acesso ao jogo foi temporariamente bloqueado","type":"error"}');
+		exit('{"message":"Sorry, access to the game has been temporarily blocked","type":"error"}');
     }
 	$login = new login();
 	$playerid = $login->login_js($_POST['username'], $_POST['password']);

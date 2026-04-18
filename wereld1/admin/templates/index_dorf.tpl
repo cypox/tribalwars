@@ -127,5 +127,5 @@
 
 {elseif $smarty.get.action == "mach"}
 Satele au fost adaugate cu succes jucatorului/jucatorilor alesi de dumneavoastra!<br>
-<a href="?screen=dorf">Inapoi</a>
+<a href="?screen=dorf">Back</a>
 {/if}

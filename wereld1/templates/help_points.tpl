@@ -1,11 +1,11 @@
-<h3>Punkte</h3>
-<p>Punkte erhältst du für die Fertigstellung von Gebäuden. Sobald das Gebäude fertig ist, werden die Punkte und dein Ranglistenplatz neu berechnet (teilweise werden diese Berechnungen verzögert, um den Server zu entlasten). Für Forschung oder Einheiten gibt es keine Punkte.</p>
+<h3>Points</h3>
+<p>You receive points for completing buildings. As soon as a building finishes, points and ranking are recalculated (some calculations may be delayed to reduce server load). Research and units do not grant points.</p>
 
-<p>Es werden die Gesamtpunkte für die Ausbaustufen angezeigt.</p>
+<p>Total points for each building level are shown below.</p>
 
 <table class="vis">
 	<tr>
-		<th>Stufe</th>
+		<th>Level</th>
 		{foreach from=$builds item=f_dbname key=f_id}
 			<th><img src="graphic/buildings/{$f_dbname}.png"></th>
 		{/foreach}

@@ -13,22 +13,22 @@ $preview = false;
 
 if(isset($_GET['action']) && $_GET['action'] == 'send'){
 	if($session['hkey'] != $_GET['h']){
-		$error = "Desculpe, más o código de segurança está invalido!";
+		$error = "Sorry, but the security code is invalid!";
 	}
 	if(empty($error) && strlen($_POST['subject']) < 2){
-		$error = "Betreff muss mindestens zwei Zeichen lang sein!";
+		$error = "Subject must be at least two characters long!";
 	}
 	if(empty($error) && strlen($_POST['text']) < 3){
-		$error = "Text muss mindestens drei Zeichen lang sein!";
+		$error = "Text must be at least three characters long!";
 	}
 	if(empty($error) && strlen($_POST['text']) > 5000){
-		$error = "Maximale Textl�nge 5000 Zeichen";
+		$error = "Maximum text length is 5000 characters";
 	}
 	if(!empty($_GET['answer_mail_id']) && $_GET['answer_mail_id'] != 0){
 		$result = $db->query("SELECT `to_id` FROM `mail_in` WHERE `id`='".parse($_GET['answer_mail_id'])."'");
 		$mail = $db->fetch($result);
 		if($user['id'] != $mail['to_id']){
-			exit("Darfst das nicht...");
+			exit("You are not allowed to do that...");
 		}
 	}
 	if(!isset($_POST['to'])){
@@ -44,7 +44,7 @@ if(isset($_GET['action']) && $_GET['action'] == 'send'){
 			$res = $db->query("SELECT COUNT(`id`) AS `count`,`id`,`username` FROM `users` WHERE `username`='".$to."' GROUP BY `id`,`username`");
 			$count_user = $db->fetch($res);
 			if($count_user['count'] == 0){
-				$error = "Empf�nger ".entparse($to)." nicht vorhanden.";
+				$error = "Recipient ".entparse($to)." does not exist.";
 			}else{
 				$res_bl = $db->query("SELECT COUNT(`id`) AS `count` FROM `mail_block` WHERE `userid`='".$count_user['id']."' AND `blocked_id`='".$user['id']."'");
 				$check_bl = $db->Fetch($res_bl);
@@ -59,7 +59,7 @@ if(isset($_GET['action']) && $_GET['action'] == 'send'){
 		}
 	}
 	if(empty($error) && $count < 1){
-		$error = "Du musst mindestens einen Empf�nger angeben.";
+		$error = "You must specify at least one recipient.";
 	}
 	if(isset($_POST['send'])){
 		if(empty($error)){

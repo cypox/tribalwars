@@ -6,17 +6,17 @@ if($ACTIONS_MASSIVKEY_HIGHAAASSDD != "sdjahsdkJHSAJDKHALKJHSADJHSADNsjdhaksjdlhJ
 $error = "";
 if(isset($_GET['action']) && $_GET['action'] == "change_passwd"){
 	if($session['hkey'] != $_GET['h']){
-		$error = "Desculpe, más o código de segurança está invalido!";
+		$error = "Sorry, but the security code is invalid!";
 	}
 	if(md5($_POST['old_passwd']) == $user['password']){
 		if(empty($error) && $_POST['new_passwd'] != $_POST['new_passwd_rpt']){
-			$error = "Desculpe, más a nova senha e a confirmação devem ser iguais!";
+			$error = "Sorry, but the new password and confirmation must match!";
 		}
 		if(empty($error) && isset($_POST['new_passwd']) && strlen($_POST['new_passwd']) < 4){
-			$error = "Desculpe, más a nova senha deve ter entre 4 e 16 caracteres!";
+			$error = "Sorry, but the new password must be between 4 and 16 characters!";
 		}
 		if(empty($error) && isset($_POST['new_passwd']) && strlen($_POST['new_passwd']) > 16){
-			$error = "Desculpe, más a nova senha deve ter entre 4 e 16 caracteres!";
+			$error = "Sorry, but the new password must be between 4 and 16 characters!";
 		}
 		if(empty($error)){
 			$md5 = md5($_POST['new_passwd']);
@@ -24,7 +24,7 @@ if(isset($_GET['action']) && $_GET['action'] == "change_passwd"){
 			header("LOCATION: game.php?village=".$village['id']."&screen=settings&mode=change_passwd&changed");
 		}
 	}else{
-		$error = "Desculpe, más a senha atual está invalida!";
+		$error = "Sorry, but the current password is invalid!";
 	}
 }
 if(isset($_GET['changed'])){

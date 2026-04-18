@@ -1,23 +1,20 @@
 <h3>Reports</h3>
-<p>Reports informieren dich über die Ereignisse deiner Sippe. Sowohl militärische, als auch wirtschaftliche Ereignisse werden dir übermittelt. Wenn du einen neuen Bericht erhältst, erscheint in der oberen Menüleiste dieses Symbol <img src="graphic/new_report.png">.
-</p>Zunächst befindest du dich unter "Alle Reports", wo du eine Übersicht aller erhaltenen Reports hast. Neben der Berichtsübersicht stehen dir auch noch die Kategorien Kampfberichte, Transportberichte, Unterstützungsberichte und sonstige Reports zur Verfügung. In diesen Kategorien sind deine Reports je nach Aufgabenfeld sortiert.</p>
-<p>Reports mit einem "(Neu)" sind noch ungelesen. Gelesene Reports solltest du löschen um den Überblick zu behalten. Dazu markierst du die zu löschenden Reports und klickst auf "Löschen".</p>
+<p>Reports inform you about your tribe's events. Both military and economic events are delivered here. When you receive a new report, this icon appears in the top menu: <img src="graphic/new_report.png">.</p>
+<p>By default you are in "All reports", where you get an overview of every received report. You can also use categories such as battle reports, transport reports, support reports and other reports. In these categories, reports are sorted by type.</p>
+<p>Reports marked with "(New)" are unread. You should delete read reports regularly to keep an overview. Select the reports you want to remove and click "Delete".</p>
 
-<h4>Kategorie Attacks</h4>
-<p>Unter Attacks findest du Kampfberichte, die dich über die Kämpfe deines Dorfes in Kenntnis setzen.</p>
+<h4>Category: Attacks</h4>
+<p>In Attacks you will find battle reports related to your village's fights.</p>
+<p>At the top you can see who fought and who won. Below that, a bar displays the attacker's luck. A red bar means bad luck, a green bar means good luck. Maximum bad luck and good luck are both 25%, meaning attacker units can be up to 25% stronger or weaker.</p>
+<p>Further down you see participating and fallen units. The attacker receives a full battle report only if at least 50% of the defender's battle strength was present, or if scouts returned. Otherwise the message "None of your fighters made it home alive" appears and no further enemy unit details are shown. Defenders still receive a full report even if they lose.</p>
+<p>If rams, catapults or even a nobleman took part, you will also see information about destruction and any loyalty reduction achieved.</p>
 
-<p>Zunächst erkennst du hier wer gegeneinander gekämpft hat und wer gewonnen hat. Darunter findest du einen Balken, der dir das Glück des Angreifers anzeigt. Ein roter Balken steht für Pech, ein grüner Balken steht für Glück. Das maximale Pech und das maximale Glück liegen bei 25%. Das heißt die Einheiten des Angreifers sind maximal 25% stärker oder schwächer geworden.</p>
+<h4>Category: Support</h4>
+<p>Support reports are generated when troops are sent as support from or to your village. You can see which villages supported each other and how many troops are currently stationed in the other village.</p>
 
-<p>Weiter unten stehen die am Kampf beteiligten und gefallenen Einheiten. Der Angreifer erhält nur dann einen vollständigen Kampfbericht, wenn er mindestens 50% der Kampfstärke des Verteidigers hatte oder Späher zurückkehren konnten. Ansonsten erscheint die Meldung "Keiner deiner Kämpfer hat es lebend nach Hause geschafft" und Du bekommst keine weiteren Angaben über die Einheitenanzahl des Feindes. Solltest du als Verteidiger verlieren so erhältst du trotzdem einen vollständigen Kampfbericht.</p>
-<p>Wenn Rammen oder Katapulte oder sogar ein Adelsgeschlecht am Kampf beteiligt waren, so erhältst du auch Angaben über die Zerstörung und die Senkung der Zustimmung, die du erreicht hast.</p>
+<h4>Category: Trade</h4>
+<p>Transport reports provide information about your village's resource transports.</p>
+<p>Accepted offers show which of your market offers were accepted, or which offers you accepted.</p>
 
-<h4>Kategorie Unterstützung</h4>
-<p>Unterstützungsberichte erhältst du wenn Truppen zur Unterstützung von oder zu deinem Village gekommen sind. Hier kannst du wieder sehen welche Dörfer sich gegenseitig unterstützt haben und wie viele Truppen nun im anderen Village sind.</p>
-
-<h4>Kategorie Handel</h4>
-<p>Transportberichte informieren dich über die Rohstofftransporte deines Dorfes.</p>
-
-<p>Angenommene Angebote zeigen dir welche deiner Angebote auf dem Marktplatz angenommen wurden oder welche du angenommen hast.</p>
-
-<h4>Kategorie Sonstiges</h4>
-<p>Unter sonstige Reports fallen alle anderen Reports, die sich nicht in eine der oben genannten Kategorien einordnen lassen. Hierunter fallen Stammesauflösungen oder Einladungen in einen Tribe.</p>
+<h4>Category: Other</h4>
+<p>Other reports include all reports that do not fit the categories above, such as tribe disbanding events or invitations to a tribe.</p>

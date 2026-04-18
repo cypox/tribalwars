@@ -6,7 +6,7 @@ if($ACTIONS_MASSIVKEY_HIGHAAASSDD != "sdjahsdkJHSAJDKHALKJHSADJHSADNsjdhaksjdlhJ
 $result = $db->query("SELECT `id`,`short` FROM `ally` WHERE `id`='".parse($_GET['id'])."'");
 $ally = $db->fetch($result);
 if(empty($ally['id'])){
-	exit("Desculpe, más está tribo não existe!");
+	exit("Sorry, but this tribe does not exist!");
 }
 $ally['short'] = entparse($ally['short']);
 $members = array();

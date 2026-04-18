@@ -4,15 +4,15 @@ if($ACTIONS_MASSIVKEY_HIGHAAASSDD != "sdjahsdkJHSAJDKHALKJHSADJHSADNsjdhaksjdlhJ
 }
 if(isset($_GET['action']) && $_GET['action'] == "exit"){
 	if($session['hkey'] != $_GET['h']){
-		$error = "Desculpe, más o código de segurança está invalido!";
+		$error = "Sorry, but the security code is invalid!";
 	}
-	if(!$config['leave_ally']) $error = "Desculpe, más está ação não está permitida!";
+	if(!$config['leave_ally']) $error = "Sorry, but this action is not permitted!";
 
 	if($user['ally_found'] == 1){
 		$result = $db->query("SELECT COUNT(`id`) AS `count` FROM `users` WHERE `ally`='".$user['ally']."' AND `ally_found`='1'");
 		$row = $db->fetch($result);
 		if($row['count'] < 2 && empty($error)){
-			$error = "Desculpe, más você é o único fundador, portanto não pode deixa-lá!";
+			$error = "Sorry, but you are the only founder and cannot leave!";
 		}
 	}
 	if(empty($error)){
@@ -20,7 +20,7 @@ if(isset($_GET['action']) && $_GET['action'] == "exit"){
         reload_ally_points($user['ally']);
         reload_ally_rangs();
 		reload_kill_ally();
-        add_allyevent($user['ally'], "<a href=\"game.php?village=;&screen=info_player&id=".$user['id']."\">".entparse($user['username'])."</a> deixou a tribo.");
+        add_allyevent($user['ally'], "<a href=\"game.php?village=;&screen=info_player&id=".$user['id']."\">".entparse($user['username'])."</a> left the tribe.");
 		$d->open();
 		header("LOCATION: game.php?village=".$village['id']."&screen=ally");
 		exit;
@@ -29,11 +29,11 @@ if(isset($_GET['action']) && $_GET['action'] == "exit"){
 }
 if(isset($_GET['action']) && $_GET['action'] == "edit_intern" && $user['ally_found'] == 1){
 	if($session['hkey'] != $_GET['h']){
-		$error = "Desculpe, más o código de segurança está invalido!";
+		$error = "Sorry, but the security code is invalid!";
 	}
 
 	if(empty($error) && strlen($_POST['intern']) > 10000){
-		$error = "Desculpe, más você não pode exeder 10000 caracteres!";
+		$error = "Sorry, but you cannot exceed 10000 characters!";
 	}
 	if(empty($error)){
 		if(isset($_POST['preview'])){
@@ -43,8 +43,8 @@ if(isset($_GET['action']) && $_GET['action'] == "edit_intern" && $user['ally_fou
 		}
 		if(isset($_POST['edit'])){
 			$text = parse($_POST['intern']);
-            $db->query("UPDATE ally SET intern_text='".$text."' where id=".$user['ally']."");
-			add_allyevent($user['ally'], "<a href=\"game.php?village=;&screen=info_player&id=".$user['id']."\">".entparse($user['username'])."</a> modificou o quadro de anúncios." );
+			$db->query("UPDATE ally SET intern_text='".$text."' where id=".$user['ally']."");
+			add_allyevent($user['ally'], "<a href=\"game.php?village=;&screen=info_player&id=".$user['id']."\">".entparse($user['username'])."</a> modified the announcement board." );
             $d->open();
             header("LOCATION: game.php?village=".$village['id']."&screen=ally");
             exit;

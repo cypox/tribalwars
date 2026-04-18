@@ -82,7 +82,7 @@ class awards {
 	function get_nextStage($dbname,$stage){
 		if($this->type[$dbname] == "fix_one"){
 			if($stage >= "1"){
-				$desc2 .= "Nível máximo atingido";
+				$desc2 .= "Maximum level reached";
 			}else{
 				$desc2 = $this->get_nStage($dbname);
 			}
@@ -91,7 +91,7 @@ class awards {
 			$desc1 = explode("%*%",$this->get_nStage($dbname));
 			$desc2 = "";
 			if($next > "4"){
-				$desc2 .= "Nível máximo atingido";
+				$desc2 .= "Maximum level reached";
 			}else{
 				$desc2 .= $desc1[0]; 
 				$desc2 .= format_number($this->needed[$dbname][$next]);

@@ -54,7 +54,7 @@ function bb_village($var)
                 return $echo;
             }
         } else {
-            $echo="(Ung&uuml;ltieges Dorf)";
+            $echo="(Invalid village)";
             return $echo;
         }
 }
@@ -88,7 +88,7 @@ function bb_format($test) {
                 '<span style="font-family: $1;">$2</span>',  
                 '<span style="font-size: $1;">$2</span>',  
                 '<span style="color: $1;">$2</span>',
-                '<table class="quote"><tbody><tr><td></td><td class="quote_author">$1 hat folgendes geschrieben:</td></tr><tr><td width="10"></td><td class="quote_message">$2</td></tr></tbody></table>',  
+                '<table class="quote"><tbody><tr><td></td><td class="quote_author">$1 wrote:</td></tr><tr><td width="10"></td><td class="quote_message">$2</td></tr></tbody></table>',  
                 '<div id="spoiler"><input value="Spoiler" onclick="toggle_spoiler(this)" type="button"><div><span style="display: none;">$1</span></div></div>'
                 );  
   $aa = array(  

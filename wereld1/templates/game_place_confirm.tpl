@@ -1,7 +1,7 @@
 {if $type=="attack"}
-	<h2>Angriff</h2>
+	<h2>Attack</h2>
 {else}
-	<h2>Unterstützung</h2>
+	<h2>Support</h2>
 {/if}
 
 <form action="game.php?village={$village.id}&amp;screen=place&amp;action=command&amp;h={$hkey}" method="post" onSubmit="this.submit.disabled=true;">
@@ -10,11 +10,11 @@
 	<input type="hidden" name="y" value="{$values.y}">
 	
 	<table class="vis" width="300">
-		<tr><th colspan="2">Befehl</th></tr>
-		<tr><td>Ziel:</td><td><a href="game.php?village={$village.id}&amp;screen=info_village&amp;id={$info_village.id}">{$info_village.name} ({$values.x}|{$values.y}) K{$info_village.continent}</a></td></tr>
-		<tr><td>Spieler:</td><td><a href="game.php?village={$village.id}&amp;screen=info_player&amp;id={$info_village.userid}">{$info_user.username}</a></td></tr>
-		<tr><td>Dauer:</td><td>{$unit_runtime|format_time}</td></tr>
-		<tr><td>Ankunft:</td><td>{$arrival|format_date}</td></tr>
+		<tr><th colspan="2">Command</th></tr>
+		<tr><td>Target:</td><td><a href="game.php?village={$village.id}&amp;screen=info_village&amp;id={$info_village.id}">{$info_village.name} ({$values.x}|{$values.y}) K{$info_village.continent}</a></td></tr>
+		<tr><td>Player:</td><td><a href="game.php?village={$village.id}&amp;screen=info_player&amp;id={$info_village.userid}">{$info_user.username}</a></td></tr>
+		<tr><td>Duration:</td><td>{$unit_runtime|format_time}</td></tr>
+		<tr><td>Arrival:</td><td>{$arrival|format_date}</td></tr>
 	</table>
 	<br>
 	<table class="vis">
@@ -37,11 +37,11 @@
     {foreach from=$cl_units->get_array("dbname") item=dbname key=name}
         <input type="hidden" name="{$dbname}" value="{$send_units.$dbname}">
 	{/foreach}
-	{* Falls auch Katapulte ausgewählt wurde *}
+	{* If catapults are selected *}
 	{if $send_units.unit_catapult>0 && $type!='support'}
 	    <table class="vis">
 	        <tr>
-	            <th>Gebäude angreifen:</th>
+	            <th>Target building:</th>
 	            <td>
                     <select name="building" size="1">
                         {foreach from=$cl_builds->get_array("dbname") item=dbname key=id}

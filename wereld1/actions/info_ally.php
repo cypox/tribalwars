@@ -5,7 +5,7 @@ if($ACTIONS_MASSIVKEY_HIGHAAASSDD != "sdjahsdkJHSAJDKHALKJHSADJHSADNsjdhaksjdlhJ
 $result = $db->query("SELECT `image`,`id`,`irc`,`homepage`,`name`,`short`,`points`,`rank`,`best_points`,`members`,`villages`,`description` FROM `ally` WHERE `id`='".parse($_GET['id'])."'");
 $info = $db->fetch($result);
 if(empty($info['id'])){
-	exit("Desculpe, más está tribo não existe!");
+	exit("Sorry, but this tribe does not exist!");
 }
 $info['homepage'] = entparse($info['homepage']);
 $info['irc'] = entparse($info['irc']);

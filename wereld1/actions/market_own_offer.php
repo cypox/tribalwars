@@ -6,36 +6,36 @@ if($ACTIONS_MASSIVKEY_HIGHAAASSDD != "sdjahsdkJHSAJDKHALKJHSADJHSADNsjdhaksjdlhJ
 if(isset($_GET['action']) && $_GET['action'] == "new_offer"){
 	$error = "";
 	if($session['hkey'] != $_GET['h']){
-		$error = "Desculpe, más o código de segurança está invalido!";
+		$error = "Sorry, but the security code is invalid!";
 	}
     $sell = (int)@$_POST['sell'];
 	if(empty($error) && $sell < 10){
-		$error = "Desculpe, más você deve oferecer ao menos 10 unidades de recursos!";
+		$error = "Sorry, but you must offer at least 10 resource units!";
 	}
 	$multi = (int)@$_POST['multi'];
     if(empty($error) && $multi < 1){
-		$error = "Desculpe, más o número de ofertas não pode ser inferior a 1!";
+		$error = "Sorry, but the number of offers cannot be less than 1!";
 	}
 	$dealers = ceil($sell/1000)*$multi;
 	if(empty($error) && $inside_dealers < $dealers){
-		$error = "Desculpe, más você não tem mercadores suficientes para fazer está oferta!";
+		$error = "Sorry, but you do not have enough merchants to make this offer!";
 	}
 	$valid_res = array("wood","stone","iron");
 	if(empty($error) && !isset($_POST['res_sell']) || !in_array($_POST['res_sell'], $valid_res)){
-		$error = "Desculpe, más você deve selecionar o recurso que irá oferecer!";
+		$error = "Sorry, but you must select the resource you want to offer!";
 	}
 	if(empty($error) && ($sell*$multi) > $village['r_'.$_POST['res_sell']]){
-		$error = "Desculpe, más você não pode suprir está oferta!";
+		$error = "Sorry, but you cannot fulfil this offer!";
 	}
 	$buy = (int)@$_POST['buy'];
 	if(@($sell/$buy) < 0.5 || @($buy/$sell) < 0.5){
-		$error = "Desculpe, más aproporção da oferta e busca deve ser no minimo de 0.5!";
+		$error = "Sorry, but the offer-to-request ratio must be at least 0.5!";
 	}
 	if(empty($error) && !isset($_POST['res_buy']) || !in_array($_POST['res_buy'], $valid_res)){
-		$error = "Desculpe, más você deve selecionar o recurso que irá buscar!";
+		$error = "Sorry, but you must select the resource you want to receive!";
 	}
 	if(empty($error) && $_POST['res_buy'] == $_POST['res_sell']){
-		$error = "Desculpe, más você não pode oferecer e buscar pelo mesmo recurso!";
+		$error = "Sorry, but you cannot offer and request the same resource!";
 	}
 	if(empty($error)){
 		$c = new do_action($user['id']);
@@ -55,7 +55,7 @@ if (isset($_GET['action']) && $_GET['action'] == "modify_offers"){
 	$error = "";
 
 	if($session['hkey'] != $_GET['h']){
-		$error = "Desculpe, más o código de segurança está invalido!";
+		$error = "Sorry, but the security code is invalid!";
 	}
 	if(empty($error)){
 		if(isset($_POST['delete'])){
@@ -65,7 +65,7 @@ if (isset($_GET['action']) && $_GET['action'] == "modify_offers"){
 					$result = $db->query("SELECT `sell`,`buy`,`sell_ress`,`buy_ress`,`multi`,`from_village` FROM `offers` WHERE `id`='".$id."'");
 					$row = $db->fetch($result);
 					if($row['from_village'] != $village['id']){
-     					$error = "Desculpe, más houve um erro ao apagar a oferta!";
+     					$error = "Sorry, but there was an error deleting the offer!";
 					}else{
 						$db->query("UPDATE `offers` SET `do_action`='del' WHERE `id`='".$id."' AND `do_action`=''");
 						if($db->affectedrows() == 1){
@@ -98,15 +98,15 @@ if (isset($_GET['action']) && $_GET['action'] == "modify_offers"){
 						$result = $db->query("SELECT `sell`,`buy`,`sell_ress`,`buy_ress`,`multi`,`from_village` FROM `offers` WHERE `id`='".$id."'");
 						$row = $db->fetch($result);
 						if($row['from_village'] != $village['id']){
-	     					$error = "Desculpe, más houve um erro ao incrementar a oferta!";
+	     					$error = "Sorry, but there was an error adding to the offer!";
 						}else{
 							$dealers = ceil($row['sell']/1000)*$mod_count;
 							if($dealers > $inside_dealers){
-								$error = "Desculpe, más você não tem mercadores suficientes para fazer está oferta!";
+								$error = "Sorry, but you do not have enough merchants to make this offer!";
 							}
 							$ress = $row['sell']*$mod_count;
 							if($village['r_'.$row['sell_ress']] < $ress){
-								$error = "Desculpe, más você não pode suprir está oferta!";
+								$error = "Sorry, but you cannot fulfil this offer!";
 							}
 							if(empty($error)){
 								$db->query("UPDATE `offers` SET `multi`=`multi`+'".$mod_count."',`do_action`='update' WHERE `id`='".$id."' AND `do_action`=''");
@@ -141,7 +141,7 @@ if (isset($_GET['action']) && $_GET['action'] == "modify_offers"){
 						$result = $db->query("SELECT `sell`,`buy`,`sell_ress`,`buy_ress`,`multi`,`from_village` FROM `offers` WHERE `id`='".$id."'");
 						$row = $db->fetch($result);
 						if($row['from_village'] != $village['id']){
-	     					$error = "Desculpe, más houve um erro ao redurzir a oferta!";
+	     					$error = "Sorry, but there was an error reducing the offer!";
 						}else{
 							if(empty($error)){
 								$db->query("DELETE FROM `offers_multi` WHERE `id`='".$id."' LIMIT ".$mod_count."");

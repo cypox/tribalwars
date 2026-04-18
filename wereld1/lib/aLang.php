@@ -23,7 +23,7 @@ class aLang {
 		$cachearray = $path.'.cachearray';
                 
 		if (!file_exists($filename)) {
-			printf('[Idioma] Erro: Arquivo de lingua %s n�o existe! (%s n�o existe)', htmlentities($this->lang), htmlentities($filename));
+			printf('[Language] Error: Language file %s does not exist! (%s does not exist)', htmlentities($this->lang), htmlentities($filename));
 			exit;
 		}
                 
@@ -61,14 +61,14 @@ class aLang {
 	
 	function get($varname) {
 	if (!$this->exists($this->section, $varname)) {
-		return sprintf('Tradu��o para %s(%s) n�o dispon�vel!', htmlentities($this->section), htmlentities($varname));
+		return sprintf('Translation for %s(%s) is not available!', htmlentities($this->section), htmlentities($varname));
 		}
 		return $this->parsed[$this->section][$varname];
 	}
 	
 	function grab($section, $varname) {
 		if (!$this->exists($section, $varname)) {
-			return sprintf('Tradu��o para %s[%s] n�o dispon�vel!', htmlentities($section), htmlentities($varname));
+			return sprintf('Translation for %s[%s] is not available!', htmlentities($section), htmlentities($varname));
 		}
 		return $this->parsed[$section][$varname];
 	}

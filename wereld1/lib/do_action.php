@@ -24,7 +24,7 @@ class do_action{
 		$this->db->query("UPDATE `users` SET `do_action`='".time()."' WHERE `id`='".$this->userid."' AND `do_action`=''");
 		if($this->db->affectedrows()==0){
 			$this->db->query("UNLOCK TABLES");
-			exit("Impossível executar a ação!");
+			exit("This action cannot be performed!");
 		}
 		$this->db->query("UNLOCK TABLES");
 		$this->open = true;

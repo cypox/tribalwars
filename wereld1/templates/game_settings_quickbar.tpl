@@ -1,7 +1,7 @@
-<h3>Barra de atalhos</h3>
+<h3>Quickbar</h3>
 {if $amount != 0}
 <table class="vis" width="50%">
-	<tr><th>Atalho</th><th>Ação</th></tr>
+	<tr><th>Shortcut</th><th>Action</th></tr>
 	{foreach from=$quickbar item=quick}
 	<tr>
 		<td>
@@ -11,9 +11,9 @@
 			<a href="{$quick.href}&village={$quick.vid}"{if $quick.target != 0}target="_blank"{/if}><img src="{$quick.img}">{$quick.name}</a>
 		{/if}
 		</td>
-		<td align="center"><a href="game.php?village={$quick.vid}&screen=settings&mode=quickbar&action=delete&id={$quick.id}&h={$hkey}">Apagar</a></td>
+		<td align="center"><a href="game.php?village={$quick.vid}&screen=settings&mode=quickbar&action=delete&id={$quick.id}&h={$hkey}">Delete</a></td>
 	{/foreach}
 	</tr>
 </table>
 {/if}
-<p><a href="game.php?village={$vill}&screen=settings&mode=quickbar&action=standard">&raquo; Carregar barra de atalhos padrão</a></p>
+<p><a href="game.php?village={$vill}&screen=settings&mode=quickbar&action=standard">&raquo; Load default quickbar</a></p>

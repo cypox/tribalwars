@@ -8,7 +8,7 @@ class DB_MySQL{
 	function connect($host="",$user="",$pass="",$db=""){
 		$this->connection = @mysqli_connect($host, $user, $pass, $db);
 		if(!$this->connection){
-			printf("Não foi possível estabelecer uma conexão com o servidor MySQL.<br />Erro: %s", htmlentities(mysqli_connect_error()));
+			printf("Unable to establish a connection with the MySQL server.<br />Error: %s", htmlentities(mysqli_connect_error()));
 			exit;
 		}
 		return true;

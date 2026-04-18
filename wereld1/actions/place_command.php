@@ -7,7 +7,7 @@ if(isset($_GET['reportid'])){
 	$result = $db->query("SELECT `a_units`,`b_units`,`c_units`,`d_units`,`receiver_userid`,`see_def_units`,`to_village` FROM `reports` WHERE `id`='".parse($_GET['reportid'])."'");
 	$report = $db->fetch($result);
 	if($user['id'] != @$report['receiver_userid'])
-		exit("Desculpe, más a ação não pode ser executada!");
+		exit("Sorry, but this action could not be performed!");
 	$sql = $db->query("SELECT `x`,`y` FROM `villages` WHERE `id`='".$report['to_village']."' LIMIT 1");
 	$row = $db->fetch($sql);
 	$_POST['x'] = $row['x'];
@@ -81,26 +81,26 @@ if(isset($_GET['try']) && $_GET['try'] == "confirm"){
 		}
 	}
 	if(empty($error) && !$units_choosed){
-        $error = "Desculpe, más você não selecionou nenhuma unidade!";
+        $error = "Sorry, but you did not select any units!";
     }
     if(empty($error) && !$enougth_units){
-        $error = "Desculpe, más você não tem unidades suficientes!";
+        $error = "Sorry, but you do not have enough units!";
 	}
 	if(empty($error) && (empty($_POST['x']) || empty($_POST['y']))){
-        $error = "Desculpe, más você deve insirir as cordenadas!";
+        $error = "Sorry, but you must enter the coordinates!";
     }
 	if(empty($error) && $_POST['x'] == $village['x'] && $_POST['y'] == $village['y']){
-        $error = "Desculpe, más você não pode atacar sua própria aldeia!";
+        $error = "Sorry, but you cannot attack your own village!";
     }
 	$result = $db->query("SELECT COUNT(`id`) AS `count`,`userid` FROM `villages` WHERE `x`='".parse($_POST['x'])."' AND `y`='".parse($_POST['y'])."' GROUP BY `userid`");
     $village_exist = $db->fetch($result);
 	$v_user = $db->fetch($db->query("SELECT `protection` FROM `users` WHERE `id`='".$village_exist['userid']."'"));
 
 	if(empty($error) && $village_exist['count'] == 0){
-		$error = "Desculpe, más não localizamos nenhuma aldeia nestas coordenadas!";
+		$error = "Sorry, but no village was found at these coordinates!";
     }
 	if(empty($error) && !(isset($_POST['attack']) || isset($_POST['support']))){
-        $error = "Desculpe, más a ação não pode ser executada!";
+        $error = "Sorry, but this action could not be performed!";
     }else{
 	    if(isset($_POST['attack'])){
         	$type = "attack";
@@ -109,7 +109,7 @@ if(isset($_GET['try']) && $_GET['try'] == "confirm"){
 	    }
 	}
 	if($type == "attack" && $v_user['protection'] > time() && $village_exist['userid'] != '-1'){
-		$error = "Este jogador está sob proteção de iniciantes. Você poderá ataca-lo apartir de ".format_date($v_user['protection']).".";
+		$error = "This player is under beginner protection. You can attack from ".format_date($v_user['protection']).".";
 	}
 	if(empty($error)){
 		$result = $db->query("SELECT `id`,`name`,`continent`,`userid` FROM `villages` WHERE `x`='".parse($_POST['x'])."' AND `y`='".parse($_POST['y'])."'");
@@ -145,7 +145,7 @@ if(isset($_GET['action']) && $_GET['action'] == "command"){
     $c->close();
 
     if(empty($error) && $session['hkey'] != $_GET['h']){
-        $error = "Desculpe, más o código de segurança está invalido!";
+        $error = "Sorry, but the security code is invalid!";
     }
 
     $enougth_units = true;
@@ -169,16 +169,16 @@ if(isset($_GET['action']) && $_GET['action'] == "command"){
 		}
 	}
 	if(empty($error) && !$units_choosed){
-        $error = "Desculpe, más você não selecionou nenhuma unidade!";
+        $error = "Sorry, but you did not select any units!";
     }
     if(empty($error) && !$enougth_units){
-        $error = "Desculpe, más você não tem unidades suficientes!";
+        $error = "Sorry, but you do not have enough units!";
 	}
 	if(empty($error) && (empty($_POST['x']) || empty($_POST['y']))){
-        $error = "Desculpe, más você deve insirir as cordenadas!";
+        $error = "Sorry, but you must enter the coordinates!";
     }
 	if(empty($error) && $_POST['x'] == $village['x'] && $_POST['y'] == $village['y']){
-        $error = "Desculpe, más você não pode atacar sua própria aldeia!";
+        $error = "Sorry, but you cannot attack your own village!";
     }
 
 	$result = $db->query("SELECT COUNT(`id`) AS `count`,`userid`,`id` FROM `villages` WHERE `x`='".parse($_POST['x'])."' AND `y`='".parse($_POST['y'])."' GROUP BY `userid`");
@@ -186,13 +186,13 @@ if(isset($_GET['action']) && $_GET['action'] == "command"){
 	$v_user = $db->fetch($db->query("SELECT `protection` FROM `users` WHERE `id`='".$village_exist['userid']."'"));
 
 	if(empty($error) && $village_exist['count'] == 0){
-		$error = "Desculpe, más não localizamos nenhuma aldeia nestas coordenadas!";
+		$error = "Sorry, but no village was found at these coordinates!";
     }else{
         $to_village_id = $village_exist['id'];
         $to_user_id = $village_exist['userid'];
     }
 	if(empty($error) && !(isset($_POST['attack']) || isset($_POST['support']))){
-        $error = "Desculpe, más a ação não pode ser executada!";
+        $error = "Sorry, but this action could not be performed!";
     }else{
 	    if(isset($_POST['attack'])){
         	$type = "attack";
@@ -201,11 +201,11 @@ if(isset($_GET['action']) && $_GET['action'] == "command"){
 	    }
 	}
 	if($type == "attack" && $v_user['protection'] > time() && $village_exist['userid'] != '-1'){
-		$error = "Este jogador está sob proteção de iniciantes. Você poderá ataca-lo apartir de ".format_date($v_user['protection']).".";
+		$error = "This player is under beginner protection. You can attack from ".format_date($v_user['protection']).".";
 	}
     if($send_units['unit_catapult'] > 0 && $type == "attack"){
 		if(!(in_array($_POST['building'], $cl_builds->get_array("dbname")) && (!in_array("catapult_protection", $cl_builds->get_specials($_POST['building']))))){
-        	$error = "Catapulta: Desculpe, más o alvo escolhido não está disponivel!";
+        	$error = "Catapult: Sorry, but the chosen target is not available!";
         }
     }
 	if(empty($error)){
@@ -246,7 +246,7 @@ if(isset($_GET['action']) && $_GET['action'] == "command"){
 }
 if(isset($_GET['action']) && $_GET['action'] == "cancel"){
 	if($session['hkey'] != $_GET['h']){
-		$error = "Desculpe, más o código de segurança está invalido!";
+		$error = "Sorry, but the security code is invalid!";
 	}
 
 	$result = $db->query("SELECT `type`,`from_village`,`to_village`,`from_userid`,`to_userid`,`die`,`start_time`,`type`,`send_from_user`,`die` FROM `movements` WHERE `id`='".parse($_GET['id'])."'");
@@ -254,10 +254,10 @@ if(isset($_GET['action']) && $_GET['action'] == "cancel"){
 	if(!empty($mov['start_time'])){
 		$b_error = false;
 		if(empty($error) && $mov['send_from_user'] != $village['userid']){
-			$error = "Desculpe, más houve um erro ao cancelar o comando!";
+			$error = "Sorry, but there was an error cancelling the command!";
 		}
 		if(empty($error) && $mov['die'] == 1){
-			$error = "Desculpe, más não é possivel cancelar o comando!";
+			$error = "Sorry, but it is not possible to cancel the command!";
 		}
 		if(empty($error) && ($mov['type'] != 'attack' && $mov['type'] != 'support')){
 			$b_error = true;
@@ -286,7 +286,7 @@ if(isset($_GET['action']) && $_GET['action'] == "cancel"){
 			header("LOCATION: game.php?village=".$_GET['village']."&screen=place");
 		}
 	}else{
-	    $error = "Desculpe, más o comando não existe mais!";
+	    $error = "Sorry, but this command no longer exists!";
 	}
 }
 

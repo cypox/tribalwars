@@ -2,11 +2,11 @@
 <tr><td>
 <table class="vis">
 	<tr>
-		<th width="140">Assunto</th>
+		<th width="140">Subject</th>
 		<th width="400">{$report.title}</th>
 	</tr>
 	<tr>
-		<td>Enviado em</td>
+		<td>Sent on</td>
 		<td>{$report.date}</td>
 	</tr>
 	<tr>
@@ -16,7 +16,7 @@
 </td></tr>
 
 <table align="center" class="vis" width="100%"><tr>
-<td align="center" width="20%"><a href="game.php?village={$village.id}&amp;screen=report&amp;mode={$mode}&amp;action=del_one&amp;id={$report.id}&amp;h={$hkey}">Apagar</a></td>
+<td align="center" width="20%"><a href="game.php?village={$village.id}&amp;screen=report&amp;mode={$mode}&amp;action=del_one&amp;id={$report.id}&amp;h={$hkey}">Delete</a></td>
 
 </tr></table>
 </td></tr>

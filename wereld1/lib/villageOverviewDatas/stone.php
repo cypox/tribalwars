@@ -13,9 +13,9 @@ $full = @round($diff/round($arr_production[$village['stone']]*$config['speed']/3
 $min = $full;
 if($viewType == "table"){
 	if($min <= 0){
-		echo "<b>Produção completa!</b>";
+		echo "<b>Production complete!</b>";
 	}else{
-		echo "<b>Completo em <span class=\"timer\">".format_time($min)."</span></b>";
+		echo "<b>Completed in <span class=\"timer\">".format_time($min)."</span></b>";
 	}
 }else{
 	if($min > 0){

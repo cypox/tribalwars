@@ -4,11 +4,11 @@ if($ACTIONS_MASSIVKEY_HIGHAAASSDD != "sdjahsdkJHSAJDKHALKJHSADJHSADNsjdhaksjdlhJ
 }
 
 $links = array(
-	"Combinado" => "combined",
-	"Produção" => "prod",
-	"Tropas" => "units",
-	"Comandos" => "commands",
-	"Chegando" => "incomings"
+	"Combined" => "combined",
+	"Production" => "prod",
+	"Units" => "units",
+	"Commands" => "commands",
+	"Incoming" => "incomings"
 );
 if(isset($_GET['mode']) && $user['villages_mode'] != $_GET['mode'] && in_array($_GET['mode'], $links)){
 	$db->query("UPDATE `users` SET `villages_mode`='".parse($_GET['mode'])."' WHERE `id`='".$user['id']."'");

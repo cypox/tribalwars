@@ -1,9 +1,9 @@
 <h3>BB-Codes</h3>
 
-<p>BB-Codes sind eine einfache Möglichkeit Texte zu formatieren. Mit BB-Codes kannst du zB. die Farbe des Textes ändern. Im Allgemeinen bestehen BB-Codes aus einem Starttag (zb. [b]) und einem Endtag (zB. [/b]). Alles zwischen Start- und Endtag wird formatiert. Im Spiel kannst du BB-Code im stammesinternen Forum, in Nachrichten und im Profil einsetzen. Folgende BB-Codes sind vorhanden:</p>
+<p>BB codes are a simple way to format text. With BB codes you can, for example, change text color. In general, BB codes have an opening tag (for example [b]) and a closing tag (for example [/b]). Everything between these tags will be formatted. In the game, BB code can be used in the tribe forum, messages and profile. The following BB codes are available:</p>
 
 <table class="vis">
-<tr><th>Code</th><th>Auswirkung</th><th>Forum</th><th>Nachricht</th><th>Profil</th></tr>
+<tr><th>Code</th><th>Effect</th><th>Forum</th><th>Message</th><th>Profile</th></tr>
 
 <tr><td>[b]Text[/b]</td><td><b>Text</b></td>
 <td align="center">x</td>
@@ -49,7 +49,7 @@
 <td align="center">x</td>
 <td align="center">x</td>
 </tr>
-<tr><td>[url=http://forum.die-staemme.de/]Stämme Forum[/url]</td><td><a style="color: #4040D0" href="redir.php?url=http%3A%2F%2Fforum.die-staemme.de%2F" target="_blank">Stämme Forum</a></td>
+<tr><td>[url=http://forum.die-staemme.de/]Stï¿½mme Forum[/url]</td><td><a style="color: #4040D0" href="redir.php?url=http%3A%2F%2Fforum.die-staemme.de%2F" target="_blank">Stï¿½mme Forum</a></td>
 <td align="center">x</td>
 <td align="center">x</td>
 <td align="center">x</td>

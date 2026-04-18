@@ -9,22 +9,22 @@
 // *******************//
 ////////////////////////
 
-// keine SF/SG Rechte
-$status_error_right = 'Nu ai dreptul de fondatorul tribului!';
-// anderes Ally Forum
-$status_error_ally = 'Nu ai acces la aceste forumuri!';
-// keine Rechte zum Bearbeiten des Beitrages
-$status_error_message = 'Nu aveti dreptul de a edita!';
-// Kein Bereich verfügbar
-$status_error_area = 'Forumul nu are nici un topic deschis!';
-// Kein Thread verfügbar
-$status_error_thread = 'Nici un subiect nu a fost creat!';
-// Kein Thread Error
-$status_error_thread_zero = 'Topic gol!';
-// Keine Ally verfügbar
-$status_error_ally0 = 'Eroare!';
-// Kein Thread zugriff
-$status_error_thread_right = 'Nici un drept Topic disponibile!';
+// no founder rights
+$status_error_right = 'You do not have tribe founder rights!';
+// other ally forum
+$status_error_ally = 'You do not have access to these forums!';
+// no rights to edit the post
+$status_error_message = 'You do not have permission to edit!';
+// no area available
+$status_error_area = 'This forum has no open topics!';
+// no thread available
+$status_error_thread = 'No topic has been created!';
+// empty thread error
+$status_error_thread_zero = 'Empty topic!';
+// no ally available
+$status_error_ally0 = 'Error!';
+// no thread access
+$status_error_thread_right = 'No topic rights available!';
 
 
 
@@ -41,51 +41,51 @@ $status_error_thread_right = 'Nici un drept Topic disponibile!';
 // Allgemein
 // ******************
 
-$fgeneral_on = 'in data de ';
-$fgeneral_to = ' la ora ';
+$fgeneral_on = 'on ';
+$fgeneral_to = ' at ';
 $fgeneral_oclock = '';
-// Forum Administrieren
-$fgeneral_forumadmin = 'Administrare forum';
+// administer forum
+$fgeneral_forumadmin = 'Administer forum';
 
 // ******************
 // Overview
 // ******************
 
 // Neues Thema
-$foverview_newthread = 'Tema noua';
-// Themen
-$foverview_thread = 'Teme';
-// Autor
-$foverview_author = 'Autor';
-// Letzter Post
-$foverview_lastpost = '	Ultima tema';
-// Antworten
-$foverview_answer = 'Raspunde';
+$foverview_newthread = 'New topic';
+// topics
+$foverview_thread = 'Topics';
+// author
+$foverview_author = 'Author';
+// last post
+$foverview_lastpost = 'Last topic';
+// replies
+$foverview_answer = 'Reply';
 
 // ******************
 //Thread
 // ******************
 
 // Nachricht Bearbeiten
-$fthread_edit = 'Prelucrare';
-// Nachricht Löschen
-$fthread_delete = 'Sterge';
-// NAchricht sicher löschen?
-$fthread_delete_sure_m = '\'Doresti intradevar sa stergi acest post?\'';
-// Theame wirklich löschen?
-$fthread_delete_sure_t = '\'Doresti intradevar sa stergi aceasta tema?\'';
-// Seite
-$fthread_page = 'Pagini: ';
-// Antworten
-$fthread_answer = 'Raspunde';
-// Thread öffnen
-$fthread_open = 'Deschis';
-// Thread schliessen
-$fthread_close = 'Inchide';
-// Thread geschliessen
-$fthread_closed = '(inchis)';
+$fthread_edit = 'Edit';
+// delete post
+$fthread_delete = 'Delete';
+// delete post confirmation
+$fthread_delete_sure_m = '\'Do you really want to delete this post?\'';
+// delete topic confirmation
+$fthread_delete_sure_t = '\'Do you really want to delete this topic?\'';
+// page
+$fthread_page = 'Pages: ';
+// replies
+$fthread_answer = 'Reply';
+// open thread
+$fthread_open = 'Open';
+// close thread
+$fthread_close = 'Close';
+// thread closed
+$fthread_closed = '(closed)';
 //
-$fthread_admin_write = 'Acest tipic a fost inchis.';
+$fthread_admin_write = 'This topic has been closed.';
 
 
 // ******************
@@ -93,25 +93,25 @@ $fthread_admin_write = 'Acest tipic a fost inchis.';
 // ******************
 
 // Fett
-$fbbcode_bold = 'Ingrosat';
-// Kursiv
-$fbbcode_italic = 'Cursiv';
-// Unterstrichen
-$fbbcode_underline = 'Subliniat';
-// Durchgestrichen
-$fbbcode_strikethrought = 'Taiat';
-// Zitat
-$fbbcode_quote = 'Citat';
-// URL Link
+$fbbcode_bold = 'Bold';
+// italic
+$fbbcode_italic = 'Italic';
+// underline
+$fbbcode_underline = 'Underline';
+// strikethrough
+$fbbcode_strikethrought = 'Strikethrough';
+// quote
+$fbbcode_quote = 'Quote';
+// URL link
 $fbbcode_url = 'Link';
-// Spieler Verlinkung
-$fbbcode_player = 'Jucator';
-// Stammesverlinkung
-$fbbcode_ally = 'Trib';
-// Koordinate
-$ffcode_coord = 'Coordonate';
-// Sende Button
-$fsend_button = 'Trimis';
+// player link
+$fbbcode_player = 'Player';
+// tribe link
+$fbbcode_ally = 'Tribe';
+// coordinate
+$ffcode_coord = 'Coordinates';
+// send button
+$fsend_button = 'Send';
 
 // ******************
 // Admincenter
@@ -119,29 +119,29 @@ $fsend_button = 'Trimis';
 
 // Forum 
 $fadmin_forum = 'Forum';
-// Sichtbarkeit
-$fadmin_visibility = 'Vizibilitate';
-// Reihenfolge
-$fadmin_order = 'Pentru';
-// Aktion
-$fadmin_action = 'Actiune';
-// Umnennen
-$fadmin_nominal = 'Redenumire';
-// Für alle Sichtbar
-$fadmin_forall = 'Pentru toate';
-// Forum hochschieben
-$fadmin_up = 'Sus';
-// Forum runterschieben
-$fadmin_down = 'Jos';
-// Forum löschen
-$fadmin_delete = 'Sterge';
-// Neues Forum erstellen
-$fadmin_newforum = 'Forum nou/';
-// Forenname
-$fadmin_forumname = 'Nume forum: ';
-// Sichbarkeit für neues Forum
-$fadmin_newforall = 'Für alle sichtbar';
-// neues Forum erstellen
-$fadmin_create = 'Creati';
+// visibility
+$fadmin_visibility = 'Visibility';
+// order
+$fadmin_order = 'Order';
+// action
+$fadmin_action = 'Action';
+// rename
+$fadmin_nominal = 'Rename';
+// visible to all
+$fadmin_forall = 'Visible to all';
+// move forum up
+$fadmin_up = 'Up';
+// move forum down
+$fadmin_down = 'Down';
+// delete forum
+$fadmin_delete = 'Delete';
+// create new forum
+$fadmin_newforum = 'New forum';
+// forum name
+$fadmin_forumname = 'Forum name: ';
+// visibility for new forum
+$fadmin_newforall = 'Visible to all';
+// create new forum
+$fadmin_create = 'Create';
 
 ?>

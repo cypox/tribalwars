@@ -9,11 +9,11 @@ class login{
 		$needed_datas = array("id","username","password","banned");
 		$datas = $datas_cl->getbyusername(parse($username), $needed_datas);
 		if($datas['exist_user'] == "0"){
-		    return '{"message":"Desculpe, más não encontramos está conta!","type":"error","sms":"username"}';
+		    return '{"message":"Sorry, but we could not find this account!","type":"error","sms":"username"}';
 		}elseif($datas['password'] != md5($password)){
-		    return '{"message":"Desculpe, más a senha está invalida!","type":"error","sms":"password"}';
+		    return '{"message":"Sorry, but the password is invalid!","type":"error","sms":"password"}';
 		}elseif($datas['banned'] == "Y"){
-		    return '{"message":"Desculpe, más está conta está banida!","type":"error","sms":"username"}';
+		    return '{"message":"Sorry, but this account is banned!","type":"error","sms":"username"}';
 		}
 		$sid = new sid();
         $sid = $sid->create_sid($datas['id']);
@@ -27,11 +27,11 @@ class login{
 		$needed_datas = array("id","username","password","banned");
 		$datas = $datas_cl->getbyusername(parse($username), $needed_datas);
 		if($datas['exist_user'] == "0"){
-			return "Desculpe, más não encontramos está conta!";
+			return "Sorry, but we could not find this account!";
 		}elseif($datas['password'] != md5($password)){
-			return "Desculpe, más a senha está invalida!";
+			return "Sorry, but the password is invalid!";
 		}elseif($datas['banned'] == "Y"){
-			return "Desculpe, más está conta está banida!";
+			return "Sorry, but this account is banned!";
 		}
 		$sid = new sid();
         $sid = $sid->create_sid($datas['id']);
@@ -50,9 +50,9 @@ class login{
 		if($row['userid'] != $datas['vacation_id'] || $datas['vacation_accept'] == 0){
 			return "UV wurde bereits beendet!";
 		}elseif($datas['exist_user'] == "0"){
-			return "Desculpe, más não encontramos está conta!";
+			return "Sorry, but we could not find this account!";
 		}elseif($datas['banned'] == "Y"){
-			return "Desculpe, más está conta está banida!";
+			return "Sorry, but this account is banned!";
 		}else{
 			$sid = new sid();
 			$sid = $sid->create_sid($datas['id'], true);

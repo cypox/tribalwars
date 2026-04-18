@@ -3,7 +3,7 @@ if($ACTIONS_MASSIVKEY_HIGHAAASSDD != "sdjahsdkJHSAJDKHALKJHSADJHSADNsjdhaksjdlhJ
 	exit;
 }
 if(!($user['ally_lead'] == 1)){
-	exit("Desculpe, más você não tem permissão para acessar está página!");
+	exit("Sorry, but you do not have permission to access this page!");
 }
 
 $playerid = trim(parse((int)$_GET['player_id']));
@@ -17,10 +17,10 @@ if($row['count'] == 0){
     exit;
 }
 if($user['ally_found'] == 0 && $row['ally_found'] == 1){
-	exit("Desculpe, más você não pode alterar o cargo de um fundador!");
+	exit("Sorry, but you cannot change the role of a founder!");
 }
 if($row['ally'] != $user['ally']){
-	exit("Desculpe, más este jogador não pertence a está aliança!!");
+	exit("Sorry, but this player does not belong to this alliance!");
 }
 if(isset($_GET['action']) || $_GET['action'] == "edit_rights"){
 	$found = $_POST['found'] == "on" ? 1 : 0;
@@ -33,11 +33,11 @@ if(isset($_GET['action']) || $_GET['action'] == "edit_rights"){
         $result = $db->query("SELECT COUNT(`id`) AS `count` FROM `users` WhERE `ally`='".$user['ally']."' AND `ally_found`='1'");
 		$row_c = $db->fetch($result);
 		if($row_c['count'] == 1){
-			$error = "Desculpe, más você é o unico fundador, não pode ignorar estes direitos!";
+			$error = "Sorry, but you are the only founder and cannot remove these rights!";
 		}
 	}
 	if($user['ally_found'] == 0 && $found == 1){
-		$error = "Desculpe, más você não pode nomear um fundador!!";
+		$error = "Sorry, but you cannot appoint a founder!";
 	}
 	if(empty($error)){
 		if($found == 1){
@@ -52,7 +52,7 @@ if(isset($_GET['action']) || $_GET['action'] == "edit_rights"){
 			$mass_mail = 1;
 		}
 		$db->query("UPDATE `users` SET `ally_titel`='".$title."',`ally_found`='".$found."',`ally_lead`='".$lead."',`ally_diplomacy`='".$diplomacy."',`ally_invite`='".$invite."',`ally_mass_mail`='".$mass_mail."' WHERE `id`='".$playerid."'");
-		add_allyevent($user['ally'], "<a href=\"game.php?village=;&screen=info_player&id=".$user['id']."\">".entparse($user['username'])."</a> alterou titulos e permissões de <a href=\"game.php?village=;&screen=info_player&id=".$rights['id']."\">".entparse($rights['username'])."</a>.");
+		add_allyevent($user['ally'], "<a href=\"game.php?village=;&screen=info_player&id=".$user['id']."\">".entparse($user['username'])."</a> updated the titles and permissions of <a href=\"game.php?village=;&screen=info_player&id=".$rights['id']."\">".entparse($rights['username'])."</a>.");
 		header("LOCATION: game.php?village=".$village['id']."&screen=ally&mode=rights");
 	}
 }

@@ -3,7 +3,7 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>{$village.name} ({$village.x}|{$village.y}) - Die St&auml;mme</title>
+<title>{$village.name} ({$village.x}|{$village.y}) - Die Tribes</title>
 <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="stamm.css" />
 <script src="script.js?1159978916" type="text/javascript"></script>
@@ -18,15 +18,15 @@
 {if $user.dyn_menu==1}
 	<table class="menu nowrap" align="center" width="{$user.window_width}">
 	<tr id="menu_row">
-	<td><a href="game.php?village={$village.id}&amp;screen=&amp;action=logout&amp;h={$hkey}" target="_top">Ausloggen</a></td>
+	<td><a href="game.php?village={$village.id}&amp;screen=&amp;action=logout&amp;h={$hkey}" target="_top">Logout</a></td>
 	<td><a href="http://dslan.gfx-dose.de" target="_blank">DSLAN Forum</a></td>
-	<td><a href="help.php" target="_blank">Hilfe</a></td>
-	<td><a href="game.php?village={$village.id}&amp;screen=settings">Settings</a><br /><table cellspacing="0" width="120"><tr><td><a href="game.php?village={$village.id}&amp;screen=settings&amp;mode=profile">Profil</a></td></tr><tr><td><a href="game.php?village={$village.id}&amp;screen=settings&amp;mode=settings">Settings</a></td></tr><tr><td><a href="game.php?village={$village.id}&amp;screen=settings&amp;mode=move">Neu anfangen</a></td></tr><tr><td><a href="game.php?village={$village.id}&screen=settings&mode=quickbar">Schnellleiste bearbeiten</a></td></tr><tr><td><a href="game.php?village={$village.id}&amp;screen=settings&amp;mode=vacation">Urlaubsmodus</a></td></tr><tr><td><a href="game.php?village={$village.id}&amp;screen=settings&amp;mode=logins">Logins</a></td></tr><tr><td><a href="game.php?village={$village.id}&amp;screen=settings&amp;mode=change_passwd">Passwort &auml;ndern</a></td></tr></table></td>
-	<td><a href="game.php?village={$village.id}&amp;screen=ranking">Ranking</a> ({$user.rang}.|{$user.points|format_number} P) <br /><table cellspacing="0" width="120"><tr><td><a href="game.php?village={$village.id}&amp;screen=ranking&amp;mode=ally">St&auml;mme</a></td></tr><tr><td><a href="game.php?village={$village.id}&amp;screen=ranking&amp;mode=player">Spieler</a></td></tr><tr><td><a href="game.php?village={$village.id}&amp;screen=ranking&amp;mode=kill_player">Besiegte Gegner</a></td></tr></table>
-	<td> <a href="game.php?village={$village.id}&amp;screen=ally">Tribe</a>{if $user.ally!=-1}<br /><table cellspacing="0" width="120"><tr><td><a href="game.php?village={$village.id}&amp;screen=ally&amp;mode=overview">&Uuml;bersicht</a></td></tr><tr><td><a href="game.php?village={$village.id}&amp;screen=ally&amp;mode=profile">Profil</a></td></tr><tr><td><a href="game.php?village={$village.id}&amp;screen=ally&amp;mode=members">Mitglieder</a></td></tr>{if $user.ally_invite==1}<tr><td><a href="game.php?village={$village.id}&amp;screen=ally&amp;mode=invites">Einladungen</a></td></tr>{/if}{if $user.ally_diplomacy==1}<tr><td><a href="game.php?village={$village.id}&amp;screen=ally&amp;mode=properties">Eigenschaften</a></td></tr>{/if}</table>{/if}</td>
-	<td><a href="game.php?village={$village.id}&amp;screen=report">{if $user.new_report==1}<img src="graphic/new_report.png" title="Neuer Bericht" alt="" />{/if} Reports</a><br /><table cellspacing="0" width="120"><tr><td><a href="game.php?village={$village.id}&amp;screen=report&amp;mode=all">Alle Reports</a></td></tr><tr><td><a href="game.php?village={$village.id}&amp;screen=report&amp;mode=attack">Attacks</a></td></tr><tr><td><a href="game.php?village={$village.id}&amp;screen=report&amp;mode=defense">Defenses</a></td></tr><tr><td><a href="game.php?village={$village.id}&amp;screen=report&amp;mode=support">Unterst&uuml;tzung</a></td></tr><tr><td><a href="game.php?village={$village.id}&amp;screen=report&amp;mode=trade">Handel</a></td></tr><tr><td><a href="game.php?village={$village.id}&amp;screen=report&amp;mode=other">Sonstiges</a></td></tr></table></td>
-	<td><a href="game.php?village={$village.id}&amp;screen=mail">{if $user.new_mail==1}<img src="graphic/new_mail.png" title="Neue Nachricht" alt="" /> {/if} Nachrichten</a><br /><table cellspacing="0" width="120"><tr><td><a href="game.php?village={$village.id}&amp;screen=mail&amp;mode=in">Posteingang</a></td></tr><tr><td><a href="game.php?village={$village.id}&amp;screen=mail&amp;mode=out">Postausgang</a></td></tr><tr><td><a href="game.php?village={$village.id}&amp;screen=mail&amp;mode=arch">Archiv</a></td></tr><tr><td><a href="game.php?village={$village.id}&amp;screen=mail&amp;mode=new">Nachricht schreiben</a></td></tr><tr><td><a href="game.php?village={$village.id}&amp;screen=mail&amp;mode=block">Absender blockieren</a></td></tr></table></td>
-	<td><a href="game.php?village={$village.id}&amp;screen=memo">Notizen</a></td></tr>
+	<td><a href="help.php" target="_blank">Help</a></td>
+	<td><a href="game.php?village={$village.id}&amp;screen=settings">Settings</a><br /><table cellspacing="0" width="120"><tr><td><a href="game.php?village={$village.id}&amp;screen=settings&amp;mode=profile">Profile</a></td></tr><tr><td><a href="game.php?village={$village.id}&amp;screen=settings&amp;mode=settings">Settings</a></td></tr><tr><td><a href="game.php?village={$village.id}&amp;screen=settings&amp;mode=move">Start over</a></td></tr><tr><td><a href="game.php?village={$village.id}&screen=settings&mode=quickbar">Edit quickbar</a></td></tr><tr><td><a href="game.php?village={$village.id}&amp;screen=settings&amp;mode=vacation">Vacation mode</a></td></tr><tr><td><a href="game.php?village={$village.id}&amp;screen=settings&amp;mode=logins">Logins</a></td></tr><tr><td><a href="game.php?village={$village.id}&amp;screen=settings&amp;mode=change_passwd">Change password</a></td></tr></table></td>
+	<td><a href="game.php?village={$village.id}&amp;screen=ranking">Ranking</a> ({$user.rang}.|{$user.points|format_number} P) <br /><table cellspacing="0" width="120"><tr><td><a href="game.php?village={$village.id}&amp;screen=ranking&amp;mode=ally">Tribes</a></td></tr><tr><td><a href="game.php?village={$village.id}&amp;screen=ranking&amp;mode=player">Players</a></td></tr><tr><td><a href="game.php?village={$village.id}&amp;screen=ranking&amp;mode=kill_player">Defeated opponents</a></td></tr></table>
+	<td> <a href="game.php?village={$village.id}&amp;screen=ally">Tribe</a>{if $user.ally!=-1}<br /><table cellspacing="0" width="120"><tr><td><a href="game.php?village={$village.id}&amp;screen=ally&amp;mode=overview">Overview</a></td></tr><tr><td><a href="game.php?village={$village.id}&amp;screen=ally&amp;mode=profile">Profile</a></td></tr><tr><td><a href="game.php?village={$village.id}&amp;screen=ally&amp;mode=members">Members</a></td></tr>{if $user.ally_invite==1}<tr><td><a href="game.php?village={$village.id}&amp;screen=ally&amp;mode=invites">Invitations</a></td></tr>{/if}{if $user.ally_diplomacy==1}<tr><td><a href="game.php?village={$village.id}&amp;screen=ally&amp;mode=properties">Properties</a></td></tr>{/if}</table>{/if}</td>
+	<td><a href="game.php?village={$village.id}&amp;screen=report">{if $user.new_report==1}<img src="graphic/new_report.png" title="New report" alt="" />{/if} Reports</a><br /><table cellspacing="0" width="120"><tr><td><a href="game.php?village={$village.id}&amp;screen=report&amp;mode=all">All reports</a></td></tr><tr><td><a href="game.php?village={$village.id}&amp;screen=report&amp;mode=attack">Attacks</a></td></tr><tr><td><a href="game.php?village={$village.id}&amp;screen=report&amp;mode=defense">Defenses</a></td></tr><tr><td><a href="game.php?village={$village.id}&amp;screen=report&amp;mode=support">Support</a></td></tr><tr><td><a href="game.php?village={$village.id}&amp;screen=report&amp;mode=trade">Trade</a></td></tr><tr><td><a href="game.php?village={$village.id}&amp;screen=report&amp;mode=other">Other</a></td></tr></table></td>
+	<td><a href="game.php?village={$village.id}&amp;screen=mail">{if $user.new_mail==1}<img src="graphic/new_mail.png" title="New message" alt="" /> {/if} Messages</a><br /><table cellspacing="0" width="120"><tr><td><a href="game.php?village={$village.id}&amp;screen=mail&amp;mode=in">Inbox</a></td></tr><tr><td><a href="game.php?village={$village.id}&amp;screen=mail&amp;mode=out">Outbox</a></td></tr><tr><td><a href="game.php?village={$village.id}&amp;screen=mail&amp;mode=arch">Archive</a></td></tr><tr><td><a href="game.php?village={$village.id}&amp;screen=mail&amp;mode=new">Write message</a></td></tr><tr><td><a href="game.php?village={$village.id}&amp;screen=mail&amp;mode=block">Block sender</a></td></tr></table></td>
+	<td><a href="game.php?village={$village.id}&amp;screen=memo">Notes</a></td></tr>
 	</table>
 	
 	
@@ -48,8 +48,8 @@
 	
 		<table class="menu nowrap" align="left">
 		<tr id="menu_row2">
-		<td><a href="game.php?village={$village.id}&amp;screen=overview_villages" accesskey="s">&Uuml;bersichten</a><br /><table cellspacing="0" width="120"><tr><td><a href="game.php?village={$village.id}&amp;screen=overview_villages&amp;mode=combined">Kombiniert</a></td></tr><tr><td><a href="game.php?village={$village.id}&amp;screen=overview_villages&amp;mode=prod">Produktion</a></td></tr><tr><td><a href="game.php?village={$village.id}&amp;screen=overview_villages&amp;mode=units">Truppen</a></td></tr><td><a href="game.php?village={$village.id}&amp;screen=overview_villages&amp;mode=commands">Befehle</a></td></tr><td><a href="game.php?village={$village.id}&amp;screen=overview_villages&amp;mode=incomings">Eintreffend</a></td></tr></td></table>
-		<td><a href="game.php?village={$village.id}&amp;screen=map">Karte</a></td>
+		<td><a href="game.php?village={$village.id}&amp;screen=overview_villages" accesskey="s">Overviews</a><br /><table cellspacing="0" width="120"><tr><td><a href="game.php?village={$village.id}&amp;screen=overview_villages&amp;mode=combined">Combined</a></td></tr><tr><td><a href="game.php?village={$village.id}&amp;screen=overview_villages&amp;mode=prod">Production</a></td></tr><tr><td><a href="game.php?village={$village.id}&amp;screen=overview_villages&amp;mode=units">Troops</a></td></tr><td><a href="game.php?village={$village.id}&amp;screen=overview_villages&amp;mode=commands">Commands</a></td></tr><td><a href="game.php?village={$village.id}&amp;screen=overview_villages&amp;mode=incomings">Incomings</a></td></tr></td></table>
+		<td><a href="game.php?village={$village.id}&amp;screen=map">Map</a></td>
 		<td class="no_hover">
 		{if $user.villages>1}
 			{if !empty($village_array.last)}
@@ -72,19 +72,19 @@
 	
 	<td align="right"><table cellspacing="0"><tr>
 	<td><table class="box" cellspacing="0"><tr>
-	<td><a href="game.php?village={$village.id}&amp;screen=wood"><img src="graphic/holz.png" title="Holz" alt="" /></a></td>
+	<td><a href="game.php?village={$village.id}&amp;screen=wood"><img src="graphic/holz.png" title="Wood" alt="" /></a></td>
 	<td><span id="wood" title="{$wood_per_hour}" {if $village.r_wood==$max_storage}class="warn"{/if}>{$village.r_wood}</span>&nbsp;</td>
-	<td><a href="game.php?village={$village.id}&amp;screen=stone"><img src="graphic/lehm.png" title="Lehm" alt="" /></a></td>
+	<td><a href="game.php?village={$village.id}&amp;screen=stone"><img src="graphic/lehm.png" title="Clay" alt="" /></a></td>
 	<td><span id="stone" title="{$stone_per_hour}" {if $village.r_stone==$max_storage}class="warn"{/if}>{$village.r_stone}</span>&nbsp;</td>
-	<td><a href="game.php?village={$village.id}&amp;screen=iron"><img src="graphic/eisen.png" title="Eisen" alt="" /></a></td>
+	<td><a href="game.php?village={$village.id}&amp;screen=iron"><img src="graphic/eisen.png" title="Iron" alt="" /></a></td>
 	<td><span id="iron" title="{$iron_per_hour}" {if $village.r_iron==$max_storage}class="warn"{/if}>{$village.r_iron}</span></td>
 	<td style="border-left: dotted 1px;">
-	&nbsp;<a href="game.php?village={$village.id}&amp;screen=storage"><img src="graphic/res.png" title="Speicherkapazit&auml;t" alt="" /></a>
+	&nbsp;<a href="game.php?village={$village.id}&amp;screen=storage"><img src="graphic/res.png" title="Warehouse capacity" alt="" /></a>
 	</td><td id="storage">{$max_storage} </td>
 	</tr></table></td>
 	
 	<td><table class="box" cellspacing="0"><tr>
-	<td width="18" height="20" align="center"><a href="game.php?village={$village.id}&amp;screen=farm"><img src="graphic/face.png" title="Arbeiter" alt="" /></a></td>
+	<td width="18" height="20" align="center"><a href="game.php?village={$village.id}&amp;screen=farm"><img src="graphic/face.png" title="Farm space" alt="" /></a></td>
 	<td align="center">{$village.r_bh}/{$max_bh}</td>
 	</tr></table></td>
 
@@ -106,15 +106,15 @@
 {else}
 	<table align="center">
 	<tr><td>
-	<a href="game.php?village={$village.id}&amp;screen=&amp;action=logout&amp;h={$hkey}" target="_top">Ausloggen</a>
+	<a href="game.php?village={$village.id}&amp;screen=&amp;action=logout&amp;h={$hkey}" target="_top">Logout</a>
 	- <a href="http://dslan.gfx-dose.de" target="_blank">DSLAN Forum</a>
-	- <a href="help.php" target="_blank">Hilfe</a>
+	- <a href="help.php" target="_blank">Help</a>
 	- <a href="game.php?village={$village.id}&amp;screen=settings">Settings</a>
 	- <a href="game.php?village={$village.id}&amp;screen=ranking">Ranking</a> ({$user.rang}.|{$user.points|format_number} P) 
 	-  <a href="game.php?village={$village.id}&amp;screen=ally">Tribe</a> 
-	- <a href="game.php?village={$village.id}&amp;screen=report">{if $user.new_report==1}<img src="graphic/new_report.png" title="Neuer Bericht" alt="" />{/if} Reports</a>
-	- <a id="menu_mail" href="game.php?village={$village.id}&amp;screen=mail">{if $user.new_mail==1}<img src="graphic/new_mail.png" title="Neue Nachricht" alt="" /> {/if} Nachrichten</a>
-	- <a href="game.php?village={$village.id}&amp;screen=memo">Notizen</a>
+	- <a href="game.php?village={$village.id}&amp;screen=report">{if $user.new_report==1}<img src="graphic/new_report.png" title="New report" alt="" />{/if} Reports</a>
+	- <a id="menu_mail" href="game.php?village={$village.id}&amp;screen=mail">{if $user.new_mail==1}<img src="graphic/new_mail.png" title="New message" alt="" /> {/if} Messages</a>
+	- <a href="game.php?village={$village.id}&amp;screen=memo">Notes</a>
 	</td></tr></table>
 	
 	
@@ -124,14 +124,14 @@
 		<br />
 		<table id="quickbar" class="menu nowrap" align="center">
 		<tr>
-			<td><a href="game.php?village={$village.id}&amp;screen=main" ><img src="graphic/buildings/main.png" alt="" />Hauptgeb&auml;ude</a></td>
-			<td><a href="game.php?village={$village.id}&amp;screen=barracks" ><img src="graphic/buildings/barracks.png" alt="" />Kaserne</a></td>
-			<td><a href="game.php?village={$village.id}&amp;screen=stable" ><img src="graphic/buildings/stable.png" alt="" />Stall</a></td>
-			<td><a href="game.php?village={$village.id}&amp;screen=garage" ><img src="graphic/buildings/garage.png" alt="" />Werkstatt</a></td>
-			<td><a href="game.php?village={$village.id}&amp;screen=snob" ><img src="graphic/buildings/snob.png" alt="" />Adelshof</a></td>
-			<td><a href="game.php?village={$village.id}&amp;screen=smith" ><img src="graphic/buildings/smith.png" alt="" />Schmiede</a></td>
-			<td><a href="game.php?village={$village.id}&amp;screen=place" ><img src="graphic/buildings/place.png" alt="" />Platz</a></td>
-			<td><a href="game.php?village={$village.id}&amp;screen=market" ><img src="graphic/buildings/market.png" alt="" />Markt</a></td>
+			<td><a href="game.php?village={$village.id}&amp;screen=main" ><img src="graphic/buildings/main.png" alt="" />Headquarters</a></td>
+			<td><a href="game.php?village={$village.id}&amp;screen=barracks" ><img src="graphic/buildings/barracks.png" alt="" />Barracks</a></td>
+			<td><a href="game.php?village={$village.id}&amp;screen=stable" ><img src="graphic/buildings/stable.png" alt="" />Stable</a></td>
+			<td><a href="game.php?village={$village.id}&amp;screen=garage" ><img src="graphic/buildings/garage.png" alt="" />Workshop</a></td>
+			<td><a href="game.php?village={$village.id}&amp;screen=snob" ><img src="graphic/buildings/snob.png" alt="" />Academy</a></td>
+			<td><a href="game.php?village={$village.id}&amp;screen=smith" ><img src="graphic/buildings/smith.png" alt="" />Smithy</a></td>
+			<td><a href="game.php?village={$village.id}&amp;screen=place" ><img src="graphic/buildings/place.png" alt="" />Rally point</a></td>
+			<td><a href="game.php?village={$village.id}&amp;screen=market" ><img src="graphic/buildings/market.png" alt="" />Market</a></td>
 		</tr>
 		</table>
 	{/if}
@@ -154,26 +154,26 @@
 			{/if}
 		{/if}
 		<a href="game.php?village={$village.id}&amp;screen=overview_villages" accesskey="s">{$village.name}</a> <b>({$village.x}|{$village.y}) K{$village.continent}</b> - 
-		<a href="game.php?village={$village.id}&amp;screen=map">Karte</a> - 
-		<a href="game.php?village={$village.id}&amp;screen=overview">Village&uuml;bersicht</a>
+		<a href="game.php?village={$village.id}&amp;screen=map">Map</a> - 
+		<a href="game.php?village={$village.id}&amp;screen=overview">Village overview</a>
 		
 	</td>
 	
 	<td align="right"><table cellspacing="0"><tr>
 	<td><table class="box" cellspacing="0"><tr>
-	<td><a href="game.php?village={$village.id}&amp;screen=wood"><img src="graphic/holz.png" title="Holz" alt="" /></a></td>
+	<td><a href="game.php?village={$village.id}&amp;screen=wood"><img src="graphic/holz.png" title="Wood" alt="" /></a></td>
 	<td><span id="wood" title="{$wood_per_hour}" {if $village.r_wood==$max_storage}class="warn"{/if}>{$village.r_wood}</span>&nbsp;</td>
-	<td><a href="game.php?village={$village.id}&amp;screen=stone"><img src="graphic/lehm.png" title="Lehm" alt="" /></a></td>
+	<td><a href="game.php?village={$village.id}&amp;screen=stone"><img src="graphic/lehm.png" title="Clay" alt="" /></a></td>
 	<td><span id="stone" title="{$stone_per_hour}" {if $village.r_stone==$max_storage}class="warn"{/if}>{$village.r_stone}</span>&nbsp;</td>
-	<td><a href="game.php?village={$village.id}&amp;screen=iron"><img src="graphic/eisen.png" title="Eisen" alt="" /></a></td>
+	<td><a href="game.php?village={$village.id}&amp;screen=iron"><img src="graphic/eisen.png" title="Iron" alt="" /></a></td>
 	<td><span id="iron" title="{$iron_per_hour}" {if $village.r_iron==$max_storage}class="warn"{/if}>{$village.r_iron}</span></td>
 	<td style="border-left: dotted 1px;">
-	&nbsp;<a href="game.php?village={$village.id}&amp;screen=storage"><img src="graphic/res.png" title="Speicherkapazit&auml;t" alt="" /></a>
+	&nbsp;<a href="game.php?village={$village.id}&amp;screen=storage"><img src="graphic/res.png" title="Warehouse capacity" alt="" /></a>
 	</td><td id="storage">{$max_storage} </td>
 	</tr></table></td>
 	
 	<td><table class="box" cellspacing="0"><tr>
-	<td width="18" height="20" align="center"><a href="game.php?village={$village.id}&amp;screen=farm"><img src="graphic/face.png" title="Arbeiter" alt="" /></a></td>
+	<td width="18" height="20" align="center"><a href="game.php?village={$village.id}&amp;screen=farm"><img src="graphic/face.png" title="Farm space" alt="" /></a></td>
 	<td align="center">{$village.r_bh}/{$max_bh}</td>
 	</tr></table></td>
 	
@@ -196,7 +196,7 @@
 	<table class="main" width="{$user.window_width}" align="center">
 	<tr>
 	<td style="padding:2px;">
-	<b>ACHTUNG:</b> Es wurde in der Spielekonfigurationsdatei eingestellt, dass keine Aktionen (Geb&auml;ude bauen, Forschen, Rekrutieren,...) ausgef&uuml;hrt werden können! St&auml;mme können trotzdem noch erstellt werden.
+	<b>ACHTUNG:</b> Es wurde in der Spielekonfigurationsdatei eingestellt, dass keine Aktionen (Buildings bauen, Forschen, Rekrutieren,...) ausgef&uuml;hrt werden kï¿½nnen! Tribes kï¿½nnen trotzdem noch erstellt werden.
 	</td>
 	</tr>
 	</table>

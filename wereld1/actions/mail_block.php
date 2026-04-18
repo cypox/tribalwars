@@ -5,23 +5,23 @@ if($ACTIONS_MASSIVKEY_HIGHAAASSDD != "sdjahsdkJHSAJDKHALKJHSADJHSADNsjdhaksjdlhJ
 
 if(isset($_GET['action']) && $_GET['action'] == "block_name"){
 	if($session['hkey'] != $_GET['h']){
-		exit("Desculpe, más o código de segurança está invalido!");
+		exit("Sorry, but the security code is invalid!");
 	}
 
 	$player = parse(@$_POST['tribe_name']);
 	$result = $db->query("SELECT COUNT(`id`) AS `count`,`username`,`id` FROM `users` WHERE `username`='".$player."' GROUP BY `username`,`id`");
 	$row = $db->fetch($result);
 	if(empty($error) && $row['count'] == 0){
-		$error = "Desculpe, más não encontramos este jogador!";
+		$error = "Sorry, but we could not find this player!";
 	}
 	if(empty($error) && $row['id'] == $user['id']){
-		$error = "Desculpe, más você não pode se bloquear!";
+		$error = "Sorry, but you cannot block yourself!";
 	}
 	if(empty($error)){
 		$result = $db->query("SELECT COUNT(`id`) AS `count` FROM `mail_block` WHERE `userid`='".$user['id']."' AND `blocked_id`='".$row['id']."'");
 		$check = $db->fetch($result);
 		if($check['count'] == 1){
-			$error = "Desculpe, más este jogador já está bloqueado!";
+			$error = "Sorry, but this player is already blocked!";
 		}
 	}
 	if(empty($error)){
@@ -31,23 +31,23 @@ if(isset($_GET['action']) && $_GET['action'] == "block_name"){
 }
 if(isset($_GET['action']) && $_GET['action'] == "block_id"){
 	if($session['hkey'] != $_GET['h']){
-		exit("Desculpe, más o código de segurança está invalido!");
+		exit("Sorry, but the security code is invalid!");
 	}
 
 	$id = (int)parse(@$_GET['id']);
 	$result = $db->query("SELECT COUNT(`id`) AS `count`,`username` FROM `users` WHERE `id`='".$id."' GROUP BY `username`");
 	$row = $db->fetch($result);
 	if(empty($error) && $row['count'] == 0){
-		$error = "Desculpe, más não encontramos este jogador!";
+		$error = "Sorry, but we could not find this player!";
 	}
 	if(empty($error) && $row['id'] == $user['id']){
-		$error = "Desculpe, más você não pode se bloquear!";
+		$error = "Sorry, but you cannot block yourself!";
 	}
 	if(empty($error)){
 		$result = $db->query("SELECT COUNT(`id`) AS `count` FROM `mail_block` WHERE `userid`='".$user['id']."' AND `blocked_id`='".$id."'");
 		$check = $db->fetch($result);
 		if($check['count'] == 1){
-			$error = "Desculpe, más este jogador já está bloqueado!";
+			$error = "Sorry, but this player is already blocked!";
 		}
 	}
 	if(empty($error)){
@@ -57,7 +57,7 @@ if(isset($_GET['action']) && $_GET['action'] == "block_id"){
 }
 if(isset($_GET['action']) && $_GET['action'] == "unblock"){
 	if($session['hkey'] != $_GET['h']){
-		exit("Desculpe, más o código de segurança está invalido!");
+		exit("Sorry, but the security code is invalid!");
 	}
 
 	$id = (int)parse(@$_GET['from_id']);

@@ -5,12 +5,12 @@ if($ACTIONS_MASSIVKEY_HIGHAAASSDD != "sdjahsdkJHSAJDKHALKJHSADJHSADNsjdhaksjdlhJ
 
 if(isset($_GET['action']) && $_GET['action'] == 'set_visual'){
 	if($session['hkey']!=$_GET['h']){
-		exit("Desculpe, más o código de segurança está invalido!");
+		exit("Sorry, but the security code is invalid!");
 	}
 	$visual = (int)$_GET['visual'];
 	$valid = array(0, 1);
 	if(!in_array($visual, $valid)){
-		exit("Desculpe, más não foi possivel executar a ação!");
+		exit("Sorry, but this action could not be performed!");
 	}
 	$db->query("UPDATE `users` SET `graphical_overview`='".$visual."' WHERE `id`='".$user['id']."'");
 	header("LOCATION: game.php?village=".$village['id']."&screen=overview");

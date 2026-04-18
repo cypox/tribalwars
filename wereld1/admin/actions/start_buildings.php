@@ -14,7 +14,7 @@ if(isset($_GET['action']) && $_GET['action'] == "edit"){
 				$error = "Geb�ude ".$name.": unter Stufe 0 nicht erlaubt!!!";
 			}
 			if(in_array($dbname, $config['buildings_starting_by_one']) && $_POST[$dbname] < 1){
-				$error = "Geb�ude ".$name.": muss mindestens Stufe 1 sein!!!";
+				$error = "Building ".$name.": must be at least level 1!";
 			}
 			if($_POST[$dbname] > $cl_builds->get_maxStage($dbname)){
 				$error = "Geb�ude ".$name.": Geb�ude h�her als maximale Ausbaustufe!!!";

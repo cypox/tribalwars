@@ -13,28 +13,28 @@
 		<td>
 			<h2>{$cl_builds->get_name($building)}</h2>
 			<p>{$cl_builds->get_description_bydbname($building)}</p>
-			<p>Nível máximo: <b>{$cl_builds->get_maxstage($building)}</b></p>
+			<p>Maximum level: <b>{$cl_builds->get_maxstage($building)}</b></p>
 			{if count($cl_builds->get_needed_by_dbname($building))>0}
 			<table class="vis">
-				<tr><th colspan="3">Requisitos</th></tr>
+				<tr><th colspan="3">Requirements</th></tr>
 				<tr>
 					{foreach from=$cl_builds->get_needed_by_dbname($building) key=n_building item=n_stage}
-					<td><a href="popup_building.php?building={$n_building}">{$cl_builds->get_name($n_building)}</a> (Nível {$n_stage})</td>
+					<td><a href="popup_building.php?building={$n_building}">{$cl_builds->get_name($n_building)}</a> (Level {$n_stage})</td>
 					{/foreach}
 				</tr>
 			</table>
 			{/if}
 			<table class="vis">
 				<tr>
-					<th>Nível</th>
-					<th width="220">Requerimenros</th>
-					<th width="110">Arbeiter f�r die Stufe/insgesamt</th>
+					<th>Level</th>
+					<th width="220">Requirements</th>
+					<th width="110">Population for level/total</th>
 				</tr>
 				{section name=foo start=1 loop=$cl_builds->get_maxstage($building)+1 step=1}
 				<tr>
 					<td>{$smarty.section.foo.index}</td>
-					<td><img src="{$config.cdn}/graphic/holz.png" title="Holz" alt="" />{$cl_builds->get_wood($building,$smarty.section.foo.index)} <img src="{$config.cdn}/graphic/lehm.png" title="Lehm" alt="" />{$cl_builds->get_stone($building,$smarty.section.foo.index)} <img src="{$config.cdn}/graphic/eisen.png" title="Eisen" alt="" />{$cl_builds->get_iron($building,$smarty.section.foo.index)} </td>
-					<td><img src="{$config.cdn}/graphic/face.png" title="Arbeiter" alt="" />{$cl_builds->get_bh($building,$smarty.section.foo.index)} / {$cl_builds->get_bh_total()}</td>
+					<td><img src="{$config.cdn}/graphic/holz.png" title="Wood" alt="" />{$cl_builds->get_wood($building,$smarty.section.foo.index)} <img src="{$config.cdn}/graphic/lehm.png" title="Clay" alt="" />{$cl_builds->get_stone($building,$smarty.section.foo.index)} <img src="{$config.cdn}/graphic/eisen.png" title="Iron" alt="" />{$cl_builds->get_iron($building,$smarty.section.foo.index)} </td>
+					<td><img src="{$config.cdn}/graphic/face.png" title="Farm space" alt="" />{$cl_builds->get_bh($building,$smarty.section.foo.index)} / {$cl_builds->get_bh_total()}</td>
 				</tr>
 				{/section}
 			</table>

@@ -3,7 +3,7 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>Statistik - Die St&auml;mme</title>
+<title>Statistics - Tribal Wars</title>
 <link rel="stylesheet" type="text/css" href="stamm.css" />
 <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
 </head>
@@ -16,29 +16,29 @@
 
 </td><td>
 
-<h2>Statistik Welt 1</h2>
+<h2>World 1 Statistics</h2>
 
-<h3><a href="guest.php" target="_top">&raquo; Gastzugang</a></h3><br />
+<h3><a href="guest.php" target="_top">&raquo; Guest access</a></h3><br />
 
 <table class="vis" width="100%">
-<tr><th>Spieleranzahl:</th><th>{$players}</th></tr>
-<tr><td>Dörfer insgesamt:</td><td>{$villages} ({$vpp} pro Spieler)</td></tr>
+<tr><th>Number of players:</th><th>{$players}</th></tr>
+<tr><td>Total villages:</td><td>{$villages} ({$vpp} per player)</td></tr>
 
 </table><br />
 
 <table class="vis" width="100%">
-<tr><th>Folgende Werte wurden berechnet</th><th>heute um {$time} Uhr</th></tr>
-<tr><td>Nachrichten verschickt:</td><td>{$mail} ({$mpp} pro Spieler)</td></tr>
+<tr><th>The following values were calculated</th><th>today at {$time}</th></tr>
+<tr><td>Messages sent:</td><td>{$mail} ({$mpp} per player)</td></tr>
 
-<tr><td>Punkte insgesamt:</td><td>{$points} ({$ppp} pro Spieler, {$ppv} pro Village)</td></tr>
+<tr><td>Total points:</td><td>{$points} ({$ppp} per player, {$ppv} per village)</td></tr>
 
-<tr><td>Rohstoffe insgesamt:</td><td><img src="/graphic/holz.png" title="Holz" alt="" />{$wood} <img src="/graphic/lehm.png" title="Lehm" alt="" />{$stone} <img src="/graphic/eisen.png" title="Eisen" alt="" />{$iron} </td></tr>
+<tr><td>Total resources:</td><td><img src="/graphic/holz.png" title="Wood" alt="" />{$wood} <img src="/graphic/lehm.png" title="Clay" alt="" />{$stone} <img src="/graphic/eisen.png" title="Iron" alt="" />{$iron} </td></tr>
 
-<tr><td>Bevölkerung insgesamt:</td><td><img src="/graphic/face.png" title="Arbeiter" alt="" /> {$bh}</td></tr>
+<tr><td>Total population:</td><td><img src="/graphic/face.png" title="Farm space" alt="" /> {$bh}</td></tr>
 
-<tr><td>Truppen insgesamt:</td><td>
+<tr><td>Total troops:</td><td>
 <table><tr>
-<th width="45"><img src="/graphic/unit/unit_spear.png" title="Speerträger" alt="" /></th><th width="45"><img src="/graphic/unit/unit_sword.png" title="Schwertkämpfer" alt="" /></th><th width="45"><img src="/graphic/unit/unit_axe.png" title="Axtkämpfer" alt="" /></th><th width="45"><img src="/graphic/unit/unit_spy.png" title="Späher" alt="" /></th><th width="45"><img src="/graphic/unit/unit_light.png" title="Leichte Kavallerie" alt="" /></th><th width="45"><img src="/graphic/unit/unit_heavy.png" title="Schwere Kavallerie" alt="" /></th><th width="45"><img src="/graphic/unit/unit_ram.png" title="Rammbock" alt="" /></th><th width="45"><img src="/graphic/unit/unit_catapult.png" title="Katapult"> </th><th width="45"><img src="/graphic/unit/unit_snob.png" title="Adelsgeschlecht" alt="" /></th>
+<th width="45"><img src="/graphic/unit/unit_spear.png" title="Spearman" alt="" /></th><th width="45"><img src="/graphic/unit/unit_sword.png" title="Swordsman" alt="" /></th><th width="45"><img src="/graphic/unit/unit_axe.png" title="Axeman" alt="" /></th><th width="45"><img src="/graphic/unit/unit_spy.png" title="Scout" alt="" /></th><th width="45"><img src="/graphic/unit/unit_light.png" title="Light Cavalry" alt="" /></th><th width="45"><img src="/graphic/unit/unit_heavy.png" title="Heavy Cavalry" alt="" /></th><th width="45"><img src="/graphic/unit/unit_ram.png" title="Ram" alt="" /></th><th width="45"><img src="/graphic/unit/unit_catapult.png" title="Catapult"> </th><th width="45"><img src="/graphic/unit/unit_snob.png" title="Nobleman" alt="" /></th>
 </tr><tr>
 
 {foreach from=$unitsAll item=unitsAll}
@@ -51,9 +51,9 @@
 </tr></table>
 </td></tr>
 
-<tr><td>Truppenschnitt pro Spieler:</td><td>
+<tr><td>Average troops per player:</td><td>
 <table><tr>
-<th width="45"><img src="/graphic/unit/unit_spear.png" title="Speerträger" alt="" /></th><th width="45"><img src="/graphic/unit/unit_sword.png" title="Schwertkämpfer" alt="" /></th><th width="45"><img src="/graphic/unit/unit_axe.png" title="Axtkämpfer" alt="" /></th><th width="45"><img src="/graphic/unit/unit_spy.png" title="Späher" alt="" /></th><th width="45"><img src="/graphic/unit/unit_light.png" title="Leichte Kavallerie" alt="" /></th><th width="45"><img src="/graphic/unit/unit_heavy.png" title="Schwere Kavallerie" alt="" /></th><th width="45"><img src="/graphic/unit/unit_ram.png" title="Rammbock" alt="" /></th><th width="45"><img src="/graphic/unit/unit_catapult.png" title="Katapult" alt="" /></th></th><th width="45"><img src="/graphic/unit/unit_snob.png" title="Adelsgeschlecht" alt="" /></th>
+<th width="45"><img src="/graphic/unit/unit_spear.png" title="Spearman" alt="" /></th><th width="45"><img src="/graphic/unit/unit_sword.png" title="Swordsman" alt="" /></th><th width="45"><img src="/graphic/unit/unit_axe.png" title="Axeman" alt="" /></th><th width="45"><img src="/graphic/unit/unit_spy.png" title="Scout" alt="" /></th><th width="45"><img src="/graphic/unit/unit_light.png" title="Light Cavalry" alt="" /></th><th width="45"><img src="/graphic/unit/unit_heavy.png" title="Heavy Cavalry" alt="" /></th><th width="45"><img src="/graphic/unit/unit_ram.png" title="Ram" alt="" /></th><th width="45"><img src="/graphic/unit/unit_catapult.png" title="Catapult" alt="" /></th></th><th width="45"><img src="/graphic/unit/unit_snob.png" title="Nobleman" alt="" /></th>
 </tr><tr>
 {foreach from=$unitsPlayer item=unitsPlayer}
 {if $unitsPlayer == 0}
@@ -66,9 +66,9 @@
 </tr></table>
 </td></tr>
 
-<tr><td>Truppenschnitt pro Village:</td><td>
+<tr><td>Average troops per village:</td><td>
 <table><tr>
-<th width="45"><img src="/graphic/unit/unit_spear.png" title="Speerträger" alt="" /></th><th width="45"><img src="/graphic/unit/unit_sword.png" title="Schwertkämpfer" alt="" /></th><th width="45"><img src="/graphic/unit/unit_axe.png" title="Axtkämpfer" alt="" /></th><th width="45"><img src="/graphic/unit/unit_spy.png" title="Späher" alt="" /></th><th width="45"><img src="/graphic/unit/unit_light.png" title="Leichte Kavallerie" alt="" /></th><th width="45"><img src="/graphic/unit/unit_heavy.png" title="Schwere Kavallerie" alt="" /></th><th width="45"><img src="/graphic/unit/unit_ram.png" title="Rammbock" alt="" /></th><th width="45"><img src="/graphic/unit/unit_catapult.png" title="Katapult" alt="" /></th><th width="45"><img src="/graphic/unit/unit_snob.png" title="Adelsgeschlecht" alt="" /></th>
+<th width="45"><img src="/graphic/unit/unit_spear.png" title="Spearman" alt="" /></th><th width="45"><img src="/graphic/unit/unit_sword.png" title="Swordsman" alt="" /></th><th width="45"><img src="/graphic/unit/unit_axe.png" title="Axeman" alt="" /></th><th width="45"><img src="/graphic/unit/unit_spy.png" title="Scout" alt="" /></th><th width="45"><img src="/graphic/unit/unit_light.png" title="Light Cavalry" alt="" /></th><th width="45"><img src="/graphic/unit/unit_heavy.png" title="Heavy Cavalry" alt="" /></th><th width="45"><img src="/graphic/unit/unit_ram.png" title="Ram" alt="" /></th><th width="45"><img src="/graphic/unit/unit_catapult.png" title="Catapult" alt="" /></th><th width="45"><img src="/graphic/unit/unit_snob.png" title="Nobleman" alt="" /></th>
 </tr><tr>
 {foreach from=$unitsVillage item=unitsVillage}
 {if $unitsVillage == 0}

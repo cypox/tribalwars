@@ -8,15 +8,15 @@ if(isset($_GET['action']) && isset($_GET['building_id']) && $_GET['action'] == "
 	$dbname_array = $cl_builds->get_array('dbname');
 	$id_array = array_flip($cl_builds->get_array('dbname'));
 	if(!in_array($_GET['building_id'], $dbname_array)){
-		$error = "Desculpe, más este edifício não existe!";
+		$error = "Sorry, but this building does not exist!";
 	}
 	if($session['hkey'] != $_GET['h'])
-		$error = "Desculpe, más o código de segurança está invalido!";
+		$error = "Sorry, but the security code is invalid!";
 
 	if(($destroy_village[$building_destroy] <= 15) && ($building_destroy == 'main') || ($destroy_village[$building_destroy] <= 1) && (in_array($building_destroy, $arr_builds_starts_by_one)) || ($destroy_village[$building_destroy] <= 0))
-		$error = "Desculpe, más o Edifício Principal não pode demolir!";
+		$error = "Sorry, but Headquarters cannot be demolished!";
 	if($village['agreement'] < 100)
-		$error = "Desculpe, más para que possa demolir a lealdade deve estar em 100%!";
+		$error = "Sorry, but to demolish, loyalty must be at 100%!";
 	if(empty($error)){
 		$bh = $cl_builds->get_bh($building_destroy,$destroy_village[$building_destroy]);
 		$time = $cl_builds->get_time($village['main'],$building_destroy,$destroy_village[$building_destroy]+1);

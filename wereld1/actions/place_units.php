@@ -5,19 +5,19 @@ if($ACTIONS_MASSIVKEY_HIGHAAASSDD != "sdjahsdkJHSAJDKHALKJHSADJHSADNsjdhaksjdlhJ
 
 if(isset($_GET['action']) && $_GET['action'] == "command_other"){
 	if($session['hkey'] != $_GET['h']){
-		exit("Desculpe, más o código de segurança está invalido!");
+		exit("Sorry, but the security code is invalid!");
 	}
 
 	foreach($_POST as $id => $value){
 		if(substr($id, 0,3) == 'id_' && $value == 'on'){
 			$id = array_pop(explode("_", $id));
 			if($village['id'] == $id){
-				exit("Desculpe, más você não pode devolver as topas da mesma aldeia!");
+				exit("Sorry, but you cannot return troops to the same village!");
 			}
 			$result = $db->query("SELECT ".implode(",", $cl_units->get_array('dbname'))." FROM `unit_place` WHERE `villages_from_id`='".$id."' AND `villages_to_id`='".$village['id']."'");
 			$arr_units = $db->fetch($result);
 			if(count($arr_units) <= 1 || !is_numeric(count($arr_units))){
-				exit("Desculpe, más está ação não pode ser cumprida!");
+				exit("Sorry, but this action cannot be performed!");
 			}
 			$result = $db->query("SELECT `userid`,`x`,`y` FROM `villages` WHERE `id`='".$id."'");
 			$village_row = $db->fetch($result);
@@ -33,16 +33,16 @@ if(isset($_GET['action']) && $_GET['action'] == "command_other"){
 if(isset($_GET['action']) && $_GET['action'] == "back"){
 	$unit_id = parse(@$_GET['unit_id']);
 	if($session['hkey'] != $_GET['h']){
-		$error = "Desculpe, más o código de segurança está invalido!";
+		$error = "Sorry, but the security code is invalid!";
 	}
 
 	if(empty($error) && $village['id'] == $unit_id){
-		$error = "Desculpe, más você não pode devolver as topas da mesma aldeia!";
+		$error = "Sorry, but you cannot return troops to the same village!";
 	}
 	$result = $db->query("SELECT ".implode(",", $cl_units->get_array('dbname'))." FROM `unit_place` WHERE `villages_from_id`='".$village['id']."' AND `villages_to_id`='".$unit_id."'");
 	$arr_units = $db->fetch($result);
 	if(empty($error) && count($arr_units) <= 1 || !is_numeric(count($arr_units))){
-		$error = "Desculpe, más está ação não pode ser cumprida!";
+		$error = "Sorry, but this action cannot be performed!";
 	}
 	$send_units = array();
 	$to_many_units = false;
@@ -61,10 +61,10 @@ if(isset($_GET['action']) && $_GET['action'] == "back"){
 		}
 	}
 	if(empty($error) && $to_many_units){
-		$error = "Desculpe, más não existe unidades suficientes!";
+		$error = "Sorry, but there are not enough units!";
 	}
 	if(empty($error) && !$units_chossed){
-		$error = "Desculpe, más você não selecionou nenhuma unidade!";
+		$error = "Sorry, but you did not select any units!";
 	}
 	if(empty($error)){
 		$result = $db->query("SELECT `userid`,`x`,`y` FROM `villages` WHERE `id`='".$unit_id."'");
@@ -103,16 +103,16 @@ if(isset($_GET['action']) && $_GET['action'] == "back"){
 if(isset($_GET['action']) && $_GET['action'] == 'all_back'){
 	$unit_id = parse(@$_GET['unit_id']);
 	if($session['hkey'] != $_GET['h']){
-		$error = "Desculpe, más o código de segurança está invalido!";
+		$error = "Sorry, but the security code is invalid!";
 	}
 
 	if(empty($error) && $village['id'] == $unit_id){
-		$error = "Desculpe, más você não pode devolver as topas da mesma aldeia!";
+		$error = "Sorry, but you cannot return troops to the same village!";
 	}
 	$result = $db->query("SELECT ".implode(",", $cl_units->get_array('dbname'))." FROM `unit_place` WHERE `villages_from_id`='".$village['id']."' AND `villages_to_id`='".$unit_id."'");
 	$arr_units = $db->fetch($result);
 	if(empty($error) && count($arr_units) <= 1 || !is_numeric(count($arr_units))){
-		$error = "Desculpe, más está ação não pode ser cumprida!";
+		$error = "Sorry, but this action cannot be performed!";
 	}
 	if(empty($error)){
 		$result = $db->query("SELECT `userid`,`x`,`y` FROM `villages` WHERE `id`='".$unit_id."'");
@@ -128,12 +128,12 @@ if(isset($_GET['action']) && $_GET['action'] == 'all_back'){
 if(isset($_GET['try']) && $_GET['try'] == "back"){
 	$unit_id = parse(@$_GET['unit_id']);
 	if($village['id'] == $unit_id){
-        exit("Desculpe, más você não pode devolver as topas da mesma aldeia!");
+        exit("Sorry, but you cannot return troops to the same village!");
 	}
 	$result = $db->query("SELECT ".implode(",", $cl_units->get_array('dbname'))." FROM `unit_place` WHERE `villages_from_id`='".$village['id']."' AND `villages_to_id`='".$unit_id."'");
 	$arr_units = $db->fetch($result);
 	if(count($arr_units) <= 1 || !is_numeric(count($arr_units))){
-		exit("Desculpe, más está ação não pode ser cumprida!");
+		exit("Sorry, but this action cannot be performed!");
 	}
 	foreach($cl_units->get_array("dbname") as $dbname){
 		$group_units[$cl_units->get_col($dbname)][] = $dbname;

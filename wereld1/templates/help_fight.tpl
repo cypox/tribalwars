@@ -1,16 +1,14 @@
-<h3>Kampfsystem</h3>
+<h3>Combat system</h3>
 
-<p>Das Kampfsystem ist mittlerweile recht komplex. Ein wirkliches Verständnis ergibt sich erst durch Erfahrung in vielen Kämpfen. Mit dem Simulator kann man verschiedene Taktiken erproben. Einige wichtige Teilaspekte werden hier jedoch geschildert.</p>
+<p>The combat system is fairly complex. Real understanding comes from experience across many battles. The simulator allows you to test different tactics. Some important mechanics are explained below.</p>
 
-<h4>Moral</h4>
-<p>Sinn der Moral ist es, aktive kleinere Spieler vor den Übergriffen großer Spieler zu schützen. Greift ein sehr großer Spieler einen sehr kleinen Spieler an, so kämpfen seine Truppen mit geringerer Effizienz, da sich viele Kämpfer weigern, diesen unehrenhaften Befehl auszuführen oder leichtsinnig die Stärke des Gegners unterschätzen.</p>
+<h4>Morale</h4>
+<p>Morale exists to protect smaller active players from stronger ones. If a very large player attacks a very small player, the larger player's troops fight with reduced efficiency.</p>
 
+<h4>Scouts</h4>
+<p>Scouts are used to gather information about enemy villages. They are trained in the Stable. To scout an opponent, attack with any number of scouts. During combat, attacking scouts try to collect intel while defending scouts try to catch them. In general: the larger the ratio of defending scouts to attacking scouts, the more attacking scouts are captured.</p>
+<p>If the attacker has half as many scouts as the defender, survival chance is around 50%, but only very few scouts return. If both sides have equal scouts, survival chance is close to 100% and roughly two-thirds of attacking scouts survive. Defending scouts do not die.</p>
 
-<h4>Späher</h4>
-<p>Späher sind geeignet um Informationen über gegnerische Dörfer zu erlangen. Späher werden im Stall produziert. Um einen Gegner auszuspähen, greift man ihn mit einer beliebigen Anzahl an Spähern an. Während des Kampfes werden die Späher des Angreifers versuchen, Informationen über das gegnerische Village zu ermitteln. Die Späher des Gegners werden dabei versuchen, die angreifenden Späher gefangen zu nehmen. Dabei gilt: Je größer das Verhältnis zwischen verteidigenden und angreifenden Spähern, desto mehr Späher werden gefangen genommen.</p>
-<p>Hat der Angreifer halb so viele Späher wie der Verteidiger sind Chancen, dass Späher überleben ca. 50 %. Es würden aber nur noch sehr wenige Späher überleben. Hat der Angreifer genauso so viele Späher sind die Chancen, dass Späher überleben ca. 100% und es überleben etwa zwei Drittel der Späher des Angreifers. Der Verteidiger kann keine Späher verlieren.</p>
+<p>As soon as at least one scout returns, you receive a report about enemy troop strength. You also get this information from normal attacks when your battle strength is at least half of the defender's.</p>
 
-
-<p>Sobald mindestens ein Späher zurückkehrt, kann dieser einen Bericht über die gegnerische Truppenstärke abliefern. Diese Information erhält man auch bei Angriffen auf feindliche Dörfer, wenn die eigene Kampfkraft mindestens halb so stark wie die gegnerische ist.</p>
-
-<p>Wenn mindestens 50% der Späher überleben und die Späher in der Schmiede auf Stufe 1 geforscht sind, erhält man einen Bericht über die Anzahl der gegnerischen Rohstoffe. Überleben 70% der Späher und sind die Späher auf Stufe 2 geforscht, erhält man Informationen über die gegnerischen Gebäude und ihren Ausbaustatus. Wenn sogar 90% der Späher überleben und die Späher auf Stufe 3 geforscht sind, erfährt man welche Einheiten des angegriffenen Dorfes außerhalb stationiert oder unterwegs sind.</p>
+<p>If at least 50% of scouts survive and scout tech is researched to level 1 in the Smithy, you receive enemy resource information. At 70% survival with level 2 tech, you receive enemy building and level information. At 90% survival with level 3 tech, you also see which enemy units are stationed outside the village or currently moving.</p>

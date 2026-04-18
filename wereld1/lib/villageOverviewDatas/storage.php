@@ -24,9 +24,9 @@ $full[] = @round($diff/$iron_prod_hour);
 $min = max($full[0], $full[1], $full[2]);
 if($viewType == "table"){
 	if($min <= 0){
-		echo "<b>Armazém cheio!</b>";
+		echo "<b>Warehouse full!</b>";
 	}else{
-		echo "<b>Armazém cheio em <span class=\"timer\">".format_time($min) ."</span></b>";
+		echo "<b>Warehouse full in <span class=\"timer\">".format_time($min) ."</span></b>";
 	}
 }else{
 	if($min > 0){

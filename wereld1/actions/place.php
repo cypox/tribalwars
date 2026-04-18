@@ -8,9 +8,9 @@ if($show_build){
 	if(!isset($_GET['mode'])) $_GET['mode'] = "command";
 
 	$links = array(
-		"Comandos" => "command",
-		"Tropas" => "units",
-		"Simulador" => "sim"
+		"Commands" => "command",
+		"Troops" => "units",
+		"Simulator" => "sim"
 	);
 	$allow_mods = array("command","units","sim");
 	if(isset($_GET['mode']) && $_GET['mode'] == "command"){

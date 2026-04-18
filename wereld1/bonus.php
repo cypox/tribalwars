@@ -7,26 +7,26 @@ $f1 = $db->fetch($qq1);
 
 if($f1['bonus'] == 1)
 	{ 
-	 echo "<b>50% mais capacidade de armazenamento e comerciantes</b>";
+	 echo "<b>50% more storage capacity and merchants</b>";
 	}
 	elseif($f1['bonus'] == 2)
 	{
-	 echo "<b>10% mais população</b>";
+	 echo "<b>10% more population</b>";
 	}
 	elseif($f1['bonus'] == 3)
 	{
-	 echo "<b>33% produção mais rápida no estábulo</b>";
+	 echo "<b>33% faster production in the Stable</b>";
 	}
 	elseif($f1['bonus'] == 4)
 	{
-	 echo "<b>33% produção mais rápida no quartel</b>";
+	 echo "<b>33% faster production in the Barracks</b>";
 	}
 	elseif($f1['bonus'] == 5)
 	{
-	 echo "<b>50% produção mais rápida na oficina</b>";
+	 echo "<b>50% faster production in the Workshop</b>";
 	}
 	elseif($f1['bonus'] == 6)
 	{
-	 echo "<b>30% aumento da produção de matérias-primas</b>";
+	 echo "<b>30% increased raw material production</b>";
 	}
 ?>

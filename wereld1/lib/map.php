@@ -180,7 +180,7 @@ class map{
 		}else{
 			$allyname = str_replace("'", "\'", entparse($this->ally[$this->players[$this->villages[$x][$y]['userid']]['ally']]['short']));
 			$points = str_replace("'", "\'", entparse($this->ally[$this->players[$this->villages[$x][$y]['userid']]['ally']]['points']));
-			return "'".entparse($allyname)." (".numberFormat($points)." Pontos)'";
+			return "'".entparse($allyname)." (".numberFormat($points)." Points)'";
 		}
 	}
 	function playerinfo($x,$y){
@@ -190,7 +190,7 @@ class map{
 		}else{
 			$username = str_replace("'", "\'", entparse($this->players[$playerid]['username']));
 			$playerpoints = str_replace("'", "\'", entparse($this->players[$playerid]['points']));
-			return "'".$username." (".format_number($playerpoints)." Pontos)'";
+			return "'".$username." (".format_number($playerpoints)." Points)'";
 		}
 	}
 }
