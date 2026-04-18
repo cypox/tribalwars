@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: tribalwars-app
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT:-8080}:80"
+    environment:
+      TZ: America/Sao_Paulo
+      DB_HOST: 127.0.0.1
+      DB_USER: root
+      DB_PASSWORD: ${DB_PASSWORD:-123}
+      DB_NAME_MAIN: tribalwars_main
+      DB_NAME_WORLD: tribalwars_world
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:

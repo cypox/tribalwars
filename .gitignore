@@ -2,3 +2,5 @@ templates_c/
 lang/*.cachearray
 lang/*.cachedata
 wereld1/templates_c/
+wereld1/lang/*.cachearray
+wereld1/lang/*.cachedata
