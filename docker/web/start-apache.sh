@@ -62,4 +62,12 @@ for d in \
   fi
 done
 
+if [ -f /var/www/html/tribalwars/wereld1/daemons/event.php ]; then
+  (
+    while true; do
+      php /var/www/html/tribalwars/wereld1/daemons/event.php >> /var/log/tribalwars-events.log 2>&1 || true
+    done
+  ) &
+fi
+
 exec apachectl -D FOREGROUND

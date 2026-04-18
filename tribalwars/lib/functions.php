@@ -331,7 +331,7 @@ function reload_all_village_points(){
 		foreach($builds as $building){
 			$points += $cl_builds->get_points($building, $rowall[$building]);
 		}
-		if($points != $row['points']){
+		if($points != $rowall['points']){
 			$db->query("UPDATE `villages` SET `points` = '".$points."' WHERE `id` = '".$rowall['id']."'");
 		}
 	}
@@ -497,7 +497,8 @@ function grow_vill(){
 	$auto_build = $config['auto_build'];
 	$sql = $db->query("SELECT `main`,`barracks`,`stable`,`garage`,`smith`,`place`,`market`,`wood`,`stone`,`iron`,`farm`,`storage`,`hide`,`wall`,`id`,`points`,`l_grow` FROM `villages` WHERE `userid` = '-1' AND `points` <= '".$auto_build['max_points']."'");
 	while($vill = $db->fetch($sql)){
-		$grow = $vill['l_grow']+($auto_build['grow_time']*60);
+		$last_grow = isset($vill['l_grow']) ? (int)$vill['l_grow'] : 0;
+		$grow = $last_grow + ($auto_build['grow_time']*60);
 		if($grow <= time()){
 			$builds = array('main','barracks','stable','garage','smith','place','market','wood','stone','iron','farm','storage','hide','wall');
 			$stages = array('30','25','20','15','20','1','25','30','30','30','30','30','10','20');

@@ -93,7 +93,7 @@ foreach($cl_awards->dbname as $dbname=>$name){
 $ordermedal = array();
 $row = array();
 if(!empty($array)){
-	$result = $db->query("SELECT ".implode(',',$array).",userid,total_stage FROM medal WHERE userid='".$info_user['id']."'");
+	$result = $db->query("SELECT `".implode('`,`',$array)."`,`userid`,`total_stage` FROM `medal` WHERE `userid`='".$info_user['id']."'");
 	$row = $db->fetch($result);
 	if(!is_array($row)){
 		$row = array();
