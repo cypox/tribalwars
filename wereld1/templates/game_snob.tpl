@@ -63,15 +63,15 @@
 					{$cl_units->check_needed($unit_dbname,$village)}
 					{if $amountSnobsCanBeRecruited <= 0 && $ag_style == 2}
 						<td class="inactive">Insufficient coins</td>
-					{elseif $cl_units->last_error==not_tec}
+					{elseif $cl_units->last_error=='not_tec'}
 					    <td class="inactive">Unit not yet researched</td>
-					{elseif $cl_units->last_error==not_needed}
+					{elseif $cl_units->last_error=='not_needed'}
 					    <td class="inactive">Building requirements not met</td>
-					{elseif $cl_units->last_error==build_ah}
+					{elseif $cl_units->last_error=='build_ah'}
 					    <td class="inactive">Academy must be upgraded.</td>
-					{elseif $cl_units->last_error==not_enough_ress}
+					{elseif $cl_units->last_error=='not_enough_ress'}
 					    <td class="inactive">Not enough resources available</td>
-					{elseif $cl_units->last_error==not_enough_bh}
+					{elseif $cl_units->last_error=='not_enough_bh'}
 					    <td class="inactive">Not enough farm space for additional troops</td>
 					{else}
 						<td><a href="game.php?h={$hkey}&amp;action=train_snob&amp;screen=snob&amp;village={$village.id}">Recruit unit</a></td>
