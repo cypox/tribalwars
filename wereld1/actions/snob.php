@@ -95,7 +95,7 @@ if($show_build){
 				$timeB = 0;
 			}
 			if($price['iron'] > $village['r_iron']){
-				$missing = ($iron-$village['r_iron_comma'])/$config['speed'];
+				$missing = ($price['iron']-$village['r_iron_comma'])/$config['speed'];
 				$per_second = $arr_production[$village['iron']]/3600;
 				$timeC = $missing/$per_second;
 			}else{
