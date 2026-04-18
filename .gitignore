@@ -1,6 +1,8 @@
-templates_c/
-lang/*.cachearray
-lang/*.cachedata
-wereld1/templates_c/
-wereld1/lang/*.cachearray
-wereld1/lang/*.cachedata
+mysql_data/
+
+tribalwars/templates_c/
+tribalwars/lang/*.cachearray
+tribalwars/lang/*.cachedata
+tribalwars/wereld1/templates_c/
+tribalwars/wereld1/lang/*.cachearray
+tribalwars/wereld1/lang/*.cachedata

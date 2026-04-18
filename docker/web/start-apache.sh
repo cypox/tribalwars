@@ -41,12 +41,12 @@ SQL
 main_tables=$(mysql -N -uroot -p"$DB_PASSWORD" -e "SELECT COUNT(*) FROM information_schema.tables WHERE table_schema='$DB_NAME_MAIN';")
 world_tables=$(mysql -N -uroot -p"$DB_PASSWORD" -e "SELECT COUNT(*) FROM information_schema.tables WHERE table_schema='$DB_NAME_WORLD';")
 
-if [ "$main_tables" = "0" ] && [ -f /var/www/html/tribalwars/tribalwars_main.sql ]; then
-  mysql -uroot -p"$DB_PASSWORD" "$DB_NAME_MAIN" < /var/www/html/tribalwars/tribalwars_main.sql
+if [ "$main_tables" = "0" ] && [ -f /opt/bootstrap/tribalwars_main.sql ]; then
+  mysql -uroot -p"$DB_PASSWORD" "$DB_NAME_MAIN" < /opt/bootstrap/tribalwars_main.sql
 fi
 
-if [ "$world_tables" = "0" ] && [ -f /var/www/html/tribalwars/tribalwars_world.sql ]; then
-  mysql -uroot -p"$DB_PASSWORD" "$DB_NAME_WORLD" < /var/www/html/tribalwars/tribalwars_world.sql
+if [ "$world_tables" = "0" ] && [ -f /opt/bootstrap/tribalwars_world.sql ]; then
+  mysql -uroot -p"$DB_PASSWORD" "$DB_NAME_WORLD" < /opt/bootstrap/tribalwars_world.sql
 fi
 
 for d in \

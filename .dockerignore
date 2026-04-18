@@ -1,0 +1,5 @@
+mysql_data
+.git
+**/.git
+**/templates_c/*
+**/*.log

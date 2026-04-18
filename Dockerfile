@@ -24,7 +24,9 @@ RUN apt-get update && apt-get install -y \
 COPY docker/apache/000-default.conf /etc/apache2/sites-available/000-default.conf
 COPY docker/mysql/tribalwars.cnf /etc/mysql/conf.d/tribalwars.cnf
 COPY docker/web/start-apache.sh /usr/local/bin/start-apache.sh
-COPY . /var/www/html/tribalwars
+COPY tribalwars /var/www/html/tribalwars
+COPY database/tribalwars_main.sql /opt/bootstrap/tribalwars_main.sql
+COPY database/tribalwars_world.sql /opt/bootstrap/tribalwars_world.sql
 RUN chmod +x /usr/local/bin/start-apache.sh
 
 WORKDIR /var/www/html/tribalwars
