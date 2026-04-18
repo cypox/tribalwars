@@ -24,7 +24,7 @@ require_once("./include.inc.php");
 $ACTIONS_MASSIVKEY_HIGHAAASSDD = 'sdjahsdkJHSAJDKHALKJHSADJHSADNsjdhaksjdlhJNASDKL';
 
 $sid = new sid();
-$session = $sid->check_sid($_COOKIE['session']);
+$session = $sid->check_sid(isset($_COOKIE['session']) ? $_COOKIE['session'] : '');
 if(!$session['userid']){
 	header ("Location: sid_wrong.php");
 	exit;
@@ -102,6 +102,9 @@ if(!empty($_GET['action'])){
 }
 
 $villagedatas = new GetVillageData();
+if(empty($_GET['screen'])){
+	$_GET['screen'] = 'overview';
+}
 if(empty($_GET['village'])){
 	$_GET['village'] = getfirstvillage($user['id']);
 	if(isset($_GET['mode']) && !empty($_GET['mode'])){
@@ -109,6 +112,7 @@ if(empty($_GET['village'])){
 	}else{
 		header("LOCATION: game.php?village=".$_GET['village']."&screen=".$_GET['screen']."");
 	}
+	exit;
 }
 $villagesql = array("userid","id","name","x","y","continent","r_wood","r_stone","r_iron","last_prod_aktu","r_bh","control_villages","recruited_snobs","attacks","agreement","agreement_aktu","dealers_outside","create_time","main_build","smith_tec","points");
 foreach($cl_builds->get_array("dbname") as $dbname){

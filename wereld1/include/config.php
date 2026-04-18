@@ -15,10 +15,10 @@ Velocidade do mundo e tropas estão sujeitos a modificações.
 **********************************************************/ 
 
 // Configurações do banco de dados
-$config['db_host'] = 'localhost'; // Host of the Database
-$config['db_user'] = 'root'; // Database username
-$config['db_pw'] = '123'; // Database Password
-$config['db_name'] = 'tribalwars_world'; // Database name
+$config['db_host'] = getenv('DB_HOST') ?: 'localhost'; // Host of the Database
+$config['db_user'] = getenv('DB_USER') ?: 'root'; // Database username
+$config['db_pw'] = getenv('DB_PASSWORD') !== false ? getenv('DB_PASSWORD') : '123'; // Database Password
+$config['db_name'] = getenv('DB_NAME_WORLD') ?: 'tribalwars_world'; // Database name
 
 // Zona de horário a ser seguido:
 date_default_timezone_set("America/Sao_Paulo");
@@ -29,9 +29,9 @@ $config['ano'] = '2023'; // Year of server start
 $config['cdn'] = '../global_cdn'; // Image / JS directory
 $config['forum'] = ''; // Link to your forum
 $config['version'] = 'V0.1 '; // Version number
-$config['global_db'] = 'tribalwars_main'; // DATABASE name!
+$config['global_db'] = getenv('DB_NAME_MAIN') ?: 'tribalwars_main'; // DATABASE name! 
 $config['world_name'] = 'World1'; // Name of the World :) 
-$config['c_db_name'] = 'tribalwars_world'; // Name of the world database
+$config['c_db_name'] = getenv('DB_NAME_WORLD') ?: 'tribalwars_world'; // Name of the world database
 
 
 

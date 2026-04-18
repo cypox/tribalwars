@@ -81,7 +81,7 @@ function getfirstvillage($userid){
 	$row = $db->fetch($result);
     return $row['id'];
 }
-function create_village($userid,$username='',$direction){
+function create_village($userid,$username='',$direction='random'){
 	global $config;
 	global $cl_units;
 	global $db;
@@ -943,7 +943,7 @@ function get_ratio_green($ratio){
 	}
 	return $var;
 }
-function assume_offer($row,$dealers,$wood,$stone,$iron,$num_assume=1,$do){
+function assume_offer($row,$dealers,$wood,$stone,$iron,$num_assume=1,$do=false){
 	global $db;
 	global $village;
 	global $user;
