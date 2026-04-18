@@ -1,6 +1,17 @@
 <?php
 $units = array();
 $time_finished = 0;
+$i = 0;
+$now = time();
+$overdue = $db->query("SELECT `id` FROM `recruit` WHERE `villageid`='".$village['id']."' AND `building`='barracks' AND `time_finished`<='".$now."'");
+while($overdue_row = $db->fetch($overdue)){
+	$recruit_update = check_recruit($overdue_row['id'], $now);
+	if(!is_numeric($recruit_update)){
+		$db->query("DELETE FROM `events` WHERE `event_type`='recruit' AND `event_id`='".$overdue_row['id']."'");
+	}else{
+		$db->query("UPDATE `events` SET `event_time`='".$recruit_update."',`cid`='0' WHERE `event_type`='recruit' AND `event_id`='".$overdue_row['id']."'");
+	}
+}
 $res = $db->query("SELECT `unit`,`num_unit`,`num_finished`,`time_finished` FROM `recruit` WHERE `villageid`='".$village['id']."' AND `building`='barracks' ORDER BY `time_finished`");
 while($r = $db->fetch($res)){
 	$time_finished = $r['time_finished'];

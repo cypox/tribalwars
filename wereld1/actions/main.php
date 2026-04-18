@@ -29,6 +29,9 @@ foreach($builds as $key => $value){
 $destroy_village = $build_village;
 
 $do_build = array();
+$c1 = array();
+$fulfilled_builds = array();
+$build_no = array();
 $i = 0;
 $result = $db->unb_query("SELECT `id`,`building`,`end_time`,`build_time`,`mode` FROM `build` WHERE `villageid`='".$village['id']."' ORDER BY `id`");
 while($row = $db->fetch($result)){

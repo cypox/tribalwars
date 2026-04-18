@@ -5,6 +5,19 @@ if($ACTIONS_MASSIVKEY_HIGHAAASSDD != "sdjahsdkJHSAJDKHALKJHSADJHSADNsjdhaksjdlhJ
 
 $show_build = ($cl_builds->check_needed($buildname,$village) && $village[$buildname]>0)?true:false;
 if($show_build){
+    // Fallback for environments where daemon/event processing is delayed:
+    // finalize overdue recruit jobs during page load.
+    $now = time();
+    $overdue_recruit = $db->query("SELECT `id` FROM `recruit` WHERE `villageid`='".$village['id']."' AND `building`='".$buildname."' AND `time_finished`<='".$now."'");
+    while($overdue_row = $db->fetch($overdue_recruit)){
+        $recruit_update = check_recruit($overdue_row['id'], $now);
+        if(!is_numeric($recruit_update)){
+            $db->query("DELETE FROM `events` WHERE `event_type`='recruit' AND `event_id`='".$overdue_row['id']."'");
+        }else{
+            $db->query("UPDATE `events` SET `event_time`='".$recruit_update."',`cid`='0' WHERE `event_type`='recruit' AND `event_id`='".$overdue_row['id']."'");
+        }
+    }
+
     $units = $cl_units->get_recruit_in_units($buildname);
     $sql = "SELECT ";
     $i = 0;
