@@ -132,7 +132,23 @@ if($village['exist_village'] == 0 || $village['userid'] != $user['id']){
 require_once(PATH."/lib/events.php");
 $processed_build_events = false;
 $processed_research_events = false;
+$processed_world_events = false;
 $now = time();
+
+check_events();
+
+$result = $db->query("SELECT `id` FROM `movements` WHERE `end_time` <= '".$now."' ORDER BY `end_time` ASC LIMIT 100");
+while($event_row = $db->fetch($result)){
+	do_movement($event_row['id'], 0, $now);
+	$processed_world_events = true;
+}
+
+$result = $db->query("SELECT `id` FROM `dealers` WHERE `end_time` <= '".$now."' ORDER BY `end_time` ASC LIMIT 100");
+while($event_row = $db->fetch($result)){
+	check_dealers($event_row['id'], 0);
+	$processed_world_events = true;
+}
+
 $result = $db->query("SELECT `id`,`event_type`,`event_id` FROM `events` WHERE `villageid`='".$village['id']."' AND `event_type` IN ('build','destroy','research') AND `event_time` <= '".$now."' ORDER BY `event_time` ASC");
 while($event_row = $db->fetch($result)){
 	if($event_row['event_type'] == 'build'){
@@ -151,9 +167,13 @@ if($processed_build_events){
 	reload_village_points($village['id']);
 	reload_player_points($user['id']);
 	reload_player_rangs();
-	$village = $villagedatas->getbyid($_GET['village'], $villagesql);
 }
-if($processed_research_events){
+if($processed_build_events || $processed_research_events || $processed_world_events){
+	$user = $userdatas->getbyid($session['userid'], $usersql, false);
+	$user['id'] = $session['userid'];
+	if(!isset($user['protection'])){
+		$user['protection'] = 0;
+	}
 	$village = $villagedatas->getbyid($_GET['village'], $villagesql);
 }
 

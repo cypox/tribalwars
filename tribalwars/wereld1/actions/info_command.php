@@ -2,6 +2,7 @@
 if($ACTIONS_MASSIVKEY_HIGHAAASSDD != "sdjahsdkJHSAJDKHALKJHSADJHSADNsjdhaksjdlhJNASDKL"){
 	exit;
 }
+$error = '';
 $result = $db->query("SELECT `to_hidden`,`wood`,`stone`,`iron`,`from_village`,`to_village`,`units`,`to_userid`,`from_userid`,`type`,`start_time`,`end_time`,`die`,`send_from_user`,`send_to_user`,`send_from_village`,`send_to_village` FROM `movements` WHERE `id`=".parse($_GET['id'])."");
 $row = $db->fetch($result);
 if(empty($error) && empty($row['type'])){

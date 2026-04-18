@@ -196,6 +196,7 @@ if($user['villages_mode'] == "units"){
 	$tpl->assign("unit", $unit);
 }
 if($user['villages_mode'] == "commands"){
+	$cancel_time = $config['cancel_movement'] * 60;
 	$my_movements = array();
 	$saved_villageNames = array();
 	$i = 0;

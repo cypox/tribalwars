@@ -3,7 +3,7 @@
 	<tr>
 		<td valign="top" width="45%">
 			<table class="vis" width="100%" style="border:1px solid #804000;">
-				<tr><th colspan="2">Nobility title: {$tUser.title}</th></tr>
+				<tr><th colspan="2">Nobility title: -</th></tr>
 				<tr><td width="100">Points:</td><td>{$info_user.points|format_number}</td></tr>
 				<tr><td>Ranking:</td><td>{$info_user.rang}</td></tr>
 				<tr><td width="155">Opponents defeated:</td><td>{$info_user.killed_units_altogether|format_number} P (Rank: <B>{$info_user.killed_units_altogether_rank}</b>)</td></tr>

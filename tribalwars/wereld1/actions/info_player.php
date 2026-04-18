@@ -9,9 +9,16 @@ if($info_user['exist_user'] != 1)
 	exit("Sorry, but this player does not exist!");
 $info_user['username'] = entparse(@$info_user['username']);
 
-$result = $db->query("SELECT `short`,`id` FROM `ally` WHERE `id`='".@$info_user['ally']."'");
-$info_ally = $db->fetch($result);
-$info_ally['short'] = entparse($info_ally['short']);
+$info_ally = array(
+	'id' => 0,
+	'short' => '',
+);
+$result = $db->query("SELECT `short`,`id` FROM `ally` WHERE `id`='".@$info_user['ally']."' LIMIT 1");
+$ally_row = $db->fetch($result);
+if(is_array($ally_row)){
+	$info_ally = $ally_row;
+	$info_ally['short'] = entparse($info_ally['short']);
+}
 
 $check = $db->numrows($db->query("SELECT * FROM `friends` WHERE `from_userid`='".$user['id']."' AND `to_userid`='".$info_user['id']."' OR `to_userid`='".$user['id']."' AND `from_userid`='".$info_user['id']."' LIMIT 1"));
 if($check != 1){
@@ -76,18 +83,31 @@ $info_user['personal_text'] = nl2br(entparse(@$info_user['personal_text']));
 
 $array = array();
 foreach($cl_awards->dbname as $dbname=>$name){
+	if(empty($dbname)){
+		continue;
+	}
 	$array[] = $dbname;
 	$array[] = $dbname."_stage";			
 }
 
 $ordermedal = array();
-$result = $db->query("SELECT ".implode(',',$array).",userid,total_stage FROM medal WHERE userid='".$info_user['id']."'");
-$row = $db->fetch($result);
+$row = array();
+if(!empty($array)){
+	$result = $db->query("SELECT ".implode(',',$array).",userid,total_stage FROM medal WHERE userid='".$info_user['id']."'");
+	$row = $db->fetch($result);
+	if(!is_array($row)){
+		$row = array();
+	}
+}
 
 foreach($cl_awards->dbname as $dbname=>$name){	
+	if(empty($dbname)){
+		continue;
+	}
 	$stage = $dbname."_stage";
-	$ordermedal[$row[$stage]][$dbname]['title'] = $row[$dbname];
-	$ordermedal[$row[$stage]][$dbname]['id'] = $row[$stage];
+	$stage_id = isset($row[$stage]) ? (int)$row[$stage] : 0;
+	$ordermedal[$stage_id][$dbname]['title'] = isset($row[$dbname]) ? $row[$dbname] : '';
+	$ordermedal[$stage_id][$dbname]['id'] = $stage_id;
 }
 
 $medalhas = array();
