@@ -5,6 +5,28 @@
 	{rdelim});
 //]]>
 </script>
+<style type="text/css">
+{literal}
+	.build_options {
+		text-align: center;
+	}
+	.build_options .inactive.center {
+		display: inline-block;
+		line-height: 1.4;
+		text-align: center;
+	}
+	.build_options .build-link {
+		display: inline-block;
+		text-decoration: none;
+	}
+	.build_options .build-btn {
+		display: inline-block;
+		min-width: 78px;
+		text-align: center;
+		font-weight: bold;
+	}
+{/literal}
+</style>
 <table width="100%">
 	<tr>
     	<td>
@@ -84,49 +106,21 @@
 		<td align="center">{$cl_builds->get_time($village.main,$dbname,$build_village.$dbname+1)|format_time}</td>
 					{$cl_builds->build($village,$id,$build_village,$plus_costs)}
 					{if $cl_builds->get_build_error2()=='not_enough_ress'}
-		<td class="inactive" align="center"><span>{$lang->get("gsbeschikbaarin")} <span class="timer_replace">{$cl_builds->get_build_error()}</span></span><span style="display:none">{$lang->get("genoegbeschikbaar")}</span></td>
+		<td class="build_options inactive"><span class="inactive center"><span>{$lang->get("gsbeschikbaarin")} <span class="timer_replace">{$cl_builds->get_build_error()}</span></span><span style="display:none">{$lang->get("genoegbeschikbaar")}</span></span></td>
 					{elseif $cl_builds->get_build_error2()=='not_enough_ress_plus'}
-		<td class="inactive">{$lang->get("nietgenoeg")}</td>
+		<td class="build_options inactive">{$lang->get("nietgenoeg")}</td>
 					{elseif $cl_builds->get_build_error2()=='not_fulfilled'}
-		<td class="inactive">{$lang->get("eisenniet")}</td>
+		<td class="build_options inactive">{$lang->get("eisenniet")}</td>
 					{elseif $cl_builds->get_build_error2()=='not_enough_bh'}
-		<td class="inactive">{$lang->get("boerderijruimte")}</td>
+		<td class="build_options inactive">{$lang->get("boerderijruimte")}</td>
 					{elseif $cl_builds->get_build_error2()=='not_enough_storage'}
-		<td class="inactive">{$lang->get("opslagteklein")}</td>
+		<td class="build_options inactive">{$lang->get("opslagteklein")}</td>
 					{else}
-						{if $build_village.$dbname < 1}
-							{if count($do_build)>2 && $user.confirm_queue==1}
-		<td align="center"><a href="javascript:ask('This will cost extra resources in queue. Continue?', 'game.php?village={$village.id}&amp;screen=main&amp;action=build&amp;id={$dbname}&amp;force&amp;h={$hkey}')">{$lang->get("builds")}</a></td>
-							{else}
-		<td align="center"><a href="game.php?village={$village.id}&screen=main&action=build&id={$dbname}&h={$hkey}">{$lang->get("builds")}</a></td>
-							{/if}
+						{assign var="next_stage" value=$build_village.$dbname+1}
+						{if count($do_build)>2 && $user.confirm_queue==1}
+		<td class="build_options"><a class="build-link" href="javascript:ask('This will cost extra resources in queue. Continue?', 'game.php?village={$village.id}&amp;screen=main&amp;action=build&amp;id={$dbname}&amp;force&amp;h={$hkey}')"><span class="button build-btn">Level {$next_stage}</span></a></td>
 						{else}
-{assign var="porcents" value=$cl_builds->get_porcent($dbname,$village.$dbname)}
-							{if count($do_build)>2 && $user.confirm_queue==1}
-		<td align="center">
-			<table cellpadding="0" rowspacing="0" cellspacing="0">
-				<tr>
-					<td width="300" title="{$c1.$dbname}%">
-					<div style="width:100%; background-image: url({$config.cdn}/graphic/bars/bars_bg.jpg); border: solid 1px #CFAB65;">
-					<div style="width:{$porcents}%; background:url({$config.cdn}/graphic/bars/bars.gif) repeat; color:#000000; text-align:center;"><b>{$porcents}%</b></div>
-					</td>
-					<td align="center"><a href="javascript:ask('This will cost extra resources in queue. Continue?', 'game.php?village={$village.id}&amp;screen=main&amp;action=build&amp;id={$dbname}&amp;force&amp;h={$hkey}')"><img src="{$config.cdn}/graphic/icons/plus.png"></a></td>
-				</tr>
-			</table>
-		</td>
-							{else}
-		<td align="center">
-			<table cellpadding="0" rowspacing="0" cellspacing="0">
-				<tr>
-					<td width="300" title="{$c1.$dbname}%">
-					<div style="width:100%; background-image: url({$config.cdn}/graphic/bars/bars_bg.jpg); border: solid 1px #CFAB65;">
-					<div style="width:{$porcents}%; background:url({$config.cdn}/graphic/bars/bars.gif) repeat; color:#000000; text-align:center;"><b>{$porcents}%</b></div>
-					</td>
-					<td align="center"><a href="game.php?village={$village.id}&screen=main&action=build&id={$dbname}&h={$hkey}"><img src="{$config.cdn}/graphic/icons/plus.png"></a></td>
-				</tr>
-			</table>
-		</td>
-							{/if}
+		<td class="build_options"><a class="build-link" href="game.php?village={$village.id}&screen=main&action=build&id={$dbname}&h={$hkey}"><span class="button build-btn">Level {$next_stage}</span></a></td>
 						{/if}
 					{/if}
 				{/if}
@@ -160,18 +154,6 @@
 </table><br />
 {/if}
 <br />
-<!--<table width="100%" class="ind">
-		<tr><th>{$lang->get("hidebuildout")}</th></tr>
-		<tr>
-<td>
-<div title="{$porcent}%" style="width:100%; background:url({$config.cdn}/graphic/bars/bars_bg.jpg) repeat; color:#000000; text-align:center;">
-<div title="{$porcent}%" style="width:{$porcent}%; background:url({$config.cdn}/graphic/bars/bars.gif) repeat; color:#000000; text-align:center;" >
-<strong>{$porcent}%</strong>
-</div>
-</div>
-
-</td></tr>
-	</table>  -->
 	<br />
 <form action="game.php?village={$village.id}&amp;screen=main&amp;action=change_name&amp;h={$hkey}" method="post">
 	<table>
