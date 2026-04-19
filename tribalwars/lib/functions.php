@@ -39,18 +39,17 @@ function checkMail($email){
 		return true;
 	}
 }
-function logging($event,$str){
+function logging($event,$str,$type=''){
 	if($type != 'recruit'){
 		global $db;
+		global $user;
+		global $run_key;
 
 		$str = parse($str);
 		$type = parse($type);
+		$logUser = is_array($user) && isset($user['username']) ? $user['username'] : '';
 
-		global $user;
-		$user = $user['username'];
-
-		global $run_key;
-		$db->query("INSERT INTO `logs` (`event_id`,`user`,`village`,`time`,`log`) VALUES ('".$event."','".$user."','".$run_key."','".time()."','".$str."')");
+		$db->query("INSERT INTO `logs` (`event_id`,`user`,`village`,`time`,`log`) VALUES ('".$event."','".parse($logUser)."','".$run_key."','".time()."','".$str."')");
 	}
 }
 function parse($str){

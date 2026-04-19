@@ -196,46 +196,50 @@ function do_movement($id,$event_id,$time){
 	    break;
 	}
 }
-function do_movement_back($row){
+function restore_movement_units_to_home($movementUnits, $homeVillageId){
 	global $cl_units;
 	global $db;
 
-	$sql = "UPDATE `unit_place` SET ";
-	$first = true;
-	$i = 0;
-	$ex_units = explode(";", $row['units']);
+	$ownedFields = array();
+	$stationedFields = array();
 	foreach($cl_units->get_array('dbname') as $dbname){
-		if($first){
-		    $sql .= "$dbname=$dbname+'".$ex_units[$i]."'";
-		    $first = false;
-		}else
-		    $sql .= ",$dbname=$dbname+'".$ex_units[$i]."'";
+		$ownedFields[] = "`all_".$dbname."`";
+		$stationedFields[] = "SUM(`".$dbname."`) AS `".$dbname."`";
+	}
+
+	$owned = $db->fetch($db->query("SELECT ".implode(",", $ownedFields)." FROM `villages` WHERE `id`='".$homeVillageId."' LIMIT 1"));
+	$stationed = $db->fetch($db->query("SELECT ".implode(",", $stationedFields)." FROM `unit_place` WHERE `villages_from_id`='".$homeVillageId."'"));
+
+	$updates = array();
+	$movementUnits = explode(";", $movementUnits);
+	$i = 0;
+	foreach($cl_units->get_array('dbname') as $dbname){
+		$returning = isset($movementUnits[$i]) ? (int)$movementUnits[$i] : 0;
+		$ownedTotal = isset($owned['all_'.$dbname]) ? (int)$owned['all_'.$dbname] : 0;
+		$stationedNow = isset($stationed[$dbname]) ? (int)$stationed[$dbname] : 0;
+		$missingUnits = max(0, $ownedTotal - $stationedNow);
+		$restoreUnits = min($returning, $missingUnits);
+		if($restoreUnits > 0){
+			$updates[] = "`".$dbname."`=`".$dbname."`+'".$restoreUnits."'";
+		}
 		$i++;
 	}
-	$sql .= " WHERE `villages_from_id`='".$row['from_village']."' AND `villages_to_id`='".$row['from_village']."'";
-	$db->unb_query($sql);
+
+	if(!empty($updates)){
+		$db->unb_query("UPDATE `unit_place` SET ".implode(",", $updates)." WHERE `villages_from_id`='".$homeVillageId."' AND `villages_to_id`='".$homeVillageId."'");
+	}
+}
+function do_movement_back($row){
+	restore_movement_units_to_home($row['units'], $row['from_village']);
+	global $db;
 
 	$db->unb_query("DELETE FROM `movements` WHERE `id`='".$row['id']."'");
 	return true;
 }
 function do_movement_return($row){
-	global $cl_units;
 	global $db;
 
-	$sql = "UPDATE `unit_place` SET ";
-	$first = true;
-	$i = 0;
-	$ex_units = explode(";", $row['units']);
-	foreach($cl_units->get_array('dbname') as $dbname){
-		if($first){
-		    $sql .= "$dbname=$dbname+'".$ex_units[$i]."'";
-		    $first = false;
-		}else
-		    $sql .= ",$dbname=$dbname+'".$ex_units[$i]."'";
-		$i++;
-	}
-	$sql .= " WHERE `villages_from_id`='".$row['to_village']."' AND `villages_to_id`='".$row['to_village']."'";
-	$db->query($sql);
+	restore_movement_units_to_home($row['units'], $row['to_village']);
 	if($row['wood'] > 0 || $row['stone'] > 0 || $row['iron'] > 0)
 	    $db->unb_query("UPDATE `villages` SET `r_wood`=`r_wood`+'".$row['wood']."',`r_stone`=`r_stone`+'".$row['stone']."',`r_iron`=`r_iron`+'".$row['iron']."' WHERE `id`='".$row['to_village']."'");
 
